@@ -123,26 +123,45 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },
+    },*/
     {
-      imageSrc: "https://images.unsplash.com/photo-1606413095041-78b5cadfc86a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facepad=100.95&w=512&q=80",
+      imageSrc: "https://images.unsplash.com/photo-1629888689232-21d9886b8442?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=825&q=80",
       position: "Event Lead",
-      name: "Bhavika Dalal",
+      name: "Shubham Kumar Singh",
       links: [
         {
-          url: "",
+          url: "https://shubhamsingh.ml/",
           icon: InstagramIcon,
         },
         {
-          url: "",
+          url: "https://www.linkedin.com/in/-shubham-kumar-singh/",
           icon: LinkedinIcon,
         },
         {
-          url: "",
+          url: "https://github.com/NightWalker110",
           icon: GithubIcon,
         },
       ],
-    },*/    
+    },  
+      {
+      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      position: "Programming Lead",
+      name: "Sahil Sharma",
+      links: [
+        {
+          url: "https://www.instagram.com/_.sahilllll_._/",
+          icon: InstagramIcon,
+        },
+        {
+          url: "https://www.linkedin.com/in/sahil-sharma-07/",
+          icon: LinkedinIcon,
+        },
+        {
+          url: "https://github.com/sahil2311sharma",
+          icon: GithubIcon,
+        },
+      ],
+    },
     {
       imageSrc: "https://images.unsplash.com/photo-1603970277321-b29de3895149?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facepad=100.95&w=512&q=80",
       position: "Outreach & Media Lead",
@@ -162,25 +181,7 @@ export default ({
         },
       ],
     },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      position: "Programming Lead",
-      name: "Sahil Sharma",
-      links: [
-        {
-          url: "https://www.instagram.com/_.sahilllll_._/",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/sahil-sharma-07/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/sahil2311sharma",
-          icon: GithubIcon,
-        },
-      ],
-    },
+    
     /*{
       imageSrc: "https://images.unsplash.com/photo-1600000560828-90d1d926e05a?ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
       position: "Management Head",
