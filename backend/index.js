@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+// Demo database: Connect to a actual database before deployment
 mongoose.connect("mongodb://localhost:27017/events",{useNewUrlParser:true}).then(()=>{
 
     app.listen(PORT,()=>{
