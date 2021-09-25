@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose')
 const path  =  require('path')
+const fs = require('fs')
 
 const eventSchema = mongoose.Schema({
     cover:{
