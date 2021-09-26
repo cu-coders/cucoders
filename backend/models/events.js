@@ -56,7 +56,7 @@ eventSchema.pre('save',function(next){
     if( start > end ){
         
         // Removes the uploaded image
-        fs.unlink(path.join(__dirname,'../../client/public/covers'+this.cover.toString()),(err)=>{
+        fs.unlink(path.join(__dirname,'../../public/covers'+this.cover.toString()),(err)=>{
             if(err){
                 console.log(err)
             }

@@ -8,7 +8,7 @@ const router = express.Router()
 // defining images for images
 const storage = multer.diskStorage({
     destination: function(request,file,callback){
-        callback(null,path.join(__dirname,"../../client/public/covers"))
+        callback(null,path.join(__dirname,"../../public/covers"))
     },
     // extentions
     filename: function(request,file,callback){
