@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
@@ -270,4 +269,3 @@ export default ({
     </Container>
   </AnimationRevealPage>
 );
->>>>>>> 21bdd65d90091f6b79ad3a47bce4a57e60fa5863
