@@ -24,9 +24,12 @@ import Upcoming from "components/events/upcoming.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ComingSoon from "components/cta/comingsoon.js";
 import About from "pages/AboutUs.js";
+import Upload from "components/forms/upload.js"
 import Contact from "pages/ContactUs.js";
 import Team from "pages/Team.js";
 import Careers from "pages/jobHome.js";
+import Login from "pages/Login.js";
+import Signup from "pages/Signup";
 import Events from "components/events/event.js";
 import Past from "components/events/past.js";
 import Thanks from "components/thanks/thanks.js";
@@ -48,6 +51,7 @@ import Motion from "components/job/openings/motion/motion.js";
 import UIUX from "components/job/openings/uiux/uiux.js";
 
 
+
 import Resources from "components/resources/resources.js";
 import ComingNow from "components/resources/comingsoon.js";
 import Error from "components/hero/error.js";
@@ -65,6 +69,7 @@ import Database from "components/resources/database/index.js";
 import VersionControl from "components/resources/version_control/index.js";
 
 import Calender from "components/projects/calendly.js";
+
 
 
 export default function App() {
@@ -203,6 +208,15 @@ export default function App() {
         </Route>
         <Route exact path="/web">
           <Web />
+        </Route>
+        <Route exact path="/form">
+          <Upload />
+        </Route>
+        <Route exact path="/login">
+          <Login/>
+        </Route>
+        <Route exact path="/signup">
+          <Signup/>
         </Route>
         <Route path="/">
           <Error />

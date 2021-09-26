@@ -11,6 +11,8 @@ import Top from "components/cta/top.js";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
+import { useEffect} from "react";
+import { useState } from "react";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -38,26 +40,38 @@ const DecoratorBlob2 = tw(
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 
 export default () => {
-  const blogPosts = [
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1611589763733-06723d888080?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      category: "Learning Series",
-      title: "Competitive Programing in 7 days",
-      description:
-        "Starting from Basic Intro to Programming to Advanced topics of Data Structures and Algorithms, we're going to cover it all! We will be sharing resources everyday in form of pdf and we also have something interesting coming up for you ,stay tuned for further updates!",
-      url: 'Details'
-    },
-    /*{
-      imageSrc:
-        "https://images.unsplash.com/photo-1603991318729-d12776468d70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80",
-      subtitle: "Free",
-      title: "Neev - The whirlwind of tech",
-      description:
-        "An initiative from the Dot QuestionMark which introduces a series of 9 distinct events, all that promises to build a foundation for the knowledge of any specific domain.",
-      url: "https://neev.dotquestionmark.com/"
-    }*/
-  ];
+  // const blogPosts = [
+  //   {
+  //     imageSrc:
+  //       "https://images.unsplash.com/photo-1611589763733-06723d888080?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  //     category: "Learning Series",
+  //     title: "Competitive Programing in 7 days",
+  //     description:
+  //       "Starting from Basic Intro to Programming to Advanced topics of Data Structures and Algorithms, we're going to cover it all! We will be sharing resources everyday in form of pdf and we also have something interesting coming up for you ,stay tuned for further updates!",
+  //     url: 'Details'
+  //   },
+  //   /*{
+  //     imageSrc:
+  //       "https://images.unsplash.com/photo-1603991318729-d12776468d70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80",
+  //     subtitle: "Free",
+  //     title: "Neev - The whirlwind of tech",
+  //     description:
+  //       "An initiative from the Dot QuestionMark which introduces a series of 9 distinct events, all that promises to build a foundation for the knowledge of any specific domain.",
+  //     url: "https://neev.dotquestionmark.com/"
+  //   }*/
+  // ];
+    
+  const[t_cards,update_t_cards] = useState([])
+  
+  useEffect(()=>{
+    fetch('/api/ongoing-events/').then(res=>{
+      if(res.ok){
+        console.log(res)  
+        return res.json()
+      }
+    }).then(result=>update_t_cards(result))
+
+  },[])
   return (
     <>
     <AnimationRevealPage>
@@ -69,10 +83,10 @@ export default () => {
           <HeadingDescription>Some amazing events that are going on.</HeadingDescription>
         </HeadingInfoContainer>
         <ThreeColumn>
-          {blogPosts.map((post, index) => (
+          {t_cards.map((post, index) => (
             <Column key={index}>
               <Card>
-                <Image imageSrc={post.imageSrc} />
+                <Image imageSrc={'/covers/'+post.imageSrc} />
                 <Category>{post.category}</Category>
                 <Title>{post.title}</Title>
                 <Description>{post.description}</Description>
