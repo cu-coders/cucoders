@@ -28,6 +28,8 @@ import Upload from "components/forms/upload.js"
 import Contact from "pages/ContactUs.js";
 import Team from "pages/Team.js";
 import Careers from "pages/jobHome.js";
+import Login from "pages/Login.js";
+import Signup from "pages/Signup";
 import Events from "components/events/event.js";
 import Past from "components/events/past.js";
 import Thanks from "components/thanks/thanks.js";
@@ -67,6 +69,7 @@ import Database from "components/resources/database/index.js";
 import VersionControl from "components/resources/version_control/index.js";
 
 import Calender from "components/projects/calendly.js";
+
 
 
 export default function App() {
@@ -208,6 +211,12 @@ export default function App() {
         </Route>
         <Route exact path="/form">
           <Upload />
+        </Route>
+        <Route exact path="/login">
+          <Login/>
+        </Route>
+        <Route exact path="/signup">
+          <Signup/>
         </Route>
         <Route path="/">
           <Error />
