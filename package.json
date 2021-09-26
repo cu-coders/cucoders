@@ -2,13 +2,13 @@
   "name": "cu-coders",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.21.1",
-    "cors": "^2.8.5",
+    "axios": "^0.21.4",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
@@ -40,9 +40,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build":"react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon ../backend/index.js && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"

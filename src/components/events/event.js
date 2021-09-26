@@ -74,7 +74,7 @@ export default ({
     {
       name: "Ongoing Events",
       description: "Without leaps of imagination, or dreaming, we lose the excitement of possibilities. Dreaming, after all, is a form of planning.",
-      url: "comingsoon",
+      url: "present",
     },
     {
       name: "Past Events",
