@@ -49,6 +49,7 @@ import Motion from "components/job/openings/motion/motion.js";
 import UIUX from "components/job/openings/uiux/uiux.js";
 
 
+
 import Resources from "components/resources/resources.js";
 import ComingNow from "components/resources/comingsoon.js";
 import Error from "components/hero/error.js";

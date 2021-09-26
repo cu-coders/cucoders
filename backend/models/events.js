@@ -4,7 +4,7 @@ const path  =  require('path')
 const fs = require('fs')
 
 const eventSchema = mongoose.Schema({
-    cover:{
+    imageSrc:{
         type: String,
         require: true,
         trim:true,
@@ -20,6 +20,11 @@ const eventSchema = mongoose.Schema({
         trim:true
     },
     title:{
+        type:String,
+        require:true,
+        trim:true
+    },
+    subtitle:{
         type:String,
         require:true,
         trim:true
@@ -51,7 +56,7 @@ eventSchema.pre('save',function(next){
     if( start > end ){
         
         // Removes the uploaded image
-        fs.unlink(path.join(__dirname,'../public/cover/images/'+this.cover.toString()),(err)=>{
+        fs.unlink(path.join(__dirname,'../../client/public/covers'+this.cover.toString()),(err)=>{
             if(err){
                 console.log(err)
             }

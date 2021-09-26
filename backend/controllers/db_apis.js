@@ -7,10 +7,11 @@ exports.insert_event = async(req,res)=>{
    try{
         const temp_data = req.body
         const event =  new Event({
-        cover       :   req.file.filename,
+        imageSrc       :   req.file.filename,
         author      :   temp_data.author,
         category    :   temp_data.category,
         title       :   temp_data.title,
+        subtitle       :   temp_data.subtitle,
         description :   temp_data.description,
         url         :   temp_data.url,
         date_start  :   (new Date(temp_data.date_start)).getTime(),

@@ -7,6 +7,10 @@ import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Footer from "components/footers/footers.js";
 import Header from "components/headers/light.js";
+
+
+
+
 const Container = tw.div`relative`;
 const SingleColumn = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -42,7 +46,9 @@ const SvgDotPattern4 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 
+
 export default () => {
+  
   const cards = [
     {
       imageSrc:
@@ -54,13 +60,16 @@ export default () => {
       url: "/quiz"
     }
   ];
+  
   const[t_cards,update_t_cards] = useState([])
+  
   useEffect(()=>{
-    fetch('/api/').then(res=>{
+    fetch('/api/upcomming-events/').then(res=>{
       if(res.ok){
+        console.log(res)  
         return res.json()
       }
-    }).then(result=>update_t_cards(JSON.parse(result)))
+    }).then(result=>update_t_cards(result))
 
   },[])
   return (
@@ -79,7 +88,7 @@ export default () => {
         <Content>
           {t_cards.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
-              <Image imageSrc={card.imageSrc} />
+              <Image imageSrc={"/covers/"+card.imageSrc} />
               <Details>
                 <Subtitle>{card.subtitle}</Subtitle>
                 <Title>{card.title}</Title>

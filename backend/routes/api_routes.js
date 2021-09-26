@@ -8,7 +8,7 @@ const router = express.Router()
 // defining images for images
 const storage = multer.diskStorage({
     destination: function(request,file,callback){
-        callback(null,path.join(__dirname,"../public/cover/images"))
+        callback(null,path.join(__dirname,"../../client/public/covers"))
     },
     // extentions
     filename: function(request,file,callback){
@@ -75,7 +75,7 @@ router.get('/ongoing-events',async (req,res)=>{
     }
 })
 
-router.get('/past_events', async (req,res)=>{
+router.get('/past-events', async (req,res)=>{
   try{
 
     const data = await db_apis.read_past_events()

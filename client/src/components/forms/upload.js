@@ -13,6 +13,8 @@ export default  () =>{
         <form action='/api/add-event' encType="multipart/form-data" method="POST">
             <input type="text" placeholder="Title" name="title" />
             <br/>
+            <input type="text" placeholder="Subtitle" name="subtitle" />
+            <br/>
             <textarea type="text" placeholder="Description" name="description" />
             <br/>
             <input type="text" placeholder="Category" name="Category" />
