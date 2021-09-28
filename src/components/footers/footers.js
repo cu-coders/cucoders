@@ -60,7 +60,7 @@ export default () => {
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>
-            &copy; Copyright {showCurrentYear}, CU-Coders. All Rights Reserved.
+            &copy; Copyright 2019 - {showCurrentYear}, CU-Coders. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>
