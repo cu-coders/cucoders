@@ -1,6 +1,8 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
-import React from "react";
+import React, { useState } from "react";
+import Cookies from "universal-cookie/es6";
+
 import { css } from "styled-components/macro"; //eslint-disable-line
 /*
  * This is the entry point component of this project. You can change the below exported default App component to any of
@@ -74,6 +76,8 @@ import Calender from "components/projects/calendly.js";
 
 export default function App() {
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
+  
+
   return (
     <Router>
       <Switch>
