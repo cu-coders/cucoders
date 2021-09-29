@@ -6,12 +6,13 @@ const mongoose = require("mongoose");
 const api_routes = require("./routes/api_routes");
 const auth_routes = require("./routes/auth_routes");
 const cors = require("cors");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Demo database: Connect to a actual database before deployment
 mongoose
-  .connect("mongodb://localhost:27017/events", { useNewUrlParser: true })
+  .connect(process.env.DATABASE_URL, { useNewUrlParser: true })
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Listening at PORT: ${PORT}`);

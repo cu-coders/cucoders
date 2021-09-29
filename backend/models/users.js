@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const email_template = require("../templates/email_verification");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SG_KEY);
 const userSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -29,10 +32,13 @@ const userSchema = mongoose.Schema({
   mailtoken: {
     type: String,
   },
-  isactive: false,
+  isactive: {
+    type: Boolean,
+  },
 });
 
 userSchema.pre("save", async function (next) {
+  // hashing the password
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 10);
   }
@@ -49,6 +55,24 @@ userSchema.methods.genToken = async function () {
     return token;
   } catch (err) {
     console.log(err);
+  }
+};
+
+// Sends the vefification email to the user
+userSchema.methods.send_verification = async function (req, res) {
+  console.log(req.headers.host);
+  const mail_message = email_template.get_template(
+    this.email,
+    this.firstname,
+    req.headers.host,
+    this.mailtoken
+  );
+  try {
+    await sgMail.send(mail_message);
+    return true;
+  } catch (err) {
+    console.log("------SGMAIL----- " + err);
+    return false;
   }
 };
 

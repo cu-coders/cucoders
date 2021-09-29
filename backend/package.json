@@ -9,6 +9,7 @@
   "author": "Rajeswar Sharma",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",

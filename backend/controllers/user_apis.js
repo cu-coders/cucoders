@@ -1,31 +1,49 @@
 const { JsonWebTokenError } = require("jsonwebtoken");
 const User = require("../models/users");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+
+// to add new user data to DB(registration)
 exports.register = async (req, res) => {
   const temp_data = req.body;
   try {
     const e_user = await User.findOne({ email: temp_data.email });
+
+    // Email is already registered
     if (e_user) {
       res.send({ message: "An account with this email already exists" });
     } else {
+      // Registering new user
       const user = await new User({
         firstname: temp_data.firstname,
         lastname: temp_data.lastname,
         email: temp_data.email,
         password: temp_data.password,
+        mailtoken: await bcrypt.hash(temp_data.email, 5),
+        isactive: false,
       });
+      // Generating auth token for client-end
       const auth_token = await user.genToken();
-      user.save();
-      res.cookie("auth", auth_token);
-      res.send({ message: "registered" });
+      // Sending the verification mail to the user
+      const isSent = await user.send_verification(req, res);
+      if (isSent) {
+        user.save();
+        res.cookie("auth", auth_token);
+        res.send({ message: "Registered, please visit your email" });
+      } else {
+        // mail is not sent
+        res.status(500).res({ message: "Something went wrong" });
+      }
     }
   } catch (err) {
     console.log(err);
-    res.status(500).res({ message: "500: Internal Server Error" });
+    res.status(500).res({ message: "Something went wrong" });
   }
 };
 
 exports.login = (req, res) => {};
+
+// to authenticate client-cookies to identify the user
 exports.authenticate = async (req, res) => {
   const auth = req.cookies.auth;
   try {
@@ -40,5 +58,23 @@ exports.authenticate = async (req, res) => {
     }
   } catch (e) {
     res.status(500).send({ message: "500: Internal server error" });
+  }
+};
+
+// to verifiy the email of user and activate the account
+exports.verify_mail = async (req, res) => {
+  try {
+    const user = await User.findOne({ mailtoken: req.query.token });
+    if (user) {
+      user.mailtoken = null;
+      user.isactive = true;
+      await user.save();
+      res.send("Verified");
+    } else {
+      res.send("Something went wrong");
+    }
+  } catch (err) {
+    console.log(err);
+    res.send("Something went wrong");
   }
 };
