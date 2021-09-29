@@ -5,15 +5,19 @@ const userSchema = mongoose.Schema({
   firstname: {
     type: String,
     require: true,
+    trim: true,
   },
   lastname: {
     type: String,
     require: true,
+    trim: true,
   },
   email: {
     type: String,
     require: true,
     unique: true,
+    trim: true,
+    lowercase: true,
   },
   password: {
     type: String,
@@ -22,6 +26,10 @@ const userSchema = mongoose.Schema({
   jwt: {
     type: String,
   },
+  mailtoken: {
+    type: String,
+  },
+  isactive: false,
 });
 
 userSchema.pre("save", async function (next) {

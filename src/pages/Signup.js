@@ -12,6 +12,7 @@ import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus
 import axios from "axios";
 import Cookies from "universal-cookie/es6";
 import { Redirect, useHistory } from "react-router";
+import { useTransform } from "framer-motion";
 //import { useHistory } from "react-router";
 const Container = tw(
   ContainerBase
@@ -87,6 +88,7 @@ export default ({
     email: "",
     password: "",
   });
+  const [message,updateMessage] = useState("")
 
   const handleChange = (e) => {
     updateData({ ...user_data, [e.target.name]: e.target.value });
@@ -95,7 +97,11 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios.post("/auth/signup", user_data).then((res) => {
-      console.log(res);
+      if(res.data.message)
+      {
+        updateMessage(res.data.message)
+      }
+      
     });
   };
 
@@ -163,6 +169,7 @@ export default ({
                     onChange={handleChange}
                     required
                   />
+                  {message?<div style={{color:"red",fontSize:"12px",textAlign:"left"}}>{message}</div>:""}
                   <Input
                     type="password"
                     name="password"
