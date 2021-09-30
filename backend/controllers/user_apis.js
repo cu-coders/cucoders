@@ -22,8 +22,10 @@ exports.register = async (req, res) => {
         mailtoken: await bcrypt.hash(temp_data.email, 5),
         isactive: false,
       });
+
       // Generating auth token for client-end
       const auth_token = await user.genToken();
+
       // Sending the verification mail to the user
       const isSent = await user.send_verification(req, res);
       if (isSent) {
@@ -31,8 +33,8 @@ exports.register = async (req, res) => {
         res.cookie("auth", auth_token);
         res.send({ message: "Registered, please visit your email" });
       } else {
-        // mail is not sent
-        res.status(500).res({ message: "Something went wrong" });
+        // mail was not sent
+        res.status(400).res({ message: "Can't verify the email address." });
       }
     }
   } catch (err) {

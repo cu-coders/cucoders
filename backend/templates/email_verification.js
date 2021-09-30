@@ -1,6 +1,6 @@
 exports.get_template = (user_email,username, domain, token) => {
   const message = {
-    from: "rajeswar.sh47@gmail.com",
+    from: process.env.EMAIL_SENDER,
     to: user_email,
     subject: "Cucoders-Verify your email",
     text: `
@@ -168,8 +168,8 @@ exports.get_template = (user_email,username, domain, token) => {
                         </td>
                     </tr>
                 </table>
-            </td>
         </tr>
+            </td>
     </table>
 </body>
 </html>`,

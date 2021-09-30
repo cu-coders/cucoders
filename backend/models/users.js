@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const email_template = require("../templates/email_verification");
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SG_KEY);
+const mailer = require("../controllers/mailer");
+
 const userSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -60,18 +60,16 @@ userSchema.methods.genToken = async function () {
 
 // Sends the vefification email to the user
 userSchema.methods.send_verification = async function (req, res) {
-  console.log(req.headers.host);
-  const mail_message = email_template.get_template(
-    this.email,
-    this.firstname,
-    req.headers.host,
-    this.mailtoken
-  );
   try {
-    await sgMail.send(mail_message);
+    await mailer.send_verification(
+      this.email,
+      this.firstname,
+      req.headers.host,
+      this.mailtoken
+    );
     return true;
   } catch (err) {
-    console.log("------SGMAIL----- " + err);
+    console.log("Mailing agent failed:" + err);
     return false;
   }
 };
