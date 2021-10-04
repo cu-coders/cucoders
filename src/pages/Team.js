@@ -67,7 +67,7 @@ export default ({
         },
       ],
     },
-    {
+    /*{
       imageSrc: "https://images.unsplash.com/photo-1627760676118-c7e1e9ef23ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=801&q=80",
       position: "President",
       name: "Jahanvi Sharma",
@@ -123,7 +123,7 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },*/
+    },
     {
       imageSrc: "https://images.unsplash.com/photo-1629888689232-21d9886b8442?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=825&q=80",
       position: "Event Lead",
@@ -142,7 +142,7 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },  
+    },*/  
       {
       imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       position: "Programming Lead",
