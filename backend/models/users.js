@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mailer = require("../controllers/mailer");
 
+//-----------------------------------------------------END OF IMPORTS--------------------------------------------//
+
+//------------------------------------------------------USER SCHEMA----------------------------------------------//
 const userSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -35,30 +37,34 @@ const userSchema = mongoose.Schema({
   isactive: {
     type: Boolean,
   },
+  auth_type: {
+    type: String,
+    require: true,
+    enum: ["email", "google", "github"],
+  },
+  third_partyID: {
+    type: String,
+  },
 });
 
+//-----------------------------------------------------END OF USER SCHEMA------------------------------------//
+
+//-------------------------------------------------------DB MIDDLEWARES--------------------------------------//
 userSchema.pre("save", async function (next) {
   // hashing the password
   if (this.isModified("password")) {
-    this.password = await bcrypt.hash(this.password, 10);
+    if (this.password && !this.googleID) {
+      this.password = await bcrypt.hash(this.password, 10);
+    }
   }
   next();
 });
 
-userSchema.methods.genToken = async function () {
-  try {
-    const token = await jwt.sign(
-      { _id: this._id.toString() },
-      process.env.SECRET
-    );
-    this.jwt = token;
-    return token;
-  } catch (err) {
-    console.log(err);
-  }
-};
+//-------------------------------------------------------END OF DB MIDDLEWARES-------------------------------//
 
-// Sends the vefification email to the user
+//----------------------------------------------------------DB METHODS----------------------------------------//
+
+//Mail varification Methods
 userSchema.methods.send_verification = async function (req, res) {
   try {
     await mailer.send_verification(
@@ -73,6 +79,7 @@ userSchema.methods.send_verification = async function (req, res) {
     return false;
   }
 };
+//-------------------------------------------------------END DB METHODS----------------------------------------//
 
 const user = new mongoose.model("User", userSchema);
 module.exports = user;

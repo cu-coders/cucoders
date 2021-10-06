@@ -2,15 +2,17 @@ const { JsonWebTokenError } = require("jsonwebtoken");
 const User = require("../models/users");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+//-------------------------------------END OF IMPORTS--------------------------------------//
 
+//--------------------------------USER REGISTRATION VIA EMAIL------------------------------//
 // to add new user data to DB(registration)
 exports.register = async (req, res) => {
   const temp_data = req.body;
   try {
     const e_user = await User.findOne({ email: temp_data.email });
 
-    // Email is already registered
     if (e_user) {
+      // Email is already registered
       res.send({ message: "An account with this email already exists" });
     } else {
       // Registering new user
@@ -21,19 +23,17 @@ exports.register = async (req, res) => {
         password: temp_data.password,
         mailtoken: await bcrypt.hash(temp_data.email, 5),
         isactive: false,
+        auth_type: "email",
+        third_partyID: null,
       });
 
-      // Generating auth token for client-end
-      const auth_token = await user.genToken();
-
-      // Sending the verification mail to the user
+      // Sending the verification mail to the user-email
       const isSent = await user.send_verification(req, res);
       if (isSent) {
         user.save();
-        res.cookie("auth", auth_token);
         res.send({ message: "Registered, please visit your email" });
       } else {
-        // mail was not sent
+        // vaification email was not sent
         res.status(400).res({ message: "Can't verify the email address." });
       }
     }
@@ -42,28 +42,9 @@ exports.register = async (req, res) => {
     res.status(500).res({ message: "Something went wrong" });
   }
 };
+//---------------------------------------END OF USER REGISTRATION VIA EMAIL-----------------------------//
 
-exports.login = (req, res) => {};
-
-// to authenticate client-cookies to identify the user
-exports.authenticate = async (req, res) => {
-  const auth = req.cookies.auth;
-  try {
-    const isVarified = await jwt.verify(auth, process.env.SECRET);
-    const user = await User.findOne({ _id: isVarified._id });
-    if (user) {
-      res.cookie("valid", true);
-      res.status(200).send({ username: user.firstname });
-      console.log({ username: user.firstname });
-    } else {
-      res.status(404).send({ message: "User not Found" });
-    }
-  } catch (e) {
-    res.status(500).send({ message: "500: Internal server error" });
-  }
-};
-
-// to verifiy the email of user and activate the account
+//---------------------------------------API TO VARIFY USER EMAIL REQUEST-------------------------------//
 exports.verify_mail = async (req, res) => {
   try {
     const user = await User.findOne({ mailtoken: req.query.token });
@@ -80,3 +61,4 @@ exports.verify_mail = async (req, res) => {
     res.send("Something went wrong");
   }
 };
+//---------------------------------------END API TO VARIFY USER EMAIL REQUEST-------------------------------//

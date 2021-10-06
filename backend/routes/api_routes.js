@@ -1,6 +1,6 @@
 const express = require("express");
 const multer = require("multer");
-const db_apis = require("../controllers/db_apis");
+const db_apis = require("../controllers/event_db_apis");
 const path = require("path");
 const isImage = require("is-image");
 const router = express.Router();

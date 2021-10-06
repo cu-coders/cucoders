@@ -1,6 +1,6 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie/es6";
 
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -69,15 +69,26 @@ import Web from "components/resources/web/index.js";
 import Language from "components/resources/language/index.js";
 import Database from "components/resources/database/index.js";
 import VersionControl from "components/resources/version_control/index.js";
-
+import axios from "axios";
 import Calender from "components/projects/calendly.js";
-
+import { Redirect } from "react-router";
 
 
 export default function App() {
+  //-----------------------------------------INITIALIZING STAES-------------------------//
+  const [isVarified,updateIsVarified] = useState(false)
+  //-----------------------------------------CHECK AUTHENTICATIO------------------------//
+  useEffect(()=>{
+    axios.get('http://localhost:3001/auth/user/',{
+      withCredentials:true,
+    }).then((res)=>{
+      if(res.data.username){
+        updateIsVarified(true)
+        //alert(res.data.username)
+      }
+    })
+  },[])
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
-  
-
   return (
     <Router>
       <Switch>
@@ -115,7 +126,7 @@ export default function App() {
           <ComingNow />
         </Route>
         <Route exact path="/careers">
-        <Careers />
+          <Careers />
         </Route>
         <Route exact path="/comingsoon">
           <ComingSoon />
@@ -142,7 +153,7 @@ export default function App() {
           <Tester />
         </Route>
         <Route exact path="/editorialist">
-        <Editorial />
+          <Editorial />
         </Route>
         <Route exact path="/graphic">
           <Graphic />
@@ -217,10 +228,11 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          <Login/>
+          {isVarified ? <Redirect to="/" /> : <Login />}
         </Route>
         <Route exact path="/signup">
-          <Signup/>
+          
+        {isVarified ? <Redirect to="/" /> : <Signup />}
         </Route>
         <Route path="/">
           <Error />

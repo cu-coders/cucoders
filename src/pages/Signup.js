@@ -59,6 +59,7 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
+
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
@@ -67,12 +68,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "https://google.com",
+      url: "http://localhost:3001/auth/google",
     },
     {
       iconImageSrc: twitterIconImageSrc,
-      text: "Sign Up With Twitter",
-      url: "https://twitter.com",
+      text: "Sign Up With GitHub",
+      url: "http://localhost:3001/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -81,14 +82,14 @@ export default ({
   privacyPolicyUrl = "#",
   signInUrl = "#",
 }) => {
-  const cookies = new Cookies()
+  const cookies = new Cookies();
   const [user_data, updateData] = useState({
     firstname: "",
     lastname: "",
     email: "",
     password: "",
   });
-  const [message,updateMessage] = useState("")
+  const [message, updateMessage] = useState("");
 
   const handleChange = (e) => {
     updateData({ ...user_data, [e.target.name]: e.target.value });
@@ -97,24 +98,21 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios.post("/auth/signup", user_data).then((res) => {
-      if(res.data.message)
-      {
-        updateMessage(res.data.message)
+      if (res.data.message) {
+        updateMessage(res.data.message);
       }
-      
     });
   };
 
-  useEffect(()=>{
-    const auth_token = cookies.get('auth')
-    if(auth_token){
-      axios.get("/auth/token").then((res)=>{
-      })
+  useEffect(() => {
+    const auth_token = cookies.get("auth");
+    if (auth_token) {
+      axios.get("/auth/token").then((res) => {});
     }
-  },[])
+  }, []);
   // Redirecting to home page is already logged in
-  if(cookies.get('valid')){
-    return <Redirect to="/Home"/>
+  if (cookies.get("valid")) {
+    return <Redirect to="/Home" />;
   }
   return (
     <AnimationRevealPage>
@@ -169,7 +167,19 @@ export default ({
                     onChange={handleChange}
                     required
                   />
-                  {message?<div style={{color:"red",fontSize:"12px",textAlign:"left"}}>{message}</div>:""}
+                  {message ? (
+                    <div
+                      style={{
+                        color: "red",
+                        fontSize: "12px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {message}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <Input
                     type="password"
                     name="password"

@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 const Event = require("../models/events");
-
+//------------------------------------------------END OF IMPORTS----------------------------//
 // This Route must be protected
 // Auth pending
+
+//-----------------------------------------------EVENT DATABASE APIs--------------------------//
 exports.insert_event = async (req, res) => {
   try {
     const temp_data = req.body;
@@ -57,8 +59,5 @@ exports.read_past_events = async () => {
     console.log(err);
   }
 };
+//----------------------------------END OF EVENT DATABASE APIs----------------------------------------//
 
-// for future use
-// expots.read_cu_events = (req,res)=>{
-
-// }
