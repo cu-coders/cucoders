@@ -1,7 +1,7 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 import React, { useEffect, useState } from "react";
-import Cookies from "universal-cookie/es6";
+
 
 import { css } from "styled-components/macro"; //eslint-disable-line
 /*

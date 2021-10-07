@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";

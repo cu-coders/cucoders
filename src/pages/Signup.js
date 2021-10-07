@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -10,9 +10,8 @@ import googleIconImageSrc from "images/google-icon.png";
 import githubIconImageSrc from "images/github-icon.svg";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import axios from "axios";
-import Cookies from "universal-cookie/es6";
-import { Redirect, useHistory } from "react-router";
-import { useTransform } from "framer-motion";
+
+//import { useTransform } from "framer-motion";
 //import { useHistory } from "react-router";
 const Container = tw(
   ContainerBase
@@ -82,7 +81,7 @@ export default ({
   privacyPolicyUrl = "#",
   signInUrl = "#",
 }) => {
-  const cookies = new Cookies();
+  
   const [user_data, updateData] = useState({
     firstname: "",
     lastname: "",
@@ -104,16 +103,7 @@ export default ({
     });
   };
 
-  useEffect(() => {
-    const auth_token = cookies.get("auth");
-    if (auth_token) {
-      axios.get("/auth/token").then((res) => {});
-    }
-  }, []);
   // Redirecting to home page is already logged in
-  if (cookies.get("valid")) {
-    return <Redirect to="/Home" />;
-  }
   return (
     <AnimationRevealPage>
       <Container>
