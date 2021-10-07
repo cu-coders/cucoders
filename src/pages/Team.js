@@ -86,45 +86,6 @@ export default ({
         },
       ],
     },
-    /*
-    {
-      imageSrc: "https://images.unsplash.com/photo-1600097873961-12154219b396?ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=100.95&w=512&h=512&q=80",
-      position: "Program Head",
-      name: "Itashi Pathria",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/itashi-pathria-9060761b2/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/Itashi1903",
-          icon: GithubIcon,
-        },
-      ],
-    }, */
-    {
-      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      position: "Programming Lead",
-      name: "Sahil Sharma",
-      links: [
-        {
-          url: "https://www.instagram.com/_.sahilllll_._/",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/sahil-sharma-07/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/sahil2311sharma",
-          icon: GithubIcon,
-        },
-      ],
-    },
     {
       imageSrc: "https://images.unsplash.com/photo-1603970277321-b29de3895149?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facepad=100.95&w=512&q=80",
       position: "Outreach & Media Lead",
@@ -143,7 +104,26 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    } 
+    },
+    {
+      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      position: "Programming Lead",
+      name: "Sahil Sharma",
+      links: [
+        {
+          url: "https://www.instagram.com/_.sahilllll_._/",
+          icon: InstagramIcon,
+        },
+        {
+          url: "https://www.linkedin.com/in/sahil-sharma-07/",
+          icon: LinkedinIcon,
+        },
+        {
+          url: "https://github.com/sahil2311sharma",
+          icon: GithubIcon,
+        },
+      ],
+    }
   ]
 }) => {
   return (
