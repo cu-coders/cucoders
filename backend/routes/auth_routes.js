@@ -53,8 +53,15 @@ router.get("/user", (req, res) => {
     res.json({ username: null });
     console.log("Unknown User");
   } else {
-    res.json({ username: req.user.firstname });
-    console.log("User: " + req.user.firstname);
+    if(req.user.isactive){
+          res.json({ username: req.user.firstname });
+          console.log("User: " + req.user.firstname);
+    }
+    else{
+      console.log("Please confirm you mail first")
+      res.json({ mail_err: "Please confirm you mail first" });
+    }
+
   }
 });
 
