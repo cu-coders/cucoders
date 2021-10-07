@@ -27,7 +27,6 @@ const SocialLink = styled.a`
     ${tw`w-4 h-4`}
   }
 `;
-const netlify = https://api.netlify.com/api/v1/badges/e21545a6-3c4f-4024-9827-3ca39d1abdcd/deploy-status
 const showCurrentYear = new Date().getFullYear();
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`
 export default () => {
@@ -62,7 +61,6 @@ export default () => {
           <CopyrightText>
             &copy; Copyright 2019 - {showCurrentYear}, CU-Coders. All Rights Reserved.
           </CopyrightText>
-          {netlify}
         </Row>
       </Content>
     </Container>
