@@ -68,6 +68,26 @@ export default ({
       ],
     },
     {
+      imageSrc: "https://images.unsplash.com/photo-1599997949628-019bbbe3752a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&h=512&q=80",
+      position: "Mentor",
+      name: "Ankit Raj",
+      links: [
+        {
+          url: "https://www.instagram.com/honesthacker_",
+          icon: InstagramIcon,
+        },
+        {
+          url: "https://www.linkedin.com/in/ank1traj/",
+          icon: LinkedinIcon,
+        },
+        {
+          url: "https://github.com/ank1traj",
+          icon: GithubIcon,
+        },
+      ],
+    },
+    /*
+    {
       imageSrc: "https://images.unsplash.com/photo-1600097873961-12154219b396?ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=100.95&w=512&h=512&q=80",
       position: "Program Head",
       name: "Itashi Pathria",
@@ -85,7 +105,7 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    }, 
+    }, */
     {
       imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       position: "Programming Lead",
