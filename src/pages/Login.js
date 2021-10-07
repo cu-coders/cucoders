@@ -7,7 +7,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.svg";
 import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
+import githubIconImageSrc from "images/github-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
 
 import axios from "axios";
@@ -71,7 +71,7 @@ export default ({
       url: "http://localhost:3001/auth/google",
     },
     {
-      iconImageSrc: twitterIconImageSrc,
+      iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
       url: "http://localhost:3001/auth/google",
     },
