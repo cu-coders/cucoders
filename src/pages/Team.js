@@ -68,96 +68,20 @@ export default ({
       ],
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1627760676118-c7e1e9ef23ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=801&q=80",
-      position: "President",
-      name: "Jahanvi Sharma",
+      imageSrc: "https://images.unsplash.com/photo-1599997949628-019bbbe3752a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&h=512&q=80",
+      position: "Mentor",
+      name: "Ankit Raj",
       links: [
         {
-          url: "http://jahanvisharma.ml/",
+          url: "https://www.instagram.com/honesthacker_",
           icon: InstagramIcon,
         },
         {
-          url: "https://www.linkedin.com/in/jahanvi-sharma/",
+          url: "https://www.linkedin.com/in/ank1traj/",
           icon: LinkedinIcon,
         },
         {
-          url: "https://github.com/jahanvisharma-dotcom",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    /*{
-      imageSrc: "https://images.unsplash.com/photo-1599999384704-1d7b947bee0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=100.95&w=512&h=512&q=80",
-      position: "Overall Coordinator",
-      name: "Anustup Mukherjee",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "#",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "#",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    /*{
-      imageSrc: "https://images.unsplash.com/photo-1600097873961-12154219b396?ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=100.95&w=512&h=512&q=80",
-      position: "Program Head",
-      name: "Itashi Pathria",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/itashi-pathria-9060761b2/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/Itashi1903",
-          icon: GithubIcon,
-        },
-      ],
-    },*/
-    {
-      imageSrc: "https://images.unsplash.com/photo-1629888689232-21d9886b8442?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=825&q=80",
-      position: "Event Lead",
-      name: "Shubham Kumar Singh",
-      links: [
-        {
-          url: "https://shubhamsingh.ml/",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/-shubham-kumar-singh/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/NightWalker110",
-          icon: GithubIcon,
-        },
-      ],
-    },  
-      {
-      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      position: "Programming Lead",
-      name: "Sahil Sharma",
-      links: [
-        {
-          url: "https://www.instagram.com/_.sahilllll_._/",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/sahil-sharma-07/",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/sahil2311sharma",
+          url: "https://github.com/ank1traj",
           icon: GithubIcon,
         },
       ],
@@ -181,102 +105,25 @@ export default ({
         },
       ],
     },
-    
-    /*{
-      imageSrc: "https://images.unsplash.com/photo-1600000560828-90d1d926e05a?ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Management Head",
-      name: "Aditya Kumar",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/aditya-kumar-87886119b",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://www.github.com/Adi3011",
-          icon: GithubIcon,
-        },
-      ],
-    },
     {
-      imageSrc: "https://images.unsplash.com/photo-1599999750007-7fb8cc658e91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Graphic Designer & Content Writer",
-      name: "Gunjan Paneri",
+      imageSrc: "https://images.unsplash.com/photo-1627755005739-35b97866edbc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      position: "Programming Lead",
+      name: "Sahil Sharma",
       links: [
         {
-          url: "https://www.instagram.com/_.click_it_all._/",
+          url: "https://www.instagram.com/_.sahilllll_._/",
           icon: InstagramIcon,
         },
         {
-          url: "https://www.linkedin.com/in/gunjan-paneri-4281201a1/",
+          url: "https://www.linkedin.com/in/sahil-sharma-07/",
           icon: LinkedinIcon,
         },
         {
-          url: "https://github.com/iamgunjan",
+          url: "https://github.com/sahil2311sharma",
           icon: GithubIcon,
         },
       ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1599999962958-9380d76f9408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Front-End Developer",
-      name: "Sachin Soni",
-      links: [
-        {
-          url: "https://www.instagram.com/sin.uuuu/",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/sachin-soni-49447b193",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/sinu93065",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1599999251979-7f2d12a9dbb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Front-End Lead",
-      name: "Kartik Malik",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/kartik-malik-76263117a",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/Kartikmalik271",
-          icon: GithubIcon,
-        },
-      ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1608997061316-4f2ec5db2451?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Problem Setter",
-      name: "Saksham Sharma",
-      links: [
-        {
-          url: "#",
-          icon: InstagramIcon,
-        },
-        {
-          url: "https://www.linkedin.com/in/ssaksham",
-          icon: LinkedinIcon,
-        },
-        {
-          url: "https://github.com/ssaksham",
-          icon: GithubIcon,
-        },
-      ],
-    }  */  
+    }
   ]
 }) => {
   return (
