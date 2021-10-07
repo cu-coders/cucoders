@@ -1,4 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e21545a6-3c4f-4024-9827-3ca39d1abdcd/deploy-status)](https://app.netlify.com/sites/cuchapter/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
