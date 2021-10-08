@@ -12,6 +12,6 @@ jobs:
         uses: Marta83/funny-comment-action@v2.1
         id: FunnyComment
         with: 
-          GITHUB_TOKEN: $({ secrets.funny })
-          GIPHY_TOKEN: $({ secrets.funny_gif })
+          GITHUB_TOKEN: $({ secrets.FUNNY })
+          GIPHY_TOKEN: $({ secrets.FUNNY_GIF })
           comment_type: 'chuck'
