@@ -13,5 +13,5 @@ jobs:
         id: FunnyComment
         with: 
           GITHUB_TOKEN: $({ secrets.funny })
-          GIPHY_TOKEN: $({ secrets.funny })
+          GIPHY_TOKEN: $({ secrets.funny_gif })
           comment_type: 'chuck'
