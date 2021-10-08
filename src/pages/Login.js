@@ -68,12 +68,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "http://localhost:3001/auth/google",
+      url: "http://main.cuchapter.tech:3001/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "http://localhost:3001/auth/google",
+      url: "http://main.cuchapter.tech:3001/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -97,7 +97,7 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/auth/login/", credentials, {
+      .post("http://main.cuchapter.tech:3001/auth/login/", credentials, {
         withCredentials: true,
       })
       .then((res) => {

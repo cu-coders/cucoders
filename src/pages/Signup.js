@@ -67,12 +67,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "http://localhost:3001/auth/google",
+      url: "http://main.cuchapter.tech:3001/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "http://localhost:3001/auth/github",
+      url: "http://main.cuchapter.tech:3001/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -81,7 +81,6 @@ export default ({
   privacyPolicyUrl = "#",
   signInUrl = "#",
 }) => {
-  
   const [user_data, updateData] = useState({
     firstname: "",
     lastname: "",

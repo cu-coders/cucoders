@@ -40,8 +40,8 @@ exports.read_ongoing_events = async (req, res) => {
   }
 };
 
-// API for upcomming events
-exports.read_upcomming_events = async () => {
+// API for upcoming events
+exports.read_upcoming_events = async () => {
   try {
     const data = await Event.find({ date_start: { $gt: Date.now() } });
     return data;
@@ -60,4 +60,3 @@ exports.read_past_events = async () => {
   }
 };
 //----------------------------------END OF EVENT DATABASE APIs----------------------------------------//
-

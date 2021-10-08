@@ -8,7 +8,7 @@ const api_routes = require("./routes/api_routes");
 const auth_routes = require("./routes/auth_routes");
 const cors = require("cors");
 const passport = require("passport");
-const session =require('express-session')
+const session = require("express-session");
 //-----------------------------------------------END OF IMPORTS---------------------------------------//
 
 //-------------------------------------------DATABASE CONNECTION SETUP----------------------------------------//
@@ -28,7 +28,7 @@ mongoose
 app.use(
   cors({
     // The following address is for testing only, change it accordingly in production
-    origin: "http://localhost:3000",
+    origin: "http://main.cuchapter.tech",
     optionsSuccessStatus: 200,
     credentials: true,
   })
@@ -37,15 +37,6 @@ app.use(
 //----------------------------------------END OF DATABASE CONNECTION SETUP----------------------------------------//
 
 //---------------------------------------------------MIDDLEWARES-------------------------------------------------//
-// app.use(function (req, res, next) {
-//   res.header("Content-Type", "application/json;charset=UTF-8");
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
 
 app.use(
   cookieSession({
@@ -63,6 +54,3 @@ app.use(express.static(path.join(__dirname + "./public/")));
 app.use("/api/", api_routes);
 app.use("/auth/", auth_routes);
 //---------------------------------------------------END OF ROUTINGS--------------------------------------------//
-
-
-

@@ -26,7 +26,6 @@ import Upcoming from "components/events/upcoming.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ComingSoon from "components/cta/comingsoon.js";
 import About from "pages/AboutUs.js";
-import Upload from "components/forms/upload.js"
 import Contact from "pages/ContactUs.js";
 import Team from "pages/Team.js";
 import Careers from "pages/jobHome.js";
@@ -79,14 +78,18 @@ export default function App() {
   const [isVarified,updateIsVarified] = useState(false)
   //-----------------------------------------CHECK AUTHENTICATIO------------------------//
   useEffect(()=>{
-    axios.get('http://localhost:3001/auth/user/',{
-      withCredentials:true,
-    }).then((res)=>{
-      if(res.data.username){
-        updateIsVarified(true)
-        //alert(res.data.username)
-      }
-    })
+    axios
+      .get("http://main.cuchapter.tech:3001/auth/user/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.username) {
+          updateIsVarified(true);
+          //alert(res.data.username)
+        } else {
+          updateIsVarified(false);
+        }
+      });
   },[])
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
@@ -223,9 +226,6 @@ export default function App() {
         </Route>
         <Route exact path="/web">
           <Web />
-        </Route>
-        <Route exact path="/form">
-          <Upload />
         </Route>
         <Route exact path="/login">
           {isVarified ? <Redirect to="/" /> : <Login />}
