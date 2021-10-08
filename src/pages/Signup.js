@@ -5,9 +5,9 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.svg";
-import logo from "images/logo.svg";
+import logo from "images/logo.png";
 import googleIconImageSrc from "images/google-icon.png";
-import twitterIconImageSrc from "images/twitter-icon.png";
+import githubIconImageSrc from "images/github-icon.svg";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import axios from "axios";
 import Cookies from "universal-cookie/es6";
@@ -71,7 +71,7 @@ export default ({
       url: "http://localhost:3001/auth/google",
     },
     {
-      iconImageSrc: twitterIconImageSrc,
+      iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
       url: "http://localhost:3001/auth/github",
     },
