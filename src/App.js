@@ -58,7 +58,7 @@ import Resources from "components/resources/resources.js";
 import ComingNow from "components/resources/comingsoon.js";
 import Error from "components/hero/error.js";
 
-
+import LostPassword from "pages/lostPassword.js";
 import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
 import CP from "components/resources/cp/index.js";
@@ -223,6 +223,9 @@ export default function App() {
         </Route>
         <Route exact path="/web">
           <Web />
+        </Route>
+        <Route exact path="/lostpassword">
+          <LostPassword />
         </Route>
         <Route exact path="/form">
           <Upload />

@@ -3,7 +3,6 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.svg";
 import logo from "images/logo.png";
 import googleIconImageSrc from "images/google-icon.png";
@@ -11,9 +10,8 @@ import githubIconImageSrc from "images/github-icon.svg";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import axios from "axios";
 import Cookies from "universal-cookie/es6";
-import { Redirect, useHistory } from "react-router";
-import { useTransform } from "framer-motion";
-//import { useHistory } from "react-router";
+import { Redirect } from "react-router";
+
 const Container = tw(
   ContainerBase
 )`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
@@ -61,7 +59,7 @@ const IllustrationImage = styled.div`
 
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For CU-Chapter",
   socialButtons = [
@@ -78,9 +76,9 @@ export default ({
   ],
   submitButtonText = "Sign Up",
   SubmitButtonIcon = SignUpIcon,
-  tosUrl = "#",
-  privacyPolicyUrl = "#",
-  signInUrl = "#",
+  tosUrl = "/terms",
+  privacyPolicyUrl = "/Privacy",
+  signInUrl = "/login",
 }) => {
   const cookies = new Cookies();
   const [user_data, updateData] = useState({
@@ -148,7 +146,7 @@ export default ({
                     name="firstname"
                     placeholder="First name"
                     value={user_data.firstname}
-                    onChange={handleChange}
+                    onChange={handleChange}c 
                     required
                   />
                   <Input
@@ -208,7 +206,6 @@ export default ({
                       Privacy Policy
                     </a>
                   </p>
-
                   <p tw="mt-8 text-sm text-gray-600 text-center">
                     Already have an account?{" "}
                     <a
