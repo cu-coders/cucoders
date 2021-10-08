@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
 import googleIconImageSrc from "images/google-icon.png";
@@ -61,7 +60,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign In To CU-Chapter",
   socialButtons = [
@@ -79,7 +78,7 @@ export default ({
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = "#",
+  signupUrl = "/signup",
 }) => {
   //--------------------------------INITIALIZING STATES-------------------------
   const [isVarified, updateIsVarified] = useState();
