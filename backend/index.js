@@ -8,7 +8,7 @@ const api_routes = require("./routes/api_routes");
 const auth_routes = require("./routes/auth_routes");
 const cors = require("cors");
 const passport = require("passport");
-const session = require("express-session");
+
 //-----------------------------------------------END OF IMPORTS---------------------------------------//
 
 //-------------------------------------------DATABASE CONNECTION SETUP----------------------------------------//

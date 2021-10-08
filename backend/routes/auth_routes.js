@@ -2,7 +2,6 @@ const express = require("express");
 const user_apis = require("../controllers/user_db_apis");
 const passport = require("passport");
 const passportConfig = require("../configs/passport_config"); // for passport functionalities ***Don't remove*
-const user = require("../models/users");
 const router = express.Router();
 
 //----------------------------------------END OF IMPORT--------------------------------------------//

@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Event = require("../models/events");
 //------------------------------------------------END OF IMPORTS----------------------------//
 // This Route must be protected
@@ -36,7 +35,7 @@ exports.read_ongoing_events = async (req, res) => {
     });
     return data;
   } catch (err) {
-    console.log(data);
+
   }
 };
 

@@ -1,6 +1,4 @@
-const { JsonWebTokenError } = require("jsonwebtoken");
 const User = require("../models/users");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 //-------------------------------------END OF IMPORTS--------------------------------------//
 
