@@ -2,54 +2,58 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const mailer = require("../controllers/mailer");
 
-//-----------------------------------------------------END OF IMPORTS--------------------------------------------//
+//-----------------------------------------------------END OF
+//IMPORTS--------------------------------------------//
 
-//------------------------------------------------------USER SCHEMA----------------------------------------------//
+//------------------------------------------------------USER
+//SCHEMA----------------------------------------------//
 const userSchema = mongoose.Schema({
-  firstname: {
-    type: String,
-    require: true,
-    trim: true,
+  firstname : {
+    type : String,
+    require : true,
+    trim : true,
   },
-  lastname: {
-    type: String,
-    require: true,
-    trim: true,
+  lastname : {
+    type : String,
+    require : true,
+    trim : true,
   },
-  email: {
-    type: String,
-    require: true,
-    unique: true,
-    trim: true,
-    lowercase: true,
+  email : {
+    type : String,
+    require : true,
+    unique : true,
+    trim : true,
+    lowercase : true,
   },
-  password: {
-    type: String,
-    require: true,
+  password : {
+    type : String,
+    require : true,
   },
-  jwt: {
-    type: String,
+  jwt : {
+    type : String,
   },
-  mailtoken: {
-    type: String,
+  mailtoken : {
+    type : String,
   },
-  isactive: {
-    type: Boolean,
+  isactive : {
+    type : Boolean,
   },
-  auth_type: {
-    type: String,
-    require: true,
-    enum: ["email", "google", "github"],
+  auth_type : {
+    type : String,
+    require : true,
+    enum : [ "email", "google", "github" ],
   },
-  third_partyID: {
-    type: String,
+  third_partyID : {
+    type : String,
   },
 });
 
-//-----------------------------------------------------END OF USER SCHEMA------------------------------------//
+//-----------------------------------------------------END OF USER
+//SCHEMA------------------------------------//
 
-//-------------------------------------------------------DB MIDDLEWARES--------------------------------------//
-userSchema.pre("save", async function (next) {
+//-------------------------------------------------------DB
+//MIDDLEWARES--------------------------------------//
+userSchema.pre("save", async function(next) {
   // hashing the password
   if (this.isModified("password")) {
     if (this.password && !this.googleID) {
@@ -59,26 +63,25 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-//-------------------------------------------------------END OF DB MIDDLEWARES-------------------------------//
+//-------------------------------------------------------END OF DB
+//MIDDLEWARES-------------------------------//
 
-//----------------------------------------------------------DB METHODS----------------------------------------//
+//----------------------------------------------------------DB
+//METHODS----------------------------------------//
 
-//Mail varification Methods
-userSchema.methods.send_verification = async function (req, res) {
+// Mail varification Methods
+userSchema.methods.send_verification = async function(req, res) {
   try {
-    await mailer.send_verification(
-      this.email,
-      this.firstname,
-      req.headers.host,
-      this.mailtoken
-    );
+    await mailer.send_verification(this.email, this.firstname, req.headers.host,
+                                   this.mailtoken);
     return true;
   } catch (err) {
     console.log("Mailing agent failed:" + err);
     return false;
   }
 };
-//-------------------------------------------------------END DB METHODS----------------------------------------//
+//-------------------------------------------------------END DB
+//METHODS----------------------------------------//
 
 const user = new mongoose.model("User", userSchema);
 module.exports = user;

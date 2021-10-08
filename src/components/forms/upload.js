@@ -1,12 +1,12 @@
-/* 
+/*
 Use this form to add events into the database
 For admin use only : Auth. pending
 */
 import React from 'react'
-//import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 
-// Front-end Panding  
-export default  () =>{
+// Front-end Panding
+export default () => {
 
     return(
 
