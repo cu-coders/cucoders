@@ -80,7 +80,7 @@ export default ({
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "/terms",
   privacyPolicyUrl = "/privacy",
-  signInUrl = "/signup",
+  signInUrl = "/signin",
 }) => {
   const cookies = new Cookies();
   const [user_data, updateData] = useState({
