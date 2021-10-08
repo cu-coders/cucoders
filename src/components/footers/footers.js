@@ -27,7 +27,6 @@ const SocialLink = styled.a`
     ${tw`w-4 h-4`}
   }
 `;
-
 const showCurrentYear = new Date().getFullYear();
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`
 export default () => {
