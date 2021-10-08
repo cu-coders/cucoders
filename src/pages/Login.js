@@ -78,7 +78,7 @@ export default ({
   ],
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
-  forgotPasswordUrl = "#",
+  forgotPasswordUrl = "/calender",
   signupUrl = "#",
 }) => {
   //--------------------------------INITIALIZING STATES-------------------------
