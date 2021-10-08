@@ -68,12 +68,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "http://localhost:3001/auth/google",
+      url: "https://main.cuchapter.tech/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "http://localhost:3001/auth/github",
+      url: "https://main.cuchapter.tech/auth/github",
     },
   ],
   submitButtonText = "Sign In",
