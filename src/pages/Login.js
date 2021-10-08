@@ -73,7 +73,7 @@ export default ({
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "http://localhost:3001/auth/google",
+      url: "http://localhost:3001/auth/github",
     },
   ],
   submitButtonText = "Sign In",
