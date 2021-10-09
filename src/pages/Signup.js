@@ -61,7 +61,7 @@ const IllustrationImage = styled.div`
 
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For CU-Chapter",
   socialButtons = [
