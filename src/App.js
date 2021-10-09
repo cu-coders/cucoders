@@ -55,6 +55,7 @@ import Resources from "components/resources/resources.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
+import Upload from "components/forms/upload.js"
 import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
