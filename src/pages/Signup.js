@@ -58,7 +58,6 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
-
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
@@ -67,12 +66,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "http://main.cuchapter.tech:3001/auth/google",
+      url: "https://cuchapter.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "http://main.cuchapter.tech:3001/auth/github",
+      url: "https://cuchapter.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign Up",

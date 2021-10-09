@@ -2,7 +2,6 @@ import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 import React, { useEffect, useState } from "react";
 
-
 import { css } from "styled-components/macro"; //eslint-disable-line
 /*
  * This is the entry point component of this project. You can change the below exported default App component to any of
@@ -51,12 +50,9 @@ import Graphic from "components/job/openings/graphic/graphic.js";
 import Motion from "components/job/openings/motion/motion.js";
 import UIUX from "components/job/openings/uiux/uiux.js";
 
-
-
 import Resources from "components/resources/resources.js";
 import ComingNow from "components/resources/comingsoon.js";
 import Error from "components/hero/error.js";
-
 
 import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
@@ -72,14 +68,13 @@ import axios from "axios";
 import Calender from "components/projects/calendly.js";
 import { Redirect } from "react-router";
 
-
 export default function App() {
   //-----------------------------------------INITIALIZING STAES-------------------------//
-  const [isVarified,updateIsVarified] = useState(false)
+  const [isVarified, updateIsVarified] = useState(false);
   //-----------------------------------------CHECK AUTHENTICATIO------------------------//
-  useEffect(()=>{
+  useEffect(() => {
     axios
-      .get("http://main.cuchapter.tech:3001/auth/user/", {
+      .get("https://cuchapter.herokuapp.com/auth/user/", {
         withCredentials: true,
       })
       .then((res) => {
@@ -90,7 +85,7 @@ export default function App() {
           updateIsVarified(false);
         }
       });
-  },[])
+  }, []);
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
     <Router>
@@ -231,8 +226,7 @@ export default function App() {
           {isVarified ? <Redirect to="/" /> : <Login />}
         </Route>
         <Route exact path="/signup">
-          
-        {isVarified ? <Redirect to="/" /> : <Signup />}
+          {isVarified ? <Redirect to="/" /> : <Signup />}
         </Route>
         <Route path="/">
           <Error />

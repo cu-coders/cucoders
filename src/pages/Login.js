@@ -12,8 +12,7 @@ import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg
 
 import axios from "axios";
 import { useState } from "react";
-import { Redirect} from "react-router";
-
+import { Redirect } from "react-router";
 
 const Container = tw(
   ContainerBase
@@ -68,12 +67,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "http://main.cuchapter.tech:3001/auth/google",
+      url: "https://cuchapter.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "http://main.cuchapter.tech:3001/auth/github",
+      url: "https://cuchapter.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -97,7 +96,7 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://main.cuchapter.tech:3001/auth/login/", credentials, {
+      .post("https://cuchapter.herokuapp.com/auth/login/", credentials, {
         withCredentials: true,
       })
       .then((res) => {
