@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import axios from "axios";
 import { Container as ContainerBase } from "components/misc/Layouts";
-import tw from "twin.macro";
+import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import githubIconImageSrc from "images/github-icon.svg";
+import googleIconImageSrc from "images/google-icon.png";
+import logo from "images/logo.png";
+import illustration from "images/signup-illustration.svg";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import illustration from "images/signup-illustration.svg";
-import logo from "images/logo.png";
-import googleIconImageSrc from "images/google-icon.png";
-import githubIconImageSrc from "images/github-icon.svg";
-import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
-import axios from "axios";
-import Cookies from "universal-cookie/es6";
-import { Redirect, useHistory } from "react-router";
-import { useTransform } from "framer-motion";
-//import { useHistory } from "react-router";
+import tw from "twin.macro";
+
+// import { useTransform } from "framer-motion";
+// import { useHistory } from "react-router";
 const Container = tw(
   ContainerBase
 )`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
@@ -59,7 +58,6 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `;
 
-
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
@@ -68,12 +66,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "http://localhost:3001/auth/google",
+      url: "https://cuchapter.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "http://localhost:3001/auth/github",
+      url: "https://cuchapter.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -82,7 +80,6 @@ export default ({
   privacyPolicyUrl = "#",
   signInUrl = "#",
 }) => {
-  const cookies = new Cookies();
   const [user_data, updateData] = useState({
     firstname: "",
     lastname: "",
@@ -104,16 +101,7 @@ export default ({
     });
   };
 
-  useEffect(() => {
-    const auth_token = cookies.get("auth");
-    if (auth_token) {
-      axios.get("/auth/token").then((res) => {});
-    }
-  }, []);
   // Redirecting to home page is already logged in
-  if (cookies.get("valid")) {
-    return <Redirect to="/Home" />;
-  }
   return (
     <AnimationRevealPage>
       <Container>

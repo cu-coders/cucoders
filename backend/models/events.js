@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const path = require("path");
 const fs = require("fs");
-//--------------------------------END OF IMPORTS---------------------------------------//
+//--------------------------------END OF
+//IMPORTS---------------------------------------//
 
-//--------------------------------EVENT SCHEMA-----------------------------------------//
+//--------------------------------EVENT
+//SCHEMA-----------------------------------------//
 const eventSchema = mongoose.Schema({
   imageSrc: {
     type: String,
@@ -49,9 +51,11 @@ const eventSchema = mongoose.Schema({
     require: true,
   },
 });
-//--------------------------------END EVENT SCHEMA-----------------------------------------//
+//--------------------------------END EVENT
+//SCHEMA-----------------------------------------//
 
-//----------------------------------DB MIDDLEWARES-----------------------------------------//
+//----------------------------------DB
+//MIDDLEWARES-----------------------------------------//
 // For invalid Date range
 eventSchema.pre("save", function (next) {
   const start = this.date_start;
@@ -71,6 +75,7 @@ eventSchema.pre("save", function (next) {
     next();
   }
 });
-//--------------------------------END OF DB MIDDLEWARES-----------------------------------------//
+//--------------------------------END OF DB
+//MIDDLEWARES-----------------------------------------//
 const Event = new mongoose.model("event", eventSchema);
 module.exports = Event;

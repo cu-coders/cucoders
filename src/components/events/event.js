@@ -1,19 +1,23 @@
-import React from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { Container as ContainerBase, ContentWithPaddingXl as ContentBase } from "components/misc/Layouts.js";
-
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Footer from "components/footers/footers.js";
 import Header from "components/headers/light.js";
+import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
+import { Container as ContainerBase } from "components/misc/Layouts.js";
+import { SectionDescription } from "components/misc/Typography.js";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import React from "react";
+import styled from "styled-components";
+import { css } from "styled-components/macro"; //eslint-disable-line
+import tw from "twin.macro";
+
 const Container = tw(ContainerBase)`bg-primary-900 text-gray-100 -mx-8 px-8`;
-const ContentWithPaddingXl = tw(
-  ContentBase
-)`relative z-10 mx-auto px-0 py-10 sm:px-6 md:px-8 lg:px-12 xl:px-24 sm:py-20 flex flex-col max-w-screen-xl`;
+// const ContentWithPaddingXl = tw(
+//   ContentBase
+// )`relative z-10 mx-auto px-0 py-10 sm:px-6 md:px-8 lg:px-12 xl:px-24 sm:py-20
+// flex flex-col max-w-screen-xl`;
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full`;
@@ -56,66 +60,72 @@ const ActionButton = styled(PrimaryButtonBase)`
   ${tw`block text-center text-sm font-semibold tracking-wider w-full text-gray-100 bg-primary-500 px-6 py-4 rounded hover:bg-primary-700 focus:shadow-outline focus:outline-none transition-colors duration-300`}
 `;
 
-const WhiteBackgroundOverlay = tw.div`absolute inset-x-0 bottom-0 h-1/6 lg:h-1/3 bg-white z-0`;
+// const WhiteBackgroundOverlay = tw.div`absolute inset-x-0 bottom-0 h-1/6
+// lg:h-1/3 bg-white z-0`;
 
 export default ({
   subheading = "",
   heading = "Our Events",
   description = "There are some people who live in a dream world, and there are some who face reality; and then there are those who turn one into the other.",
   plans = null,
-  primaryButtonText = "See Events"
+  primaryButtonText = "See Events",
 }) => {
   const defaultPlans = [
     {
       name: "Upcoming Events",
-      description: "Productivity is never an accident. It is always the result of a commitment to excellence, intelligent planning, and focused effort.",
-      url: "Upcoming/"
+      description:
+        "Productivity is never an accident. It is always the result of a commitment to excellence, intelligent planning, and focused effort.",
+      url: "Upcoming/",
     },
     {
       name: "Ongoing Events",
-      description: "Without leaps of imagination, or dreaming, we lose the excitement of possibilities. Dreaming, after all, is a form of planning.",
+      description:
+        "Without leaps of imagination, or dreaming, we lose the excitement of possibilities. Dreaming, after all, is a form of planning.",
       url: "present",
     },
     {
       name: "Past Events",
-      description: "Success depends upon previous preparation, and without such preparation there is sure to be failure.",
-      url: "past"
-    }
+      description:
+        "Success depends upon previous preparation, and without such preparation there is sure to be failure.",
+      url: "past",
+    },
   ];
 
   if (!plans) plans = defaultPlans;
 
   return (
     <>
-    <AnimationRevealPage>
-    <Header />
-    <Container>
-        <HeaderContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          <Heading>{heading}</Heading>
-          {description && <Description>{description}</Description>}
-        </HeaderContainer>
-        <PlansContainer>
-          {plans.map((plan, index) => (
-            <Plan key={index} featured={plan.featured}>
-              <PlanHeader>
-                <span className="nameAndFeaturedContainer">
-                  <span className="name">{plan.name}</span>
-                  {plan.featured && <span className="featuredText">{plan.featured}</span>}
-                </span>
-                <p className="description">{plan.description}</p>
-              </PlanHeader>
-              <PlanAction>
-                <ActionButton as="a" href={plan.url}>
-                  {primaryButtonText}
-                </ActionButton>
-              </PlanAction>
-            </Plan>
-          ))}
-        </PlansContainer>
-    </Container>
-    <Footer />
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header />
+        <Container>
+          <HeaderContainer>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            <Heading>{heading}</Heading>
+            {description && <Description>{description}</Description>}
+          </HeaderContainer>
+          <PlansContainer>
+            {plans.map((plan, index) => (
+              <Plan key={index} featured={plan.featured}>
+                <PlanHeader>
+                  <span className="nameAndFeaturedContainer">
+                    <span className="name">{plan.name}</span>
+                    {plan.featured && (
+                      <span className="featuredText">{plan.featured}</span>
+                    )}
+                  </span>
+                  <p className="description">{plan.description}</p>
+                </PlanHeader>
+                <PlanAction>
+                  <ActionButton as="a" href={plan.url}>
+                    {primaryButtonText}
+                  </ActionButton>
+                </PlanAction>
+              </Plan>
+            ))}
+          </PlansContainer>
+        </Container>
+        <Footer />
+      </AnimationRevealPage>
     </>
   );
 };

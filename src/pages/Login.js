@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import axios from "axios";
 import { Container as ContainerBase } from "components/misc/Layouts";
-import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import githubIconImageSrc from "images/github-icon.svg";
+import googleIconImageSrc from "images/google-icon.png";
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
-import googleIconImageSrc from "images/google-icon.png";
-import githubIconImageSrc from "images/github-icon.svg";
-import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
-
-import axios from "axios";
+import React from "react";
 import { useState } from "react";
-import { Redirect} from "react-router";
-
+import { Redirect } from "react-router";
+import styled from "styled-components";
+import { css } from "styled-components/macro"; //eslint-disable-line
+import tw from "twin.macro";
 
 const Container = tw(
   ContainerBase
@@ -68,12 +66,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "http://localhost:3001/auth/google",
+      url: "https://cuchapter.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "http://localhost:3001/auth/github",
+      url: "https://cuchapter.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -97,7 +95,7 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/auth/login/", credentials, {
+      .post("https://cuchapter.herokuapp.com/auth/login/", credentials, {
         withCredentials: true,
       })
       .then((res) => {
