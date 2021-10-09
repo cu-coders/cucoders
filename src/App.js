@@ -47,7 +47,6 @@ import Error from "components/hero/error.js";
 import LostPassword from "pages/lostPassword.js";
 import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
-import Algo from "components/resources/algorithms/index.js";
 import ComingNow from "components/resources/comingsoon.js";
 import CP from "components/resources/cp/index.js";
 import Database from "components/resources/database/index.js";
