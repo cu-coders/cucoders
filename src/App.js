@@ -69,10 +69,10 @@ import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
-import React, {useEffect, useState} from "react";
-import {Redirect} from "react-router";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {css} from "styled-components/macro"; //eslint-disable-line
+import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
@@ -82,17 +82,17 @@ export default function App() {
   // AUTHENTICATIO------------------------//
   useEffect(() => {
     axios
-        .get("https://cuchapter.herokuapp.com/auth/user/", {
-          withCredentials : true,
-        })
-        .then((res) => {
-          if (res.data.username) {
-            updateIsVarified(true);
-            // alert(res.data.username)
-          } else {
-            updateIsVarified(false);
-          }
-        });
+      .get("https://cuchapter.herokuapp.com/auth/user/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.username) {
+          updateIsVarified(true);
+          // alert(res.data.username)
+        } else {
+          updateIsVarified(false);
+        }
+      });
   }, []);
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
