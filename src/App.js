@@ -30,6 +30,7 @@ import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
 import Upcoming from "components/events/upcoming.js";
 import Error from "components/hero/error.js";
+import Error from "components/hero/error.js";
 import Back from "components/job/openings/backend/backend.js";
 import Editorial from "components/job/openings/editorialist/editorialist.js";
 import Front from "components/job/openings/frontend/frontend.js";
@@ -42,13 +43,10 @@ import UIUX from "components/job/openings/uiux/uiux.js";
 import Member from "components/membership/member.js";
 import Calender from "components/projects/calendly.js";
 import Projects from "components/projects/project.js";
-import Resources from "components/resources/resources.js";
-import ComingNow from "components/resources/comingsoon.js";
-import Error from "components/hero/error.js";
-import LostPassword from "pages/lostPassword.js";
-import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
 import Algo from "components/resources/algorithms/index.js";
+import Algo from "components/resources/algorithms/index.js";
+import ComingNow from "components/resources/comingsoon.js";
 import ComingNow from "components/resources/comingsoon.js";
 import CP from "components/resources/cp/index.js";
 import Database from "components/resources/database/index.js";
@@ -56,6 +54,7 @@ import Security from "components/resources/hacking/index.js";
 import Language from "components/resources/language/index.js";
 import Mobile from "components/resources/mobile/index.js";
 import Open from "components/resources/open/index.js";
+import Resources from "components/resources/resources.js";
 import Resources from "components/resources/resources.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
@@ -65,34 +64,35 @@ import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
 import Login from "pages/Login.js";
+import LostPassword from "pages/lostPassword.js";
 import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
-import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import React, {useEffect, useState} from "react";
+import {Redirect} from "react-router";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {css} from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
-  //STAES-------------------------//
+  // STAES-------------------------//
   const [isVarified, updateIsVarified] = useState(false);
   //-----------------------------------------CHECK
-  //AUTHENTICATIO------------------------//
+  // AUTHENTICATIO------------------------//
   useEffect(() => {
     axios
-      .get("https://cuchapter.herokuapp.com/auth/user/", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        if (res.data.username) {
-          updateIsVarified(true);
-          // alert(res.data.username)
-        } else {
-          updateIsVarified(false);
-        }
-      });
+        .get("https://cuchapter.herokuapp.com/auth/user/", {
+          withCredentials : true,
+        })
+        .then((res) => {
+          if (res.data.username) {
+            updateIsVarified(true);
+            // alert(res.data.username)
+          } else {
+            updateIsVarified(false);
+          }
+        });
   }, []);
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
