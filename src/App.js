@@ -42,6 +42,11 @@ import UIUX from "components/job/openings/uiux/uiux.js";
 import Member from "components/membership/member.js";
 import Calender from "components/projects/calendly.js";
 import Projects from "components/projects/project.js";
+import Resources from "components/resources/resources.js";
+import ComingNow from "components/resources/comingsoon.js";
+import Error from "components/hero/error.js";
+import LostPassword from "pages/lostPassword.js";
+import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
 import Algo from "components/resources/algorithms/index.js";
 import ComingNow from "components/resources/comingsoon.js";
@@ -224,6 +229,12 @@ export default function App() {
         </Route>
         <Route exact path="/web">
           <Web />
+        </Route>
+        <Route exact path="/lostpassword">
+          <LostPassword />
+        </Route>
+        <Route exact path="/form">
+          <Upload />
         </Route>
         <Route exact path="/login">
           {isVarified ? <Redirect to="/" /> : <Login />}

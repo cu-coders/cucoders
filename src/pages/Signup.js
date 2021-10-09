@@ -59,7 +59,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign Up For CU-Chapter",
   socialButtons = [
@@ -76,9 +76,9 @@ export default ({
   ],
   submitButtonText = "Sign Up",
   SubmitButtonIcon = SignUpIcon,
-  tosUrl = "#",
-  privacyPolicyUrl = "#",
-  signInUrl = "#",
+  tosUrl = "/terms",
+  privacyPolicyUrl = "/privacy",
+  signInUrl = "/login",
 }) => {
   const [user_data, updateData] = useState({
     firstname: "",

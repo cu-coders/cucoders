@@ -59,7 +59,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
-  logoLinkUrl = "#",
+  logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign In To CU-Chapter",
   socialButtons = [
@@ -76,8 +76,8 @@ export default ({
   ],
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
-  forgotPasswordUrl = "#",
-  signupUrl = "#",
+  forgotPasswordUrl = "/lostpassword",
+  signupUrl = "/signup",
 }) => {
   //--------------------------------INITIALIZING STATES-------------------------
   const [isVarified, updateIsVarified] = useState();
