@@ -42,7 +42,6 @@ import Member from "components/membership/member.js";
 import Calender from "components/projects/calendly.js";
 import Projects from "components/projects/project.js";
 import Resources from "components/resources/resources.js";
-import ComingNow from "components/resources/comingsoon.js";
 import Error from "components/hero/error.js";
 import LostPassword from "pages/lostPassword.js";
 import Algo from "components/resources/algorithms/index.js";
