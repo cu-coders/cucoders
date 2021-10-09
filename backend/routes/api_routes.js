@@ -7,34 +7,40 @@ const router = express.Router();
 
 // defining images for images
 const storage = multer.diskStorage({
-  destination : function(request, file, callback) {
+  destination: function (request, file, callback) {
     callback(null, path.join(__dirname, "../../public/covers"));
   },
   // extentions
-  filename : function(request, file, callback) {
+  filename: function (request, file, callback) {
     const suff = Math.round(Math.random() * 1e9);
-    callback(null, path.parse(file.originalname).name + "_" + Date.now() + "_" +
-                       suff + path.extname(file.originalname));
+    callback(
+      null,
+      path.parse(file.originalname).name +
+        "_" +
+        Date.now() +
+        "_" +
+        suff +
+        path.extname(file.originalname)
+    );
   },
 });
 
 // upload parameters for multer
-const upload =
-    multer({
-      storage : storage,
-      limits : {
-        // file size limit is 8MB
-        fieldSize : 1024 * 1024 * 8,
-      },
+const upload = multer({
+  storage: storage,
+  limits: {
+    // file size limit is 8MB
+    fieldSize: 1024 * 1024 * 8,
+  },
 
-      fileFilter : function(request, file, callback) {
-        const name = path.basename(file.originalname);
-        if (!isImage(name)) {
-          return callback(new Error("Uploaded File is not an Image"));
-        }
-        callback(null, true);
-      },
-    }).single("cover");
+  fileFilter: function (request, file, callback) {
+    const name = path.basename(file.originalname);
+    if (!isImage(name)) {
+      return callback(new Error("Uploaded File is not an Image"));
+    }
+    callback(null, true);
+  },
+}).single("cover");
 
 // auth middileware: pending
 
@@ -54,7 +60,7 @@ router.get("/upcoming-events", async (req, res) => {
     const data = await db_apis.read_upcoming_events(req, res);
     res.json(data);
   } catch (err) {
-    res.status(500).json({error : "Something went wrong"});
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });
@@ -64,7 +70,7 @@ router.get("/ongoing-events", async (req, res) => {
     const data = await db_apis.read_ongoing_events(req, res);
     res.json(data);
   } catch (err) {
-    res.status(500).json({error : "Something went wrong"});
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });
@@ -74,7 +80,7 @@ router.get("/past-events", async (req, res) => {
     const data = await db_apis.read_past_events();
     res.json(data);
   } catch (err) {
-    res.status(500).json({error : "Something went wrong"});
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });

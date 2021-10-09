@@ -8,43 +8,43 @@ const mailer = require("../controllers/mailer");
 //------------------------------------------------------USER
 //SCHEMA----------------------------------------------//
 const userSchema = mongoose.Schema({
-  firstname : {
-    type : String,
-    require : true,
-    trim : true,
+  firstname: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  lastname : {
-    type : String,
-    require : true,
-    trim : true,
+  lastname: {
+    type: String,
+    require: true,
+    trim: true,
   },
-  email : {
-    type : String,
-    require : true,
-    unique : true,
-    trim : true,
-    lowercase : true,
+  email: {
+    type: String,
+    require: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
   },
-  password : {
-    type : String,
-    require : true,
+  password: {
+    type: String,
+    require: true,
   },
-  jwt : {
-    type : String,
+  jwt: {
+    type: String,
   },
-  mailtoken : {
-    type : String,
+  mailtoken: {
+    type: String,
   },
-  isactive : {
-    type : Boolean,
+  isactive: {
+    type: Boolean,
   },
-  auth_type : {
-    type : String,
-    require : true,
-    enum : [ "email", "google", "github" ],
+  auth_type: {
+    type: String,
+    require: true,
+    enum: ["email", "google", "github"],
   },
-  third_partyID : {
-    type : String,
+  third_partyID: {
+    type: String,
   },
 });
 
@@ -53,7 +53,7 @@ const userSchema = mongoose.Schema({
 
 //-------------------------------------------------------DB
 //MIDDLEWARES--------------------------------------//
-userSchema.pre("save", async function(next) {
+userSchema.pre("save", async function (next) {
   // hashing the password
   if (this.isModified("password")) {
     if (this.password && !this.googleID) {
@@ -70,10 +70,14 @@ userSchema.pre("save", async function(next) {
 //METHODS----------------------------------------//
 
 // Mail varification Methods
-userSchema.methods.send_verification = async function(req, res) {
+userSchema.methods.send_verification = async function (req, res) {
   try {
-    await mailer.send_verification(this.email, this.firstname, req.headers.host,
-                                   this.mailtoken);
+    await mailer.send_verification(
+      this.email,
+      this.firstname,
+      req.headers.host,
+      this.mailtoken
+    );
     return true;
   } catch (err) {
     console.log("Mailing agent failed:" + err);
