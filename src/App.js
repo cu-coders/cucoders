@@ -28,7 +28,7 @@ import Past from "components/events/past.js";
 import Present from "components/events/present.js";
 import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
-import Upcoming from "components/events/upcoming.js
+import Upcoming from "components/events/upcoming.js;
 import Back from "components/job/openings/backend/backend.js";
 import Editorial from "components/job/openings/editorialist/editorialist.js";
 import Front from "components/job/openings/frontend/frontend.js";
