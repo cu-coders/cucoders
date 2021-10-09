@@ -42,7 +42,7 @@ const upload = multer({
   },
 }).single("cover");
 
-//auth middileware: pending
+// auth middileware: pending
 
 router.post("/add-event", upload, async (req, res) => {
   // image: req.file.filename
@@ -54,13 +54,13 @@ router.post("/add-event", upload, async (req, res) => {
   }
 });
 
-//Public API routes
-
-router.get("/upcomming-events", async (req, res) => {
+// Public API routes
+router.get("/upcoming-events", async (req, res) => {
   try {
-    const data = await db_apis.read_upcomming_events(req, res);
+    const data = await db_apis.read_upcoming_events(req, res);
     res.json(data);
   } catch (err) {
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });
@@ -70,6 +70,7 @@ router.get("/ongoing-events", async (req, res) => {
     const data = await db_apis.read_ongoing_events(req, res);
     res.json(data);
   } catch (err) {
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });
@@ -79,12 +80,8 @@ router.get("/past-events", async (req, res) => {
     const data = await db_apis.read_past_events();
     res.json(data);
   } catch (err) {
+    res.status(500).json({ error: "Something went wrong" });
     console.log(err);
   }
 });
-
-// For Future "If events are organized by cu"
-// router.get('our-events',(req,res)=>{
-// })
-
 module.exports = router;

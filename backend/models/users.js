@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const mailer = require("../controllers/mailer");
 
-//-----------------------------------------------------END OF IMPORTS--------------------------------------------//
+//-----------------------------------------------------END OF
+// IMPORTS--------------------------------------------//
 
-//------------------------------------------------------USER SCHEMA----------------------------------------------//
+//------------------------------------------------------USER
+// SCHEMA----------------------------------------------//
 const userSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -47,9 +48,11 @@ const userSchema = mongoose.Schema({
   },
 });
 
-//-----------------------------------------------------END OF USER SCHEMA------------------------------------//
+//-----------------------------------------------------END OF USER
+// SCHEMA------------------------------------//
 
-//-------------------------------------------------------DB MIDDLEWARES--------------------------------------//
+//-------------------------------------------------------DB
+// MIDDLEWARES--------------------------------------//
 userSchema.pre("save", async function (next) {
   // hashing the password
   if (this.isModified("password")) {
@@ -60,11 +63,13 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-//-------------------------------------------------------END OF DB MIDDLEWARES-------------------------------//
+//-------------------------------------------------------END OF DB
+// MIDDLEWARES-------------------------------//
 
-//----------------------------------------------------------DB METHODS----------------------------------------//
+//----------------------------------------------------------DB
+// METHODS----------------------------------------//
 
-//Mail varification Methods
+// Mail varification Methods
 userSchema.methods.send_verification = async function (req, res) {
   try {
     await mailer.send_verification(
@@ -79,7 +84,8 @@ userSchema.methods.send_verification = async function (req, res) {
     return false;
   }
 };
-//-------------------------------------------------------END DB METHODS----------------------------------------//
+//-------------------------------------------------------END DB
+// METHODS----------------------------------------//
 
 const user = new mongoose.model("User", userSchema);
 module.exports = user;

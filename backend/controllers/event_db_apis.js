@@ -1,10 +1,11 @@
-const mongoose = require("mongoose");
 const Event = require("../models/events");
-//------------------------------------------------END OF IMPORTS----------------------------//
+//------------------------------------------------END OF
+// IMPORTS----------------------------//
 // This Route must be protected
 // Auth pending
 
-//-----------------------------------------------EVENT DATABASE APIs--------------------------//
+//-----------------------------------------------EVENT DATABASE
+// APIs--------------------------//
 exports.insert_event = async (req, res) => {
   try {
     const temp_data = req.body;
@@ -35,13 +36,11 @@ exports.read_ongoing_events = async (req, res) => {
       ],
     });
     return data;
-  } catch (err) {
-    console.log(data);
-  }
+  } catch (err) {}
 };
 
-// API for upcomming events
-exports.read_upcomming_events = async () => {
+// API for upcoming events
+exports.read_upcoming_events = async () => {
   try {
     const data = await Event.find({ date_start: { $gt: Date.now() } });
     return data;
@@ -59,5 +58,5 @@ exports.read_past_events = async () => {
     console.log(err);
   }
 };
-//----------------------------------END OF EVENT DATABASE APIs----------------------------------------//
-
+//----------------------------------END OF EVENT DATABASE
+// APIs----------------------------------------//

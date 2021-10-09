@@ -1,10 +1,10 @@
-const { JsonWebTokenError } = require("jsonwebtoken");
 const User = require("../models/users");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-//-------------------------------------END OF IMPORTS--------------------------------------//
+//-------------------------------------END OF
+// IMPORTS--------------------------------------//
 
-//--------------------------------USER REGISTRATION VIA EMAIL------------------------------//
+//--------------------------------USER REGISTRATION VIA
+// EMAIL------------------------------//
 // to add new user data to DB(registration)
 exports.register = async (req, res) => {
   const temp_data = req.body;
@@ -42,9 +42,11 @@ exports.register = async (req, res) => {
     res.status(500).res({ message: "Something went wrong" });
   }
 };
-//---------------------------------------END OF USER REGISTRATION VIA EMAIL-----------------------------//
+//---------------------------------------END OF USER REGISTRATION VIA
+// EMAIL-----------------------------//
 
-//---------------------------------------API TO VARIFY USER EMAIL REQUEST-------------------------------//
+//---------------------------------------API TO VARIFY USER EMAIL
+// REQUEST-------------------------------//
 exports.verify_mail = async (req, res) => {
   try {
     const user = await User.findOne({ mailtoken: req.query.token });
@@ -61,4 +63,5 @@ exports.verify_mail = async (req, res) => {
     res.send("Something went wrong");
   }
 };
-//---------------------------------------END API TO VARIFY USER EMAIL REQUEST-------------------------------//
+//---------------------------------------END API TO VARIFY USER EMAIL
+// REQUEST-------------------------------//
