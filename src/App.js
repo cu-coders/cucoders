@@ -53,7 +53,6 @@ import Security from "components/resources/hacking/index.js";
 import Language from "components/resources/language/index.js";
 import Mobile from "components/resources/mobile/index.js";
 import Open from "components/resources/open/index.js";
-import Resources from "components/resources/resources.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
