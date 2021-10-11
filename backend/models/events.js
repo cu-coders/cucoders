@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const fs = require("fs");
 //--------------------------------END OF
-//IMPORTS---------------------------------------//
+// IMPORTS---------------------------------------//
 
 //--------------------------------EVENT
-//SCHEMA-----------------------------------------//
+// SCHEMA-----------------------------------------//
 const eventSchema = mongoose.Schema({
   imageSrc: {
     type: String,
@@ -52,10 +52,10 @@ const eventSchema = mongoose.Schema({
   },
 });
 //--------------------------------END EVENT
-//SCHEMA-----------------------------------------//
+// SCHEMA-----------------------------------------//
 
 //----------------------------------DB
-//MIDDLEWARES-----------------------------------------//
+// MIDDLEWARES-----------------------------------------//
 // For invalid Date range
 eventSchema.pre("save", function (next) {
   const start = this.date_start;
@@ -76,6 +76,6 @@ eventSchema.pre("save", function (next) {
   }
 });
 //--------------------------------END OF DB
-//MIDDLEWARES-----------------------------------------//
+// MIDDLEWARES-----------------------------------------//
 const Event = new mongoose.model("event", eventSchema);
 module.exports = Event;

@@ -62,6 +62,7 @@ import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
 import Login from "pages/Login.js";
+import LostPassword from "pages/lostPassword.js";
 import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";
@@ -73,10 +74,10 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
-  //STAES-------------------------//
+  // STAES-------------------------//
   const [isVarified, updateIsVarified] = useState(false);
   //-----------------------------------------CHECK
-  //AUTHENTICATIO------------------------//
+  // AUTHENTICATIO------------------------//
   useEffect(() => {
     axios
       .get("https://cuchapter.herokuapp.com/auth/user/", {

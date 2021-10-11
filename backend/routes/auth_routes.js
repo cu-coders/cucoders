@@ -6,7 +6,7 @@ const passportConfig = require("../configs/passport_config"); // for passport fu
 const router = express.Router();
 
 //----------------------------------------END OF
-//IMPORT--------------------------------------------//
+// IMPORT--------------------------------------------//
 
 //------------------------------------------MIDDLEWARES--------------------------------------------//
 
@@ -14,7 +14,7 @@ router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 //---------------------------------------END OF
-//MIDDLEWARES----------------------------------------//
+// MIDDLEWARES----------------------------------------//
 
 // to register new users
 router.post("/signup", (req, res) => {
@@ -22,7 +22,7 @@ router.post("/signup", (req, res) => {
 });
 
 //-----------------------------------GOOGLE AUTHENTICATION
-//ROUTES--------------------------------//
+// ROUTES--------------------------------//
 router.get(
   "/google",
   passport.authenticate("google", {
@@ -36,17 +36,17 @@ router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
   res.redirect(process.env.HOME_PAGE);
 });
 //-----------------------------------END OF GOOGLE AUTHENTICATION
-//ROUTES-------------------------//
+// ROUTES-------------------------//
 
 //--------------------------------------- GITHUB AUTHENTICATION
-//ROUTES---------------------------//
+// ROUTES---------------------------//
 
 router.get("/github", passport.authenticate("github"));
 router.get("/github/redirect/", passport.authenticate("github"), (req, res) => {
   res.redirect(process.env.HOME_PAGE);
 });
 //----------------------------------- END OF GITHUB AUTHENTICATION
-//ROUTES------------------------//
+// ROUTES------------------------//
 
 // to verify emails of new users
 router.get("/verify", (req, res) => {
@@ -68,7 +68,7 @@ router.get("/user", (req, res) => {
 });
 
 //--------------------------------------EMAIL LOGIN AND LOGOUT
-//ROUTES---------------------------------//
+// ROUTES---------------------------------//
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", function (err, user, info) {
     if (err) {
@@ -91,5 +91,5 @@ router.get("/logout", (req, res) => {
   res.redirect(process.env.LOGIN_PAGE);
 });
 //------------------------------------END OF EMAIL LOGIN AND LOGOUT
-//ROUTES----------------------------------------//
+// ROUTES----------------------------------------//
 module.exports = router;

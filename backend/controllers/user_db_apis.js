@@ -1,10 +1,10 @@
 const User = require("../models/users");
 const bcrypt = require("bcrypt");
 //-------------------------------------END OF
-//IMPORTS--------------------------------------//
+// IMPORTS--------------------------------------//
 
 //--------------------------------USER REGISTRATION VIA
-//EMAIL------------------------------//
+// EMAIL------------------------------//
 // to add new user data to DB(registration)
 exports.register = async (req, res) => {
   const temp_data = req.body;
@@ -43,10 +43,10 @@ exports.register = async (req, res) => {
   }
 };
 //---------------------------------------END OF USER REGISTRATION VIA
-//EMAIL-----------------------------//
+// EMAIL-----------------------------//
 
 //---------------------------------------API TO VARIFY USER EMAIL
-//REQUEST-------------------------------//
+// REQUEST-------------------------------//
 exports.verify_mail = async (req, res) => {
   try {
     const user = await User.findOne({ mailtoken: req.query.token });
@@ -64,4 +64,4 @@ exports.verify_mail = async (req, res) => {
   }
 };
 //---------------------------------------END API TO VARIFY USER EMAIL
-//REQUEST-------------------------------//
+// REQUEST-------------------------------//

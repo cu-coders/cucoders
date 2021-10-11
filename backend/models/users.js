@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 const mailer = require("../controllers/mailer");
 
 //-----------------------------------------------------END OF
-//IMPORTS--------------------------------------------//
+// IMPORTS--------------------------------------------//
 
 //------------------------------------------------------USER
-//SCHEMA----------------------------------------------//
+// SCHEMA----------------------------------------------//
 const userSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -49,10 +49,10 @@ const userSchema = mongoose.Schema({
 });
 
 //-----------------------------------------------------END OF USER
-//SCHEMA------------------------------------//
+// SCHEMA------------------------------------//
 
 //-------------------------------------------------------DB
-//MIDDLEWARES--------------------------------------//
+// MIDDLEWARES--------------------------------------//
 userSchema.pre("save", async function (next) {
   // hashing the password
   if (this.isModified("password")) {
@@ -64,10 +64,10 @@ userSchema.pre("save", async function (next) {
 });
 
 //-------------------------------------------------------END OF DB
-//MIDDLEWARES-------------------------------//
+// MIDDLEWARES-------------------------------//
 
 //----------------------------------------------------------DB
-//METHODS----------------------------------------//
+// METHODS----------------------------------------//
 
 // Mail varification Methods
 userSchema.methods.send_verification = async function (req, res) {
@@ -85,7 +85,7 @@ userSchema.methods.send_verification = async function (req, res) {
   }
 };
 //-------------------------------------------------------END DB
-//METHODS----------------------------------------//
+// METHODS----------------------------------------//
 
 const user = new mongoose.model("User", userSchema);
 module.exports = user;
