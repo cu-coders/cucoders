@@ -62,7 +62,6 @@ import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
 import Login from "pages/Login.js";
-import LostPassword from "pages/lostPassword.js";
 import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";

@@ -66,12 +66,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://cuchapter.herokuapp.com/auth/google",
+      url: "https://main-cu-coders.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://cuchapter.herokuapp.com/auth/github",
+      url: "https://main-cu-coders.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -95,7 +95,7 @@ export default ({
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("https://cuchapter.herokuapp.com/auth/login/", credentials, {
+      .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
       })
       .then((res) => {
