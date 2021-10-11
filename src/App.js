@@ -29,7 +29,7 @@ import Present from "components/events/present.js";
 import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
 import Upcoming from "components/events/upcoming.js";
-import Upload from "components/forms/upload.js"
+import Upload from "components/forms/upload.js";
 import Error from "components/hero/error.js";
 import Back from "components/job/openings/backend/backend.js";
 import Editorial from "components/job/openings/editorialist/editorialist.js";
@@ -66,10 +66,10 @@ import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
-import React, {useEffect, useState} from "react";
-import {Redirect} from "react-router";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {css} from "styled-components/macro"; //eslint-disable-line
+import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
@@ -79,17 +79,17 @@ export default function App() {
   // AUTHENTICATIO------------------------//
   useEffect(() => {
     axios
-        .get("https://cuchapter.herokuapp.com/auth/user/", {
-          withCredentials : true,
-        })
-        .then((res) => {
-          if (res.data.username) {
-            updateIsVarified(true);
-            // alert(res.data.username)
-          } else {
-            updateIsVarified(false);
-          }
-        });
+      .get("https://cuchapter.herokuapp.com/auth/user/", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.username) {
+          updateIsVarified(true);
+          // alert(res.data.username)
+        } else {
+          updateIsVarified(false);
+        }
+      });
   }, []);
   // return <AnimationRevealPage disabled></AnimationRevealPage>;
   return (
