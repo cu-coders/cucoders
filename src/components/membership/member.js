@@ -1,25 +1,29 @@
-import React from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
-//eslint-disable-next-line
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
-
-import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
-
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import Footer from "components/footers/footers.js";
 import Header from "components/headers/light.js";
 import Apply from "components/membership/apply.js";
-import Footer from "components/footers/footers.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase
+} from "components/misc/Headings.js";
+import {SectionDescription} from "components/misc/Typography.js";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import {
+  ReactComponent as SvgDecoratorBlob3
+} from "images/svg-decorator-blob-3.svg";
+import React from "react";
+import styled from "styled-components";
+// eslint-disable-next-line
+import {css} from "styled-components/macro"; //eslint-disable-line
+import tw from "twin.macro";
+
 const Container = tw.div`relative`;
 
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
 `;
-const Subheading = tw(SubheadingBase)`mb-4`;
-const Heading = tw(SectionHeading)`w-full`;
-const Description = tw(SectionDescription)`w-full text-center`;
+const Subheading = tw(SubheadingBase) `mb-4`;
+const Heading = tw(SectionHeading) `w-full`;
+const Description = tw(SectionDescription) `w-full text-center`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`
 
@@ -49,11 +53,17 @@ const Card = styled.div`
   }
 `;
 
-const DecoratorBlob = styled(SvgDecoratorBlob3)`
+const DecoratorBlob = styled(SvgDecoratorBlob3) `
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
 
-export default ({ cards = null, heading = "Why Join Us", subheading = "Membership", description = "You are not a product of your circumstances. You are a product of your decisions." }) => {
+export default ({
+  cards = null,
+  heading = "Why Join Us",
+  subheading = "Membership",
+  description =
+      "You are not a product of your circumstances. You are a product of your decisions."
+}) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
    *  1) title - the title of the card
