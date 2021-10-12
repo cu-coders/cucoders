@@ -20,16 +20,16 @@ export default () => {
     <AnimationRevealPage>
       <Header />
       <MainFeature1
-        subheading={<Subheading>About CU-Coders</Subheading>}
+        subheading={<Subheading>About Us</Subheading>}
         heading="We are a CodeChef Campus Chapter."
         imageSrc="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         primaryButtonUrl="https://www.codechef.com/campus_chapter/what_our_chapters_do"
       />
       <MainFeature1
         subheading={<Subheading>Our Vision</Subheading>}
-        heading="We aim to disrupt the design space."
+        heading="To uplift all our member to becoming better Coders."
         buttonRounded={false}
-        description = "Our vision is to give opportunity to new developers to the real life game changer world!!"
+        description = "Our vision is to give opportunity to new developers to the real life game changer world making them better problem solvers and hence, better coders."
         primaryButtonText="Contact Us"
         imageSrc="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=768&q=80"
         textOnLeft={false}
@@ -37,23 +37,23 @@ export default () => {
       />
       <Features
         subheading={<Subheading>Our Values</Subheading>}
-        heading="We follow these."
-        description="We have value to care you and provide you with the best coding experience that you ever had!!"
+        heading="Give++"
+        description="We have a commitment to keep on giving back to the community continuously incrementally."
         cards={[
           {
             imageSrc: SupportIconImage,
-            title: "24/7 Support",
-            description: "To give without any reward, or any notice, has a special quality of its own."
+            title: "24/7 Support!",
+            description: "To give without any reward, or any notice, is a special quality of its own. We always have someone eager to solve your issues anytime, anywhere."
           },
           {
             imageSrc: ShieldIconImage,
             title: "Strong Teams",
-            description: "Individual commitment to a group effort--that is what makes a team work, a company work, a society work, a civilization work."
+            description: "Contributions and Collaborations are our core values. We work together in a team providing you a support to lean on."
           },
           {
             imageSrc: CustomerLoveIconImage,
             title: "Member Satisfaction",
-            description: "A member talking about their experience with you is worth ten times that which you write or say about yourself."
+            description: "A member talking about their experience with you is worth ten times that what you write or say about yourself, and our members are never unsatisfied!"
           },
         ]}
         linkText=""

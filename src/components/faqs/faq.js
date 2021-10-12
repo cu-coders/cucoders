@@ -44,19 +44,20 @@ export default ({
   description = "And we have got answers to all of them.",
   faqs = [
     {
-      question: "Is membership is free ?",
+      question: "What is the membership in CodeChef CU Chapter?",
       answer:
-        "Yes, it is, for being a community member you've to join our WhatsApp or Instgram account. And for being a official member there will be some criteria for selection as official members."
+        "We have two types memberships in CodeChef CU Chapter: One is Community Membership for those who want to learn and be part of this amazing community & second is Official Membership for people wanting hands-on working experience in their favourite domains."
     },
     {
-      question: "Do you have 2 membership ?",
+      question: "Is the membership free?",
       answer:
-        "Yes, we have two membership in CU-Coders, One is community membership & second is official membership."
+        "Absolutely yes. We strongly believe that the most precious transaction we can have here at the CodeChef CU Chapter is that of knowledge, experience, and creating an amazing envioronment for all developer. Although, for being a official member there will be some criteria for selection as official members, but even that is free of cost."
     },
+    
     {
       question: "What are the criteria of community membership & official membership?",
       answer:
-        "For community membership there is no criteria. But for official membership first criteria is resume and then according to candidate domain selection procedure can vary."
+        "For community membership there is no criteria other than a creative and inquisitive mind full of curiosity and and eager determination to make it big. But for official membership first criteria is resume and then according to candidate domain selection procedure can vary. But feel free to reach us."
     },
     {
       question: "Where can I reach you for support ?",
