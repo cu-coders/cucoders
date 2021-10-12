@@ -44,7 +44,7 @@ const CustomerCompany = tw.p`mt-1 text-sm text-gray-500`
 export default ({
   heading = "CU-Coders is a fast-growing campus chapter of CodeChef.",
   description = "We build a robust Competitive Programming culture and making it accessible to all not only in the field of Competitive Programming, we cover all domains of Computer Science from Design to Data Science.",
-  imageSrc = "https://images.unsplash.com/photo-1599997949628-019bbbe3752a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&h=512&q=80",
+  imageSrc = "https://images.unsplash.com/photo-1599997949628-019bbbe3752a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
   imageDecoratorBlob = true,
   primaryButtonUrl = "https://google.com",
   primaryButtonText = "Get Started",
