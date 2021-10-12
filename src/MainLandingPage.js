@@ -22,7 +22,7 @@ export default () => {
     <AnimationRevealPage>
       <Hero
         heading={<>CodeChef <HighlightedText>CU Chapter</HighlightedText></>}
-        description="Welcome to the official site of <b>CodeChef CU Chapter</b>. Get ready to become a better coder and learn from the best. There's definitely something for you here..."
+        description="Welcome to the official site of CodeChef CU Chapter. Get ready to become a better coder and learn from the best. There's definitely something for you here..."
         imageSrc="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         imageCss={imageCss}
         imageDecoratorBlob={true}
