@@ -15,7 +15,11 @@ const Header = tw.header`
   max-w-screen-xl mx-auto
 `;
 
-export const NavLinks = tw.div`inline-block`;
+export const NavLinks = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+`;
 
 /* hocus: stands for "on hover or focus"
  * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
