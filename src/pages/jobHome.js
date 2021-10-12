@@ -49,7 +49,7 @@ export default ({
   primaryButtonUrl = "https://google.com",
   primaryButtonText = "Get Started",
   buttonRounded = true,
-  features = ["Certificates", "Letter of Recommendation", "Internship opprtunity in Parallel Company"],
+  features = ["Certificates", "Letter of Recommendation", "Internship opprtunity in Parallel Company", "Opportunities to Network"],
   testimonial = {
     quote: "You can't always pick your family, but you can pick where you work.",
     customerName: "Ankit Raj",
