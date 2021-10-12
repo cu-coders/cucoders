@@ -47,7 +47,7 @@ export default ({
       Designed & Developed by <span tw="text-primary-500">Professionals.</span>
     </>
   ),
-  description = "For us, it’s about building a robust Competitive Programming culture and making it accessible to all. Let’s take a look at what our Chapters do to make this come alive.",
+  description = "CodeChef College Chapters are communities created to give a platform to students in a college to come up and learn from the best in the industry. To get a practical hands-on experience and to promote Problem Solving to become better developers.",
   primaryButtonText = "Learn More",
   primaryButtonUrl = "#",
   imageSrc = TeamIllustrationSrc,

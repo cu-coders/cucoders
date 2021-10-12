@@ -68,7 +68,7 @@ const DecoratorBlob2 = tw(
 export default ({
   subheading = "",
   heading = "Testimonials",
-  description = "Here are what some of our amazing members are saying about our hotels & tours.",
+  description = "Don't believe us? Here's what our members say:",
   testimonials = null,
   textOnLeft = false
 }) => {
@@ -93,7 +93,7 @@ export default ({
       profileImageSrc:
         "https://images.unsplash.com/photo-1600010995623-fc0e5487fa96?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
       quote:
-        "My experience as a CodeChef College Chapter has been amazing, unforgettable, and informative. I got exposure to managing events, holding sessions, and mentoring juniors.",
+        "My experience as a CodeChef CU Chapter has been amazing, unforgettable, and informative. I got exposure to managing events, holding sessions, and mentoring juniors.",
       customerName: "Anirudha M Agrawal",
       customerTitle: "Mentor, CSoC"
     }
