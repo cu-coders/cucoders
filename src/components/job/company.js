@@ -51,19 +51,19 @@ export default ({ cards = null, heading = "PERKS OF THE JOB"}) => {
 
   const defaultCards = [
     {
-      title: "Growth at CU-Coders",
-      description: "We want you to develop and learn. Every employee has the opportunity to grow in their role(s) at Brave through hands-on experience, paid learning and workshops."
+      title: "Growth",
+      description: "We want you to develop and learn. Every employee has the opportunity to grow in their role(s) at CodeChef CU Chapter through hands-on experience, paid learning and workshops."
     },
     {
       title: "Flexible Hours",
-      description: "As an club built on creativity, we want you at your best. That's why we work remotely on select days and even adjust our hours depending on life's impromptu moments."
+      description: "As a club built on creativity, we want you at your best. That's why we work remotely on select days and even let you adjust your hours depending on life's impromptu moments."
     },
     {
-      title: "Opprtunity",
+      title: "Opportunity",
       description: "We want you to get placed in some awesome company. Every employee has the opportunity to get internship in the parallel company."
     },
     {
-      title: "Employee Recognition",
+      title: "Employee Satisfaction",
       description: "A simple thank-you or compliment can change your day. It can even do something really incredible: actually make you happier."
     },
     {
@@ -72,7 +72,7 @@ export default ({ cards = null, heading = "PERKS OF THE JOB"}) => {
     },
     {
       title: "Irresistible Culture",
-      description: "At the risk of sounding cliche, we fight for culture at every turn. You won't find any cubicles, stuffy dress codes, or micro managers within these walls."
+      description: "At the risk of sounding cliche, we fight for culture at every turn. You won't find any cubicles, stuffy dress codes, or micro managers within these walls. But what you will find is enthusiasm, learning opportunities, and freedom to work."
     },
   ];
 

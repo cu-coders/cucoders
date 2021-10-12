@@ -46,7 +46,7 @@ const CardLinks = styled.div`
 export default ({
   heading = "Meet These Fine Folks.",
   subheading = "Our Team",
-  description = "None of us, including me, ever do great things. But we can all do small things, with great love, and together we can do something wonderful.",
+  description = "It is impossible to do great things alone. For doing something big, one needs a team where each individual is doing what he's best at. Here's our strong team, working to get you all what we promise.",
   cards = [
   {
       imageSrc: "https://images.unsplash.com/photo-1605808778078-b87c29cef305?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&h=512&q=80",
