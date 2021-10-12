@@ -3,17 +3,15 @@ import Header from "components/headers/light.js";
 import Apply from "components/membership/apply.js";
 import {
   SectionHeading,
-  Subheading as SubheadingBase
+  Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
-import {SectionDescription} from "components/misc/Typography.js";
+import { SectionDescription } from "components/misc/Typography.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import {
-  ReactComponent as SvgDecoratorBlob3
-} from "images/svg-decorator-blob-3.svg";
+import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
 import React from "react";
 import styled from "styled-components";
 // eslint-disable-next-line
-import {css} from "styled-components/macro"; //eslint-disable-line
+import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
 
 const Container = tw.div`relative`;
@@ -21,11 +19,11 @@ const Container = tw.div`relative`;
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
 `;
-const Subheading = tw(SubheadingBase) `mb-4`;
-const Heading = tw(SectionHeading) `w-full`;
-const Description = tw(SectionDescription) `w-full text-center`;
+const Subheading = tw(SubheadingBase)`mb-4`;
+const Heading = tw(SectionHeading)`w-full`;
+const Description = tw(SectionDescription)`w-full text-center`;
 
-const VerticalSpacer = tw.div`mt-10 w-full`
+const VerticalSpacer = tw.div`mt-10 w-full`;
 
 const Column = styled.div`
   ${tw`md:w-1/2 lg:w-1/3 max-w-sm`}
@@ -53,7 +51,7 @@ const Card = styled.div`
   }
 `;
 
-const DecoratorBlob = styled(SvgDecoratorBlob3) `
+const DecoratorBlob = styled(SvgDecoratorBlob3)`
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
 
@@ -61,8 +59,7 @@ export default ({
   cards = null,
   heading = "Why Join Us",
   subheading = "Membership",
-  description =
-      "You are not a product of your circumstances. You are a product of your decisions."
+  description = "You are not a product of your circumstances. You are a product of your decisions.",
 }) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
@@ -74,27 +71,33 @@ export default ({
   const defaultCards = [
     {
       title: "You’ll expand your resume.",
-      description: "Get a lot out of your involvement on campus while you're still a student, but the benefits don't stop once you graduate. The skills you develop and the experience you acquire add up to an enticing combination for hiring managers once you begin your job search."
+      description:
+        "Get a lot out of your involvement on campus while you're still a student, but the benefits don't stop once you graduate. The skills you develop and the experience you acquire add up to an enticing combination for hiring managers once you begin your job search.",
     },
     {
       title: "You’ll develop soft skills.",
-      description: "A great way to build your professional skills including leadership, teamwork, communication and prioritization. Here, you will be compelled to talk to others and get an opportunity to open up and get opportunities to prove yourself or improve yourself."
+      description:
+        "A great way to build your professional skills including leadership, teamwork, communication and prioritization. Here, you will be compelled to talk to others and get an opportunity to open up and get opportunities to prove yourself or improve yourself.",
     },
     {
       title: "Learn Teamwork.",
-      description: "Friendships form effortlessly when you share similar interests or passions with like-minded peers. In the world of code, collaboration and teamwork is integral. Being a member, you will get immense opportunities to get the best out of your time."
+      description:
+        "Friendships form effortlessly when you share similar interests or passions with like-minded peers. In the world of code, collaboration and teamwork is integral. Being a member, you will get immense opportunities to get the best out of your time.",
     },
     {
       title: "Networking opportunities.",
-      description: "Congregate around a common cause, interest or course of study at a time when social connections are crucial. Get an opportunity to connect with the most influential, experienced and learned people in the domain of your interest."
+      description:
+        "Congregate around a common cause, interest or course of study at a time when social connections are crucial. Get an opportunity to connect with the most influential, experienced and learned people in the domain of your interest.",
     },
     {
       title: "You’ll have fun!",
-      description: "Successfully balance a full plate of academia and extracurricular activities come away from the experience with a stronger understanding of your capabilities. Being a part of the CodeChef CU Chapter will be thrilling at every step."
+      description:
+        "Successfully balance a full plate of academia and extracurricular activities come away from the experience with a stronger understanding of your capabilities. Being a part of the CodeChef CU Chapter will be thrilling at every step.",
     },
     {
       title: "Practical Learning",
-      description: "You’ll be able to use the skills you’ve learned in class. Build your professional skills including leadership, teamwork, communication and prioritization."
+      description:
+        "You’ll be able to use the skills you’ve learned in class. Build your professional skills including leadership, teamwork, communication and prioritization.",
     },
   ];
 
@@ -102,32 +105,35 @@ export default ({
 
   return (
     <>
-    <AnimationRevealPage>
-    <Header />
-    <Container>
-      <ThreeColumnContainer>
-        {subheading && <Subheading>{subheading}</Subheading>}
-        <Heading>{heading}</Heading>
-        {description && <Description>{description}</Description>}
-        <VerticalSpacer />
-        {cards.map((card, i) => (
-          <Column key={i}>
-            <Card>
-              <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
-                  {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                </p>
-              </span>
-            </Card>
-          </Column>
-        ))}
-      </ThreeColumnContainer>
-      <DecoratorBlob />
-    </Container>
-     <Apply />
-     <Footer />
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header />
+        <Container>
+          <ThreeColumnContainer>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            <Heading>{heading}</Heading>
+            {description && <Description>{description}</Description>}
+            <VerticalSpacer />
+            {cards.map((card, i) => (
+              <Column key={i}>
+                <Card>
+                  <span className="textContainer">
+                    <span className="title">
+                      {card.title || "Fully Secure"}
+                    </span>
+                    <p className="description">
+                      {card.description ||
+                        "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
+                    </p>
+                  </span>
+                </Card>
+              </Column>
+            ))}
+          </ThreeColumnContainer>
+          <DecoratorBlob />
+        </Container>
+        <Apply />
+        <Footer />
+      </AnimationRevealPage>
     </>
   );
 };
