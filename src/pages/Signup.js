@@ -109,7 +109,6 @@ export default ({
           if (msg === "An account with this email already exists") {
             message.error({
               content: res.data.message,
-              duration: 5,
               style: {
                 style: {
                   margin: "10px auto",
@@ -120,7 +119,6 @@ export default ({
           if (msg === "Registered, please visit your email") {
             message.success({
               content: res.data.message,
-              duration: 5,
               style: {
                 style: {
                   margin: "10px auto",
@@ -133,7 +131,6 @@ export default ({
         setLoading(false);
         message.error({
         content: err.message,
-        duration: 5,
         style: {
           style: {
             margin: "10px auto",
