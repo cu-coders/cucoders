@@ -132,7 +132,7 @@ export default ({
                   ))}
                 </SocialButtonsContainer>
                 <DividerTextContainer>
-                  <DividerText>Or Sign in with your e-mail</DividerText>
+                  <DividerText><span style={{backgroundColor: "#ffffff", padding: "0 5px"}}>Or Sign in with your e-mail</span></DividerText>
                 </DividerTextContainer>
                 <Form onSubmit={submit}>
                   <Input
@@ -152,19 +152,35 @@ export default ({
                     <span className="text">{submitButtonText}</span>
                   </SubmitButton>
                 </Form>
-                <p tw="mt-6 text-xs text-gray-600 text-center">
+                <p
+                  tw="mt-6 text-xs text-gray-600 text-center"
+                  style={{ color: "rgba(113,128,150,1)", textAlign: "center", fontSize: "14px", marginTop: "15px" }}
+                >
                   <a
                     href={forgotPasswordUrl}
-                    tw="border-b border-gray-500 border-dotted"
+                    // tw="border-b border-gray-500 border-dotted"
+                    style={{
+                      borderBottom: "1px",
+                      borderColor: "rgba(113,128,150,1)",
+                      borderBottomStyle: "dotted",
+                    }}
                   >
                     Forgot Password ?
                   </a>
                 </p>
-                <p tw="mt-8 text-sm text-gray-600 text-center">
+                <p
+                  tw="mt-8 text-sm text-gray-600 text-center"
+                  style={{ color: "rgba(113,128,150,1)", textAlign: "center", marginTop: "22px" }}
+                >
                   Dont have an account?{" "}
                   <a
                     href={signupUrl}
                     tw="border-b border-gray-500 border-dotted"
+                    style={{
+                      borderBottom: "1px",
+                      borderColor: "rgba(113,128,150,1)",
+                      borderBottomStyle: "dotted",
+                    }}
                   >
                     Sign Up
                   </a>
