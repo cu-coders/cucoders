@@ -1,13 +1,43 @@
+# CodeChef CU Chapter Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![CodeChef CU Chapter](./public/Banner.png)
+
+## About CodeChef CU Chapter
+CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now.
+
+## About Project
+This is the active repository of CodeChef CU Chapter website written in JavaScript using the React.JS library for frontend and Node.JS for the backend. The project uses Tailwind CSS and is created and maintained by CodeChef CU Chapter.
+
+### Pages
+The project has the following pages:
+* [Home](https://main.cuchapter.tech): This is the main landing page of the website holding together all the content on the website.
+* [About](https://main.cuchapter.tech/About): To give information to the user about the Chapter, vision, mission, values and opportunities available.
+* [Team](https://main.cuchapter.tech/Team): To give information of the Team of CodeChef and their contact information.
+* [Events](https://main.cuchapter.tech/Events): To give information about past events, upcoming events and ongoing events.
+* [Projects](https://main.cuchapter.tech/Projects): Home page for the collection of all the projects created by members of the CodeChef CU Chapter Community.
+* [Resources](https://main.cuchapter.tech/Resources): Providing a collection of resources to the user for various domains of Computer Science in one place.
+* [Careers](https://main.cuchapter.tech/Careers): Job postings and opportunities in CodeChef CU Chapter.
+* [Membership](https://main.cuchapter.tech/Member): Information about membership in CodeChef CU Chapter and call-to-action to be part of the community.
+* [Contact Us](https://main.cuchapter.tech/Contact): Contact page for user to send queries to admin
+* [Login](https://main.cuchapter.tech/login): Login page.
+
+## Contribution Guidelines
+1. Create an issue using the templates provided answering each of the questions in the template.
+2. The admins and/or will assign the issue accordingly. To get the issue assigned, kindly communicate with the admin.
+3. If assigned, fork the repository and work accordingly.
+4. Once the changes have been made, commit to forked repository
+5. Open Pull Request. Note that the pull request must follow the following:
+    * PR must be referenced to the respective issue.
+    * PR must pass all tests.
+
+By contributing in the site you agree to the privacy policies and terms of the project.
+
 
 ## Available Scripts
-
 In the project directory, you can run:
-
 ### `yarn start`
-
 Runs the app in the development mode.<br />
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
@@ -37,33 +67,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
