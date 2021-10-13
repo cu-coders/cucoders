@@ -1,12 +1,14 @@
-# CodeChef CU Chapter Web App
+# CodeChef CU Chapter
 
 ![CodeChef CU Chapter](./public/Banner.png)
 
 ## About CodeChef CU Chapter
-CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now.
+CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now. We are a community which aim to instill problem solving aptitude and promote competitive programming while also giving development exposure to all the members.
+
+For more information, visit [our official site](https://main.cuchapter.tech)
 
 ## About Project
-This is the active repository of CodeChef CU Chapter website written in JavaScript using the React.JS library for frontend and Node.JS for the backend. The project uses Tailwind CSS and is created and maintained by CodeChef CU Chapter.
+This is the active repository of CodeChef CU Chapter website written in JavaScript using the React.JS library for frontend and Node.JS for the backend. The project is created and maintained by CodeChef CU Chapter. The following are the major pages of the website.
 
 ### Pages
 The project has the following pages:
