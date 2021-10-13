@@ -1,4 +1,8 @@
 import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+import "antd/dist/antd.css";
+import { message } from "antd";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -86,7 +90,8 @@ export default ({
     email: "",
     password: "",
   });
-  const [message, updateMessage] = useState("");
+  // const [message, updateMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     updateData({ ...user_data, [e.target.name]: e.target.value });
@@ -94,11 +99,39 @@ export default ({
 
   const submit = (e) => {
     e.preventDefault();
-    axios.post("https://main-cu-coders.herokuapp.com/auth/signup", user_data).then((res) => {
-      if (res.data.message) {
-        updateMessage(res.data.message);
-      }
-    });
+    setLoading(true);
+    axios
+      .post("https://main-cu-coders.herokuapp.com/auth/signup", user_data)
+      .then((res) => {
+        setLoading(false);
+        if (res.data.message) {
+          const msg = res.data.message;
+          console.log(msg);
+          if (msg === "An account with this email already exists") {
+            console.log("Executed");
+            message.error({
+              content: res.data.message,
+              duration: 5,
+              style: {
+                style: {
+                  margin: "10px auto",
+                },
+              },
+            });
+          }
+          if (msg === "Registered, please visit your email") {
+            message.success({
+              content: res.data.message,
+              duration: 5,
+              style: {
+                style: {
+                  margin: "10px auto",
+                },
+              },
+            });
+          }
+        }
+      });
   };
 
   // Redirecting to home page is already logged in
@@ -136,6 +169,20 @@ export default ({
                     </span>
                   </DividerText>
                 </DividerTextContainer>
+                {loading && (
+                  <Loader
+                    type="TailSpin"
+                    color="#00BFFF"
+                    height={80}
+                    width={80}
+                    style={{
+                      zIndex: "2",
+                      width: "fit-content",
+                      position: "absolute",
+                      left: "46%",
+                    }}
+                  />
+                )}
                 <Form onSubmit={submit}>
                   <Input
                     type="text"
@@ -161,7 +208,7 @@ export default ({
                     onChange={handleChange}
                     required
                   />
-                  {message ? (
+                  {/* {message ? (
                     <div
                       style={{
                         color: "red",
@@ -173,7 +220,7 @@ export default ({
                     </div>
                   ) : (
                     ""
-                  )}
+                  )} */}
                   <Input
                     type="password"
                     name="password"

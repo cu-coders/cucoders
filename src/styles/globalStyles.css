@@ -15,3 +15,17 @@
     transform: scale(0);
     /* transform: translateY(-150%); */
 }
+.ant-message-custom-content{
+    display: flex;
+    vertical-align: middle;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+.ant-message-custom-content .anticon{
+    display: flex;
+    align-items: center;
+}
+.ant-message-notice-content{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+    border-radius: 10px !important;
+}
