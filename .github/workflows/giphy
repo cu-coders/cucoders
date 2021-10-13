@@ -1,0 +1,14 @@
+name: "Giphy"
+
+on: 
+  issue_comment:
+    types: [created]
+
+jobs:
+  giphy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: mkramb/giphy-action@master
+      with:
+        giphy-secret: ${{ secrets.FUNNY }}
+        github-secret: ${{ secrets.GH_TOKEN }}
