@@ -128,7 +128,13 @@ export default ({
                   ))}
                 </SocialButtonsContainer>
                 <DividerTextContainer>
-                  <DividerText>Or Sign up with your e-mail</DividerText>
+                  <DividerText>
+                    <span
+                      style={{ backgroundColor: "#ffffff", padding: "0 5px" }}
+                    >
+                      Or Sign up with your e-mail
+                    </span>
+                  </DividerText>
                 </DividerTextContainer>
                 <Form onSubmit={submit}>
                   <Input
@@ -180,28 +186,53 @@ export default ({
                     <SubmitButtonIcon className="icon" />
                     <span className="text">{submitButtonText}</span>
                   </SubmitButton>
-                  <p tw="mt-6 text-xs text-gray-600 text-center">
+                  <p
+                    style={{
+                      color: "rgba(113,128,150,1)",
+                      textAlign: "center",
+                      fontSize: "14px",
+                      marginTop: "15px",
+                    }}
+                  >
                     I agree to abide by cuchapter's{" "}
                     <a
                       href={tosUrl}
-                      tw="border-b border-gray-500 border-dotted"
+                      style={{
+                        borderBottom: "1px",
+                        borderColor: "rgba(113,128,150,1)",
+                        borderBottomStyle: "dotted",
+                      }}
                     >
                       Terms of Service
                     </a>{" "}
                     and its{" "}
                     <a
                       href={privacyPolicyUrl}
-                      tw="border-b border-gray-500 border-dotted"
+                      style={{
+                        borderBottom: "1px",
+                        borderColor: "rgba(113,128,150,1)",
+                        borderBottomStyle: "dotted",
+                      }}
                     >
                       Privacy Policy
                     </a>
                   </p>
 
-                  <p tw="mt-8 text-sm text-gray-600 text-center">
+                  <p
+                    style={{
+                      color: "rgba(113,128,150,1)",
+                      textAlign: "center",
+                      marginTop: "22px",
+                    }}
+                  >
                     Already have an account?{" "}
                     <a
                       href={signInUrl}
-                      tw="border-b border-gray-500 border-dotted"
+                      style={{
+                        borderBottom: "1px",
+                        borderColor: "rgba(113,128,150,1)",
+                        borderBottomStyle: "dotted",
+                      }}
                     >
                       Sign In
                     </a>
