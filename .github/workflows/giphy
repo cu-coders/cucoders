@@ -11,4 +11,4 @@ jobs:
     - uses: mkramb/giphy-action@master
       with:
         giphy-secret: ${{ secrets.FUNNY }}
-        github-secret: ${{ secrets.GH_TOKEN }}
+        github-secret: ${{ secrets.G_TOKEN }}
