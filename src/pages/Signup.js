@@ -106,12 +106,9 @@ export default ({
         setLoading(false);
         if (res.data.message) {
           const msg = res.data.message;
-          console.log(msg);
           if (msg === "An account with this email already exists") {
-            console.log("Executed");
             message.error({
               content: res.data.message,
-              duration: 5,
               style: {
                 style: {
                   margin: "10px auto",
@@ -122,7 +119,6 @@ export default ({
           if (msg === "Registered, please visit your email") {
             message.success({
               content: res.data.message,
-              duration: 5,
               style: {
                 style: {
                   margin: "10px auto",
@@ -131,6 +127,16 @@ export default ({
             });
           }
         }
+      }).catch((err) => {
+        setLoading(false);
+        message.error({
+        content: err.message,
+        style: {
+          style: {
+            margin: "10px auto",
+          },
+        },
+      })
       });
   };
 
@@ -208,19 +214,6 @@ export default ({
                     onChange={handleChange}
                     required
                   />
-                  {/* {message ? (
-                    <div
-                      style={{
-                        color: "red",
-                        fontSize: "12px",
-                        textAlign: "left",
-                      }}
-                    >
-                      {message}
-                    </div>
-                  ) : (
-                    ""
-                  )} */}
                   <Input
                     type="password"
                     name="password"
