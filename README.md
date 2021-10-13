@@ -1,16 +1,36 @@
-# CodeChef CU Chapter
+<p align="center">
+<h1 align="center"> CodeChef CU Chapter </h1>
+</p>
 
 ![CodeChef CU Chapter](./public/Banner.png)
+<p align="center">
+<a href="https://github.com/cu-coders/cucoders/issues">
+   <img alt="Issues" src="https://img.shields.io/github/issues/cu-coders/cucoders?color=0088ff" />
+</a>
 
-## About CodeChef CU Chapter
+<a href="https://github.com/cu-coders/cucoders/pulls">
+   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=0088ff" />
+</a>
+</p>
+
+## Table of Content
+* [About CodeChef CU Chapter](#About)
+* [About the Project](#AboutProject)
+* [Pages](#Pages)
+* [Technologies](#Technologies)
+* [Contribution guidelines](#Contribution)
+* [Deployment](#Deployment)
+* [Setup](#Setup)
+
+## About CodeChef CU Chapter<a name="About"></a>
 CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now. We are a community which aim to instill problem solving aptitude and promote competitive programming while also giving development exposure to all the members.
 
 For more information, visit [our official site](https://main.cuchapter.tech)
 
-## About Project
+## About Project<a name="AboutProject"></a>
 This is the active repository of CodeChef CU Chapter website written in JavaScript using the React.JS library for frontend and Node.JS for the backend. The project is created and maintained by CodeChef CU Chapter. The following are the major pages of the website.
 
-### Pages
+### Pages<a name="Pages"></a>
 The project has the following pages:
 * [Home](https://main.cuchapter.tech): This is the main landing page of the website holding together all the content on the website.
 * [About](https://main.cuchapter.tech/About): To give information to the user about the Chapter, vision, mission, values and opportunities available.
@@ -23,7 +43,11 @@ The project has the following pages:
 * [Contact Us](https://main.cuchapter.tech/Contact): Contact page for user to send queries to admin
 * [Login](https://main.cuchapter.tech/login): Login page.
 
-## Contribution Guidelines
+## Technologies
+### `JavaScript` `HTML` `CSS` `ReactJS` `NodeJS`
+
+
+## Contribution Guidelines<a name="Contribution"></a>
 1. Create an issue using the templates provided answering each of the questions in the template.
 2. The admins and/or will assign the issue accordingly. To get the issue assigned, kindly communicate with the admin.
 3. If assigned, fork the repository and work accordingly.
@@ -34,9 +58,12 @@ The project has the following pages:
 
 By contributing in the site you agree to the privacy policies and terms of the project.
 
+## Deployment<a name="Deployment"></a>
+The entire project is deployed at [main.cuchapter.tech](https://main.cuchapter.tech) using Heroku.
 
-## Available Scripts
-In the project directory, you can run:
+## Setup<a name="Setup"></a>
+In the project directory, you can use the following commands:
+
 ### `yarn start`
 Runs the app in the development mode.<br />
 
