@@ -5,7 +5,7 @@ on:
     types: [opened]
 jobs:
   comment:
-    if: github.event_name == 'pull_request' || github_event_name == 'issues'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Add funny comment
