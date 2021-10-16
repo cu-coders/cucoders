@@ -112,7 +112,7 @@ export default ({
         <TestimonialsContainer>
           <Testimonials>
             <Testimonial>
-              <TestimonialImageSlider arrows={false} ref={setImageSliderRef} asNavFor={textSliderRef} fade={true}>
+              <TestimonialImageSlider arrows={false} ref={setImageSliderRef} asNavFor={textSliderRef} fade>
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
                     <Image imageSrc={testimonial.imageSrc} />
@@ -129,7 +129,7 @@ export default ({
               </TestimonialImageSlider>
               <TextContainer textOnLeft={textOnLeft}>
                 <HeadingInfo tw="hidden lg:block" subheading={subheading} heading={heading} description={description} />
-                <TestimonialTextSlider arrows={false} ref={setTextSliderRef} asNavFor={imageSliderRef} fade={true}>
+                <TestimonialTextSlider arrows={false} ref={setTextSliderRef} asNavFor={imageSliderRef} fade>
                   {testimonials.map((testimonial, index) => (
                     <TestimonialText key={index}>
                       <QuoteContainer>

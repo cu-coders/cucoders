@@ -25,7 +25,7 @@ export default () => {
         description="Welcome to the official site of CodeChef CU Chapter. Get ready to become a better coder and learn from the best. There's definitely something for you here..."
         imageSrc="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         imageCss={imageCss}
-        imageDecoratorBlob={true}
+        imageDecoratorBlob
         primaryButtonText="Learn More"
         primaryButtonUrl="/about"
         watchVideoButtonText="Meet The Team"
@@ -55,7 +55,7 @@ export default () => {
           "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         }
         imageCss={imageCss}
-        imageDecoratorBlob={true}
+        imageDecoratorBlob
         imageDecoratorBlobCss={tw`left-1/2 -translate-x-1/2 md:w-32 md:h-32 opacity-25`}
       />
       <Features
@@ -108,9 +108,9 @@ export default () => {
         imageSrc="https://images.unsplash.com/flagged/photo-1556655678-9d4812e3fbe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         imageCss={Object.assign(tw`bg-cover`, imageCss)}
         imageContainerCss={tw`md:w-1/2 h-auto`}
-        imageDecoratorBlob={true}
+        imageDecoratorBlob
         imageDecoratorBlobCss={tw`left-1/2 md:w-32 md:h-32 -translate-x-1/2 opacity-25`}
-        textOnLeft={true}
+        textOnLeft
       />
       <Partner />
       <Testimonial
