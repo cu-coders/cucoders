@@ -1,5 +1,6 @@
 {
   "name": "cu-coders",
+  "homepage": "home.cuchapter.tech/",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://main-cu-coders.herokuapp.com/",
