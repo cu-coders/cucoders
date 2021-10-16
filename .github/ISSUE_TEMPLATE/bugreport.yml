@@ -2,15 +2,6 @@ name: Bug Report
 description: File a bug report
 title: "[Bug]: "
 labels: [bug, triage]
-assignees:
-  options:
-  - ank1traj
-  - GaganpreetKaurKalsi
-  - itta10 
-  - puranjay123 
-  - RajeswarSharma
-  - sahil2311sharma
-  - utkarshluthra]
 body:
   - type: markdown
     attributes:
