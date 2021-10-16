@@ -1,7 +1,6 @@
 import axios from "axios";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import "antd/dist/antd.css";
 import { message } from "antd";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
@@ -14,6 +13,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+import "../styles/antd.css"
 
 // import { useTransform } from "framer-motion";
 // import { useHistory } from "react-router";
@@ -130,13 +130,13 @@ export default ({
       }).catch((err) => {
         setLoading(false);
         message.error({
-        content: err.message,
-        style: {
+          content: err.message,
           style: {
-            margin: "10px auto",
+            style: {
+              margin: "10px auto",
+            },
           },
-        },
-      })
+        });
       });
   };
 
