@@ -8,12 +8,6 @@
     <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
     <link rel='manifest' href='manifest.json'>
     <link rel="apple-touch-icon" href="logo192.png">
-    <script type="module">
-      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-
-      const el = document.createElement('pwa-update');
-      document.body.appendChild(el);
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y03XEF3EX6"></script>
     <script>
@@ -23,18 +17,11 @@
 
       gtag('config', 'G-Y03XEF3EX6');
     </script>
-    <script type="text/javascript" src="assets/main.js"></script>
-    <script type="text/javascript" src="assets/index.js"></script>
     <script data-ad-client="ca-pub-6278636586479244" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- start webpushr tracking code -->
-    <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";
-    fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
-    webpushr('setup',{'key':'BGJrjEVBjI6lbpfDPMMeL_bPtgsWwJclt_OgnYPDLYCF10Du5_Z5pnbjuGch1X_m1DBVW-UH3V7lBtQGmAAqh1g' });</script>
-    <!-- end webpushr tracking code -->
     <link rel="stylesheet" href="assets/main.css"></link>
     <meta
       name="description"
-      content="CodeChef College Chapters are the programming clubs run and maintained by the official chapter leaders and mentored by CodeChef. We aim to make learning competitive programming accessible for students across the globe."
+      content="CodeChef College Chapters are the programming clubs run and maintained by the official chapter leaders and mentored by CodeChef."
     />
     <style>
       html {
@@ -58,7 +45,10 @@
     <title>CU-Chapter</title>
 
   </head>
-  <body>
+  <body onscroll="disableScrolling()" 
+        onmousewheel="enableScrolling()" 
+         onclick="enableScrolling()"
+          onmousemove="enableScrolling()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -75,14 +65,13 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b2faff454fa2ff5"></script>
     
   </body>
-  <!-- start webpushr code --> 
-  <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BFobEkVzv8Fxx-4oY2Bp7liX1AZH1Attb0xM3UmaZb5WccRZXwDBRKolnKKc5sxQINyZJdaFFIjmEojl23b31As' });
-  </script><!-- end webpushr code -->
-  
-    <!-- Calendly link widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <!-- Calendly link widget end -->
+  <script type="module">
+   import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   const el = document.createElement('pwa-update');
+   document.body.appendChild(el);
+</script>
 
+  <script type="text/javascript" src="assets/main.js"></script>
+  <script type="text/javascript" src="assets/index.js"></script>
   <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="assets/arr.png"></button>
 </html>

@@ -15,3 +15,13 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
   <!-- Go to top End-->
+  <!-- Hide the scrollbar -->
+function disableScrolling() {
+    setTimeout(function() {
+        document.body.style.overflow = 'hidden';
+    }, 1000);
+}
+  
+function enableScrolling() {
+    document.body.style.overflow = '';
+}
