@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: cucoders.tech
-Token: a2cd1d2eeacc48d0ec2c5b600ac29aa5b01bf4e90568e38fff5441b1329af628
