@@ -13,8 +13,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
-import "../styles/antd.css"
-
+import "../styles/antd.css";
+import { useEffect } from "react";
 // import { useTransform } from "framer-motion";
 // import { useHistory } from "react-router";
 const Container = tw(
@@ -92,16 +92,30 @@ export default ({
   });
   // const [message, updateMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [formToken, formTokenState] = useState("");
+  useEffect(() => {
+    axios
+      .get("https://main-cu-coders.herokuapp.com/form-token", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        formTokenState(res.data.formToken);
+      })
+      .catch((err) => {
+        formTokenState("");
+      });
+  }, []);
 
   const handleChange = (e) => {
     updateData({ ...user_data, [e.target.name]: e.target.value });
   };
-
   const submit = (e) => {
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://main-cu-coders.herokuapp.com/auth/signup", user_data)
+      .post("https://main-cu-coders.herokuapp.com/auth/signup", user_data, {
+        "xsrf-token": formToken,
+      })
       .then((res) => {
         setLoading(false);
         if (res.data.message) {
@@ -127,7 +141,8 @@ export default ({
             });
           }
         }
-      }).catch((err) => {
+      })
+      .catch((err) => {
         setLoading(false);
         message.error({
           content: err.message,
