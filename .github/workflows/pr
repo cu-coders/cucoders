@@ -26,3 +26,15 @@ jobs:
       uses: foo-software/lighthouse-check-action@master
       with:
         urls: 'https://www.foo.software,https://www.google.com'
+
+name: Test site for publicly known js vulnerabilities
+
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test for public javascript library vulnerabilities 
+        uses: lirantal/is-website-vulnerable@master
+        with:
+          scan-url: "https://home.cuchapter.tech"
