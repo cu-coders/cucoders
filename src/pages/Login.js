@@ -7,7 +7,7 @@ import googleIconImageSrc from "images/google-icon.png";
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Redirect } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -81,6 +81,7 @@ export default ({
 }) => {
   //--------------------------------INITIALIZING STATES-------------------------
   const [isVarified, updateIsVarified] = useState();
+  const [formToken, formTokenState] = useState("");
   const [credentials, updateCredentials] = useState({
     email: "",
     password: "",
@@ -88,6 +89,18 @@ export default ({
   //--------------------------------ON PAGE LOAD--------------------------------
 
   //---------------------------------UPDATING INPUTS-----------------------------
+  useEffect(() => {
+    axios
+      .get("https://main-cu-coders.herokuapp.com/form-token", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        formTokenState(res.data.formToken);
+      })
+      .catch((err) => {
+        formTokenState("");
+      });
+  }, []);
   const handleChange = (e) => {
     updateCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -97,6 +110,7 @@ export default ({
     axios
       .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
+        "xsrf-token": formToken,
       })
       .then((res) => {
         if (res.data.username) {
@@ -132,7 +146,13 @@ export default ({
                   ))}
                 </SocialButtonsContainer>
                 <DividerTextContainer>
-                  <DividerText><span style={{backgroundColor: "#ffffff", padding: "0 5px"}}>Or Sign in with your e-mail</span></DividerText>
+                  <DividerText>
+                    <span
+                      style={{ backgroundColor: "#ffffff", padding: "0 5px" }}
+                    >
+                      Or Sign in with your e-mail
+                    </span>
+                  </DividerText>
                 </DividerTextContainer>
                 <Form onSubmit={submit}>
                   <Input
@@ -154,7 +174,12 @@ export default ({
                 </Form>
                 <p
                   tw="mt-6 text-xs text-gray-600 text-center"
-                  style={{ color: "rgba(113,128,150,1)", textAlign: "center", fontSize: "14px", marginTop: "15px" }}
+                  style={{
+                    color: "rgba(113,128,150,1)",
+                    textAlign: "center",
+                    fontSize: "14px",
+                    marginTop: "15px",
+                  }}
                 >
                   <a
                     href={forgotPasswordUrl}
@@ -170,7 +195,11 @@ export default ({
                 </p>
                 <p
                   tw="mt-8 text-sm text-gray-600 text-center"
-                  style={{ color: "rgba(113,128,150,1)", textAlign: "center", marginTop: "22px" }}
+                  style={{
+                    color: "rgba(113,128,150,1)",
+                    textAlign: "center",
+                    marginTop: "22px",
+                  }}
                 >
                   Dont have an account?{" "}
                   <a
