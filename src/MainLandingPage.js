@@ -44,7 +44,7 @@ export default () => {
             Here at CodeChef CU Chapter, we believe in collaboration. We believe that it is from being together that we get the best versions of ourselves. We believe each individual is of equal and atmost importance. And most importantly, we believe in you to make great progress with support from your very own College Chapter.
             <br />
             <br />
-            Here at CodeChef CU Chapter, you are a stakeholder of all happening around you. You are not just any member. You are important to us.
+            For us, you are a stakeholder of all happening around you. You are not just any member. You are important to us.
           </Description>
         }
         buttonRounded={false}
