@@ -69,6 +69,7 @@ export default ({
   description = "There are some people who live in a dream world, and there are some who face reality; and then there are those who turn one into the other.",
   plans = null,
   primaryButtonText = "See Events",
+  isLoggedIn
 }) => {
   const defaultPlans = [
     {
@@ -96,7 +97,7 @@ export default ({
   return (
     <>
       <AnimationRevealPage>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} />
         <Container>
           <HeaderContainer>
             {subheading && <Subheading>{subheading}</Subheading>}

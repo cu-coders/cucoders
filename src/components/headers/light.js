@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { motion } from "framer-motion";
@@ -5,6 +6,7 @@ import React from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+import { Redirect } from "react-router";
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/logo.png";
@@ -65,6 +67,7 @@ export default ({
   links,
   className,
   collapseBreakpointClass = "lg",
+  isLoggedIn,
 }) => {
   /*
    * This header component accepts an optionals "links" prop that specifies the
@@ -97,7 +100,33 @@ export default ({
       <NavLink href="/careers">Careers</NavLink>
       <NavLink href="/member">Membership</NavLink>
       <NavLink href="/contact">Contact Us</NavLink>
-      <NavLink href="/login">Login</NavLink>
+      {!isLoggedIn && <NavLink href="/login">Login</NavLink>}
+      {isLoggedIn && (
+        <NavLink
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            axios.request(
+                "https://main-cu-coders.herokuapp.com/auth/logout",
+                {
+                  withCredentials: true,
+                }
+              )
+              .then((res) => {
+                if (res.data.logout === true) {
+                  console.log("Logged out successfully");
+                } else {
+                  console.log("Error logging out");
+                }
+                window.location.href = "/";
+              })
+              .catch((err) => {
+                console.log(err.message);
+              });
+          }}
+        >
+          Logout
+        </NavLink>
+      )}
     </NavLinks>,
   ];
 

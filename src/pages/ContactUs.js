@@ -5,10 +5,10 @@ import Header from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
 import ContactUsForm from "components/forms/contact.js";
 
-export default () => {
+export default ({isLoggedIn}) => {
   return (
     <AnimationRevealPage>
-      <Header />
+      <Header isLoggedIn={isLoggedIn}/>
       <ContactUsForm />
       <Footer />
     </AnimationRevealPage>

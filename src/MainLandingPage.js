@@ -13,11 +13,12 @@ import celebrationIconImageSrc from "images/celebration-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
 import FAQs from "components/faqs/faq.js";
 import Partner from "components/cta/partner.js";
-export default () => {
+export default ({isLoggedIn}) => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const Description = tw.span`inline-block mt-8`;
   const imageCss = tw`rounded-4xl`;
+  console.log("Main page loaded")
   return (
     <AnimationRevealPage>
       <Hero
@@ -30,6 +31,7 @@ export default () => {
         primaryButtonUrl="/about"
         watchVideoButtonText="Meet The Team"
         watchVideoUrl="https://www.youtube.com/watch?v=QxN8bXAeapE&feature=youtu.be"
+        isLoggedIn = {isLoggedIn}
       />
       <MainFeature
         subheading={<Subheading>Established Since 2020</Subheading>}
