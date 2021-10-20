@@ -1,5 +1,3 @@
-import Partner from "components/cta/partner.js";
-import FAQs from "components/faqs/faq.js";
 import Features from "components/features/features.js";
 import MainFeature2 from "components/features/featuresWithStats.js";
 import MainFeature from "components/features/TwoColWithButton.js";
