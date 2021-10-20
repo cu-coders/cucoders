@@ -44,6 +44,7 @@ const CardLinks = styled.div`
 `
 
 export default ({
+  isLoggedIn,
   heading = "Meet These Fine Folks.",
   subheading = "Our Team",
   description = "It is impossible to do great things alone. For doing something big, one needs a team where each individual is doing what he's best at. Here's our strong team, working to get you all what we promise.",
@@ -128,7 +129,7 @@ export default ({
 }) => {
   return (
   	<AnimationRevealPage>
-  	<Header />
+  	<Header isLoggedIn={isLoggedIn} />
     <Container>
       <ContentWithPaddingXl>
         <HeadingContainer>

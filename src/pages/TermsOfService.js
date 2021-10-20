@@ -34,10 +34,10 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "Terms And Condition" }) => {
+export default ({ headingText = "Terms And Condition", isLoggedIn }) => {
   return (
     <AnimationRevealPage>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Container>
         <ContentWithPaddingXl>
           <HeadingRow>

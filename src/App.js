@@ -85,13 +85,14 @@ export default function App() {
       .then((res) => {
         if (res.data.username) {
           updateIsVarified(true);
-          // alert(res.data.username)
+          console.log("Logged In from APP.js")
         } else {
           updateIsVarified(false);
+          console.log("Logged Out from APP.js")
         }
       });
   }, []);
-  // return <AnimationRevealPage disabled></AnimationRevealPage>;
+
   return (
     <Router>
       <Switch>
@@ -102,13 +103,13 @@ export default function App() {
           <ComponentRenderer />
         </Route>
         <Route exact path="/team">
-          <Team />
+          <Team isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/upcoming">
           <Upcoming />
         </Route>
         <Route exact path="/events">
-          <Events />
+          <Events isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/present">
           <Present />
@@ -120,16 +121,16 @@ export default function App() {
           <Quiz />
         </Route>
         <Route exact path="/projects">
-          <Projects />
+          <Projects isLoggedIn={isVarified} />
         </Route>
         <Route path="/resources">
-          <Resources />
+          <Resources isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/comingnow">
           <ComingNow />
         </Route>
         <Route exact path="/careers">
-          <Careers />
+          <Careers isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/comingsoon">
           <ComingSoon />
@@ -138,7 +139,7 @@ export default function App() {
           <Coming />
         </Route>
         <Route exact path="/contact">
-          <Contact />
+          <Contact isLoggedIn={isVarified} />
         </Route>
         <Route path="/backend">
           <Back />
@@ -186,16 +187,16 @@ export default function App() {
           <Terms />
         </Route>
         <Route exact path="/member">
-          <Member />
+          <Member isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/about">
-          <About />
+          <About isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/home">
-          <Home />
+          <Home isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/">
-          <Home />
+          <Home isLoggedIn={isVarified} />
         </Route>
         <Route exact path="/algo">
           <Algo />
@@ -234,7 +235,7 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          {isVarified ? <Redirect to="/" /> : <Login />}
+          {isVarified ? <Redirect to="/" /> : <Login updateIsLoggedIn={updateIsVarified} />}
         </Route>
         <Route exact path="/signup">
           {isVarified ? <Redirect to="/" /> : <Signup />}

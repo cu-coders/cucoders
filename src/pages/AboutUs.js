@@ -15,10 +15,10 @@ import ShieldIconImage from "images/shield-icon.svg";
 import CustomerLoveIconImage from "images/simple-icon.svg";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
-export default () => {
+export default ({isLoggedIn}) => {
   return (
     <AnimationRevealPage>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <MainFeature1
         subheading={<Subheading>About Us</Subheading>}
         heading="We are a CodeChef Campus Chapter."

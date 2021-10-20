@@ -44,6 +44,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 `;
 
 export default ({
+  isLoggedIn,
   heading = "Checkout the Resources",
   tabs = {
     Starters: [
@@ -161,7 +162,7 @@ export default ({
   return (
     <>
     <AnimationRevealPage>
-    <Header1 />
+        <Header1 isLoggedIn={ isLoggedIn}/>
     <Container>
       <ContentWithPaddingXl>
         <HeaderRow>

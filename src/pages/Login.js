@@ -12,6 +12,9 @@ import { Redirect } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+import { success, error, warning } from '../components/messages'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Container = tw(
   ContainerBase
@@ -59,6 +62,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
+  updateIsLoggedIn,
   logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign In To CU-Chapter",
@@ -105,18 +109,32 @@ export default ({
     updateCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   //---------------------------------SUBMITING LOGIN FORM------------------------
+  const [loading, setLoading] = useState(false)
   const submit = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios
       .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
         "xsrf-token": formToken,
       })
       .then((res) => {
-        if (res.data.username) {
-          console.log(res.data.username);
-          updateIsVarified(true);
+        setLoading(false);
+        console.log("Response from login API : ", res)
+        if (res.data.success) {
+          success("User logged in successfully",1);
+          setTimeout(() => {
+            updateIsVarified(true);
+            updateIsLoggedIn(true);
+          }, 1000)
+          
         }
+        else {
+          warning("Please verify your email")
+        }
+      }).catch((err) => {
+        setLoading(false);
+        error("Email or password incorrect")
       });
   };
   if (isVarified) return <Redirect to="/" />;
@@ -145,6 +163,20 @@ export default ({
                     </SocialButton>
                   ))}
                 </SocialButtonsContainer>
+                {loading && (
+                  <Loader
+                    type="TailSpin"
+                    color="#00BFFF"
+                    height={80}
+                    width={80}
+                    style={{
+                      zIndex: "2",
+                      width: "fit-content",
+                      position: "absolute",
+                      left: "46%",
+                    }}
+                  />
+                )}
                 <DividerTextContainer>
                   <DividerText>
                     <span
