@@ -68,6 +68,7 @@ export default ({
   imageSrc=DesignIllustration,
   imageCss=null,
   imageDecoratorBlob = false,
+  isLoggedIn
 }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -75,7 +76,7 @@ export default ({
 
   return (
     <>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Container>
         <TwoColumn>
           <LeftColumn>

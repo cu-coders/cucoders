@@ -34,10 +34,10 @@ const Text = styled.div`
     }
   }
 `;
-export default ({ headingText = "Privacy Policy" }) => {
+export default ({ headingText = "Privacy Policy", isLoggedIn }) => {
   return (
     <AnimationRevealPage>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Container>
         <ContentWithPaddingXl>
           <HeadingRow>

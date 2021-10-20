@@ -54,13 +54,14 @@ export default ({
     quote: "You can't always pick your family, but you can pick where you work.",
     customerName: "Ankit Raj",
     customerCompany: "Founder, CU-Coders."
-  }
+  },
+  isLoggedIn
 }) => {
 
   return (
     <>
       <AnimationRevealPage>
-      <Header />
+      <Header isLoggedIn={isLoggedIn}/>
       <Container>
         <ContentWithVerticalPadding>
           <Row>

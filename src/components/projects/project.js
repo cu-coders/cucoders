@@ -59,7 +59,7 @@ const CardMetaFeature = styled.div`
   }
 `;
 
-export default () => {
+export default ({ isLoggedIn}) => {
   const cards = [
     {
       imageSrc:
@@ -67,7 +67,7 @@ export default () => {
       type: "Data Structure & Algorithms",
       title: "Project-on-Data-structure",
       locationText: "GitHub",
-      url: "https://github.com/CSoC-2020/Project-on-Data-structure"
+      url: "https://github.com/CSoC-2020/Project-on-Data-structure",
     },
     {
       imageSrc:
@@ -75,52 +75,57 @@ export default () => {
       type: "Development",
       title: "Project-music App",
       locationText: "GitHub",
-      url: "https://github.com/CSoC-2020/Project-musicApp"
-    }
+      url: "https://github.com/CSoC-2020/Project-musicApp",
+    },
   ];
   return (
     <>
-    <AnimationRevealPage>
-    <Header />
-    <Container>
-      <Content>
-        <ThreeColumn>
-          <HeadingColumn>
-            <HeadingInfoContainer>
-              <HeadingTitle>Our Projects</HeadingTitle>
-              <HeadingDescription>
-                "The major reason for setting a goal is for what it makes of you to accomplish it. What it makes of you will always be the far greater value than what you get." ~ Jim Rohn
-              </HeadingDescription>
-              <PrimaryLink a href= "https://github.com/CSoC-2020?tab=repositories">
-                View All Projects <ArrowRightIcon />
-              </PrimaryLink>
-            </HeadingInfoContainer>
-          </HeadingColumn>
-          {cards.map((card, index) => (
-            <CardColumn key={index}>
-              <Card>
-                <CardImage imageSrc={card.imageSrc} />
-                <CardText>
-                  <CardHeader>
-                    <CardType>{card.type}</CardType>
-                  </CardHeader>
-                  <CardTitle>{card.title}</CardTitle>
-                  <CardMeta>
-                    <CardMetaFeature>
-                      <LocationIcon /> {card.locationText}
-                    </CardMetaFeature>
-                  </CardMeta>
-                  <Link href={card.url}>See Project</Link>
-                </CardText>
-              </Card>
-            </CardColumn>
-          ))}
-        </ThreeColumn>
-      </Content>
-    </Container>
-    <Apply />
-    <Footer />
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header isLoggedIn={isLoggedIn} />
+        <Container>
+          <Content>
+            <ThreeColumn>
+              <HeadingColumn>
+                <HeadingInfoContainer>
+                  <HeadingTitle>Our Projects</HeadingTitle>
+                  <HeadingDescription>
+                    "The major reason for setting a goal is for what it makes of
+                    you to accomplish it. What it makes of you will always be
+                    the far greater value than what you get." ~ Jim Rohn
+                  </HeadingDescription>
+                  <PrimaryLink
+                    a
+                    href="https://github.com/CSoC-2020?tab=repositories"
+                  >
+                    View All Projects <ArrowRightIcon />
+                  </PrimaryLink>
+                </HeadingInfoContainer>
+              </HeadingColumn>
+              {cards.map((card, index) => (
+                <CardColumn key={index}>
+                  <Card>
+                    <CardImage imageSrc={card.imageSrc} />
+                    <CardText>
+                      <CardHeader>
+                        <CardType>{card.type}</CardType>
+                      </CardHeader>
+                      <CardTitle>{card.title}</CardTitle>
+                      <CardMeta>
+                        <CardMetaFeature>
+                          <LocationIcon /> {card.locationText}
+                        </CardMetaFeature>
+                      </CardMeta>
+                      <Link href={card.url}>See Project</Link>
+                    </CardText>
+                  </Card>
+                </CardColumn>
+              ))}
+            </ThreeColumn>
+          </Content>
+        </Container>
+        <Apply />
+        <Footer />
+      </AnimationRevealPage>
     </>
   );
 };

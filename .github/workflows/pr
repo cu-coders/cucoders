@@ -1,17 +1,40 @@
-name: PR
+name: Audit live site
+on: push
 
-# Controls when the action will run. Triggers the workflow on push or pull request 
-# events but only for the master branch
-on:
-  pull_request:
-    branches: [ master ]
 jobs:
-  pr_check:
+  audit:
     runs-on: ubuntu-latest
-    name: A job to Post comment on PR
     steps:
-    - uses: actions/checkout@v2
-    - name: PR Action
-      uses: koushikmohan1996/action-pr-gifs@master
+    - name: Audit live URL
+      uses: jakejarvis/lighthouse-action@master
       with:
-        GITHUB_TOKEN: ${{ secrets.FUNNY }}
+        url: 'https://jarv.is/'
+    - name: Upload results as an artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: report
+        path: './report'
+        
+on: [pull_request]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Lighthouse
+      uses: foo-software/lighthouse-check-action@master
+      with:
+        urls: 'https://www.foo.software,https://www.google.com'
+
+name: Test site for publicly known js vulnerabilities
+
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test for public javascript library vulnerabilities 
+        uses: lirantal/is-website-vulnerable@master
+        with:
+          scan-url: "https://home.cuchapter.tech"

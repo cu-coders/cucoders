@@ -5,7 +5,7 @@ import {
   Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -57,19 +57,32 @@ export default ({
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
+  const [formToken, formTokenState] = useState("");
   const [formData, updateData] = useState({
     fullname: "",
     email: "",
     subject: "",
     message: "",
   });
+  useEffect(() => {
+    axios
+      .get("https://main-cu-coders.herokuapp.com/form-token",{
+        withCredentials:true,
+      })
+      .then((res) => {
+        formTokenState(res.data.formToken);
+      })
+      .catch((err) => {
+        formTokenState("");
+      });
+  }, []);
   const handleChange = (e) => {
     updateData({ ...formData, [e.target.name]: e.target.value });
   };
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("https://main-cu-coders.herokuapp.com/contact-us", formData)
+      .post("https://main-cu-coders.herokuapp.com/contact-us", formData,{"xsrf-token":formToken})
       .then((res) => {
         console.log(res.data);
       })
