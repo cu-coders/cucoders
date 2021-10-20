@@ -8,12 +8,12 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import celebrationIconImageSrc from "images/celebration-icon.svg";
 import chefIconImageSrc from "images/chef-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
-import FAQs from "components/faqs/faq.js";
-import Partner from "components/cta/partner.js";
-export default ({isLoggedIn}) => {
 import React from "react";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+import FAQs from "components/faqs/faq.js";
+import Partner from "components/cta/partner.js";
+export default ({isLoggedIn}) => {
 
 export default () => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
