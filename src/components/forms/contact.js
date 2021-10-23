@@ -85,7 +85,6 @@ export default ({
     axios
       .post("https://main-cu-coders.herokuapp.com/contact-us", formData,{"xsrf-token":formToken})
       .then((res) => {
-        console.log(res.data.err);
         if (!res.data.success) {
           let text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
           error(text)
