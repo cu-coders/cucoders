@@ -89,7 +89,7 @@ export default ({
     },
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1526657782461-9fe13402a841?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=392&q=80",
       profileImageSrc:
         "https://images.unsplash.com/photo-1600010995623-fc0e5487fa96?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
       quote:
