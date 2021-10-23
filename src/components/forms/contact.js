@@ -10,6 +10,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+import { success, error, warning } from "../messages";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -84,10 +85,17 @@ export default ({
     axios
       .post("https://main-cu-coders.herokuapp.com/contact-us", formData,{"xsrf-token":formToken})
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.err);
+        if (!res.data.success) {
+          let text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
+          error(text)
+        }
+        else {
+          success("Submission successful")
+        }
       })
       .catch((err) => {
-        console.log("Do something here");
+        error(err.message)
       });
   };
   return (

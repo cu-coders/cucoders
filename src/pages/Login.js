@@ -142,16 +142,7 @@ export default ({
       });
   };
   if (isVarified) return <Redirect to="/" />;
-
-  const socialLogin = (url) => {
-    // window.location.href = url
-    axios.get(url).then((res) => {
-      console.log("This is the response!!!!!!")
-    }).catch((err)=>{
-      console.error(err.message)
-    })
-    // console.log("Hello where am I")
-  }
+  
   return (
     <AnimationRevealPage>
       <Container>
