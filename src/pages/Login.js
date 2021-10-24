@@ -127,10 +127,14 @@ export default ({
             updateIsVarified(true);
             updateIsLoggedIn(true);
           }, 1000)
-          
         }
         else {
-          warning("Please verify your email")
+          if (res.data.message === "Invalid Credentials") error("Invalid Credentials")
+          else if (res.data.message === "unregistered email") error("Unregistered email")
+          else if (res.data.message === "Invalid login mode") error("Invalid Login mode")
+          else {
+            warning("Please verify your email")
+          }
         }
       }).catch((err) => {
         setLoading(false);
@@ -138,6 +142,7 @@ export default ({
       });
   };
   if (isVarified) return <Redirect to="/" />;
+  
   return (
     <AnimationRevealPage>
       <Container>
