@@ -44,7 +44,7 @@ export default ({
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
             <h2>Apply Now</h2>
-             <form action={formAction} method={formMethod} enctype="multipart/form-data">
+             <form action={formAction} method={formMethod} encType="multipart/form-data">
               <TwoColumn>
                 <Column>
                   <InputContainer>
