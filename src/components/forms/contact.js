@@ -155,7 +155,7 @@ export default ({
                 required
                 placeholder="Your Message Here"
               />
-              <SubmitButton type="submit" disabled={isLoading ? true : FontFaceSetLoadEvent}>{submitButtonText}</SubmitButton>
+              <SubmitButton type="submit" disabled={isLoading ? true : false}>{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
