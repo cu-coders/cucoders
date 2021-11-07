@@ -11,6 +11,8 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
 import { success, error, warning } from "../messages";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -65,6 +67,7 @@ export default ({
     subject: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     axios
       .get("https://main-cu-coders.herokuapp.com/form-token",{
@@ -82,9 +85,11 @@ export default ({
   };
   const submit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .post("https://main-cu-coders.herokuapp.com/contact-us", formData,{"xsrf-token":formToken})
       .then((res) => {
+        setIsLoading(false)
         if (!res.data.success) {
           let text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
           error(text)
@@ -116,6 +121,20 @@ export default ({
                 name="email"
                 placeholder="Your Email Address"
               />
+              {isLoading && (
+                <Loader
+                  type="TailSpin"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+                  style={{
+                    zIndex: "2",
+                    width: "fit-content",
+                    position: "absolute",
+                    left: "46%",
+                  }}
+                />
+              )}
               <Input
                 type="text"
                 onChange={handleChange}
@@ -136,7 +155,7 @@ export default ({
                 required
                 placeholder="Your Message Here"
               />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
+              <SubmitButton type="submit" disabled={isLoading ? true : FontFaceSetLoadEvent}>{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
