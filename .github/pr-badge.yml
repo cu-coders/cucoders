@@ -24,6 +24,26 @@
   color: "#ff0000"
   when: "$payload.pull_request.body.includes('Test plan') === false"
 
+- label: "isDraft"
+  message: "$isDraft"
+  color: "Black"
+  
+- label: "Total Deletions"
+  message: "$deletions"
+  color: "#FF5733"
+
+- label: "Total Additions"
+  message: "$additions"
+  color: "#30783E"
+  
+- label: "Total Commits"
+  message: "$commits"
+  color: "#0C2E8E"
+  
+- label: "Changed Files"
+  message: "$changedFiles"
+  color: "#A104C8"
+
 - label: "Label"
   message: "Feature"
   when: "$labels.includes('Feature')"
