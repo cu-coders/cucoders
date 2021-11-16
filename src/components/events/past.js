@@ -147,7 +147,7 @@ export default  ({
                     <Details style={{ backgroundColor: "#FAFAFA" }}>
                       <Title style={{ color: "#6415FF" }}>{post.title}</Title>
                       <Description
-                        style={{ height: "90px", overflow: "hidden" }}
+                        style={{ height: "120px", overflow: "hidden" }}
                       >
                         {post.description !== ""
                           ? post.description
