@@ -9,6 +9,8 @@ import Header from "components/headers/light.js";
 import Top from "components/cta/top.js";
 
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
+import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
+import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
 import { useEffect} from "react";
@@ -38,6 +40,37 @@ const DecoratorBlob1 = tw(
 const DecoratorBlob2 = tw(
   SvgDecoratorBlob2
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
+const Details = tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
+const MetaContainer = tw.div`flex items-center`;
+const Meta = styled.div`
+  ${tw`text-secondary-100 font-medium text-sm flex items-center leading-none mr-6 last:mr-0`}
+  svg {
+    ${tw`w-4 h-4 mr-1`}
+  }
+`;
+
+const cardStyle = {
+  // borderRadius: "25px",
+  height: "fit-content",
+  // border: "2px solid rgba(100,21,255)",
+  boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+};
+
+const imageStyle = {
+  // borderRadius: "25px 25px 0 0",
+  maxHeight: "200px",
+  width: "100%",
+};
+function getDate({ date_start, date_end }) {
+  console.log(date_start, new Date(date_start));
+  if (date_start !== "" && date_end !== "") {
+    return `Event Date - ${new Date(
+      date_start
+    ).toLocaleDateString()} to ${new Date(date_end).toLocaleDateString()}`;
+  } else {
+    return "";
+  }
+}
 
 export default () => {
   // const blogPosts = [
@@ -74,36 +107,75 @@ export default () => {
   },[])
   return (
     <>
-    <AnimationRevealPage>
-    <Header />
-    <Container>
-      <Content>
-        <HeadingInfoContainer>
-          <HeadingTitle>Ongoing Events</HeadingTitle>
-          <HeadingDescription>Some amazing events that are going on.</HeadingDescription>
-        </HeadingInfoContainer>
-        <ThreeColumn>
-          {t_cards.map((post, index) => (
-            <Column key={index}>
-              <Card>
-                <Image imageSrc={'/covers/'+post.imageSrc} />
-                <Category>{post.category}</Category>
-                <Title>{post.title}</Title>
-                <Description>{post.description}</Description>
-                <Link href={post.url}>See More</Link>
-              </Card>
-            </Column>
-          ))}
-        </ThreeColumn>
-      </Content>
-      <DecoratorBlob1 />
-      <DecoratorBlob2 />
-    </Container>
-    <Top
-      heading={<>Chef of the Week</>}
-      />
-    <Footer />
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header />
+        <Container>
+          <Content>
+            <HeadingInfoContainer>
+              <HeadingTitle>Ongoing Events</HeadingTitle>
+              <HeadingDescription>
+                Some amazing events that are going on.
+              </HeadingDescription>
+            </HeadingInfoContainer>
+            <ThreeColumn>
+              {t_cards.map((post, index) => (
+                <Column key={index}>
+                  <Card style={cardStyle}>
+                    <Image imageSrc={post.imageSrc} style={imageStyle} />
+                    <Details style={{ backgroundColor: "#FAFAFA" }}>
+                      <Title style={{ color: "#6415FF" }}>{post.title}</Title>
+                      <Description
+                        style={{ height: "90px", overflow: "hidden" }}
+                      >
+                        {post.description !== ""
+                          ? post.description
+                          : "Event information not available at the current moment."}
+                      </Description>
+                      <small
+                        style={{
+                          marginTop: "10px",
+                          marginBottom: "20px",
+                          display: "block",
+                          color: "#7C8BA1",
+                          fontWeight: "500",
+                        }}
+                      >
+                        {getDate({ ...post })}
+                      </small>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          selfAlign: "center",
+                          height: "min-content",
+                          marginTop: "10px",
+                          width: "100%",
+                        }}
+                      >
+                        <Link href={post.url}>See More</Link>
+                        <MetaContainer>
+                          <Meta>
+                            <UserIcon />
+                            <div>{post.author}</div>
+                          </Meta>
+                          <Meta>
+                            <TagIcon />
+                            <div>{post.category}</div>
+                          </Meta>
+                        </MetaContainer>
+                      </div>
+                    </Details>
+                  </Card>
+                </Column>
+              ))}
+            </ThreeColumn>
+          </Content>
+          <DecoratorBlob1 />
+          <DecoratorBlob2 />
+        </Container>
+        <Top heading={<>Chef of the Week</>} />
+        <Footer />
+      </AnimationRevealPage>
     </>
   );
 };
