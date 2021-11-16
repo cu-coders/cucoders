@@ -28,7 +28,7 @@ const Image = styled.div(props => [
   tw`bg-cover bg-center h-80 lg:h-64 rounded rounded-b-none`
 ]);
 
-const Details = tw.div`p-6 rounded border-2 border-t-0 rounded-t-none border-dashed border-primary-100 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
+const Details = tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
 const MetaContainer = tw.div`flex items-center`;
 const Meta = styled.div`
   ${tw`text-secondary-100 font-medium text-sm flex items-center leading-none mr-6 last:mr-0`}
@@ -37,11 +37,24 @@ const Meta = styled.div`
   }
 `;
 
-const Title = tw.h5`mt-4 leading-snug font-bold text-lg`;
+const Title = tw.h5`mt-0 leading-snug font-bold text-lg`;
 const Description = tw.p`mt-2 text-sm text-secondary-100`;
 const Link = styled(PrimaryButtonBase).attrs({as: "a"})`
-  ${tw`inline-block mt-4 text-sm font-semibold`}
+  ${tw`inline-block text-sm font-semibold`}
 `
+
+const cardStyle = {
+  // borderRadius: "25px",
+  height: "fit-content",
+  // border: "2px solid rgba(100,21,255)",
+  boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+};
+
+const imageStyle = {
+  // borderRadius: "25px 25px 0 0",
+  maxHeight: "200px",
+  width: "100%",
+};
 
 const DecoratorBlob1 = tw(
   SvgDecoratorBlob1
@@ -49,6 +62,15 @@ const DecoratorBlob1 = tw(
 const DecoratorBlob2 = tw(
   SvgDecoratorBlob2
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
+
+function getDate({ date_start, date_end }) {
+  console.log(date_start, new Date(date_start))
+  if (date_start !== "" && date_end !== "") {
+    return `Event Date - ${new Date(date_start).toLocaleDateString()} to ${new Date(date_end).toLocaleDateString()}`;
+  } else {
+    return ""
+  }
+}
 
 export default  ({
   subheading = "Past Events",
@@ -284,7 +306,8 @@ export default  ({
   //   }
   // ];
 
-  const[t_cards,update_t_cards] = useState([])
+  const [t_cards, update_t_cards] = useState([])
+  console.log(t_cards)
   useEffect( ()=>{
     fetch('/api/past-events').then(res=>{
       if(res.ok){
@@ -296,43 +319,59 @@ export default  ({
   },[])
   return (
     <AnimationRevealPage>
-    <Header />
-    <Container>
-      <Content>
-        <HeadingInfoContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          <HeadingTitle>{heading}</HeadingTitle>
-          <HeadingDescription>{description}</HeadingDescription>
-        </HeadingInfoContainer>
-        <ThreeColumn>
-          {t_cards.map((post, index) => (
-            <Column key={index}>
-              <Card>
-                <Image imageSrc={'/covers/'+post.imageSrc} />
-                <Details>
-                  <MetaContainer>
-                    <Meta>
-                      <UserIcon />
-                      <div>{post.author}</div>
-                    </Meta>
-                    <Meta>
-                      <TagIcon />
-                      <div>{post.category}</div>
-                    </Meta>
-                  </MetaContainer>
-                  <Title>{post.title}</Title>
-                  <Description>{post.description}</Description>
-                  <Link href={post.url}>See More</Link>
-                </Details>
-              </Card>
-            </Column>
-          ))}
-          <DecoratorBlob1 />
-          <DecoratorBlob2 />
-        </ThreeColumn>
-      </Content>
-      <Footer />
-    </Container>
+      <Header />
+      <Container>
+        <Content>
+          <HeadingInfoContainer>
+            {subheading && <Subheading>{subheading}</Subheading>}
+            <HeadingTitle>{heading}</HeadingTitle>
+            <HeadingDescription>{description}</HeadingDescription>
+          </HeadingInfoContainer>
+          <ThreeColumn>
+            {t_cards.map((post, index) => (
+              <Column key={index}>
+                <Card style={cardStyle}>
+                  <Image imageSrc={post.imageSrc} style={imageStyle} />
+                  <Details style={{ backgroundColor: "#FAFAFA" }}>
+                    <Title style={{color: '#6415FF'}}>{post.title}</Title>
+                    <Description style={{ height: "90px", overflow: "hidden" }}>
+                      {post.description !== ""
+                        ? post.description
+                        : "Event information not available at the current moment."}
+                    </Description>
+                    <small style={{marginTop: '10px', marginBottom: '20px', display: 'block', color: '#7C8BA1', fontWeight: '500'}}>{getDate({ ...post })}</small>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        selfAlign: "center",
+                        height: "min-content",
+                        marginTop: "10px",
+                        width: "100%",
+                      }}
+                    >
+                      <Link href={post.url}>See More</Link>
+                      <MetaContainer>
+                        <Meta>
+                          <UserIcon />
+                          <div>{post.author}</div>
+                        </Meta>
+                        <Meta>
+                          <TagIcon />
+                          <div>{post.category}</div>
+                        </Meta>
+                      </MetaContainer>
+                    </div>
+                  </Details>
+                </Card>
+              </Column>
+            ))}
+            <DecoratorBlob1 />
+            <DecoratorBlob2 />
+          </ThreeColumn>
+        </Content>
+        <Footer />
+      </Container>
     </AnimationRevealPage>
   );
 };
