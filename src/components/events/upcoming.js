@@ -92,7 +92,7 @@ export default () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("/api/upcoming-events/")
+    fetch("https://main-cu-coders.herokuapp.com/api/upcomming-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);
@@ -100,7 +100,7 @@ export default () => {
         }
       })
       .then((result) => {
-        update_t_cards(result)
+        update_t_cards(result);
         setIsLoading(false);
       });
   }, []);

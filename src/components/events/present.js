@@ -96,14 +96,17 @@ export default () => {
   
   useEffect(() => {
     setIsLoading(true);
-    fetch('/api/ongoing-events/').then(res=>{
-      if(res.ok){
-        console.log(res)  
-        return res.json()
-      }
-    }).then(result => {
-      update_t_cards(result)
-    setIsLoading(false);})
+    fetch("https://main-cu-coders.herokuapp.com/api/ongoing-events")
+      .then((res) => {
+        if (res.ok) {
+          console.log(res);
+          return res.json();
+        }
+      })
+      .then((result) => {
+        update_t_cards(result);
+        setIsLoading(false);
+      });
 
   },[])
   return (
