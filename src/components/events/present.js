@@ -207,7 +207,6 @@ export default () => {
           <DecoratorBlob1 />
           <DecoratorBlob2 />
         </Container>
-        <Top heading={<>Chef of the Week</>} />
         <Footer />
       </AnimationRevealPage>
     </>
