@@ -4,7 +4,8 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
@@ -87,8 +88,10 @@ export default () => {
   // ];
 
   const [t_cards, update_t_cards] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("/api/upcoming-events/")
       .then((res) => {
         if (res.ok) {
@@ -96,7 +99,10 @@ export default () => {
           return res.json();
         }
       })
-      .then((result) => update_t_cards(result));
+      .then((result) => {
+        update_t_cards(result)
+        setIsLoading(false);
+      });
   }, []);
   return (
     <>
@@ -113,6 +119,21 @@ export default () => {
 
           <Content>
             <ThreeColumn>
+              {isLoading && (
+                <Loader
+                  type="TailSpin"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+                  style={{
+                    zIndex: "2",
+                    width: "fit-content",
+                    position: "absolute",
+                    left: "46%",
+                    marginTop: "50px",
+                  }}
+                />
+              )}
               {t_cards === undefined && (
                 <div
                   style={{

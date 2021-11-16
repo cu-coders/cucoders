@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import Footer from "components/footers/footers.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
@@ -91,14 +92,18 @@ export default () => {
   // ];
     
   const[t_cards,update_t_cards] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
   
-  useEffect(()=>{
+  useEffect(() => {
+    setIsLoading(true);
     fetch('/api/ongoing-events/').then(res=>{
       if(res.ok){
         console.log(res)  
         return res.json()
       }
-    }).then(result=>update_t_cards(result))
+    }).then(result => {
+      update_t_cards(result)
+    setIsLoading(false);})
 
   },[])
   return (
@@ -114,6 +119,21 @@ export default () => {
               </HeadingDescription>
             </HeadingInfoContainer>
             <ThreeColumn>
+              {isLoading && (
+                <Loader
+                  type="TailSpin"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+                  style={{
+                    zIndex: "2",
+                    width: "fit-content",
+                    position: "absolute",
+                    left: "46%",
+                    marginTop: "50px",
+                  }}
+                />
+              )}
               {t_cards === undefined && (
                 <div
                   style={{
@@ -128,56 +148,57 @@ export default () => {
                   Events Coming Soon!!
                 </div>
               )}
-              {t_cards !== undefined && t_cards.map((post, index) => (
-                <Column key={index}>
-                  <Card style={cardStyle}>
-                    <Image imageSrc={post.imageSrc} style={imageStyle} />
-                    <Details style={{ backgroundColor: "#FAFAFA" }}>
-                      <Title style={{ color: "#6415FF" }}>{post.title}</Title>
-                      <Description
-                        style={{ height: "90px", overflow: "hidden" }}
-                      >
-                        {post.description !== ""
-                          ? post.description
-                          : "Event information not available at the current moment."}
-                      </Description>
-                      <small
-                        style={{
-                          marginTop: "10px",
-                          marginBottom: "20px",
-                          display: "block",
-                          color: "#7C8BA1",
-                          fontWeight: "500",
-                        }}
-                      >
-                        {getDate({ ...post })}
-                      </small>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          selfAlign: "center",
-                          height: "min-content",
-                          marginTop: "10px",
-                          width: "100%",
-                        }}
-                      >
-                        <Link href={post.url}>See More</Link>
-                        <MetaContainer>
-                          <Meta>
-                            <UserIcon />
-                            <div>{post.author}</div>
-                          </Meta>
-                          <Meta>
-                            <TagIcon />
-                            <div>{post.category}</div>
-                          </Meta>
-                        </MetaContainer>
-                      </div>
-                    </Details>
-                  </Card>
-                </Column>
-              ))}
+              {t_cards !== undefined &&
+                t_cards.map((post, index) => (
+                  <Column key={index}>
+                    <Card style={cardStyle}>
+                      <Image imageSrc={post.imageSrc} style={imageStyle} />
+                      <Details style={{ backgroundColor: "#FAFAFA" }}>
+                        <Title style={{ color: "#6415FF" }}>{post.title}</Title>
+                        <Description
+                          style={{ height: "90px", overflow: "hidden" }}
+                        >
+                          {post.description !== ""
+                            ? post.description
+                            : "Event information not available at the current moment."}
+                        </Description>
+                        <small
+                          style={{
+                            marginTop: "10px",
+                            marginBottom: "20px",
+                            display: "block",
+                            color: "#7C8BA1",
+                            fontWeight: "500",
+                          }}
+                        >
+                          {getDate({ ...post })}
+                        </small>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            selfAlign: "center",
+                            height: "min-content",
+                            marginTop: "10px",
+                            width: "100%",
+                          }}
+                        >
+                          <Link href={post.url}>See More</Link>
+                          <MetaContainer>
+                            <Meta>
+                              <UserIcon />
+                              <div>{post.author}</div>
+                            </Meta>
+                            <Meta>
+                              <TagIcon />
+                              <div>{post.category}</div>
+                            </Meta>
+                          </MetaContainer>
+                        </div>
+                      </Details>
+                    </Card>
+                  </Column>
+                ))}
             </ThreeColumn>
           </Content>
           <DecoratorBlob1 />

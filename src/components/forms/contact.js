@@ -99,6 +99,7 @@ export default ({
         }
       })
       .catch((err) => {
+        setIsLoading(false);
         error(err.message)
       });
   };
