@@ -313,15 +313,17 @@ export default  ({
   console.log(t_cards)
   useEffect(() => {
     setIsLoading(true);
-    fetch('/api/past-events').then(res=>{
-      if(res.ok){
-        console.log(res)  
-        return res.json()
-      }
-    }).then((result) => {
-      update_t_cards(result)
-      setIsLoading(false);
-    })
+    fetch("https://main-cu-coders.herokuapp.com/api/past-events")
+      .then((res) => {
+        if (res.ok) {
+          console.log(res);
+          return res.json();
+        }
+      })
+      .then((result) => {
+        update_t_cards(result);
+        setIsLoading(false);
+      });
 
   },[])
   return (
