@@ -2,44 +2,37 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import Footer from "components/footers/footers.js";
 import Header from "components/headers/light.js";
-import {ReactComponent as TagIcon} from "feather-icons/dist/icons/tag.svg";
-import {ReactComponent as UserIcon} from "feather-icons/dist/icons/user.svg";
+import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
+import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-import {
-  ReactComponent as SvgDotPatternIcon
-} from "../../images/dot-pattern.svg";
-import {SectionHeading as HeadingTitle} from "../misc/Headings.js";
+import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
+import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 
 const Container = tw.div`relative`;
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
-const HeadingDescription =
-    tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
-const ThreeColumn =
-    tw.div`flex flex-col items-center lg:items-stretch lg:flex-row flex-wrap`;
+const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
+const ThreeColumn = tw.div`flex flex-col items-center lg:items-stretch lg:flex-row flex-wrap`;
 const Content = tw.div`mt-16`;
 
-const Card =
-    styled.div((props) => [tw`mt-24 md:flex justify-center items-center`,
-                           props.reversed ? tw`flex-row-reverse` : "flex-row",
+const Card = styled.div((props) => [
+  tw`mt-24 md:flex justify-center items-center`,
+  props.reversed ? tw`flex-row-reverse` : "flex-row",
 ]);
-const Image = styled.div(
-    (props) =>
-        [`background-image: url("${props.imageSrc}");`,
-         tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
+const Image = styled.div((props) => [
+  `background-image: url("${props.imageSrc}");`,
+  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
 ]);
 const Column = tw.div`mt-24 lg:w-1/3`;
 const Title = tw.h4`text-3xl font-bold text-gray-900`;
 const Description = tw.p`mt-2 text-sm leading-loose`;
-const Link =
-    tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
-const Details =
-    tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
+const Link = tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
+const Details = tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
 const MetaContainer = tw.div`flex items-center`;
 const Meta = styled.div`
   ${tw`text-secondary-100 font-medium text-sm flex items-center leading-none mr-6 last:mr-0`}
@@ -49,28 +42,33 @@ const Meta = styled.div`
 `;
 
 const SvgDotPattern1 = tw(
-    SvgDotPatternIcon) `absolute top-0 left-0 transform -translate-x-20 rotate-90 translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
+  SvgDotPatternIcon
+)`absolute top-0 left-0 transform -translate-x-20 rotate-90 translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 const SvgDotPattern2 = tw(
-    SvgDotPatternIcon) `absolute top-0 right-0 transform translate-x-20 rotate-45 translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
+  SvgDotPatternIcon
+)`absolute top-0 right-0 transform translate-x-20 rotate-45 translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 const SvgDotPattern3 = tw(
-    SvgDotPatternIcon) `absolute bottom-0 left-0 transform -translate-x-20 rotate-45 -translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
+  SvgDotPatternIcon
+)`absolute bottom-0 left-0 transform -translate-x-20 rotate-45 -translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 const SvgDotPattern4 = tw(
-    SvgDotPatternIcon) `absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
+  SvgDotPatternIcon
+)`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 
 const cardStyle = {
-  height : "fit-content",
-  boxShadow : "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+  height: "fit-content",
+  boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
 };
 
 const imageStyle = {
-  maxHeight : "200px",
-  width : "100%",
+  maxHeight: "200px",
+  width: "100%",
 };
-function getDate({date_start, date_end}) {
+function getDate({ date_start, date_end }) {
   console.log(date_start, new Date(date_start));
   if (date_start !== "" && date_end !== "") {
-    return `Event Date - ${new Date(date_start).toLocaleDateString()} to ${
-        new Date(date_end).toLocaleDateString()}`;
+    return `Event Date - ${new Date(
+      date_start
+    ).toLocaleDateString()} to ${new Date(date_end).toLocaleDateString()}`;
   } else {
     return "";
   }
@@ -104,7 +102,7 @@ export default () => {
         }
       })
       .then((result) => {
-        update_t_cards(result)
+        update_t_cards(result);
         setIsLoading(false);
       });
   }, []);
