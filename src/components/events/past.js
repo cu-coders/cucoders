@@ -328,18 +328,42 @@ export default  ({
             <HeadingDescription>{description}</HeadingDescription>
           </HeadingInfoContainer>
           <ThreeColumn>
-            {t_cards.map((post, index) => (
+            {t_cards === undefined && (
+              <div
+                style={{
+                  fontSize: "18px",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  color: "#6415ff",
+                  margin: "auto",
+                  marginBottom: "50px",
+                }}
+              >
+                Events Coming Soon!!
+              </div>
+            )}
+            {t_cards !== undefined && t_cards.map((post, index) => (
               <Column key={index}>
                 <Card style={cardStyle}>
                   <Image imageSrc={post.imageSrc} style={imageStyle} />
                   <Details style={{ backgroundColor: "#FAFAFA" }}>
-                    <Title style={{color: '#6415FF'}}>{post.title}</Title>
+                    <Title style={{ color: "#6415FF" }}>{post.title}</Title>
                     <Description style={{ height: "90px", overflow: "hidden" }}>
                       {post.description !== ""
                         ? post.description
                         : "Event information not available at the current moment."}
                     </Description>
-                    <small style={{marginTop: '10px', marginBottom: '20px', display: 'block', color: '#7C8BA1', fontWeight: '500'}}>{getDate({ ...post })}</small>
+                    <small
+                      style={{
+                        marginTop: "10px",
+                        marginBottom: "20px",
+                        display: "block",
+                        color: "#7C8BA1",
+                        fontWeight: "500",
+                      }}
+                    >
+                      {getDate({ ...post })}
+                    </small>
                     <div
                       style={{
                         display: "flex",
