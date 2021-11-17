@@ -73,20 +73,6 @@ function getDate({ date_start, date_end }) {
 }
 
 export default () => {
-  // const cards = [
-  //   {
-  //     imageSrc:
-  //       "https://images.unsplash.com/photo-1606326608690-4e0281b1e588?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-  //     subtitle: "Contest",
-  //     title: "Quiz Eve",
-  //     description:
-  //       "An all-new MCQ series! The test is 10-15 minutes long and aimed at
-  //       beginners and is the best way to spend a Saturday afternoon! Giddy
-  //       up.",
-  //     url: "/quiz"
-  //   }
-  // ];
-
   const [t_cards, update_t_cards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -155,6 +141,16 @@ export default () => {
                       <Image imageSrc={post.imageSrc} style={imageStyle} />
                       <Details style={{ backgroundColor: "#FAFAFA" }}>
                         <Title style={{ color: "#6415FF" }}>{post.title}</Title>
+                        <MetaContainer>
+                            <Meta>
+                              <UserIcon />
+                              <div>{post.author}</div>
+                            </Meta>
+                            <Meta>
+                              <TagIcon />
+                              <div>{post.category}</div>
+                            </Meta>
+                          </MetaContainer>
                         <Description
                           style={{ height: "90px", overflow: "hidden" }}
                         >
@@ -184,16 +180,6 @@ export default () => {
                           }}
                         >
                           <Link href={post.url}>See More</Link>
-                          <MetaContainer>
-                            <Meta>
-                              <UserIcon />
-                              <div>{post.author}</div>
-                            </Meta>
-                            <Meta>
-                              <TagIcon />
-                              <div>{post.category}</div>
-                            </Meta>
-                          </MetaContainer>
                         </div>
                       </Details>
                     </Card>

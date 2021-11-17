@@ -7,8 +7,6 @@ import Footer from "components/footers/footers.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
 
-import Top from "components/cta/top.js";
-
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
@@ -70,27 +68,6 @@ function getDate({ date_start, date_end }) {
 }
 
 export default () => {
-  // const blogPosts = [
-  //   {
-  //     imageSrc:
-  //       "https://images.unsplash.com/photo-1611589763733-06723d888080?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-  //     category: "Learning Series",
-  //     title: "Competitive Programing in 7 days",
-  //     description:
-  //       "Starting from Basic Intro to Programming to Advanced topics of Data Structures and Algorithms, we're going to cover it all! We will be sharing resources everyday in form of pdf and we also have something interesting coming up for you ,stay tuned for further updates!",
-  //     url: 'Details'
-  //   },
-  //   /*{
-  //     imageSrc:
-  //       "https://images.unsplash.com/photo-1603991318729-d12776468d70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80",
-  //     subtitle: "Free",
-  //     title: "Neev - The whirlwind of tech",
-  //     description:
-  //       "An initiative from the Dot QuestionMark which introduces a series of 9 distinct events, all that promises to build a foundation for the knowledge of any specific domain.",
-  //     url: "https://neev.dotquestionmark.com/"
-  //   }*/
-  // ];
-    
   const[t_cards,update_t_cards] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   
@@ -158,6 +135,16 @@ export default () => {
                       <Image imageSrc={post.imageSrc} style={imageStyle} />
                       <Details style={{ backgroundColor: "#FAFAFA" }}>
                         <Title style={{ color: "#6415FF" }}>{post.title}</Title>
+                        <MetaContainer>
+                            <Meta>
+                              <UserIcon />
+                              <div>{post.author}</div>
+                            </Meta>
+                            <Meta>
+                              <TagIcon />
+                              <div>{post.category}</div>
+                            </Meta>
+                          </MetaContainer>
                         <Description
                           style={{ height: "90px", overflow: "hidden" }}
                         >
@@ -187,16 +174,6 @@ export default () => {
                           }}
                         >
                           <Link href={post.url}>See More</Link>
-                          <MetaContainer>
-                            <Meta>
-                              <UserIcon />
-                              <div>{post.author}</div>
-                            </Meta>
-                            <Meta>
-                              <TagIcon />
-                              <div>{post.category}</div>
-                            </Meta>
-                          </MetaContainer>
                         </div>
                       </Details>
                     </Card>
