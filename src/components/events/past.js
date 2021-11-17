@@ -146,8 +146,18 @@ export default  ({
                     <Image imageSrc={post.imageSrc} style={imageStyle} />
                     <Details style={{ backgroundColor: "#FAFAFA" }}>
                       <Title style={{ color: "#6415FF" }}>{post.title}</Title>
+                      <MetaContainer>
+                          <Meta>
+                            <UserIcon />
+                            <div>{post.author}</div>
+                          </Meta>
+                          <Meta>
+                            <TagIcon />
+                            <div>{post.category}</div>
+                          </Meta>
+                        </MetaContainer>
                       <Description
-                        style={{ height: "120px", overflow: "hidden" }}
+                        style={{ height: "210px", overflow: "hidden" }}
                       >
                         {post.description !== ""
                           ? post.description
@@ -159,32 +169,16 @@ export default  ({
                           marginBottom: "20px",
                           display: "block",
                           color: "#7C8BA1",
-                          fontWeight: "500",
+                          fontWeight: "300",
                         }}
                       >
                         {getDate({ ...post })}
                       </small>
                       <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          selfAlign: "center",
-                          height: "min-content",
-                          marginTop: "10px",
-                          width: "100%",
-                        }}
+                     
                       >
                         <Link href={post.url}>See More</Link>
-                        <MetaContainer>
-                          <Meta>
-                            <UserIcon />
-                            <div>{post.author}</div>
-                          </Meta>
-                          <Meta>
-                            <TagIcon />
-                            <div>{post.category}</div>
-                          </Meta>
-                        </MetaContainer>
+                        
                       </div>
                     </Details>
                   </Card>
