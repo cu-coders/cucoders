@@ -119,12 +119,6 @@ export default ({
   return (
     <Container>
       <Content>
-        <HeadingInfo
-          tw="text-center lg:hidden"
-          subheading={subheading}
-          heading={heading}
-          description={description}
-        />
         <TestimonialsContainer>
           <Testimonials>
             <Testimonial>
