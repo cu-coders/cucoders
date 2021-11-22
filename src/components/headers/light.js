@@ -6,7 +6,6 @@ import React from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
-import { Redirect } from "react-router";
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/logo.png";

@@ -10,7 +10,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
-import { success, error, warning } from "../messages";
+import { success, error } from "../messages";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -99,6 +99,7 @@ export default ({
         }
       })
       .catch((err) => {
+        setIsLoading(false);
         error(err.message)
       });
   };
