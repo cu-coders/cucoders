@@ -127,6 +127,7 @@ export default ({
                 ref={setImageSliderRef}
                 asNavFor={textSliderRef}
                 fade={true}
+                autoplay={true}
               >
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
