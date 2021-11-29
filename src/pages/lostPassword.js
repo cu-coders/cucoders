@@ -46,10 +46,10 @@ export default ({
   submitButtonText = "Get new Password",
   SubmitButtonIcon = LoginIcon,
   signupUrl = "/signup",
-
+  isLoggedIn
 }) => (
   <AnimationRevealPage>
-  <Header />
+  <Header isLoggedIn={isLoggedIn} />
   <br />
     <Container>
       <Content>

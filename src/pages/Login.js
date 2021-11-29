@@ -67,6 +67,7 @@ export default ({
   logoLinkUrl = "/home",
   illustrationImageSrc = illustration,
   headingText = "Sign In To CU-Chapter",
+  isLoggedIn,
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
@@ -146,7 +147,7 @@ export default ({
   
   return (
     <AnimationRevealPage>
-    <Header />
+    <Header isLoggedIn={isLoggedIn} />
     <br />
       <Container>
         <Content>

@@ -84,6 +84,7 @@ export default ({
   tosUrl = "/terms",
   privacyPolicyUrl = "/privacy",
   signInUrl = "/login",
+  isLoggedIn
 }) => {
   const [user_data, updateData] = useState({
     firstname: "",
@@ -159,7 +160,7 @@ export default ({
   // Redirecting to home page is already logged in
   return (
     <AnimationRevealPage>
-    <Header />
+    <Header isLoggedIn={isLoggedIn} />
     <br />
       <Container>
         <Content>
