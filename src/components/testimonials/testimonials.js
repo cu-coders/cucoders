@@ -123,10 +123,14 @@ export default ({
           <Testimonials>
             <Testimonial>
               <TestimonialImageSlider
-                arrows={false}
-                ref={setImageSliderRef}
-                asNavFor={textSliderRef}
-                fade={true}
+                arrows={false} // we'll be using the buttons below instead
+                ref={setImageSliderRef} 
+                asNavFor={textSliderRef} // syncronize the image slider with the text slider
+                fade={true} // fade between slides
+                autoplay={true} // autoplay slider
+                speed={5000} // time between each slide
+                pauseOnHover={true} // pause on hover
+                lazyLoad={true} // lazy load images
               >
                 {testimonials.map((testimonial, index) => (
                   <ImageAndControlContainer key={index}>
