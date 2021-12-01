@@ -61,7 +61,13 @@ export default ({
             <Heading>{headingText}</Heading>
             <FormContainer>
               <DividerTextContainer>
-                <DividerText>Enter your email to retrieve the Password</DividerText>
+                <DividerText>
+                <span
+                      style={{ backgroundColor: "#ffffff", padding: "0 5px" }}
+                    >
+                Enter your email to retrieve the Password
+                </span>
+                </DividerText>
               </DividerTextContainer>
               <Form>
                 <Input type="email" placeholder="Email" />
