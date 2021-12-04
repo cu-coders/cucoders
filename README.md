@@ -9,7 +9,7 @@
 </a>
 
 <a href="https://github.com/cu-coders/cucoders/pulls">
-   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=0088ff" />
+   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=35F51D" />
 </a>
 </p>
 
