@@ -101,6 +101,7 @@ export default ({
         <Container>
         <br />
           <HeaderContainer>
+          <br />
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
@@ -125,7 +126,7 @@ export default ({
               </Plan>
             ))}
           </PlansContainer>
-          <br />
+          <br  />
           <br />
           <br />
         </Container>

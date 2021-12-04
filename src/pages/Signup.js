@@ -1,4 +1,5 @@
 import axios from "axios";
+import Header from "components/headers/light.js";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { message } from "antd";
@@ -19,7 +20,7 @@ import { useEffect } from "react";
 // import { useHistory } from "react-router";
 const Container = tw(
   ContainerBase
-)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
+)`min-h-screen text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
@@ -83,6 +84,7 @@ export default ({
   tosUrl = "/terms",
   privacyPolicyUrl = "/privacy",
   signInUrl = "/login",
+  isLoggedIn
 }) => {
   const [user_data, updateData] = useState({
     firstname: "",
@@ -158,6 +160,8 @@ export default ({
   // Redirecting to home page is already logged in
   return (
     <AnimationRevealPage>
+    <Header isLoggedIn={isLoggedIn} />
+    <br />
       <Container>
         <Content>
           <MainContainer>
