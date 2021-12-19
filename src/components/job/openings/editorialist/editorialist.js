@@ -5,41 +5,41 @@ import Header from "components/headers/light.js";
 import Apply from "components/job/apply.js";
 import {
   SectionHeading,
-  Subheading as SubheadingBase
+  Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
-import {Container, ContentWithPaddingXl} from "components/misc/Layouts.js";
-import {SectionDescription} from "components/misc/Typography.js";
+import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import { SectionDescription } from "components/misc/Typography.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import {ReactComponent as QuoteIconBase} from "images/quotes-l.svg"
+import { ReactComponent as QuoteIconBase } from "images/quotes-l.svg";
 import React from "react";
-import styled, {css} from "styled-components/macro"; //eslint-disable-line
+import styled, { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
 
 const HeadingContainer = tw.div``;
-const Subheading = tw(SubheadingBase) `text-center text-primary-100 mb-4`;
-const Heading = tw(SectionHeading) ``;
-const Description = tw(SectionDescription) `mx-auto text-center text-gray-300`;
+const Subheading = tw(SubheadingBase)`text-center text-primary-100 mb-4`;
+const Heading = tw(SectionHeading)``;
+const Description = tw(SectionDescription)`mx-auto text-center text-gray-300`;
 
-const Testimonial =
-    tw.div`px-6 py-12 sm:px-20 sm:py-16 focus:outline-none flex! flex-col justify-between h-full`
-const QuoteContainer = tw.div`relative`
+const Testimonial = tw.div`px-6 py-12 sm:px-20 sm:py-16 focus:outline-none flex! flex-col justify-between h-full`;
+const QuoteContainer = tw.div`relative`;
 const QuoteIcon = tw(
-    QuoteIconBase) `absolute opacity-15 top-0 left-0 transform -translate-y-2 -translate-x-1/2 sm:-translate-x-full w-10 fill-current text-primary-500`
-const Quote =
-    tw.blockquote`font-medium sm:font-normal relative text-sm sm:text-xl text-center sm:text-left`
+  QuoteIconBase
+)`absolute opacity-15 top-0 left-0 transform -translate-y-2 -translate-x-1/2 sm:-translate-x-full w-10 fill-current text-primary-500`;
+const Quote = tw.blockquote`font-medium sm:font-normal relative text-sm sm:text-xl text-center sm:text-left`;
 export default ({
   subheading = "WE'RE HIRING A FULL-TIME ",
   heading = "Editorialists",
   description = " ",
-  testimonials = [ {
-    quote :
-        "If you take pride in making things simple. If you posses love for complex algorithms and like explaining them to eager enthusiasts making them easy to understand. If you have a good command over the English language. And to top it all, if you get elated from the stimulating algorithmic discussions while the problems are being baked in our kitchen before they are served to the rest of the world. You have all the ingredients to be our Editorialist. As an Editorialist, you will be responsible for writing the editorials of all the problems in our contest. We currently need Editorialists for our Contests"
-  } ],
-  testimonials1 = [ {quote : ""} ],
-  testimonials2 = [ {quote : ""} ],
-  testimonials3 = [ {quote : ""} ]
+  testimonials = [
+    {
+      quote:
+        "If you take pride in making things simple. If you posses love for complex algorithms and like explaining them to eager enthusiasts making them easy to understand. If you have a good command over the English language. And to top it all, if you get elated from the stimulating algorithmic discussions while the problems are being baked in our kitchen before they are served to the rest of the world. You have all the ingredients to be our Editorialist. As an Editorialist, you will be responsible for writing the editorials of all the problems in our contest. We currently need Editorialists for our Contests",
+    },
+  ],
+  testimonials1 = [{ quote: "" }],
+  testimonials2 = [{ quote: "" }],
+  testimonials3 = [{ quote: "" }],
 }) => {
-
   return (
     <>
       <AnimationRevealPage>
