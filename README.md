@@ -9,7 +9,7 @@
 </a>
 
 <a href="https://github.com/cu-coders/cucoders/pulls">
-   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=0088ff" />
+   <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=35F51D" />
 </a>
 </p>
 
@@ -59,7 +59,7 @@ The project has the following pages:
 By contributing in the site you agree to the privacy policies and terms of the project.
 
 ## Deployment<a name="Deployment"></a>
-The entire project is deployed at [main.cuchapter.tech](https://main.cuchapter.tech) using Heroku.
+The entire project is deployed at [main.cuchapter.tech](https://main.cuchapter.tech) using Netlify.
 
 ## Setup<a name="Setup"></a>
 In the project directory, you can use the following commands:

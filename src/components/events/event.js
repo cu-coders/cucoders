@@ -54,7 +54,6 @@ const PlanHeader = styled.div`
     ${tw`mt-8 font-medium text-gray-700 lg:text-sm xl:text-base`}
   }
 `;
-
 const PlanAction = tw.div`mt-4`;
 const ActionButton = styled(PrimaryButtonBase)`
   ${tw`block text-center text-sm font-semibold tracking-wider w-full text-gray-100 bg-primary-500 px-6 py-4 rounded hover:bg-primary-700 focus:shadow-outline focus:outline-none transition-colors duration-300`}
@@ -98,7 +97,9 @@ export default ({
     <>
       <AnimationRevealPage>
         <Header isLoggedIn={isLoggedIn} />
+        <br />
         <Container>
+        <br />
           <HeaderContainer>
           <br />
             {subheading && <Subheading>{subheading}</Subheading>}
@@ -126,7 +127,8 @@ export default ({
             ))}
           </PlansContainer>
           <br  />
-          <br  />
+          <br />
+          <br />
         </Container>
         <Footer />
       </AnimationRevealPage>

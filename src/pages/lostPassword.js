@@ -5,7 +5,7 @@ import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {css} from "styled-components/macro"; //eslint-disable-line
-import illustration from "images/login-illustration.svg";
+import illustration from "images/lost-illustration.svg";
 import logo from "images/logo.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
 
@@ -61,7 +61,13 @@ export default ({
             <Heading>{headingText}</Heading>
             <FormContainer>
               <DividerTextContainer>
-                <DividerText>Enter your email to retrieve the Password</DividerText>
+                <DividerText>
+                <span
+                      style={{ backgroundColor: "#ffffff", padding: "0 5px" }}
+                    >
+                Enter your email to retrieve the Password
+                </span>
+                </DividerText>
               </DividerTextContainer>
               <Form>
                 <Input type="email" placeholder="Email" />
