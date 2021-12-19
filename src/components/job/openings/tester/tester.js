@@ -1,50 +1,43 @@
-import React from "react";
-import tw from "twin.macro";
-import styled, { css } from "styled-components/macro"; //eslint-disable-line
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
-import { ReactComponent as QuoteIconBase } from "images/quotes-l.svg"
 import "slick-carousel/slick/slick.css";
-import Apply from "components/job/apply.js";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import Header from "components/headers/light.js";
+
 import Footer from "components/footers/footers.js";
+import Header from "components/headers/light.js";
+import Apply from "components/job/apply.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase
+} from "components/misc/Headings.js";
+import {Container, ContentWithPaddingXl} from "components/misc/Layouts.js";
+import {SectionDescription} from "components/misc/Typography.js";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import {ReactComponent as QuoteIconBase} from "images/quotes-l.svg"
+import React from "react";
+import styled, {css} from "styled-components/macro"; //eslint-disable-line
+import tw from "twin.macro";
 
 const HeadingContainer = tw.div``;
-const Subheading = tw(SubheadingBase)`text-center text-primary-100 mb-4`;
-const Heading = tw(SectionHeading)``;
-const Description = tw(SectionDescription)`mx-auto text-center text-gray-300`;
+const Subheading = tw(SubheadingBase) `text-center text-primary-100 mb-4`;
+const Heading = tw(SectionHeading) ``;
+const Description = tw(SectionDescription) `mx-auto text-center text-gray-300`;
 
-const Testimonial = tw.div`px-6 py-12 sm:px-20 sm:py-16 focus:outline-none flex! flex-col justify-between h-full`
+const Testimonial =
+    tw.div`px-6 py-12 sm:px-20 sm:py-16 focus:outline-none flex! flex-col justify-between h-full`
 const QuoteContainer = tw.div`relative`
-const QuoteIcon = tw(QuoteIconBase)`absolute opacity-15 top-0 left-0 transform -translate-y-2 -translate-x-1/2 sm:-translate-x-full w-10 fill-current text-primary-500`
-const Quote = tw.blockquote`font-medium sm:font-normal relative text-sm sm:text-xl text-center sm:text-left`
+const QuoteIcon = tw(
+    QuoteIconBase) `absolute opacity-15 top-0 left-0 transform -translate-y-2 -translate-x-1/2 sm:-translate-x-full w-10 fill-current text-primary-500`
+const Quote =
+    tw.blockquote`font-medium sm:font-normal relative text-sm sm:text-xl text-center sm:text-left`
 export default ({
   subheading = "WE'RE HIRING A FULL-TIME ",
   heading = "Problem Tester",
   description = " ",
-  testimonials = [
-    {
-     quote:
+  testimonials = [ {
+    quote :
         "Want to test problems created for CU-Coders contests? We need a bunch of hardcore problem solvers to solve and scour our new problems for errors. Our fearless Problem Testers certify the quality of problems before the rest of the programming world can even have a look at them! We currently need Problem Testers for our Contests. If you think you have what it takes, read the rules and apply to become a Problem Tester."
-    }
-  ],
-  testimonials1 = [
-  {
-    quote:
-    ""
-  }],
-  testimonials2 = [
-  {
-    quote:
-    ""
-  }],
-  testimonials3 = [
-  {
-    quote:
-    ""
-  }]
+  } ],
+  testimonials1 = [ {quote : ""} ],
+  testimonials2 = [ {quote : ""} ],
+  testimonials3 = [ {quote : ""} ]
 }) => {
 
   return (
