@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { ReactComponent as SvgDotPatternIcon } from "../../../../images/dot-pattern.svg";
+import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import { success, error, warning } from "../../../../components/messages";
+import { success, error, warning } from "../messages";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -41,11 +41,10 @@ const SvgDotPattern1 = tw(
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
 export default ({
-  formAction = process.env.REACT_APP_J_FORM,
-  formMethod = "post",
+  role
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-
+console.log(role);
   function submit(e) {
     e.preventDefault();
     var name = document.getElementById("name-input").value;
@@ -54,11 +53,10 @@ export default ({
     var address = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
     console.log(name, email, resume, address, phone);
-
     const formData = new FormData();
 
     formData.append("name", name);
-    formData.append("role", "fullstack-developer");
+    formData.append("role", role);
     formData.append("email", email);
     formData.append("number", phone);
     formData.append("address", address);

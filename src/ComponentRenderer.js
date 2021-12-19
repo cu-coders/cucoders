@@ -36,7 +36,7 @@ import Upcoming from "components/events/upcoming.js";
 import Applyback from "components/job/openings/backend/apply.js";
 import Applyeditorial from "components/job/openings/editorialist/apply.js";
 import Applyfront from "components/job/openings/frontend/apply.js";
-import Applyfull from "components/job/openings/fullstack/apply.js";
+import Applyfull from "components/job/apply.js";
 import Applygraphic from "components/job/openings/graphic/apply.js";
 import Applymotion from "components/job/openings/motion/apply.js";
 import Applysetter from "components/job/openings/setter/apply.js";

@@ -6,7 +6,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { SectionDescription } from "components/misc/Typography.js";
 import { ReactComponent as QuoteIconBase } from "images/quotes-l.svg"
 import "slick-carousel/slick/slick.css";
-import Apply from "components/job/openings/uiux/apply.js";
+import Apply from "components/job/apply.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
@@ -49,89 +49,121 @@ export default ({
 
   return (
     <>
-    <AnimationRevealPage>
-      <Header />
-      <Container>
-      <ContentWithPaddingXl>
-        <HeadingContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          <Heading>{heading}</Heading>
-          <Description>{description}</Description>
-        </HeadingContainer>
-          {testimonials.map((testimonial, index) => (
-            <Testimonial key={index}>
-              <QuoteContainer>
-                <QuoteIcon />
-                <Quote>
-                  {testimonial.quote}
-                </Quote>
-              </QuoteContainer>
-            </Testimonial>
-          ))}
-        {subheading && <Subheading>THE MUST-HAVES</Subheading>}
-        <Heading>Qualifications</Heading>
-          {testimonials1.map((testimonial1, index) => (
-            <Testimonial key={index}>
-              <QuoteContainer>
-                <QuoteIcon />
-                <Quote>
-                  {testimonial1.quote}
-                  <ul>1. Knowledge of wireframe tools (e.g. Adobe XD, figma, InVision etc.)</ul>
-                  <ul>2. Up-to-date knowledge of design software like Adobe Illustrator and Photoshop.</ul>
-                  <ul>3. Team spirit; strong communication skills to collaborate with various stakeholders.</ul>
-                  <ul>4. Good time-management skills.</ul>
-                </Quote>
-              </QuoteContainer>
-            </Testimonial>
-          ))}
-        <HeadingContainer>
-          {subheading && <Subheading>THE DAILY TO-DOS</Subheading>}
-          <Heading>Responsibilities</Heading>
-          <Description>{description}</Description>
-        </HeadingContainer>
-          {testimonials2.map((testimonial, index) => (
-            <Testimonial key={index}>
-              <QuoteContainer>
-                <QuoteIcon />
-                <Quote>
-                  {testimonial.quote}
-                  <ul>1. Gather and evaluate user requirements in collaboration with product managers and engineers.</ul>
-                  <ul>2. Illustrate design ideas using storyboards, process flows and sitemaps.</ul>
-                  <ul>3. Design graphic user interface elements, like menus, tabs and widgets.</ul>
-                  <ul>4. Build page navigation buttons and search fields.</ul>
-                  <ul>5. Develop UI mockups and prototypes that clearly illustrate how sites function and look like.</ul>
-                  <ul>6. Create original graphic designs (e.g. images, sketches and tables). </ul>
-                  <ul>7. Prepare and present rough drafts to internal teams and key stakeholders.</ul>
-                  <ul>8. Identify and troubleshoot UX problems (e.g. responsiveness).</ul>
-                  <ul>9. Conduct layout adjustments based on user feedback.</ul>
-                  <ul>10. Adhere to style standards on fonts, colors and images.</ul>
-                </Quote>
-              </QuoteContainer>
-            </Testimonial>
-          ))}
-          <HeadingContainer>
-          {subheading && <Subheading>THE EXTRA STUFF</Subheading>}
-          <Heading>Bonus skills</Heading>
-          <Description>{description}</Description>
-        </HeadingContainer>
-          {testimonials3.map((testimonial, index) => (
-            <Testimonial key={index}>
-              <QuoteContainer>
-                <QuoteIcon />
-                <Quote>
-                  {testimonial.quote}
-                  <ul>1. Functional experience in Front-End developments.</ul>
-                  <ul>2. Experience in immersive design (AR/VR).</ul>
-                  <ul>3. Portfolio of design projects.</ul>
-                </Quote>
-              </QuoteContainer>
-            </Testimonial>
-          ))}
-      </ContentWithPaddingXl>
-      </Container>
-      <Apply />
-      <Footer />
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header />
+        <Container>
+          <ContentWithPaddingXl>
+            <HeadingContainer>
+              {subheading && <Subheading>{subheading}</Subheading>}
+              <Heading>{heading}</Heading>
+              <Description>{description}</Description>
+            </HeadingContainer>
+            {testimonials.map((testimonial, index) => (
+              <Testimonial key={index}>
+                <QuoteContainer>
+                  <QuoteIcon />
+                  <Quote>{testimonial.quote}</Quote>
+                </QuoteContainer>
+              </Testimonial>
+            ))}
+            {subheading && <Subheading>THE MUST-HAVES</Subheading>}
+            <Heading>Qualifications</Heading>
+            {testimonials1.map((testimonial1, index) => (
+              <Testimonial key={index}>
+                <QuoteContainer>
+                  <QuoteIcon />
+                  <Quote>
+                    {testimonial1.quote}
+                    <ul>
+                      1. Knowledge of wireframe tools (e.g. Adobe XD, figma,
+                      InVision etc.)
+                    </ul>
+                    <ul>
+                      2. Up-to-date knowledge of design software like Adobe
+                      Illustrator and Photoshop.
+                    </ul>
+                    <ul>
+                      3. Team spirit; strong communication skills to collaborate
+                      with various stakeholders.
+                    </ul>
+                    <ul>4. Good time-management skills.</ul>
+                  </Quote>
+                </QuoteContainer>
+              </Testimonial>
+            ))}
+            <HeadingContainer>
+              {subheading && <Subheading>THE DAILY TO-DOS</Subheading>}
+              <Heading>Responsibilities</Heading>
+              <Description>{description}</Description>
+            </HeadingContainer>
+            {testimonials2.map((testimonial, index) => (
+              <Testimonial key={index}>
+                <QuoteContainer>
+                  <QuoteIcon />
+                  <Quote>
+                    {testimonial.quote}
+                    <ul>
+                      1. Gather and evaluate user requirements in collaboration
+                      with product managers and engineers.
+                    </ul>
+                    <ul>
+                      2. Illustrate design ideas using storyboards, process
+                      flows and sitemaps.
+                    </ul>
+                    <ul>
+                      3. Design graphic user interface elements, like menus,
+                      tabs and widgets.
+                    </ul>
+                    <ul>4. Build page navigation buttons and search fields.</ul>
+                    <ul>
+                      5. Develop UI mockups and prototypes that clearly
+                      illustrate how sites function and look like.
+                    </ul>
+                    <ul>
+                      6. Create original graphic designs (e.g. images, sketches
+                      and tables).{" "}
+                    </ul>
+                    <ul>
+                      7. Prepare and present rough drafts to internal teams and
+                      key stakeholders.
+                    </ul>
+                    <ul>
+                      8. Identify and troubleshoot UX problems (e.g.
+                      responsiveness).
+                    </ul>
+                    <ul>
+                      9. Conduct layout adjustments based on user feedback.
+                    </ul>
+                    <ul>
+                      10. Adhere to style standards on fonts, colors and images.
+                    </ul>
+                  </Quote>
+                </QuoteContainer>
+              </Testimonial>
+            ))}
+            <HeadingContainer>
+              {subheading && <Subheading>THE EXTRA STUFF</Subheading>}
+              <Heading>Bonus skills</Heading>
+              <Description>{description}</Description>
+            </HeadingContainer>
+            {testimonials3.map((testimonial, index) => (
+              <Testimonial key={index}>
+                <QuoteContainer>
+                  <QuoteIcon />
+                  <Quote>
+                    {testimonial.quote}
+                    <ul>1. Functional experience in Front-End developments.</ul>
+                    <ul>2. Experience in immersive design (AR/VR).</ul>
+                    <ul>3. Portfolio of design projects.</ul>
+                  </Quote>
+                </QuoteContainer>
+              </Testimonial>
+            ))}
+          </ContentWithPaddingXl>
+        </Container>
+        <Apply />
+        <Footer role={"ui/ux-designer"} />
+      </AnimationRevealPage>
     </>
   );
 };
