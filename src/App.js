@@ -29,6 +29,8 @@ import Present from "components/events/present.js";
 import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
 import Upcoming from "components/events/upcoming.js";
+import Upload from "components/forms/upload.js"
+import Error from "components/hero/error.js";
 import Back from "components/job/openings/backend/backend.js";
 import Editorial from "components/job/openings/editorialist/editorialist.js";
 import Front from "components/job/openings/frontend/frontend.js";
@@ -41,11 +43,8 @@ import UIUX from "components/job/openings/uiux/uiux.js";
 import Member from "components/membership/member.js";
 import Calender from "components/projects/calendly.js";
 import Projects from "components/projects/project.js";
-import Resources from "components/resources/resources.js";
-import Error from "components/hero/error.js";
-import LostPassword from "pages/lostPassword.js";
-import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
+import Algo from "components/resources/algorithms/index.js";
 import ComingNow from "components/resources/comingsoon.js";
 import CP from "components/resources/cp/index.js";
 import Database from "components/resources/database/index.js";
@@ -53,23 +52,24 @@ import Security from "components/resources/hacking/index.js";
 import Language from "components/resources/language/index.js";
 import Mobile from "components/resources/mobile/index.js";
 import Open from "components/resources/open/index.js";
+import Resources from "components/resources/resources.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
-import Upload from "components/forms/upload.js"
 import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
 import Login from "pages/Login.js";
+import LostPassword from "pages/lostPassword.js";
 import Privacy from "pages/PrivacyPolicy.js";
 import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import React, {useEffect, useState} from "react";
+import {Navigate} from "react-router";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {css} from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
@@ -79,18 +79,18 @@ export default function App() {
   // AUTHENTICATIO------------------------//
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/auth/user", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        if (res.data.username) {
-          updateIsVarified(true);
-          console.log("Logged In from APP.js")
-        } else {
-          updateIsVarified(false);
-          console.log("Logged Out from APP.js")
-        }
-      });
+        .get("https://main-cu-coders.herokuapp.com/auth/user", {
+          withCredentials : true,
+        })
+        .then((res) => {
+          if (res.data.username) {
+            updateIsVarified(true);
+            console.log("Logged In from APP.js")
+          } else {
+            updateIsVarified(false);
+            console.log("Logged Out from APP.js")
+          }
+        });
   }, []);
 
   return (
@@ -103,13 +103,15 @@ export default function App() {
           <ComponentRenderer />
         </Route>
         <Route exact path="/team">
-          <Team isLoggedIn={isVarified} />
+          <Team isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/upcoming">
           <Upcoming />
         </Route>
         <Route exact path="/events">
-          <Events isLoggedIn={isVarified} />
+          <Events isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/present">
           <Present />
@@ -121,16 +123,19 @@ export default function App() {
           <Quiz />
         </Route>
         <Route exact path="/projects">
-          <Projects isLoggedIn={isVarified} />
+          <Projects isLoggedIn={
+    isVarified} />
         </Route>
         <Route path="/resources">
-          <Resources isLoggedIn={isVarified} />
+          <Resources isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/comingnow">
           <ComingNow />
         </Route>
         <Route exact path="/careers">
-          <Careers isLoggedIn={isVarified} />
+          <Careers isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/comingsoon">
           <ComingSoon />
@@ -139,7 +144,8 @@ export default function App() {
           <Coming />
         </Route>
         <Route exact path="/contact">
-          <Contact isLoggedIn={isVarified} />
+          <Contact isLoggedIn={
+    isVarified} />
         </Route>
         <Route path="/backend">
           <Back />
@@ -187,16 +193,20 @@ export default function App() {
           <Terms />
         </Route>
         <Route exact path="/member">
-          <Member isLoggedIn={isVarified} />
+          <Member isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/about">
-          <About isLoggedIn={isVarified} />
+          <About isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/home">
-          <Home isLoggedIn={isVarified} />
+          <Home isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/">
-          <Home isLoggedIn={isVarified} />
+          <Home isLoggedIn={
+    isVarified} />
         </Route>
         <Route exact path="/algo">
           <Algo />
@@ -235,15 +245,16 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          {isVarified ? <Navigate to="/" /> : <Login updateIsLoggedIn={updateIsVarified} />}
+          {
+  isVarified ? <Navigate to = "/" />
+             : <Login updateIsLoggedIn =
+                { updateIsVarified } />}
         </Route>
-        <Route exact path="/signup">
-          {isVarified ? <Navigate to="/" /> : <Signup />}
-        </Route>
+                   <Route exact path = "/signup">{
+                     isVarified ? <Navigate to = "/" />: <Signup />
+                   }</Route>
         <Route path="/">
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+                     < Error /></Route>
+      </Switch>< /Router>
   );
 }
