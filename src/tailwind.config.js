@@ -8,6 +8,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+      'mn': '1160px',
       "2xl": "1440px",
     },
     colors: {
@@ -209,8 +210,8 @@ module.exports = {
       "2xl": '1rem',
       "3xl": '1.5rem',
       "4xl": '2.5rem',
-      "5xl":'3rem',
-      "6xl":'4.5rem',
+      "5xl": '3rem',
+      "6xl": '4.5rem',
       full: '9999px',
     },
     borderWidth: {
@@ -381,6 +382,7 @@ module.exports = {
       sm: '24rem',
       md: '28rem',
       lg: '32rem',
+      mn: '1160px',
       xl: '36rem',
       '2xl': '42rem',
       '3xl': '48rem',

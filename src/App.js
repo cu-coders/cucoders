@@ -67,7 +67,7 @@ import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router";
+import { Navigate } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
@@ -235,10 +235,10 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          {isVarified ? <Redirect to="/" /> : <Login updateIsLoggedIn={updateIsVarified} />}
+          {isVarified ? <Navigate to="/" /> : <Login updateIsLoggedIn={updateIsVarified} />}
         </Route>
         <Route exact path="/signup">
-          {isVarified ? <Redirect to="/" /> : <Signup />}
+          {isVarified ? <Navigate to="/" /> : <Signup />}
         </Route>
         <Route path="/">
           <Error />

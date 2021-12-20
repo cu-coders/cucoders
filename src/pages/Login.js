@@ -9,7 +9,7 @@ import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
 import React from "react";
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router";
+import { Navigate } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
@@ -124,7 +124,7 @@ export default ({
         setLoading(false);
         console.log("Response from login API : ", res)
         if (res.data.success) {
-          success("User logged in successfully",1);
+          success("User logged in successfully", 1);
           setTimeout(() => {
             updateIsVarified(true);
             updateIsLoggedIn(true);
@@ -143,12 +143,12 @@ export default ({
         error("Email or password incorrect")
       });
   };
-  if (isVarified) return <Redirect to="/" />;
-  
+  if (isVarified) return <Navigate to="/" />;
+
   return (
     <AnimationRevealPage>
-    <Header isLoggedIn={isLoggedIn} />
-    <br />
+      <Header isLoggedIn={isLoggedIn} />
+      <br />
       <Container>
         <Content>
           <MainContainer>
