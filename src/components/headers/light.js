@@ -25,7 +25,7 @@ export const NavLinks = styled.div`
  * hocus:bg-primary-700 will apply the bg-primary-700 class on hover or focus
  */
 export const NavLink = tw.a`
-  text-lg my-2 lg:text-sm lg:mx-6 lg:my-0
+  text-lg my-2 lg:text-sm lg:mx-4 lg:my-0
   font-semibold tracking-wide transition duration-300
   pb-1 border-b-2 border-transparent hover:border-primary-500 hocus:text-primary-500
 `;
@@ -47,17 +47,17 @@ export const LogoLink = styled(NavLink)`
 
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
-  lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
+  mn:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
 `;
 export const MobileNavLinks = motion.custom(styled.div`
-  ${tw`lg:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
+  ${tw`mn:hidden z-10 fixed top-0 inset-x-0 mx-4 my-6 p-8 border text-center rounded-lg text-gray-900 bg-white`}
   ${NavLinks} {
     ${tw`flex flex-col items-center`}
   }
 `);
 
 export const DesktopNavLinks = tw.nav`
-  hidden lg:flex flex-1 justify-between items-center
+  hidden mn:flex flex-1 justify-between items-center
 `;
 
 export default ({
@@ -65,7 +65,7 @@ export default ({
   logoLink,
   links,
   className,
-  collapseBreakpointClass = "lg",
+  collapseBreakpointClass = "mn",
   isLoggedIn,
 }) => {
   /*
@@ -105,11 +105,11 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios.request(
-                "https://main-cu-coders.herokuapp.com/auth/logout",
-                {
-                  withCredentials: true,
-                }
-              )
+              "https://main-cu-coders.herokuapp.com/auth/logout",
+              {
+                withCredentials: true,
+              }
+            )
               .then((res) => {
                 if (res.data.logout === true) {
                   console.log("Logged out successfully");
@@ -197,6 +197,11 @@ const collapseBreakPointCssMap = {
     mobileNavLinks: tw`lg:hidden`,
     desktopNavLinks: tw`lg:flex`,
     mobileNavLinksContainer: tw`lg:hidden`,
+  },
+  mn: {
+    mobileNavLinks: tw`mn:hidden`,
+    desktopNavLinks: tw`mn:flex`,
+    mobileNavLinksContainer: tw`mn:hidden`,
   },
   xl: {
     mobileNavLinks: tw`lg:hidden`,

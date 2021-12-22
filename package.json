@@ -30,6 +30,7 @@
     "react-native-background-audio": "^1.1.4",
     "react-preloaders": "^3.0.3",
     "react-rnd": "^10.1.9",
+    "react-router": "^6.0.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-slick": "^0.25.2",

@@ -6,7 +6,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { SectionDescription } from "components/misc/Typography.js";
 import { ReactComponent as QuoteIconBase } from "images/quotes-l.svg"
 import "slick-carousel/slick/slick.css";
-import Apply from "components/job/openings/frontend/apply.js";
+import Apply from "components/job/apply.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
@@ -125,7 +125,7 @@ export default ({
           ))}
       </ContentWithPaddingXl>
       </Container>
-      <Apply />
+      <Apply role={"frontend-developer"} />
       <Footer />
     </AnimationRevealPage>
     </>
