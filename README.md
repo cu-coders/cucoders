@@ -23,7 +23,7 @@
 * [Setup](#Setup)
 
 ## About CodeChef CU Chapter<a name="About"></a>
-CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now. We are a community which aim to instill problem solving aptitude and promote competitive programming while also giving development exposure to all the members.
+CodeChef CU Chapter is the official campus chapter of CodeChef run by the students of Chandigarh University. The aim of the chapter is to open opportunities to all the students in the university to learn from hands-on experience in the industry and getting to learn from professionals working in the industry right now. We are a community which aim to install problem solving aptitude and promote competitive programming while also giving development exposure to all the members.
 
 For more information, visit [our official site](https://main.cuchapter.tech)
 
