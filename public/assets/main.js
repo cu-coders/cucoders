@@ -2,11 +2,7 @@
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
+    document.getElementById("myBtn").style.display = document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 ? "block" : "none";
 }
 
 // When the user clicks on the button, scroll to the top of the document
@@ -25,16 +21,16 @@ function enableScrolling() {
 }
 
 // Selecting all required elements
-const wrapper = document.querySelector(".wrapper"),
-toast = wrapper.querySelector(".toast"),
-title = toast.querySelector("span"),
-subTitle = toast.querySelector("p"),
-wifiIcon = toast.querySelector(".icon"),
-closeIcon = toast.querySelector(".close-icon");
+const wrapper = document.querySelector(".wrapper");
+const toast = wrapper.querySelector(".toast");
+const title = toast.querySelector("span");
+const subTitle = toast.querySelector("p");
+const wifiIcon = toast.querySelector(".icon");
+const closeIcon = toast.querySelector(".close-icon");
 
 window.onload = ()=>{
     function ajax(){
-        let xhr = new XMLHttpRequest(); //creating new XML object
+        const xhr = new XMLHttpRequest(); //creating new XML object
         xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true); //sending get request on this URL
         xhr.onload = ()=>{ //once ajax loaded
             //if ajax status is equal to 200 or less than 300 that mean user is getting data from that provided url
