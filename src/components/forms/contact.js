@@ -49,7 +49,7 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      Feel free to get in touch</span>
+      Feel free to get in touch
       <wbr /> with us.
     </>
   ),
