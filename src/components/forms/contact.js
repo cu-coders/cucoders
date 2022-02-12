@@ -1,3 +1,4 @@
+ /** @jsxImportSource @tailwind/react */
 import axios from "axios";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import {
