@@ -49,7 +49,7 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      Feel free to get in touch
+      Feel free to <span tw="text-primary-500">get in touch</span>
       <wbr /> with us.
     </>
   ),
