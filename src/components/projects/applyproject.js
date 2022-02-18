@@ -67,7 +67,7 @@ export default ({
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://cuchapter.herokuapp.com/project", formData,{"xsrf-token":formToken})
+      .post("https://main-cu-coders.herokuapp.com/project", formData,{"xsrf-token":formToken})
       .then((res) => {
         setIsLoading(false)
         if (!res.data.success) {
