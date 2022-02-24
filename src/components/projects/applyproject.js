@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import {ReactComponent as SvgDotPatternIcon} from "../../images/dot-pattern.svg"
+import { success, error } from "../messages";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -34,36 +39,92 @@ const SubmitButton = tw.button`w-full sm:w-32 mt-6 py-3 bg-gray-100 text-primary
 const SvgDotPattern1 = tw(SvgDotPatternIcon)`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`
 
 export default ({
-  formAction = process.env.REACT_APP_PROJECT,
-  formMethod = "post",
+  submitButtonText = "Send",
 }) => {
+  const [formToken, formTokenState] = useState("");
+  const [formData, updateData] = useState({
+    name: "",
+    email: "",
+    details: "",
+  });
+  const [isLoading, setIsLoading] = useState(false)
+  useEffect(() => {
+    axios
+      .get("https://cuchapter.herokuapp.com/form-token",{
+        withCredentials:true,
+      })
+      .then((res) => {
+        formTokenState(res.data.formToken);
+      })
+      .catch((err) => {
+        formTokenState("");
+      });
+  }, []);
+  const handleChange = (e) => {
+    updateData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const submit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    axios
+      .post("https://main-cu-coders.herokuapp.com/project", formData,{"xsrf-token":formToken})
+      .then((res) => {
+        setIsLoading(false)
+        if (!res.data.success) {
+          const text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
+          error(text)
+          console.log(res.data);
+        }
+        else {
+          success("Submission successful")
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        error(err.message)
+      });
+  };
   return (
     <Container>
       <Content>
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
             <h2>Want help with your project</h2>
-            <form action={formAction} method={formMethod} encType="multipart/form-data">
+            <form onSubmit={submit}>
               <TwoColumn>
                 <Column>
                   <InputContainer>
                     <Label htmlFor="name-input">Your Name*</Label>
-                    <Input id="name-input" type="text" name="name" required placeholder="E.g. John Doe" />
+                    <Input id="name-input" type="text" onChange={handleChange} name="name" required placeholder="E.g. John Doe" />
                   </InputContainer>
+                  {isLoading && (
+                <Loader
+                  type="TailSpin"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+                  style={{
+                    zIndex: "2",
+                    width: "fit-content",
+                    position: "absolute",
+                    left: "46%",
+                  }}
+                />
+              )}
                   <InputContainer>
                     <Label htmlFor="email-input">Your Email Address*</Label>
-                    <Input id="email-input" type="email" name="email" required placeholder="E.g. john@mail.com" />
+                    <Input id="email-input" type="email" onChange={handleChange} name="email" required placeholder="E.g. john@mail.com" />
                   </InputContainer>
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">
                     <Label htmlFor="name-input">Project in Details*</Label>
-                    <TextArea id="message-input" name="message" required placeholder="E.g. Details about your event"/>
+                    <TextArea id="message-input" name="message" onChange={handleChange} required placeholder="E.g. Details about your event"/>
                   </InputContainer>
                 </Column>
               </TwoColumn>
               <input type="hidden" name="_redirect" value="https://cuchapter.tech/calender"/>
-              <SubmitButton type="submit" value="Submit">Submit</SubmitButton>              
+              <SubmitButton type="submit" disabled={isLoading ? true : false}>{submitButtonText}</SubmitButton>
             </form>
           </div>
           <SvgDotPattern1 />
