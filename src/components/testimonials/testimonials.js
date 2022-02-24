@@ -148,7 +148,7 @@ export default ({
               </TestimonialImageSlider>
               <TextContainer textOnLeft={textOnLeft}>
                 <HeadingInfo
-                  tw="hidden lg:block"
+                  // tw="hidden lg:block"
                   subheading={subheading}
                   heading={heading}
                   description={description}
