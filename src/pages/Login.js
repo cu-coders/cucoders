@@ -214,7 +214,7 @@ export default ({
                   </SubmitButton>
                 </Form>
                 <p
-                  tw="mt-6 text-xs text-gray-600 text-center"
+                  // tw="mt-6 text-xs text-gray-600 text-center"
                   style={{
                     color: "rgba(113,128,150,1)",
                     textAlign: "center",
@@ -235,7 +235,7 @@ export default ({
                   </a>
                 </p>
                 <p
-                  tw="mt-8 text-sm text-gray-600 text-center"
+                  // tw="mt-8 text-sm text-gray-600 text-center"
                   style={{
                     color: "rgba(113,128,150,1)",
                     textAlign: "center",
@@ -245,7 +245,7 @@ export default ({
                   Dont have an account?{" "}
                   <a
                     href={signupUrl}
-                    tw="border-b border-gray-500 border-dotted"
+                    // tw="border-b border-gray-500 border-dotted"
                     style={{
                       borderBottom: "1px",
                       borderColor: "rgba(113,128,150,1)",
