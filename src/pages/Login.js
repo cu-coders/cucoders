@@ -72,12 +72,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://main-cu-coders.herokuapp.com/auth/google",
+      url: "https://cucoders.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://main-cu-coders.herokuapp.com/auth/github",
+      url: "https://cucoders.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
