@@ -70,7 +70,7 @@ export default ({
   const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/form-token",{
+      .get("https://cucoders.herokuapp.com/form-token",{
         withCredentials:true,
       })
       .then((res) => {
