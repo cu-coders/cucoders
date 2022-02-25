@@ -96,7 +96,7 @@ export default ({
         }
         else {
           success("Submission successful")
-          location.reload();
+          window.location.reload();
         }
       })
       .catch((err) => {
