@@ -97,7 +97,7 @@ export default ({
   //---------------------------------UPDATING INPUTS-----------------------------
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/form-token", {
+      .get("https://cucoders.herokuapp.com/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -116,7 +116,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
+      .post("https://cucoders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
         "xsrf-token": formToken,
       })
