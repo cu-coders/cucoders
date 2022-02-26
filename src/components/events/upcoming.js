@@ -93,9 +93,9 @@ export default () => {
         <Container>
           <Content>
             <HeadingInfoContainer>
-              <HeadingTitle>Ongoing Events</HeadingTitle>
+              <HeadingTitle>Events Events</HeadingTitle>
               <HeadingDescription>
-                Some amazing events that are going on.
+                Here are some of the most popular events curated by CU-Chapter
               </HeadingDescription>
             </HeadingInfoContainer>
             <ThreeColumn>
