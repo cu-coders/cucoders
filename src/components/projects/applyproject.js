@@ -50,7 +50,7 @@ export default ({
   const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     axios
-      .get("https://cuchapter.herokuapp.com/form-token",{
+      .get("https://cucoders.herokuapp.com/form-token",{
         withCredentials:true,
       })
       .then((res) => {
@@ -67,7 +67,7 @@ export default ({
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://main-cu-coders.herokuapp.com/project", formData,{"xsrf-token":formToken})
+      .post("https://cucoders.herokuapp.com/projects", formData,{"xsrf-token":formToken})
       .then((res) => {
         setIsLoading(false)
         if (!res.data.success) {
@@ -119,7 +119,7 @@ export default ({
                 <Column>
                   <InputContainer tw="flex-1">
                     <Label htmlFor="name-input">Project in Details*</Label>
-                    <TextArea id="message-input" name="message" onChange={handleChange} required placeholder="E.g. Details about your event"/>
+                    <TextArea id="message-input" name="details" onChange={handleChange} required placeholder="E.g. Details about your event"/>
                   </InputContainer>
                 </Column>
               </TwoColumn>

@@ -72,12 +72,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://main-cu-coders.herokuapp.com/auth/google",
+      url: "https://cucoders.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://main-cu-coders.herokuapp.com/auth/github",
+      url: "https://cucoders.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -97,7 +97,7 @@ export default ({
   //---------------------------------UPDATING INPUTS-----------------------------
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/form-token", {
+      .get("https://cucoders.herokuapp.com/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -116,7 +116,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
+      .post("https://cucoders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
         "xsrf-token": formToken,
       })
