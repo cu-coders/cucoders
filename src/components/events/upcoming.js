@@ -1,35 +1,43 @@
-import Footer from "components/footers/footers.js";
-import Header from "components/headers/light.js";
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
+import Footer from "components/footers/footers.js";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import Header from "components/headers/light.js";
+
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
+import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
+import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
+import { useEffect} from "react";
+import { useState } from "react";
 
 const Container = tw.div`relative`;
+const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const ThreeColumn = tw.div`flex flex-col items-center lg:items-stretch lg:flex-row flex-wrap`;
+const Column = tw.div`mt-24 lg:w-1/3`;
 
 const HeadingInfoContainer = tw.div`flex flex-col items-center`;
 const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
-const ThreeColumn = tw.div`flex flex-col items-center lg:items-stretch lg:flex-row flex-wrap`;
-const Content = tw.div`mt-16`;
 
-const Card = styled.div((props) => [
-  tw`mt-24 md:flex justify-center items-center`,
-  props.reversed ? tw`flex-row-reverse` : "flex-row",
-]);
-const Image = styled.div((props) => [
+const Card = tw.div`lg:mx-4 xl:mx-8 max-w-sm lg:max-w-xs`;
+const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`,
+  tw`bg-cover bg-center h-80 lg:h-64 rounded`
 ]);
-const Column = tw.div`mt-24 lg:w-1/3`;
-const Title = tw.h4`text-3xl font-bold text-gray-900`;
+const Title = tw.h4`mt-2 leading-relaxed font-bold text-lg`;
+const Link = tw.a`inline-block mt-2 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
+
 const Description = tw.p`mt-2 text-sm leading-loose`;
-const Link = tw.a`inline-block mt-4 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
+const DecoratorBlob1 = tw(
+  SvgDecoratorBlob1
+)`-z-10 absolute bottom-0 right-0 w-48 h-48 transform translate-x-40 -translate-y-8 opacity-25`;
+const DecoratorBlob2 = tw(
+  SvgDecoratorBlob2
+)`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 const Details = tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
 const MetaContainer = tw.div`flex items-center`;
 const Meta = styled.div`
@@ -38,19 +46,6 @@ const Meta = styled.div`
     ${tw`w-4 h-4 mr-1`}
   }
 `;
-
-const SvgDotPattern1 = tw(
-  SvgDotPatternIcon
-)`absolute top-0 left-0 transform -translate-x-20 rotate-90 translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern2 = tw(
-  SvgDotPatternIcon
-)`absolute top-0 right-0 transform translate-x-20 rotate-45 translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern3 = tw(
-  SvgDotPatternIcon
-)`absolute bottom-0 left-0 transform -translate-x-20 rotate-45 -translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern4 = tw(
-  SvgDotPatternIcon
-)`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 
 const cardStyle = {
   height: "fit-content",
@@ -73,9 +68,9 @@ function getDate({ date_start, date_end }) {
 }
 
 export default () => {
-  const [t_cards, update_t_cards] = useState([]);
+  const[t_cards,update_t_cards] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-
+  
   useEffect(() => {
     setIsLoading(true);
     fetch("https://cucoders.herokuapp.com/api/upcoming-events")
@@ -89,21 +84,20 @@ export default () => {
         update_t_cards(result);
         setIsLoading(false);
       });
-  }, []);
+
+  },[])
   return (
     <>
       <AnimationRevealPage>
         <Header />
         <Container>
-          <Content></Content>
-          <HeadingInfoContainer>
-            <HeadingTitle>Upcoming Events</HeadingTitle>
-            <HeadingDescription>
-              Here are some of the most popular events curated by CU-Coders.
-            </HeadingDescription>
-          </HeadingInfoContainer>
-
           <Content>
+            <HeadingInfoContainer>
+              <HeadingTitle>Ongoing Events</HeadingTitle>
+              <HeadingDescription>
+                Some amazing events that are going on.
+              </HeadingDescription>
+            </HeadingInfoContainer>
             <ThreeColumn>
               {isLoading && (
                 <Loader
@@ -187,10 +181,8 @@ export default () => {
                 ))}
             </ThreeColumn>
           </Content>
-          <SvgDotPattern1 />
-          <SvgDotPattern2 />
-          <SvgDotPattern3 />
-          <SvgDotPattern4 />
+          <DecoratorBlob1 />
+          <DecoratorBlob2 />
         </Container>
         <Footer />
       </AnimationRevealPage>
