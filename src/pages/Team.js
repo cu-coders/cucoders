@@ -5,6 +5,12 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import Header from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+
+import { useEffect } from "react";
+import { useState } from "react";
+
 import styled from "styled-components";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings";
@@ -127,6 +133,24 @@ export default ({
     }
   ]
 }) => {
+  const [t_cards, update_t_cards] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
+  console.log(t_cards)
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://cucoders.herokuapp.com/api/team")
+      .then((res) => {
+        if (res.ok) {
+          console.log(res);
+          return res.json();
+        }
+      })
+      .then((result) => {
+        update_t_cards(result);
+        setIsLoading(false);
+      });
+
+  },[])
   return (
   	<AnimationRevealPage>
   	<Header isLoggedIn={isLoggedIn} />
@@ -138,14 +162,29 @@ export default ({
           {description && <Description>{description}</Description> }
         </HeadingContainer>
         <Cards>
-          {cards.map((card, index) => (
+            {isLoading && (
+              <Loader
+                type="TailSpin"
+                color="#00BFFF"
+                height={80}
+                width={80}
+                style={{
+                  zIndex: "2",
+                  width: "fit-content",
+                  position: "absolute",
+                  left: "46%",
+                  marginTop: "50px",
+                }}
+              />
+            )}
+          {t_cards.map((card, index) => (
             <Card key={index}>
               <CardImage imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
                 <CardLinks>
-                  {card.links.map((link, linkIndex) => (
+                  {t_card.links.map((link, linkIndex) => (
                     <a key={linkIndex} className="link" href={link.url}>
                       <link.icon className="icon" />
                     </a>
