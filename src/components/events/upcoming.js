@@ -93,7 +93,7 @@ export default () => {
         <Container>
           <Content>
             <HeadingInfoContainer>
-              <HeadingTitle>Events Events</HeadingTitle>
+              <HeadingTitle>Upcoming Events</HeadingTitle>
               <HeadingDescription>
                 Here are some of the most popular events curated by CU-Chapter
               </HeadingDescription>
