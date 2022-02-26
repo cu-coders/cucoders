@@ -179,7 +179,7 @@ export default ({
             )}
           {t_cards.map((card, index) => (
             <Card key={index}>
-              <CardImage imageSrc={card.imageSrc} />
+              <CardImage imageSrc={card.profileImage} />
               <CardContent>
                 <span className="position">{card.role}</span>
                 <span className="name">{card.fullname}</span>
