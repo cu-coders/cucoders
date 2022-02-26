@@ -184,7 +184,7 @@ export default ({
                 <span className="position">{card.position}</span>
                 <span className="name">{card.name}</span>
                 <CardLinks>
-                  {t_card.links.map((link, linkIndex) => (
+                  {t_cards.links.map((link, linkIndex) => (
                     <a key={linkIndex} className="link" href={link.url}>
                       <link.icon className="icon" />
                     </a>
