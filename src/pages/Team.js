@@ -181,15 +181,8 @@ export default ({
             <Card key={index}>
               <CardImage imageSrc={card.imageSrc} />
               <CardContent>
-                <span className="position">{card.position}</span>
-                <span className="name">{card.name}</span>
-                <CardLinks>
-                  {t_cards.links.map((link, linkIndex) => (
-                    <a key={linkIndex} className="link" href={link.url}>
-                      <link.icon className="icon" />
-                    </a>
-                  ))}
-                </CardLinks>
+                <span className="position">{card.role}</span>
+                <span className="name">{card.fullname}</span>
               </CardContent>
             </Card>
           ))}
