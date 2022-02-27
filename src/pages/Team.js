@@ -121,8 +121,8 @@ export default ({
                   <Card key={index}>
                     <CardImage imageSrc={post.profileImage} />
                     <CardContent>
-                      <span className="role">{post.role}</span>
                       <span className="fullname">{post.fullname}</span>
+                      <span className="role">{post.role}</span>
                       <CardLinks>
                       <a key={index} className="link" href={post.instagram}>
                         <InstagramIcon style={{
