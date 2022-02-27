@@ -117,28 +117,28 @@ export default ({
                 </div>
               )}
               { t_cards !== undefined &&
-                t_cards.map((post, index) => (
+                t_cards.map((member, index) => (
                   <Card key={index}>
-                    <CardImage imageSrc={post.profileImage} />
+                    <CardImage imageSrc={member.profileImage} />
                     <CardContent>
-                      <span className="fullname">{post.fullname}</span>
-                      <span className="role">{post.role}</span>
+                      <span className="fullname">{member.fullname}</span>
+                      <span className="role">{member.role}</span>
                       <CardLinks>
-                      <a key={index} className="link" href={post.instagram}>
+                      <a key={index} className="link" href={member.instagram}>
                         <InstagramIcon style={{
                           width: "20px",
                           height: "20px",
                         }} > 
                         </InstagramIcon>
                     </a>
-                    <a key={index} className="link" href={post.linkedin}> 
+                    <a key={index} className="link" href={member.linkedin}> 
                         <LinkedinIcon style={{
                           width: "20px",
                           height: "20px",
                         }} >
                         </LinkedinIcon>
                     </a>
-                    <a key={index} className="link" href={post.github}>
+                    <a key={index} className="link" href={member.github}>
                         <GithubIcon style={{
                           width: "20px",
                           height: "20px",
