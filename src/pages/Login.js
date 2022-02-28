@@ -86,7 +86,7 @@ export default ({
   signupUrl = "/signup",
 }) => {
   //--------------------------------INITIALIZING STATES-------------------------
-  const [isVarified, updateIsVarified] = useState();
+  const [isVerified, updateIsVerified] = useState();
   const [formToken, formTokenState] = useState("");
   const [credentials, updateCredentials] = useState({
     email: "",
@@ -126,7 +126,7 @@ export default ({
         if (res.data.success) {
           success("User logged in successfully", 1);
           setTimeout(() => {
-            updateIsVarified(true);
+            updateIsVerified(true);
             updateIsLoggedIn(true);
           }, 1000)
         }
@@ -143,7 +143,7 @@ export default ({
         error("Email or password incorrect")
       });
   };
-  if (isVarified) return <Navigate to="/" />;
+  if (isVerified) return <Navigate to="/home" />;
 
   return (
     <AnimationRevealPage>

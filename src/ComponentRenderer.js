@@ -47,7 +47,7 @@ import Projects from "components/projects/project.js";
 import Resources from "components/resources/resources.js";
 import Comingsoon from "components/resources/comingsoon.js";
 import Quiz from "components/events/quiz/quiz.js";
-
+import AddResources from "components/resources/addResources.js";
 import AIIndex from "components/resources/ai/index.js";
 import AlgoIndex from "components/resources/algorithms/index.js";
 import CPIndex from "components/resources/cp/index.js";
@@ -197,6 +197,11 @@ export const components = {
           component: OpenIndex,
           url: "components/blocks/resources/open/index.js",
         },
+        AddResources: {
+          name: "AddResources",
+          component: AddResources,
+          url: "/components/resources/addResources.js",
+        }
       }
     },
     job: {

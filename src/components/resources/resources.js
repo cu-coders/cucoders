@@ -8,7 +8,7 @@ import { SectionHeading } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
-
+import Resources from "components/resources/addResources.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header1 from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
@@ -164,11 +164,11 @@ export default ({
     <AnimationRevealPage>
         <Header1 isLoggedIn={ isLoggedIn}/>
     <Container>
+        <Resources></Resources>
       <ContentWithPaddingXl>
         <HeaderRow>
           <Header>{heading}</Header>
         </HeaderRow>
-
         {tabsKeys.map((tabKey, index) => (
           <TabContent
             key={index}

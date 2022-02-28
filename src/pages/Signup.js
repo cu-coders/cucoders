@@ -141,6 +141,9 @@ export default ({
                 },
               },
             });
+            var page = window.location.href;
+            page = page.slice(0, -7);
+            window.location.replace(page + "/login");
           }
         }
       })
