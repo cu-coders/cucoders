@@ -235,7 +235,7 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          {isVarified ? <Navigate to="/" /> : <Login updateIsLoggedIn={updateIsVarified} />}
+          {isVarified ? <Navigate to="/home" /> : <Login updateIsLoggedIn={updateIsVarified} />}
         </Route>
         <Route exact path="/signup">
           {isVarified ? <Navigate to="/" /> : <Signup />}
