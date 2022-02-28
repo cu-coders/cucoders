@@ -74,7 +74,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 export default function App() {
   //-----------------------------------------INITIALIZING
   // STAES-------------------------//
-  const [isVarified, updateIsVarified] = useState(false);
+  const [isVerified, updateIsVerified] = useState(false);
   //-----------------------------------------CHECK
   // AUTHENTICATIO------------------------//
   useEffect(() => {
@@ -84,10 +84,10 @@ export default function App() {
       })
       .then((res) => {
         if (res.data.username) {
-          updateIsVarified(true);
+          updateIsVerified(true);
           console.log("Logged In from APP.js")
         } else {
-          updateIsVarified(false);
+          updateIsVerified(false);
           console.log("Logged Out from APP.js")
         }
       });
@@ -103,13 +103,13 @@ export default function App() {
           <ComponentRenderer />
         </Route>
         <Route exact path="/team">
-          <Team isLoggedIn={isVarified} />
+          <Team isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/upcoming">
           <Upcoming />
         </Route>
         <Route exact path="/events">
-          <Events isLoggedIn={isVarified} />
+          <Events isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/present">
           <Present />
@@ -121,16 +121,16 @@ export default function App() {
           <Quiz />
         </Route>
         <Route exact path="/projects">
-          <Projects isLoggedIn={isVarified} />
+          <Projects isLoggedIn={isVerified} />
         </Route>
         <Route path="/resources">
-          <Resources isLoggedIn={isVarified} />
+          <Resources isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/comingnow">
           <ComingNow />
         </Route>
         <Route exact path="/careers">
-          <Careers isLoggedIn={isVarified} />
+          <Careers isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/comingsoon">
           <ComingSoon />
@@ -139,7 +139,7 @@ export default function App() {
           <Coming />
         </Route>
         <Route exact path="/contact">
-          <Contact isLoggedIn={isVarified} />
+          <Contact isLoggedIn={isVerified} />
         </Route>
         <Route path="/backend">
           <Back />
@@ -187,16 +187,16 @@ export default function App() {
           <Terms />
         </Route>
         <Route exact path="/member">
-          <Member isLoggedIn={isVarified} />
+          <Member isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/about">
-          <About isLoggedIn={isVarified} />
+          <About isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/home">
-          <Home isLoggedIn={isVarified} />
+          <Home isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/">
-          <Home isLoggedIn={isVarified} />
+          <Home isLoggedIn={isVerified} />
         </Route>
         <Route exact path="/algo">
           <Algo />
@@ -235,10 +235,10 @@ export default function App() {
           <Upload />
         </Route>
         <Route exact path="/login">
-          {isVarified ? <Navigate to="/home" /> : <Login updateIsLoggedIn={updateIsVarified} />}
+          {isVerified ? <Navigate to="/home" /> : <Login updateIsLoggedIn={updateIsVerified} />}
         </Route>
         <Route exact path="/signup">
-          {isVarified ? <Navigate to="/" /> : <Signup />}
+          {isVerified ? <Navigate to="/" /> : <Signup />}
         </Route>
         <Route path="/">
           <Error />
