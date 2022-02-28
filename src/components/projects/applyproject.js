@@ -77,6 +77,7 @@ export default ({
         }
         else {
           success("Submission successful")
+          window.location.reload();
         }
       })
       .catch((err) => {

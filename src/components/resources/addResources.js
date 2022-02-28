@@ -41,43 +41,41 @@ const SvgDotPattern1 = tw(
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
 export default ({
-  role
+  heading = "Checkout the Resources",
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(role);
   function submit(e) {
     e.preventDefault();
     var name = document.getElementById("name-input").value;
     var email = document.getElementById("email-input").value;
-    var resume = document.getElementById("resume").files[0];
-    var address = document.getElementById("message-input").value;
+    var resource = document.getElementById("resource").files[0];
+    var description = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
-    console.log(name, email, resume, address, phone);
+    console.log(name, email, resource, description, phone);
     const formData = new FormData();
 
     formData.append("name", name);
-    formData.append("role", role);
     formData.append("email", email);
     formData.append("number", phone);
-    formData.append("address", address);
-    formData.append("resume", resume);
+    formData.append("description", description);
+    formData.append("resource", resource);
 
     const options = {
       method: "POST",
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/jobs/apply", options)
+    fetch("https://cucoders.herokuapp.com/resources/add", options)
       .then((res) => {
         console.log("Successful: ", res);
         setIsLoading(false);
-        success("Application submitted successfully")
-        //clear form
+        success("Resources submitted successfully");
+        // reset form 
         document.getElementById("name-input").value = "";
         document.getElementById("email-input").value = "";
         document.getElementById("phone-input").value = "";
         document.getElementById("message-input").value = "";
-        document.getElementById("resume").value = "";
+        document.getElementById("resource").value = "";
       })
       .catch((err) => {
         console.log("Failed : ", err);
@@ -91,7 +89,7 @@ export default ({
       <Content>
         <FormContainer>
           <div tw="mx-auto max-w-4xl">
-            <h2>Apply Now</h2>
+            <h2>Share Resource & Help Us </h2>
             <form
               onSubmit={(e) => {
                 submit(e);
@@ -120,25 +118,25 @@ export default ({
                     />
                   </InputContainer>
                   <InputContainer>
-                    <Label htmlFor="name-input">Your Resume*</Label>
+                    <Label htmlFor="email-input">Resources*</Label>
                     <Input
-                      id="resume"
+                      id="resource"
                       type="file"
                       accept=".docx, .pdf"
-                      name="resume"
+                      name="resource"
                       required
                     />
                   </InputContainer>
                 </Column>
                 <Column>
-                  <InputContainer>
-                    <Label htmlFor="name-input">Your Address*</Label>
+                <InputContainer>
+                    <Label htmlFor="name-input">Description*</Label>
                     <TextArea
                       id="message-input"
                       type="text"
-                      name="address"
+                      name="description"
                       required
-                      placeholder="E.g. CU-Coders, Chandigarh"
+                      placeholder="Type your resources description here"
                     />
                   </InputContainer>
                   <InputContainer>
