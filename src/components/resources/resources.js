@@ -164,7 +164,6 @@ export default ({
     <AnimationRevealPage>
         <Header1 isLoggedIn={ isLoggedIn}/>
     <Container>
-        <Resources></Resources>
       <ContentWithPaddingXl>
         <HeaderRow>
           <Header>{heading}</Header>
@@ -220,6 +219,7 @@ export default ({
       </ContentWithPaddingXl>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
+       <Resources></Resources>
     </Container>
     <Footer />
     </AnimationRevealPage>
