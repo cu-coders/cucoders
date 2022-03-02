@@ -130,16 +130,6 @@ export default ({
                 </Column>
                 <Column>
                 <InputContainer>
-                    <Label htmlFor="name-input">Description*</Label>
-                    <TextArea
-                      id="message-input"
-                      type="text"
-                      name="description"
-                      required
-                      placeholder="Type your resources description here"
-                    />
-                  </InputContainer>
-                  <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
                     <Input
                       id="phone-input"
@@ -147,6 +137,16 @@ export default ({
                       name="number"
                       required
                       placeholder="E.g. +91(XXXXX-XXXXX)"
+                    />
+                  </InputContainer>
+                <InputContainer>
+                    <Label htmlFor="name-input">Description*</Label>
+                    <TextArea
+                      id="message-input"
+                      type="text"
+                      name="description"
+                      required
+                      placeholder="Type your resources description here"
                     />
                   </InputContainer>
                   {isLoading && (
