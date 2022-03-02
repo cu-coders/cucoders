@@ -120,6 +120,13 @@ export default ({isLoggedIn}) => {
         heading={<>Members <HighlightedText>Love Us.</HighlightedText></>}
       />
       <FAQs />
+      <a href="https://cuchapter.freshstatus.io" id="freshstatus-badge-root"
+        data-banner-style="tile"
+        data-brand-logo="https://main.cuchapter.tech/static/media/logo.9a447d51.png"
+        data-brand-title="CU-Chapter" >
+        <img src="https://public-api.freshstatus.io/v1/public/badge.svg/?badge=68e81873-8985-40a4-9b7a-fb578e13c0e4" alt=''/>
+      </a>
+      <script type="module" src="https://cdn.freshstatus.io/widget/index.js"></script>
       <Footer />
     </AnimationRevealPage>
   );
