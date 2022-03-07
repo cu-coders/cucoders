@@ -5,7 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
-const PlansContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
+const jobsContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
 const Plan = styled.div`
   ${tw`w-full max-w-sm mt-16 lg:mr-8 lg:last:mr-0 text-center px-8 rounded-lg shadow relative pt-2 text-gray-900 bg-white flex flex-col`}
   .planHighlight {
@@ -75,10 +75,10 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 
 
 export default ({
-  plans = null,
+  jobs = null,
   primaryButtonText = "Apply Now",
 }) => {
-  const defaultPlans = [
+  const defaultjobs = [
     {
       name: "Problem Setter",
       duration: "Full-Time",
@@ -103,7 +103,7 @@ export default ({
     }
   ];
 
-  if (!plans) plans = defaultPlans;
+  if (!jobs) jobs = defaultjobs;
 
   const highlightGradientsCss = [
     css`
@@ -123,8 +123,8 @@ export default ({
   return (
     <Container>
       <ContentWithPaddingXl>
-        <PlansContainer>
-          {plans.map((plan, index) => (
+        <jobsContainer>
+          {jobs.map((plan, index) => (
             <Plan key={index} featured={plan.featured}>
               {!plan.featured && <div className="planHighlight" css={highlightGradientsCss[index % highlightGradientsCss.length]} />}
               <PlanHeader>
@@ -140,7 +140,7 @@ export default ({
             </Plan>
           ))}
           <DecoratorBlob/>
-        </PlansContainer>
+        </jobsContainer>
       </ContentWithPaddingXl>
     </Container>
   );

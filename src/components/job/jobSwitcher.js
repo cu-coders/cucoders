@@ -9,7 +9,7 @@ import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const Heading = tw(SubheadingBase)`w-full`;
 
-const PlansContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
+const JobsContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
 const Plan = styled.div`
   ${tw`w-full max-w-sm mt-16 lg:mr-8 lg:last:mr-0 text-center px-8 rounded-lg shadow relative pt-2 text-gray-900 bg-white flex flex-col`}
   .planHighlight {
@@ -80,10 +80,10 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 
 export default ({
   heading = "Openings",
-  plans = null,
+  Jobs = null,
   primaryButtonText = "Apply Now",
 }) => {
-  const defaultPlans = [
+  const defaultJobs = [
     {
       name: "Back-End Developer",
       duration: "Full-Time",
@@ -109,7 +109,7 @@ export default ({
     }
   ];
 
-  if (!plans) plans = defaultPlans;
+  if (!Jobs) Jobs = defaultJobs;
 
   const highlightGradientsCss = [
     css`
@@ -132,8 +132,8 @@ export default ({
         <HeaderContainer>
           <Heading>{heading}</Heading>
         </HeaderContainer>
-        <PlansContainer>
-          {plans.map((plan, index) => (
+        <JobsContainer>
+          {Jobs.map((plan, index) => (
             <Plan key={index} featured={plan.featured}>
               {!plan.featured && <div className="planHighlight" css={highlightGradientsCss[index % highlightGradientsCss.length]} />}
               <PlanHeader>
@@ -149,7 +149,7 @@ export default ({
             </Plan>
           ))}
           <DecoratorBlob/>
-        </PlansContainer>
+        </JobsContainer>
       </ContentWithPaddingXl>
     </Container>
   );

@@ -168,7 +168,7 @@ export default ({
                   )}
                 </Column>
               </TwoColumn>
-              <SubmitButton type="submit" value="Submit">
+              <SubmitButton type="submit" value="Submit" disabled={isLoading ? true : false}>
                 Submit
               </SubmitButton>
             </form>
