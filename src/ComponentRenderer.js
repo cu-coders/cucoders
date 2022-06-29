@@ -41,7 +41,7 @@ import AddResources from "components/resources/addResources.js";
 import AIIndex from "components/resources/ai/index.js";
 import AlgoIndex from "components/resources/algorithms/index.js";
 import CPIndex from "components/resources/cp/index.js";
-import HackingIndex from "components/resources/hacking/index.js";
+import SecurityIndex from "components/resources/security/index.js";
 import MobileIndex from "components/resources/mobile/index.js";
 import OpenIndex from "components/resources/open/index.js";
 import WebIndex from "components/resources/web/index.js";
@@ -151,10 +151,10 @@ export const components = {
           component: MobileIndex,
           url: "components/blocks/resources/mobile/index.js",
         },
-        HackingIndex: {
-          name: "HackingIndex",
-          component: HackingIndex,
-          url: "components/blocks/resources/hacking/index.js",
+        SecurityIndex: {
+          name: "SecurityIndex",
+          component: SecurityIndex,
+          url: "components/blocks/resources/Security/index.js",
         },
         LanguageIndex: {
           name: "LanguageIndex",

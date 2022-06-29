@@ -150,7 +150,7 @@ export default ({
         price: "$3.99",
         rating: "4.2",
         reviews: "95",
-        url: "ComingNow",
+        url: "Mobile",
       },
       {
         imageSrc:

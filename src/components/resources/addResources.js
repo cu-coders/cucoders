@@ -168,8 +168,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                         border: "none",
                         borderRadius: "5px",
                         padding: "5px",
-                        fontSize: "1rem",
-                        fontWeight: "bold",
+                        fontSize: "0.875rem", // 14px
                         width: "100%",
                         cursor: "pointer",
                         outline: "none",
@@ -193,7 +192,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                       <option value="Mobile-Development">
                         Mobile-Development
                       </option>
-                      <option value="Cloud">Cloud</option>
+                      <option value="Cloud-DevOps">Cloud-DevOps</option>
                     </select>
                     <h1
                       style={{
@@ -244,6 +243,29 @@ export default ({ heading = "Checkout the Resources" }) => {
               </SubmitButton>
             </form>
           </div>
+          <h1
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              color: "#efefef",
+              marginTop: "10px",
+              marginBottom: "0px",
+              fontFamily: "system-ui",
+            }}
+          >
+            <u>Note:</u> Have resources larger than 10MB or other domain? Please
+            send us a mail.
+            <a href="mailto:contact@cuchapter.tech">
+              {" "}
+              <u
+                style={{
+                  color: "#D82E09",
+                }}
+              >
+                Send Mail
+              </u>
+            </a>
+          </h1>
           <SvgDotPattern1 />
         </FormContainer>
       </Content>

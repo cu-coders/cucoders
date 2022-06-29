@@ -14,7 +14,7 @@ const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
-  ${props =>
+  ${(props) =>
     props.featured &&
     css`
       ${tw`w-full!`}
@@ -34,7 +34,10 @@ const PostContainer = styled.div`
 `;
 const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
 const Image = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
@@ -47,42 +50,23 @@ const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({
-  headingText = "Blog Posts",
+  headingText = "Version Control Resources",
   posts = [
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-      category: "Travel Tips",
-      date: "April 21, 2020",
-      title: "Safely Travel in Foreign Countries",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://timerse.com",
-      featured: true
+        "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
+      category: "Book",
+      date: "Feb 27, 2021",
+      title: "Android Programming for Beginners",
+      description: "",
+      url: "https://drive.google.com/file/d/1-8H1AzeTtvJPzJXOGdTwCXmGhTY3dKMS/view?usp=sharing",
+      featured: false,
     },
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost(),
-    getPlaceholderPost()
-  ]
+  ],
 }) => {
   const [visible, setVisible] = useState(7);
   const onLoadMoreClick = () => {
-    setVisible(v => v + 6);
+    setVisible((v) => v + 6);
   };
   return (
     <AnimationRevealPage>
@@ -101,7 +85,9 @@ export default ({
                     <Category>{post.category}</Category>
                     <CreationDate>{post.date}</CreationDate>
                     <Title>{post.title}</Title>
-                    {post.featured && post.description && <Description>{post.description}</Description>}
+                    {post.featured && post.description && (
+                      <Description>{post.description}</Description>
+                    )}
                   </Info>
                 </Post>
               </PostContainer>
@@ -109,7 +95,9 @@ export default ({
           </Posts>
           {visible < posts.length && (
             <ButtonContainer>
-              <LoadMoreButton onClick={onLoadMoreClick}>Load More</LoadMoreButton>
+              <LoadMoreButton onClick={onLoadMoreClick}>
+                Load More
+              </LoadMoreButton>
             </ButtonContainer>
           )}
         </ContentWithPaddingXl>
@@ -118,14 +106,3 @@ export default ({
     </AnimationRevealPage>
   );
 };
-
-const getPlaceholderPost = () => ({
-  imageSrc:
-    "https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80",
-  category: "Travel Guide",
-  date: "April 19, 2020",
-  title: "Visit the beautiful Alps in Switzerland",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  url: "https://reddit.com"
-});

@@ -50,51 +50,16 @@ const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({
-  headingText = "Security Resources",
+  headingText = "Cloud & DevOps Resources",
   posts = [
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1488229297570-58520851e868?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
+        "https://images.unsplash.com/photo-1592772874383-d08932d29db7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
       category: "Book",
-      date: "Feb 22, 2021",
-      title: "MongoDB: The Definitive Guide",
-      url: "https://drive.google.com/file/d/1EpGcddODVJYBQMlVC04c6FrrcjR0o9SO/view?usp=sharing",
-      featured: false,
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1488229297570-58520851e868?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      category: "Book",
-      date: "Feb 22, 2021",
-      title: "MongoDB Notes for Professionals",
-      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656485135/addResources/Database/1656485078167_ypt8e6.pdf",
-      featured: false,
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1488229297570-58520851e868?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      category: "Book",
-      date: "Feb 22, 2021",
-      title: "MySQL Notes for Professionals",
-      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656485127/addResources/Database/1656484841488_tueadw.pdf",
-      featured: false,
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1488229297570-58520851e868?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      category: "Book",
-      date: "Feb 22, 2021",
-      title: "PostgreSQL Notes for Professionals",
-      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656485207/addResources/Database/1656485202797_mw9pvc.pdf",
-      featured: false,
-    },
-    {
-      imageSrc:
-        "https://images.unsplash.com/photo-1488229297570-58520851e868?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      category: "Book",
-      date: "Feb 22, 2021",
-      title: "SQL Notes for Professionals",
-      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656485132/addResources/Database/1656484929204_ezxaob.pdf",
+      date: "Feb 25, 2021",
+      title: "Site Reliability Engineering",
+      description: "",
+      url: "https://drive.google.com/file/d/1Ustah0vQ5I1L6qBIdWSgG8NrjonkJwVf/view?usp=sharing",
       featured: false,
     },
   ],

@@ -14,7 +14,7 @@ const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
-  ${props =>
+  ${(props) =>
     props.featured &&
     css`
       ${tw`w-full!`}
@@ -34,7 +34,10 @@ const PostContainer = styled.div`
 `;
 const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
 const Image = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
@@ -55,10 +58,9 @@ export default ({
       category: "Cheatsheet",
       date: "Feb 27, 2021",
       title: "Atlassian-git-cheatsheet",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/18rU7hMI1kparmUVVvKzePuIeV6RLvGIY/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656486814/addResources/Version-Control/atlassian-git-cheatsheet_bojbzy.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -66,10 +68,9 @@ export default ({
       category: "Cheatsheet",
       date: "Feb 27, 2021",
       title: "git cheatsheet",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1cwOrFi_-04D6sXK6lGfN_FEN9kXIrSJ2/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656486828/addResources/Version-Control/git-cheat-sheet-education_sqod3l.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -77,27 +78,25 @@ export default ({
       category: "Cheatsheet",
       date: "Feb 27, 2021",
       title: "git cheatsheet",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1keILno06YfN-CQQqQX2rYrQWYhySloF2/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656486843/addResources/Version-Control/github-git-cheat-sheet_jlxbc9.ai",
+      featured: false,
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80",
-      category: "Cheatsheet",
+      category: "Book",
       date: "Feb 27, 2021",
       title: "git Notes for Professionals",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1v-PRkhR8VCWrrxTvyuqq2wV--yE9t7S-/view?usp=sharing",
-      featured: false
-    }
-  ]
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656486861/addResources/Version-Control/GitNotesForProfessionals_ttvt9o.pdf",
+      featured: false,
+    },
+  ],
 }) => {
   const [visible, setVisible] = useState(7);
   const onLoadMoreClick = () => {
-    setVisible(v => v + 6);
+    setVisible((v) => v + 6);
   };
   return (
     <AnimationRevealPage>
@@ -116,7 +115,9 @@ export default ({
                     <Category>{post.category}</Category>
                     <CreationDate>{post.date}</CreationDate>
                     <Title>{post.title}</Title>
-                    {post.featured && post.description && <Description>{post.description}</Description>}
+                    {post.featured && post.description && (
+                      <Description>{post.description}</Description>
+                    )}
                   </Info>
                 </Post>
               </PostContainer>
@@ -124,7 +125,9 @@ export default ({
           </Posts>
           {visible < posts.length && (
             <ButtonContainer>
-              <LoadMoreButton onClick={onLoadMoreClick}>Load More</LoadMoreButton>
+              <LoadMoreButton onClick={onLoadMoreClick}>
+                Load More
+              </LoadMoreButton>
             </ButtonContainer>
           )}
         </ContentWithPaddingXl>

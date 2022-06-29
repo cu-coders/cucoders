@@ -48,7 +48,7 @@ import AI from "components/resources/ai/index.js";
 import ComingNow from "components/resources/comingsoon.js";
 import CP from "components/resources/cp/index.js";
 import Database from "components/resources/database/index.js";
-import Security from "components/resources/hacking/index.js";
+import Security from "components/resources/security/index.js";
 import Language from "components/resources/language/index.js";
 import Mobile from "components/resources/mobile/index.js";
 import Open from "components/resources/open/index.js";
