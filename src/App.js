@@ -26,7 +26,6 @@ import Coming from "components/events/comingsoon.js";
 import Events from "components/events/event.js";
 import Past from "components/events/past.js";
 import Present from "components/events/present.js";
-import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
 import Upcoming from "components/events/upcoming.js";
 import Back from "components/job/openings/backend/backend.js";
@@ -115,9 +114,6 @@ export default function App() {
         </Route>
         <Route exact path="/past">
           <Past />
-        </Route>
-        <Route exact path="/quiz">
-          <Quiz />
         </Route>
         <Route exact path="/projects">
           <Projects isLoggedIn={isVerified} />
