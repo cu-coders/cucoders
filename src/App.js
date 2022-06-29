@@ -2,6 +2,7 @@ import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 
 import axios from "axios";
+import { Lines } from "react-preloaders";
 /*
  * This is the entry point component of this project. You can change the below
  * exported default App component to any of the prebuilt landing page components
@@ -240,6 +241,7 @@ export default function App() {
           <Error />
         </Route>
       </Switch>
+      <Lines />
     </Router>
   );
 }

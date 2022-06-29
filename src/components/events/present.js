@@ -82,6 +82,7 @@ export default () => {
       })
       .then((result) => {
         update_t_cards(result);
+        console.log(result);
         setIsLoading(false);
       });
   }, []);
@@ -113,7 +114,7 @@ export default () => {
                   }}
                 />
               )}
-              {t_cards === undefined && (
+              {(t_cards === undefined || t_cards.length === 0) && (
                 <div
                   style={{
                     fontSize: "18px",

@@ -73,7 +73,7 @@ export default () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3001/upcoming-events")
+    fetch("http://localhost:3001/api/upcoming-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);
@@ -113,7 +113,7 @@ export default () => {
                   }}
                 />
               )}
-              {t_cards === undefined && (
+              {(t_cards === undefined || t_cards.length === 0) && (
                 <div
                   style={{
                     fontSize: "18px",
