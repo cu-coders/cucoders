@@ -1,6 +1,6 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import AnimationRevealPage from "helpers/AnimationRevealPage.js"
+import React from "react";
+import { useParams } from "react-router-dom";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 
 import AboutUsPage from "pages/AboutUs.js";
 
@@ -33,20 +33,10 @@ import Event from "components/events/event.js";
 import Past from "components/events/past.js";
 import Present from "components/events/present.js";
 import Upcoming from "components/events/upcoming.js";
-import Applyback from "components/job/openings/backend/apply.js";
-import Applyeditorial from "components/job/openings/editorialist/apply.js";
-import Applyfront from "components/job/openings/frontend/apply.js";
-import Applyfull from "components/job/apply.js";
-import Applygraphic from "components/job/openings/graphic/apply.js";
-import Applymotion from "components/job/openings/motion/apply.js";
-import Applysetter from "components/job/openings/setter/apply.js";
-import Applytester from "components/job/openings/tester/apply.js";
-import ApplyUi from "components/job/openings/uiux/apply.js";
 
 import Projects from "components/projects/project.js";
 import Resources from "components/resources/resources.js";
 import Comingsoon from "components/resources/comingsoon.js";
-import Quiz from "components/events/quiz/quiz.js";
 import AddResources from "components/resources/addResources.js";
 import AIIndex from "components/resources/ai/index.js";
 import AlgoIndex from "components/resources/algorithms/index.js";
@@ -62,7 +52,6 @@ import VersionControl from "components/resources/version_control/index.js";
 import ApplyProject from "components/projects/applyproject.js";
 
 export const components = {
-
   innerPages: {
     AboutUsPage: {
       component: AboutUsPage,
@@ -92,7 +81,7 @@ export const components = {
     Features: {
       type: "Features Section",
       elements: {
-         TwoColWithButton: {
+        TwoColWithButton: {
           name: "Two Column With Image and Action Button",
           component: TwoColWithButtonFeatures,
           url: "/components/blocks/Features/TwoColWithButton",
@@ -117,11 +106,6 @@ export const components = {
           component: Event,
           url: "/components/events/event.js",
         },
-        Quiz: {
-          name: "Quiz",
-          component: Quiz,
-          url: "/components/quiz/quiz.js",
-        },
         Projects: {
           name: "Projects",
           component: Projects,
@@ -142,57 +126,57 @@ export const components = {
           component: ApplyProject,
           url: "/components/projects/applyproject.js",
         },
-        AboutJob:{
+        AboutJob: {
           name: "Job",
           component: AboutJob,
           url: "components/blocks/Features/AboutJob",
         },
-        AIIndex:{
+        AIIndex: {
           name: "AIIndex",
           component: AIIndex,
           url: "components/blocks/resources/ai/index.js",
         },
-        AlgoIndex:{
+        AlgoIndex: {
           name: "AlgoIndex",
           component: AlgoIndex,
           url: "components/blocks/resources/algorithms/index.js",
         },
-        CPIndex:{
+        CPIndex: {
           name: "CPIndex",
           component: CPIndex,
           url: "components/blocks/resources/cp/index.js",
         },
-        MobileIndex:{
+        MobileIndex: {
           name: "MobileIndex",
           component: MobileIndex,
           url: "components/blocks/resources/mobile/index.js",
         },
-        HackingIndex:{
+        HackingIndex: {
           name: "HackingIndex",
           component: HackingIndex,
           url: "components/blocks/resources/hacking/index.js",
         },
-        LanguageIndex:{
+        LanguageIndex: {
           name: "LanguageIndex",
           component: LanguageIndex,
           url: "components/blocks/resources/language/index.js",
         },
-        WebIndex:{
+        WebIndex: {
           name: "WebIndex",
           component: WebIndex,
           url: "components/blocks/resources/web/index.js",
         },
-        DatabaseIndex:{
+        DatabaseIndex: {
           name: "DatabaseIndex",
           component: DatabaseIndex,
           url: "components/blocks/resources/database/index.js",
         },
-        VersionControl:{
+        VersionControl: {
           name: "VersionControl",
           component: VersionControl,
           url: "components/blocks/resources/control_version/index.js",
         },
-        OpenIndex:{
+        OpenIndex: {
           name: "OpenIndex",
           component: OpenIndex,
           url: "components/blocks/resources/open/index.js",
@@ -201,8 +185,8 @@ export const components = {
           name: "AddResources",
           component: AddResources,
           url: "/components/resources/addResources.js",
-        }
-      }
+        },
+      },
     },
     job: {
       type: "Job",
@@ -232,52 +216,7 @@ export const components = {
           component: ComingJob,
           url: "components/blocks/Job/comingsoon.js",
         },
-        Applyback: {
-          name: "Applyback",
-          component: Applyback,
-          url: "components/blocks/Job/openings/backend/apply.js",
-        },
-        Applyeditorial: {
-          name: "Applyeditorial",
-          component: Applyeditorial,
-          url: "components/blocks/Job/openings/editorialist/apply.js",
-        },
-        Applyfront: {
-          name: "Applyfront",
-          component: Applyfront,
-          url: "components/blocks/Job/openings/frontend/apply.js",
-        },
-        Applyfull: {
-          name: "Applyfull",
-          component: Applyfull,
-          url: "components/blocks/Job/openings/fullstack/apply.js",
-        },
-        Applygraphic: {
-          name: "Applygraphic",
-          component: Applygraphic,
-          url: "components/blocks/Job/openings/graphic/apply.js",
-        },
-        Applymotion: {
-          name: "Applymotion",
-          component: Applymotion,
-          url: "components/blocks/Job/openings/motion/apply.js",
-        },
-        Applysetter: {
-          name: "Applysetter",
-          component: Applysetter,
-          url: "components/blocks/Job/openings/setter/apply.js",
-        },
-        Applytester: {
-          name: "Applytester",
-          component: Applytester,
-          url: "components/blocks/Job/openings/tester/apply.js",
-        },
-        ApplyUi: {
-          name: "ApplyUi",
-          component: ApplyUi,
-          url: "components/blocks/Job/apply/applyUi.js",
-        }
-      }
+      },
     },
     Event: {
       type: "Event",
@@ -286,17 +225,17 @@ export const components = {
           name: "past",
           component: Past,
           url: "components/blocks/Event/past.js",
-        }
-      },
-      Present: {
-          name: "Simple Three Column With Image",
-          component: Present,
-          url: "/components/blocks/Blog/presentEvent.js",
         },
       },
+      Present: {
+        name: "Simple Three Column With Image",
+        component: Present,
+        url: "/components/blocks/Blog/presentEvent.js",
+      },
     },
+  },
 
-    Blog: {
+  Blog: {
     Testimonial: {
       type: "Testimonial Section",
       elements: {
@@ -305,7 +244,7 @@ export const components = {
           component: testimonials,
           url: "/components/blocks/Testimonial/testimonialsw",
         },
-      }
+      },
     },
 
     FAQS: {
@@ -316,7 +255,7 @@ export const components = {
           component: FAQs,
           url: "/components/blocks/FAQs/faq",
         },
-      }
+      },
     },
 
     Form: {
@@ -327,7 +266,7 @@ export const components = {
           component: TwoColContactUsFullForm,
           url: "/components/blocks/Form/TwoColContactUsFull",
         },
-      }
+      },
     },
 
     CTA: {
@@ -343,7 +282,7 @@ export const components = {
           component: Partner,
           url: "/components/blocks/CTA/partner",
         },
-      }
+      },
     },
 
     Footer: {
@@ -354,32 +293,30 @@ export const components = {
           component: Footer,
           url: "/components/blocks/Footers/footers",
         },
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 
 export default () => {
-  const { type, subtype, name } = useParams()
+  const { type, subtype, name } = useParams();
 
   try {
     let Component = null;
-    if(type === "blocks" && subtype) {
-      Component= components[type][subtype]["elements"][name].component
-      return <AnimationRevealPage disabled>
-          <Component/>
+    if (type === "blocks" && subtype) {
+      Component = components[type][subtype]["elements"][name].component;
+      return (
+        <AnimationRevealPage disabled>
+          <Component />
         </AnimationRevealPage>
-    }
-    else
-      Component= components[type][name].component
+      );
+    } else Component = components[type][name].component;
 
-    if(Component)
-      return <Component/>
+    if (Component) return <Component />;
 
-    throw new Error("Component Not Found")
+    throw new Error("Component Not Found");
+  } catch (e) {
+    console.log(e);
+    return <div>Error: Component Not Found</div>;
   }
-  catch (e) {
-    console.log(e)
-    return <div>Error: Component Not Found</div>
-  }
-}
+};

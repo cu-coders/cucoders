@@ -13,16 +13,20 @@ import celebrationIconImageSrc from "images/celebration-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
 import FAQs from "components/faqs/faq.js";
 import Partner from "components/cta/partner.js";
-export default ({isLoggedIn}) => {
+export default ({ isLoggedIn }) => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const Description = tw.span`inline-block mt-8`;
   const imageCss = tw`rounded-4xl`;
-  console.log("Main page loaded")
+  console.log("Main page loaded");
   return (
     <AnimationRevealPage>
       <Hero
-        heading={<>CodeChef <HighlightedText>CU Chapter</HighlightedText></>}
+        heading={
+          <>
+            CodeChef <HighlightedText>CU Chapter</HighlightedText>
+          </>
+        }
         description="Welcome to the official site of CodeChef CU Chapter. Get ready to become a better coder and learn from the best. There's definitely something for you here..."
         imageSrc="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80"
         imageCss={imageCss}
@@ -31,7 +35,7 @@ export default ({isLoggedIn}) => {
         primaryButtonUrl="/about"
         watchVideoButtonText="Meet The Team"
         watchVideoUrl="https://www.youtube.com/watch?v=QxN8bXAeapE&feature=youtu.be"
-        isLoggedIn = {isLoggedIn}
+        isLoggedIn={isLoggedIn}
       />
       <MainFeature
         subheading={<Subheading>Established Since 2020</Subheading>}
@@ -43,10 +47,15 @@ export default ({isLoggedIn}) => {
         }
         description={
           <Description>
-            Here at CodeChef CU Chapter, we believe in collaboration. We believe that it is from being together that we get the best versions of ourselves. We believe each individual is of equal and atmost importance. And most importantly, we believe in you to make great progress with support from your very own College Chapter.
+            Here at CodeChef CU Chapter, we believe in collaboration. We believe
+            that it is from being together that we get the best versions of
+            ourselves. We believe each individual is of equal and atmost
+            importance. And most importantly, we believe in you to make great
+            progress with support from your very own College Chapter.
             <br />
             <br />
-            Here at CodeChef CU Chapter, you are a stakeholder of all happening around you. You are not just any member. You are important to us.
+            Here at CodeChef CU Chapter, you are a stakeholder of all happening
+            around you. You are not just any member. You are important to us.
           </Description>
         }
         buttonRounded={false}
@@ -70,26 +79,32 @@ export default ({isLoggedIn}) => {
           {
             imageSrc: shopIconImageSrc,
             title: "Mission",
-            description: "To encompass the best developer and instill the problem solving abilities in a large scale community"
+            description:
+              "To encompass the best developer and instill the problem solving abilities in a large scale community",
           },
           {
             imageSrc: chefIconImageSrc,
             title: "Vision",
-            description: "To give opportunities to new and budding developers through real world exposure and a chance to learn from the best."
+            description:
+              "To give opportunities to new and budding developers through real world exposure and a chance to learn from the best.",
           },
           {
             imageSrc: celebrationIconImageSrc,
             title: "Values",
-            description: "To keep our members at the centre of our work and get the best out of you, hence, creating an impeccable coding environment."
-          }
+            description:
+              "To keep our members at the centre of our work and get the best out of you, hence, creating an impeccable coding environment.",
+          },
         ]}
-
         imageContainerCss={tw`p-2!`}
         imageCss={tw`w-20! h-20!`}
       />
       <MainFeature2
         subheading={<Subheading>Years of Trust and Integrity</Subheading>}
-        heading={<>Why <HighlightedText>Choose Us ?</HighlightedText></>}
+        heading={
+          <>
+            Why <HighlightedText>Choose Us ?</HighlightedText>
+          </>
+        }
         statistics={[
           {
             key: "Events",
@@ -97,12 +112,12 @@ export default ({isLoggedIn}) => {
           },
           {
             key: "Members",
-            value: "500+"
+            value: "500+",
           },
           {
             key: "Workshops",
-            value: "10+"
-          }
+            value: "10+",
+          },
         ]}
         primaryButtonText="Join the Team!"
         primaryButtonUrl="/careers"
@@ -117,17 +132,14 @@ export default ({isLoggedIn}) => {
       <Partner />
       <Testimonial
         subheading=""
-        heading={<>Members <HighlightedText>Love Us.</HighlightedText></>}
+        heading={
+          <>
+            Members <HighlightedText>Love Us.</HighlightedText>
+          </>
+        }
       />
       <FAQs />
-      <a href="https://cuchapter.freshstatus.io" id="freshstatus-badge-root"
-        data-banner-style="tile"
-        data-brand-logo="https://main.cuchapter.tech/static/media/logo.9a447d51.png"
-        data-brand-title="CU-Chapter" >
-        <img src="https://public-api.freshstatus.io/v1/public/badge.svg/?badge=68e81873-8985-40a4-9b7a-fb578e13c0e4" alt=''/>
-      </a>
-      <script type="module" src="https://cdn.freshstatus.io/widget/index.js"></script>
       <Footer />
     </AnimationRevealPage>
   );
-}
+};

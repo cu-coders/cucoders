@@ -40,10 +40,10 @@ const SvgDotPattern1 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
-export default ({
-  heading = "Checkout the Resources",
-}) => {
+export default ({ heading = "Checkout the Resources" }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [domain, setDomain] = useState("");
+
   function submit(e) {
     e.preventDefault();
     var name = document.getElementById("name-input").value;
@@ -51,7 +51,8 @@ export default ({
     var resource = document.getElementById("resource").files[0];
     var description = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
-    console.log(name, email, resource, description, phone);
+    var domain = document.getElementById("domain-input").value;
+    console.log(name, email, resource, description, phone, domain);
     const formData = new FormData();
 
     formData.append("name", name);
@@ -59,28 +60,30 @@ export default ({
     formData.append("number", phone);
     formData.append("description", description);
     formData.append("resource", resource);
+    formData.append("domain", domain);
 
     const options = {
       method: "POST",
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/resources/add", options)
+    fetch("http://localhost:3001/resources/add", options)
       .then((res) => {
         console.log("Successful: ", res);
         setIsLoading(false);
         success("Resources submitted successfully");
-        // reset form 
+        // reset form
         document.getElementById("name-input").value = "";
         document.getElementById("email-input").value = "";
         document.getElementById("phone-input").value = "";
         document.getElementById("message-input").value = "";
         document.getElementById("resource").value = "";
+        document.getElementById("domain-input").value = "";
       })
       .catch((err) => {
         console.log("Failed : ", err);
         setIsLoading(false);
-        error("Error : ", err)
+        error("Error : ", err);
       });
   }
 
@@ -126,10 +129,22 @@ export default ({
                       name="resource"
                       required
                     />
+                    <h1
+                      style={{
+                        fontSize: ".8rem",
+                        fontWeight: "bold",
+                        color: "#FF895C",
+                        marginTop: "10px",
+                        marginBottom: "0px",
+                        fontFamily: "system-ui",
+                      }}
+                    >
+                      Size limit : 10MB, File Type: PDF/DOCX
+                    </h1>
                   </InputContainer>
                 </Column>
                 <Column>
-                <InputContainer>
+                  <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
                     <Input
                       id="phone-input"
@@ -139,7 +154,61 @@ export default ({
                       placeholder="E.g. +91(XXXXX-XXXXX)"
                     />
                   </InputContainer>
-                <InputContainer>
+                  <InputContainer>
+                    <Label htmlFor="domain-input">Domain*</Label>
+                    <select
+                      id="domain-input"
+                      value={domain}
+                      onChange={(e) => setDomain(e.target.value)}
+                      name="domain"
+                      required
+                      style={{
+                        backgroundColor: "#efefef",
+                        color: "black",
+                        border: "none",
+                        borderRadius: "5px",
+                        padding: "5px",
+                        fontSize: "1rem",
+                        fontWeight: "bold",
+                        width: "100%",
+                        cursor: "pointer",
+                        outline: "none",
+                      }}
+                    >
+                      <option value="">Select Domain</option>
+                      <option value="Data-Structure-Algorithms">
+                        Data-Structure-Algorithms
+                      </option>
+                      <option value="Competitive-Programming">
+                        Competitive-Programming
+                      </option>
+                      <option value="Web-Development">Web-Development</option>
+                      <option value="Programming-Languages">
+                        Programming-Languages
+                      </option>
+                      <option value="AI-and-ML">AI-and-ML</option>
+                      <option value="Database">Database</option>
+                      <option value="Security">Security</option>
+                      <option value="Version-Control">Version-Control</option>
+                      <option value="Mobile-Development">
+                        Mobile-Development
+                      </option>
+                      <option value="Cloud">Cloud</option>
+                    </select>
+                    <h1
+                      style={{
+                        fontSize: ".8rem",
+                        fontWeight: "bold",
+                        color: "#fff",
+                        marginTop: "10px",
+                        marginBottom: "0px",
+                        fontFamily: "system-ui",
+                      }}
+                    >
+                      Selected Domain: {domain}
+                    </h1>
+                  </InputContainer>
+                  <InputContainer>
                     <Label htmlFor="name-input">Description*</Label>
                     <TextArea
                       id="message-input"
@@ -160,13 +229,17 @@ export default ({
                         width: "fit-content",
                         position: "absolute",
                         left: "46%",
-                        top:"45%",
+                        top: "45%",
                       }}
                     />
                   )}
                 </Column>
               </TwoColumn>
-              <SubmitButton type="submit" value="Submit">
+              <SubmitButton
+                type="submit"
+                value="Submit"
+                disabled={isLoading ? true : false}
+              >
                 Submit
               </SubmitButton>
             </form>

@@ -40,9 +40,7 @@ const SvgDotPattern1 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
-export default ({
-  role
-}) => {
+export default ({ role }) => {
   const [isLoading, setIsLoading] = useState(false);
   console.log(role);
   function submit(e) {
@@ -67,11 +65,11 @@ export default ({
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/jobs/apply", options)
+    fetch("http://localhost:3001/jobs/apply", options)
       .then((res) => {
         console.log("Successful: ", res);
         setIsLoading(false);
-        success("Application submitted successfully")
+        success("Application submitted successfully");
         //clear form
         document.getElementById("name-input").value = "";
         document.getElementById("email-input").value = "";
@@ -82,7 +80,7 @@ export default ({
       .catch((err) => {
         console.log("Failed : ", err);
         setIsLoading(false);
-        error("Error : ", err)
+        error("Error : ", err);
       });
   }
 
@@ -162,13 +160,17 @@ export default ({
                         width: "fit-content",
                         position: "absolute",
                         left: "46%",
-                        top:"45%",
+                        top: "45%",
                       }}
                     />
                   )}
                 </Column>
               </TwoColumn>
-              <SubmitButton type="submit" value="Submit" disabled={isLoading ? true : false}>
+              <SubmitButton
+                type="submit"
+                value="Submit"
+                disabled={isLoading ? true : false}
+              >
                 Submit
               </SubmitButton>
             </form>

@@ -3,8 +3,11 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import {css} from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading as HeadingTitle, Subheading } from "components/misc/Headings.js";
+import { css } from "styled-components/macro"; //eslint-disable-line
+import {
+  SectionHeading as HeadingTitle,
+  Subheading,
+} from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
@@ -25,9 +28,9 @@ const HeadingInfoContainer = tw.div`flex flex-col items-center`;
 const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
 
 const Card = tw.div`lg:mx-4 xl:mx-8 max-w-sm flex flex-col h-full`;
-const Image = styled.div(props => [
+const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`bg-cover bg-center h-80 lg:h-64 rounded rounded-b-none`
+  tw`bg-cover bg-center h-80 lg:h-64 rounded rounded-b-none`,
 ]);
 
 const Details = tw.div`p-6 flex-1 flex flex-col items-center text-center lg:block lg:text-left`;
@@ -41,15 +44,15 @@ const Meta = styled.div`
 
 const Title = tw.h5`mt-0 leading-snug font-bold text-lg`;
 const Description = tw.p`mt-2 text-sm text-secondary-100`;
-const Link = styled(PrimaryButtonBase).attrs({as: "a"})`
+const Link = styled(PrimaryButtonBase).attrs({ as: "a" })`
   ${tw`inline-block text-sm font-semibold`}
-`
+`;
 
 const cardStyle = {
   // borderRadius: "25px",
   height: "fit-content",
   // border: "2px solid rgba(100,21,255)",
-  boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+  boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
 };
 
 const imageStyle = {
@@ -66,27 +69,31 @@ const DecoratorBlob2 = tw(
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 
 function getDate({ date_start, date_end }) {
-  console.log(date_start, new Date(date_start))
+  console.log(date_start, new Date(date_start));
   if (date_start !== "" && date_end !== "") {
-    return `Event Date - ${new Date(date_start).toLocaleDateString()} to ${new Date(date_end).toLocaleDateString()}`;
+    return `Event Date - ${new Date(
+      date_start
+    ).toLocaleDateString()} to ${new Date(date_end).toLocaleDateString()}`;
   } else {
-    return ""
+    return "";
   }
 }
 
-export default  ({
+export default ({
   subheading = "Past Events",
-  heading = <>We Love <span tw="text-primary-500">Events.</span></>,
+  heading = (
+    <>
+      We Love <span tw="text-primary-500">Events.</span>
+    </>
+  ),
   description = "Some amazing events that are conducted by even more amazing people.",
-
 }) => {
-
-  const [t_cards, update_t_cards] = useState([])
+  const [t_cards, update_t_cards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(t_cards)
+  console.log(t_cards);
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/past-events")
+    fetch("http://localhost:3001/api/past-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);
@@ -97,8 +104,7 @@ export default  ({
         update_t_cards(result);
         setIsLoading(false);
       });
-
-  },[])
+  }, []);
   return (
     <AnimationRevealPage>
       <Header />
@@ -147,15 +153,15 @@ export default  ({
                     <Details style={{ backgroundColor: "#FAFAFA" }}>
                       <Title style={{ color: "#6415FF" }}>{post.title}</Title>
                       <MetaContainer>
-                          <Meta>
-                            <UserIcon />
-                            <div>{post.author}</div>
-                          </Meta>
-                          <Meta>
-                            <TagIcon />
-                            <div>{post.category}</div>
-                          </Meta>
-                        </MetaContainer>
+                        <Meta>
+                          <UserIcon />
+                          <div>{post.author}</div>
+                        </Meta>
+                        <Meta>
+                          <TagIcon />
+                          <div>{post.category}</div>
+                        </Meta>
+                      </MetaContainer>
                       <Description
                         style={{ height: "210px", overflow: "hidden" }}
                       >
@@ -174,11 +180,8 @@ export default  ({
                       >
                         {getDate({ ...post })}
                       </small>
-                      <div
-                     
-                      >
+                      <div>
                         <Link href={post.url}>See More</Link>
-                        
                       </div>
                     </Details>
                   </Card>

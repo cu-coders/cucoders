@@ -104,12 +104,10 @@ export default ({
         <NavLink
           style={{ cursor: "pointer" }}
           onClick={() => {
-            axios.request(
-              "https://main-cu-coders.herokuapp.com/auth/logout",
-              {
+            axios
+              .request("https://main-cu-coders.herokuapp.com/auth/logout", {
                 withCredentials: true,
-              }
-            )
+              })
               .then((res) => {
                 if (res.data.logout === true) {
                   console.log("Logged out successfully");

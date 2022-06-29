@@ -56,7 +56,6 @@ import Open from "components/resources/open/index.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
-import Upload from "components/forms/upload.js"
 import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
@@ -73,22 +72,22 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
-  // STAES-------------------------//
+  // STATES-------------------------//
   const [isVerified, updateIsVerified] = useState(false);
   //-----------------------------------------CHECK
-  // AUTHENTICATIO------------------------//
+  // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/auth/user", {
+      .get("http://localhost:3001/auth/user", {
         withCredentials: true,
       })
       .then((res) => {
         if (res.data.username) {
           updateIsVerified(true);
-          console.log("Logged In from APP.js")
+          console.log("Logged In from APP.js");
         } else {
           updateIsVerified(false);
-          console.log("Logged Out from APP.js")
+          console.log("Logged Out from APP.js");
         }
       });
   }, []);
@@ -231,11 +230,12 @@ export default function App() {
         <Route exact path="/lostpassword">
           <LostPassword />
         </Route>
-        <Route exact path="/form">
-          <Upload />
-        </Route>
         <Route exact path="/login">
-          {isVerified ? <Navigate to="/home" /> : <Login updateIsLoggedIn={updateIsVerified} />}
+          {isVerified ? (
+            <Navigate to="/home" />
+          ) : (
+            <Login updateIsLoggedIn={updateIsVerified} />
+          )}
         </Route>
         <Route exact path="/signup">
           {isVerified ? <Navigate to="/" /> : <Signup />}

@@ -13,7 +13,7 @@ import { Navigate } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
-import { success, error, warning } from '../components/messages'
+import { success, error, warning } from "../components/messages";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -72,12 +72,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://cucoders.herokuapp.com/auth/google",
+      url: "http://localhost:3001/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://cucoders.herokuapp.com/auth/github",
+      url: "http://localhost:3001/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -111,7 +111,7 @@ export default ({
     updateCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   //---------------------------------SUBMITING LOGIN FORM------------------------
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const submit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -122,25 +122,28 @@ export default ({
       })
       .then((res) => {
         setLoading(false);
-        console.log("Response from login API : ", res)
+        console.log("Response from login API : ", res);
         if (res.data.success) {
           success("User logged in successfully", 1);
           setTimeout(() => {
             updateIsVerified(true);
             updateIsLoggedIn(true);
-          }, 1000)
-        }
-        else {
-          if (res.data.message === "Invalid Credentials") error("Invalid Credentials")
-          else if (res.data.message === "unregistered email") error("Unregistered email")
-          else if (res.data.message === "Invalid login mode") error("Invalid Login mode")
+          }, 1000);
+        } else {
+          if (res.data.message === "Invalid Credentials")
+            error("Invalid Credentials");
+          else if (res.data.message === "unregistered email")
+            error("Unregistered email");
+          else if (res.data.message === "Invalid login mode")
+            error("Invalid Login mode");
           else {
-            warning("Please verify your email")
+            warning("Please verify your email");
           }
         }
-      }).catch((err) => {
+      })
+      .catch((err) => {
         setLoading(false);
-        error("Email or password incorrect")
+        error("Email or password incorrect");
       });
   };
   if (isVerified) return <Navigate to="/home" />;

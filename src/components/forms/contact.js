@@ -49,7 +49,7 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      Feel free to <span style={{color: "#6415FF",}}>get in touch</span>
+      Feel free to <span style={{ color: "#6415FF" }}>get in touch</span>
       <wbr /> with us.
     </>
   ),
@@ -67,11 +67,11 @@ export default ({
     subject: "",
     message: "",
   });
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token",{
-        withCredentials:true,
+      .get("http://localhost:3001/form-token", {
+        withCredentials: true,
       })
       .then((res) => {
         formTokenState(res.data.formToken);
@@ -87,21 +87,22 @@ export default ({
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/contact-us", formData,{"xsrf-token":formToken})
+      .post("http://localhost:3001/contact-us", formData, {
+        "xsrf-token": formToken,
+      })
       .then((res) => {
-        setIsLoading(false)
+        setIsLoading(false);
         if (!res.data.success) {
           let text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
-          error(text)
-        }
-        else {
-          success("Submission successful")
+          error(text);
+        } else {
+          success("Submission successful");
           window.location.reload();
         }
       })
       .catch((err) => {
         setIsLoading(false);
-        error(err.message)
+        error(err.message);
       });
   };
   return (
@@ -157,7 +158,9 @@ export default ({
                 required
                 placeholder="Your Message Here"
               />
-              <SubmitButton type="submit" disabled={isLoading ? true : false}>{submitButtonText}</SubmitButton>
+              <SubmitButton type="submit" disabled={isLoading ? true : false}>
+                {submitButtonText}
+              </SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>
