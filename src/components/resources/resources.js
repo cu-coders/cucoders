@@ -241,7 +241,7 @@ export default ({
           <DecoratorBlob1 />
           <DecoratorBlob2 />
 
-          <Resources></Resources>
+          <Resources />
         </Container>
         <Footer />
       </AnimationRevealPage>

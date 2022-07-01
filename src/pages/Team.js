@@ -133,7 +133,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></InstagramIcon>
+                         />
                       </a>
                       <a key={index} className="link" href={member.linkedin}>
                         <LinkedinIcon
@@ -141,7 +141,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></LinkedinIcon>
+                         />
                       </a>
                       <a key={index} className="link" href={member.github}>
                         <GithubIcon
@@ -149,7 +149,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></GithubIcon>
+                         />
                       </a>
                     </CardLinks>
                   </CardContent>
