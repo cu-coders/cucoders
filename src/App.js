@@ -241,7 +241,7 @@ export default function App() {
           <Error />
         </Route>
       </Switch>
-      <Lines customLoading={true} time={0} />
+      <Lines />
     </Router>
   );
 }
