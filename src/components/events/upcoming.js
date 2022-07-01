@@ -172,7 +172,7 @@ export default () => {
                             width: "100%",
                           }}
                         >
-                          <Link href={post.url}>See More</Link>
+                          <Link href={post.url}>Register Now</Link>
                         </div>
                       </Details>
                     </Card>
