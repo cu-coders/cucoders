@@ -73,7 +73,7 @@ export default () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3001/api/ongoing-events")
+    fetch("https://cucoders.herokuapp.com/ongoing-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);

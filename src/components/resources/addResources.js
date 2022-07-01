@@ -67,7 +67,7 @@ export default ({ heading = "Checkout the Resources" }) => {
       body: formData,
     };
     setIsLoading(true);
-    fetch("http://localhost:3001/resources/add", options)
+    fetch("https://cucoders.herokuapp.com/resources/add", options)
       .then((res) => {
         console.log("Successful: ", res);
         setIsLoading(false);

@@ -66,7 +66,7 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3001/api/team")
+    fetch("https://cucoders.herokuapp.com/api/team")
       .then((res) => {
         if (res.ok) {
           console.log(res);

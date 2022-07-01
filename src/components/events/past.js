@@ -93,7 +93,7 @@ export default ({
   console.log(t_cards);
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:3001/api/past-events")
+    fetch("https://cucoders.herokuapp.com/api/past-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);
