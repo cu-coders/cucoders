@@ -109,7 +109,7 @@ export default ({
           className="mainHeroModal"
           isOpen={modalIsOpen}
           onRequestClose={toggleModal}
-          shouldCloseOnOverlayClick={true}
+          shouldCloseOnOverlayClick
         >
           <CloseModalButton onClick={toggleModal}>
             <CloseIcon tw="w-6 h-6" />
