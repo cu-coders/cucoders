@@ -140,7 +140,7 @@ export default ({
       date: "Feb 5, 2021",
       title: "2011 Stanford Local ACM Programming Contest",
       description: "",
-      url: "https://drive.google.com/file/d/1BsDwJ8uLPrI1vl0HUnd4dlDGJDcQskrB/view?usp=sharing",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656487360/addResources/Competitive-Programming/problems_ome20c.pdf",
       featured: false,
     },
   ],

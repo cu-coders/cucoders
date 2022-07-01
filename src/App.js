@@ -78,7 +78,7 @@ export default function App() {
   // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("http://localhost:3001/auth/user", {
+      .get("https://cucoders.herokuapp.com/auth/user", {
         withCredentials: true,
       })
       .then((res) => {
@@ -241,7 +241,7 @@ export default function App() {
           <Error />
         </Route>
       </Switch>
-      <Lines />
+      <Lines customLoading={true} time={0} />
     </Router>
   );
 }

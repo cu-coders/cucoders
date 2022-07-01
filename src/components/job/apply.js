@@ -65,7 +65,7 @@ export default ({ role }) => {
       body: formData,
     };
     setIsLoading(true);
-    fetch("http://localhost:3001/jobs/apply", options)
+    fetch("https://cucoders.herokuapp.com/jobs/apply", options)
       .then((res) => {
         console.log("Successful: ", res);
         setIsLoading(false);
