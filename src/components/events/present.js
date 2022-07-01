@@ -12,7 +12,7 @@ import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Container = tw.div`relative`;
@@ -24,9 +24,9 @@ const HeadingInfoContainer = tw.div`flex flex-col items-center`;
 const HeadingDescription = tw.p`mt-4 font-medium text-gray-600 text-center max-w-sm`;
 
 const Card = tw.div`lg:mx-4 xl:mx-8 max-w-sm lg:max-w-xs`;
-const Image = styled.div(props => [
+const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`bg-cover bg-center h-80 lg:h-64 rounded`
+  tw`bg-cover bg-center h-80 lg:h-64 rounded`,
 ]);
 const Title = tw.h4`mt-2 leading-relaxed font-bold text-lg`;
 const Link = tw.a`inline-block mt-2 text-sm text-primary-500 font-bold cursor-pointer transition duration-300 border-b-2 border-transparent hover:border-primary-500`;
@@ -68,12 +68,12 @@ function getDate({ date_start, date_end }) {
 }
 
 export default () => {
-  const[t_cards,update_t_cards] = useState([])
+  const [t_cards, update_t_cards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/ongoing-events")
+    fetch("http://localhost:3001/api/ongoing-events")
       .then((res) => {
         if (res.ok) {
           console.log(res);
@@ -82,10 +82,10 @@ export default () => {
       })
       .then((result) => {
         update_t_cards(result);
+        console.log(result);
         setIsLoading(false);
       });
-
-  },[])
+  }, []);
   return (
     <>
       <AnimationRevealPage>
@@ -114,7 +114,7 @@ export default () => {
                   }}
                 />
               )}
-              {t_cards === undefined && (
+              {(t_cards === undefined || t_cards.length === 0) && (
                 <div
                   style={{
                     fontSize: "18px",
@@ -136,15 +136,15 @@ export default () => {
                       <Details style={{ backgroundColor: "#FAFAFA" }}>
                         <Title style={{ color: "#6415FF" }}>{post.title}</Title>
                         <MetaContainer>
-                            <Meta>
-                              <UserIcon />
-                              <div>{post.author}</div>
-                            </Meta>
-                            <Meta>
-                              <TagIcon />
-                              <div>{post.category}</div>
-                            </Meta>
-                          </MetaContainer>
+                          <Meta>
+                            <UserIcon />
+                            <div>{post.author}</div>
+                          </Meta>
+                          <Meta>
+                            <TagIcon />
+                            <div>{post.category}</div>
+                          </Meta>
+                        </MetaContainer>
                         <Description
                           style={{ height: "90px", overflow: "hidden" }}
                         >

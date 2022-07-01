@@ -14,7 +14,7 @@ const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
-  ${props =>
+  ${(props) =>
     props.featured &&
     css`
       ${tw`w-full!`}
@@ -34,7 +34,10 @@ const PostContainer = styled.div`
 `;
 const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
 const Image = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
@@ -55,10 +58,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Coding Interview Questions By Narasimha Karumanchi",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/1oQzg7N8k0AngFnEKKyNWgF7RzRnGuWFy/view?usp=sharing",
-      featured: false
+      featured: false,
     },
     {
       imageSrc:
@@ -66,10 +68,9 @@ export default ({
       category: "Handbook",
       date: "Feb 22, 2021",
       title: "Competitive Programming",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/1qFFA5sHO63aLOk3ovZB3xnM59VnndN3B/view?usp=sharing",
-      featured: false
+      featured: false,
     },
     {
       imageSrc:
@@ -77,10 +78,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Computational Geometry",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/1YGiD-IAaZpQJfoumuyQkbg0afa-f9kwH/view?usp=sharing",
-      featured: false
+      featured: false,
     },
     {
       imageSrc:
@@ -88,10 +88,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "CRACKING the CODING INTERVIEW",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/1_sORffeUsE8jD4pzOtEmBFAB5zmLllgJ/view?usp=sharing",
-      featured: false
+      featured: false,
     },
     {
       imageSrc:
@@ -99,10 +98,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Dynamic Programming Questions:",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1ijvHxvVYAhxIvA7uv3nogAdSjSXBxYv7/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656487335/addResources/Competitive-Programming/Dynamic_Programming_Questions_r6pb8x.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -110,10 +108,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Elements of Programming Interview",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/19xxtxzkgeyasEtlLhjviz_tCrQekA2Kj/view?usp=sharing",
-      featured: false
+      featured: false,
     },
     {
       imageSrc:
@@ -123,8 +120,8 @@ export default ({
       title: "Competitive Programmer’s Handbook",
       description:
         "Competitive Programmer's Handbook is a book whose purpose is to give the reader a thorough introduction to competitive programming.",
-      url: "https://drive.google.com/file/d/17OwnI-74WkwQUE_T9BO_abxFtiClUpKr/view?usp=sharing",
-      featured: false
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656487320/addResources/Competitive-Programming/Competitive_Programmer_s_Handbook_aar6kh.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -132,10 +129,9 @@ export default ({
       category: "Book",
       date: "Feb 5, 2021",
       title: "Handbook of geometry for competitive_programmers",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1x81YQ8KkqHH8XvaQS5LXoMtibgAJS2W2/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656487351/addResources/Competitive-Programming/Handbook_of_geometry_for_competitive_programmers_qeuium.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -143,16 +139,15 @@ export default ({
       category: "Question Bank",
       date: "Feb 5, 2021",
       title: "2011 Stanford Local ACM Programming Contest",
-      description:
-        "",
+      description: "",
       url: "https://drive.google.com/file/d/1BsDwJ8uLPrI1vl0HUnd4dlDGJDcQskrB/view?usp=sharing",
-      featured: false
-    }
-  ]
+      featured: false,
+    },
+  ],
 }) => {
   const [visible, setVisible] = useState(9);
   const onLoadMoreClick = () => {
-    setVisible(v => v + 8);
+    setVisible((v) => v + 8);
   };
   return (
     <AnimationRevealPage>
@@ -165,13 +160,15 @@ export default ({
           <Posts>
             {posts.slice(0, visible).map((post, index) => (
               <PostContainer key={index} featured={post.featured}>
-                <Post className="group" as="a" target='_blank' href={post.url}>
+                <Post className="group" as="a" target="_blank" href={post.url}>
                   <Image imageSrc={post.imageSrc} />
                   <Info>
                     <Category>{post.category}</Category>
                     <CreationDate>{post.date}</CreationDate>
                     <Title>{post.title}</Title>
-                    {post.featured || post.description || <Description>{post.description}</Description>}
+                    {post.featured || post.description || (
+                      <Description>{post.description}</Description>
+                    )}
                   </Info>
                 </Post>
               </PostContainer>
@@ -179,7 +176,9 @@ export default ({
           </Posts>
           {visible < posts.length && (
             <ButtonContainer>
-              <LoadMoreButton onClick={onLoadMoreClick}>Load More</LoadMoreButton>
+              <LoadMoreButton onClick={onLoadMoreClick}>
+                Load More
+              </LoadMoreButton>
             </ButtonContainer>
           )}
         </ContentWithPaddingXl>
@@ -188,4 +187,3 @@ export default ({
     </AnimationRevealPage>
   );
 };
-

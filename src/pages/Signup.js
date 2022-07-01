@@ -71,12 +71,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "https://cucoders.herokuapp.com/auth/google",
+      url: "http://localhost:3001/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "https://cucoders.herokuapp.com/auth/github",
+      url: "http://localhost:3001/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -84,7 +84,7 @@ export default ({
   tosUrl = "/terms",
   privacyPolicyUrl = "/privacy",
   signInUrl = "/login",
-  isLoggedIn
+  isLoggedIn,
 }) => {
   const [user_data, updateData] = useState({
     firstname: "",
@@ -97,7 +97,7 @@ export default ({
   const [formToken, formTokenState] = useState("");
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token", {
+      .get("http://localhost:3001/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -115,7 +115,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/auth/signup", user_data, {
+      .post("http://localhost:3001/auth/signup", user_data, {
         "xsrf-token": formToken,
       })
       .then((res) => {
@@ -163,8 +163,8 @@ export default ({
   // Redirecting to home page is already logged in
   return (
     <AnimationRevealPage>
-    <Header isLoggedIn={isLoggedIn} />
-    <br />
+      <Header isLoggedIn={isLoggedIn} />
+      <br />
       <Container>
         <Content>
           <MainContainer>

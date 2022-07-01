@@ -23,7 +23,7 @@ const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full`;
 const Description = tw(SectionDescription)`w-full text-gray-300 text-center`;
 
-const PlansContainer = tw.div`mt-16 flex flex-col items-center lg:flex-row lg:items-stretch lg:justify-between text-gray-900 font-medium`;
+const EventsContainer = tw.div`mt-16 flex flex-col items-center lg:flex-row lg:items-stretch lg:justify-between text-gray-900 font-medium`;
 const Plan = styled.div`
   ${tw`w-full max-w-sm bg-white rounded-lg shadow-sm py-10 px-6 sm:px-10 lg:px-6 lg:py-10 xl:p-10 mx-3 flex flex-col justify-between mt-16 first:mt-0 lg:mt-0 shadow-raised`}
 `;
@@ -38,15 +38,15 @@ const PlanHeader = styled.div`
   .featuredText {
     ${tw`text-xs font-bold px-3 rounded py-2 uppercase bg-green-300 text-green-900 leading-none mt-4 sm:mt-0 w-full sm:w-auto text-center`}
   }
-  .pricingContainer {
+  .eventsContainer {
     ${tw`mt-6 flex items-end justify-between`}
-    .currentPrice {
+    .currentevent {
       ${tw`text-lg font-bold leading-none`}
       .bigText {
         ${tw`text-3xl font-bold`}
       }
     }
-    .oldPrice {
+    .oldevent {
       ${tw`text-gray-500 text-lg line-through hidden sm:block`}
     }
   }
@@ -66,11 +66,11 @@ export default ({
   subheading = "",
   heading = "Our Events",
   description = "There are some people who live in a dream world, and there are some who face reality; and then there are those who turn one into the other.",
-  plans = null,
+  Events = null,
   primaryButtonText = "See Events",
   isLoggedIn
 }) => {
-  const defaultPlans = [
+  const defaultEvents = [
     {
       name: "Upcoming Events",
       description:
@@ -91,7 +91,7 @@ export default ({
     },
   ];
 
-  if (!plans) plans = defaultPlans;
+  if (!Events) Events = defaultEvents;
 
   return (
     <>
@@ -106,8 +106,8 @@ export default ({
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
           </HeaderContainer>
-          <PlansContainer>
-            {plans.map((plan, index) => (
+          <EventsContainer>
+            {Events.map((plan, index) => (
               <Plan key={index} featured={plan.featured}>
                 <PlanHeader>
                   <span className="nameAndFeaturedContainer">
@@ -125,7 +125,7 @@ export default ({
                 </PlanAction>
               </Plan>
             ))}
-          </PlansContainer>
+          </EventsContainer>
           <br  />
           <br />
           <br />

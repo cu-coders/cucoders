@@ -2,6 +2,7 @@ import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 
 import axios from "axios";
+import { Lines } from "react-preloaders";
 /*
  * This is the entry point component of this project. You can change the below
  * exported default App component to any of the prebuilt landing page components
@@ -26,7 +27,6 @@ import Coming from "components/events/comingsoon.js";
 import Events from "components/events/event.js";
 import Past from "components/events/past.js";
 import Present from "components/events/present.js";
-import Quiz from "components/events/quiz/quiz.js";
 import ThankYouSoMuch from "components/events/thanks.js";
 import Upcoming from "components/events/upcoming.js";
 import Back from "components/job/openings/backend/backend.js";
@@ -49,14 +49,13 @@ import AI from "components/resources/ai/index.js";
 import ComingNow from "components/resources/comingsoon.js";
 import CP from "components/resources/cp/index.js";
 import Database from "components/resources/database/index.js";
-import Security from "components/resources/hacking/index.js";
+import Security from "components/resources/security/index.js";
 import Language from "components/resources/language/index.js";
 import Mobile from "components/resources/mobile/index.js";
 import Open from "components/resources/open/index.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
-import Upload from "components/forms/upload.js"
 import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
@@ -73,22 +72,22 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
-  // STAES-------------------------//
+  // STATES-------------------------//
   const [isVerified, updateIsVerified] = useState(false);
   //-----------------------------------------CHECK
-  // AUTHENTICATIO------------------------//
+  // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/auth/user", {
+      .get("http://localhost:3001/auth/user", {
         withCredentials: true,
       })
       .then((res) => {
         if (res.data.username) {
           updateIsVerified(true);
-          console.log("Logged In from APP.js")
+          console.log("Logged In from APP.js");
         } else {
           updateIsVerified(false);
-          console.log("Logged Out from APP.js")
+          console.log("Logged Out from APP.js");
         }
       });
   }, []);
@@ -116,9 +115,6 @@ export default function App() {
         </Route>
         <Route exact path="/past">
           <Past />
-        </Route>
-        <Route exact path="/quiz">
-          <Quiz />
         </Route>
         <Route exact path="/projects">
           <Projects isLoggedIn={isVerified} />
@@ -231,11 +227,12 @@ export default function App() {
         <Route exact path="/lostpassword">
           <LostPassword />
         </Route>
-        <Route exact path="/form">
-          <Upload />
-        </Route>
         <Route exact path="/login">
-          {isVerified ? <Navigate to="/home" /> : <Login updateIsLoggedIn={updateIsVerified} />}
+          {isVerified ? (
+            <Navigate to="/home" />
+          ) : (
+            <Login updateIsLoggedIn={updateIsVerified} />
+          )}
         </Route>
         <Route exact path="/signup">
           {isVerified ? <Navigate to="/" /> : <Signup />}
@@ -244,6 +241,7 @@ export default function App() {
           <Error />
         </Route>
       </Switch>
+      <Lines />
     </Router>
   );
 }

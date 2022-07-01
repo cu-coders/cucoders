@@ -14,7 +14,7 @@ const Heading = tw(SectionHeading)`text-gray-900`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = styled.div`
   ${tw`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`}
-  ${props =>
+  ${(props) =>
     props.featured &&
     css`
       ${tw`w-full!`}
@@ -34,7 +34,10 @@ const PostContainer = styled.div`
 `;
 const Post = tw.div`cursor-pointer flex flex-col bg-gray-100 rounded-lg`;
 const Image = styled.div`
-  ${props => css`background-image: url("${props.imageSrc}");`}
+  ${(props) =>
+    css`
+      background-image: url("${props.imageSrc}");
+    `}
   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
 `;
 const Info = tw.div`p-8 border-2 border-t-0 rounded-lg rounded-t-none`;
@@ -55,10 +58,19 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "C Notes for Professionals",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1NRTOsqZjJwEiNZZcSFTNkC9TBHTLWg50/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481981/addResources/languages/C_yzm4yi.pdf",
+      featured: false,
+    },
+    {
+      imageSrc:
+        "https://images.unsplash.com/photo-1542831371-d531d36971e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1024&q=80",
+      category: "Book",
+      date: "Feb 22, 2021",
+      title: "Head First Python",
+      description: "",
+      url: "https://drive.google.com/file/d/1s5jFYX-XenDMBinULndtIX190JzZ71pV/view?usp=sharing",
+      featured: false,
     },
     {
       imageSrc:
@@ -66,10 +78,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "CPP Notes for Professionals",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1GIqcRvtatmAR85RMcvCWVgJUjO3YK42f/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481984/addResources/languages/CPlusPlus_gghczb.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -77,10 +88,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Bash Notes for Professionals",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1283pJem2h2xAmSFO7KekkAN6LTtCyp8P/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481985/addResources/languages/Bash_hule5l.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -88,10 +98,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "All Java Programs",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1d4QKWFsw__kwcQbjuNnaby4D2WNmaQfU/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481978/addResources/languages/All_Java_Programs_dpr2es.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -99,10 +108,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "CPP STL",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/187HaIEEEVmWh_EarkEKSga4fln1FNRX8/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481986/addResources/languages/Cpp_STL_Reference-Manual_v7b0cc.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -110,10 +118,9 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "Ruby Notes for Professionals",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1kFRey4PxGbXQCF4YevwbUF5heYhnaQif/view?usp=sharing",
-      featured: false
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481999/addResources/languages/Ruby_gcivom.pdf",
+      featured: false,
     },
     {
       imageSrc:
@@ -121,16 +128,15 @@ export default ({
       category: "Book",
       date: "Feb 22, 2021",
       title: "OOPs Question",
-      description:
-        "",
-      url: "https://drive.google.com/file/d/1_JEoNlvCbOkeGlj5ShUdemsZaYxQKcOk/view?usp=sharing",
-      featured: false
-    }
-  ]
+      description: "",
+      url: "https://res.cloudinary.com/cuchapter/image/upload/v1656481991/addResources/languages/oops_questions_for_cse_3rd_sem_hj2f4p.pdf",
+      featured: false,
+    },
+  ],
 }) => {
   const [visible, setVisible] = useState(9);
   const onLoadMoreClick = () => {
-    setVisible(v => v + 8);
+    setVisible((v) => v + 8);
   };
   return (
     <AnimationRevealPage>
@@ -149,7 +155,9 @@ export default ({
                     <Category>{post.category}</Category>
                     <CreationDate>{post.date}</CreationDate>
                     <Title>{post.title}</Title>
-                    {post.featured && post.description && <Description>{post.description}</Description>}
+                    {post.featured && post.description && (
+                      <Description>{post.description}</Description>
+                    )}
                   </Info>
                 </Post>
               </PostContainer>
@@ -157,7 +165,9 @@ export default ({
           </Posts>
           {visible < posts.length && (
             <ButtonContainer>
-              <LoadMoreButton onClick={onLoadMoreClick}>Load More</LoadMoreButton>
+              <LoadMoreButton onClick={onLoadMoreClick}>
+                Load More
+              </LoadMoreButton>
             </ButtonContainer>
           )}
         </ContentWithPaddingXl>

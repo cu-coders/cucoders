@@ -1,9 +1,8 @@
 {
   "name": "cu-coders",
-  "proxy": "https://main.cuchapter.tech",
+  "proxy": "http://localhost:3000/",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://cucoders.herokuapp.com/",
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
     "@testing-library/jest-dom": "^4.2.4",

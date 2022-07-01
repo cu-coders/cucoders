@@ -5,10 +5,10 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
-const PlansContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
-const Plan = styled.div`
+const JobsContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
+const Job = styled.div`
   ${tw`w-full max-w-sm mt-16 lg:mr-8 lg:last:mr-0 text-center px-8 rounded-lg shadow relative pt-2 text-gray-900 bg-white flex flex-col`}
-  .planHighlight {
+  .jobHighlight {
     ${tw`rounded-t-lg absolute top-0 inset-x-0 h-2`}
   }
 
@@ -22,13 +22,13 @@ background: linear-gradient(135deg, rgba(85,60,154,1) 0%, rgba(128,90,213,1) 100
 background: rgb(76,81,191);
 background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 100%);
       ${tw`bg-primary-500 text-gray-100`}
-      .planHighlight {
+      .jobHighlight {
         ${tw`hidden`}
       }
       .duration {
         ${tw`text-gray-200!`}
       }
-      ${PlanFeatures} {
+      ${JobFeatures} {
         ${tw`border-indigo-500`}
       }
       .feature:not(.mainFeature) {
@@ -39,7 +39,7 @@ background: linear-gradient(135deg, rgba(76,81,191,1) 0%, rgba(102,126,234,1) 10
     `}
 `;
 
-const PlanHeader = styled.div`
+const JobHeader = styled.div`
   ${tw`flex flex-col uppercase leading-relaxed py-8`}
   .name {
     ${tw`font-bold text-xl`}
@@ -51,7 +51,7 @@ const PlanHeader = styled.div`
     ${tw`text-gray-500 font-bold tracking-widest`}
   }
 `;
-const PlanFeatures = styled.div`
+const JobFeatures = styled.div`
   ${tw`flex flex-col -mx-8 px-8 py-8 border-t-2 border-b-2 flex-1`}
   .feature {
     ${tw`mt-5 first:mt-0 font-medium`}
@@ -64,7 +64,7 @@ const PlanFeatures = styled.div`
   }
 `;
 
-const PlanAction = tw.div`px-4 sm:px-8 xl:px-16 py-8`;
+const JobAction = tw.div`px-4 sm:px-8 xl:px-16 py-8`;
 const BuyNowButton = styled(PrimaryButtonBase)`
   ${tw`rounded-full uppercase tracking-wider py-4 w-full text-sm hover:shadow-xl transform hocus:translate-x-px hocus:-translate-y-px focus:shadow-outline`}
 `;
@@ -75,10 +75,10 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 
 
 export default ({
-  plans = null,
+  jobs = null,
   primaryButtonText = "Apply Now",
 }) => {
-  const defaultPlans = [
+  const defaultjobs = [
     {
       name: "Problem Setter",
       duration: "Full-Time",
@@ -103,7 +103,7 @@ export default ({
     }
   ];
 
-  if (!plans) plans = defaultPlans;
+  if (!jobs) jobs = defaultjobs;
 
   const highlightGradientsCss = [
     css`
@@ -123,24 +123,24 @@ export default ({
   return (
     <Container>
       <ContentWithPaddingXl>
-        <PlansContainer>
-          {plans.map((plan, index) => (
-            <Plan key={index} featured={plan.featured}>
-              {!plan.featured && <div className="planHighlight" css={highlightGradientsCss[index % highlightGradientsCss.length]} />}
-              <PlanHeader>
-                <span className="name">{plan.name}</span>
-                <span className="duration">{plan.duration}</span>
-              </PlanHeader>
-              <PlanFeatures>
-                <span className="feature mainFeature">{plan.mainFeature}</span>
-              </PlanFeatures>
-              <PlanAction>
-                <BuyNowButton css={!plan.featured && highlightGradientsCss[index]} as="a" href={plan.url}>{primaryButtonText}</BuyNowButton>
-              </PlanAction>
-            </Plan>
+        <JobsContainer>
+          {jobs.map((job, index) => (
+            <Job key={index} featured={job.featured}>
+              {!job.featured && <div className="jobHighlight" css={highlightGradientsCss[index % highlightGradientsCss.length]} />}
+              <JobHeader>
+                <span className="name">{job.name}</span>
+                <span className="duration">{job.duration}</span>
+              </JobHeader>
+              <JobFeatures>
+                <span className="feature mainFeature">{job.mainFeature}</span>
+              </JobFeatures>
+              <JobAction>
+                <BuyNowButton css={!job.featured && highlightGradientsCss[index]} as="a" href={job.url}>{primaryButtonText}</BuyNowButton>
+              </JobAction>
+            </Job>
           ))}
           <DecoratorBlob/>
-        </PlansContainer>
+        </JobsContainer>
       </ContentWithPaddingXl>
     </Container>
   );
