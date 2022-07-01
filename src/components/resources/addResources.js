@@ -52,7 +52,7 @@ export default ({ heading = "Checkout the Resources" }) => {
     var description = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
     var domain = document.getElementById("domain-input").value;
-    console.log(name, email, resource, description, phone, domain);
+    
     const formData = new FormData();
 
     formData.append("name", name);
@@ -69,7 +69,7 @@ export default ({ heading = "Checkout the Resources" }) => {
     setIsLoading(true);
     fetch("https://cucoders.herokuapp.com/resources/add", options)
       .then((res) => {
-        console.log("Successful: ", res);
+        
         setIsLoading(false);
         success("Resources submitted successfully");
         // reset form
@@ -81,7 +81,7 @@ export default ({ heading = "Checkout the Resources" }) => {
         document.getElementById("domain-input").value = "";
       })
       .catch((err) => {
-        console.log("Failed : ", err);
+        
         setIsLoading(false);
         error("Error : ", err);
       });

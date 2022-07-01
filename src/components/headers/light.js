@@ -110,14 +110,14 @@ export default ({
               })
               .then((res) => {
                 if (res.data.logout === true) {
-                  console.log("Logged out successfully");
+                  
                 } else {
-                  console.log("Error logging out");
+                  
                 }
                 window.location.href = "/";
               })
               .catch((err) => {
-                console.log(err.message);
+                
               });
           }}
         >

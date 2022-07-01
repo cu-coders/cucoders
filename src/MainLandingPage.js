@@ -18,7 +18,7 @@ export default ({ isLoggedIn }) => {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const Description = tw.span`inline-block mt-8`;
   const imageCss = tw`rounded-4xl`;
-  console.log("Main page loaded");
+  
   return (
     <AnimationRevealPage>
       <Hero
