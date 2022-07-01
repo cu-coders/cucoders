@@ -45,7 +45,7 @@
     {
       "name": "Join Us",
       "short_name": "Member",
-      "url": "https://home.cuchapter.tech/member",
+      "url": "https://main.cuchapter.tech/member",
       "icons": [
         {
           "src": "/assets/1.png",
@@ -57,7 +57,7 @@
     {
       "name": "Career",
       "short_name": "career",
-      "url": "https://home.cuchapter.tech/careers",
+      "url": "https://main.cuchapter.tech/careers",
       "icons": [
         {
           "src": "/assets/2.png",
@@ -69,7 +69,7 @@
     {
       "name": "Events",
       "short_name": "events",
-      "url": "https://home.cuchapter.tech/events",
+      "url": "https://main.cuchapter.tech/events",
       "icons": [
         {
           "src": "/assets/3.png",
@@ -81,7 +81,7 @@
     {
       "name": "Resources",
       "short_name": "resources",
-      "url": "https://home.cuchapter.tech/resources",
+      "url": "https://main.cuchapter.tech/resources",
       "icons": [
         {
           "src": "/assets/4.png",
