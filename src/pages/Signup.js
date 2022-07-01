@@ -10,12 +10,11 @@ import githubIconImageSrc from "images/github-icon.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import logo from "images/logo.png";
 import illustration from "images/signup-illustration.svg";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
 import "../styles/antd.css";
-import { useEffect } from "react";
 // import { useTransform } from "framer-motion";
 // import { useHistory } from "react-router";
 const Container = tw(
