@@ -1,6 +1,6 @@
 {
   "name": "cu-coders",
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://home.cuchapter.tech/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
