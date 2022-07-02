@@ -105,7 +105,7 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios
-              .request("https://main-cu-coders.herokuapp.com/auth/logout", {
+              .request("https://cucoders.herokuapp.com/auth/logout", {
                 withCredentials: true,
               })
               .then((res) => {

@@ -78,7 +78,7 @@ export default function App() {
   // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/auth/user", {
+      .get("https://cucoders.herokuapp.com/auth/user", {
         withCredentials: true,
       })
       .then((res) => {
