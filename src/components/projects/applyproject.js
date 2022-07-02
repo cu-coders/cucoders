@@ -51,7 +51,7 @@ export default ({ submitButtonText = "Send" }) => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://main-cu-coders.herokuapp.com/form-token", {
+      .get("https://cucoders.herokuapp.com/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -68,7 +68,7 @@ export default ({ submitButtonText = "Send" }) => {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://main-cu-coders.herokuapp.com/projects", formData, {
+      .post("https://cucoders.herokuapp.com/projects", formData, {
         "xsrf-token": formToken,
       })
       .then((res) => {
