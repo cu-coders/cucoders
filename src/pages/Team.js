@@ -63,7 +63,7 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/team")
+    fetch("https://main-cu-coders.herokuapp.com/api/team")
       .then((res) => {
         if (res.ok) {
           console.log(res);
