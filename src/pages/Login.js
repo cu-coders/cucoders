@@ -1,4 +1,5 @@
 import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Header from "components/headers/light.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
@@ -7,8 +8,6 @@ import githubIconImageSrc from "images/github-icon.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
-import React from "react";
-import { useState, useEffect } from "react";
 import { Navigate } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -72,12 +71,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://cucoders.herokuapp.com/auth/google",
+      url: "https://main-cu-coders.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://cucoders.herokuapp.com/auth/github",
+      url: "https://main-cu-coders.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -97,7 +96,7 @@ export default ({
   //---------------------------------UPDATING INPUTS-----------------------------
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token", {
+      .get("https://main-cu-coders.herokuapp.com/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -116,7 +115,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/auth/login", credentials, {
+      .post("https://main-cu-coders.herokuapp.com/auth/login", credentials, {
         withCredentials: true,
         "xsrf-token": formToken,
       })

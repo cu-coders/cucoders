@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -7,9 +7,6 @@ import Footer from "components/footers/footers.js";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-
-import { useEffect } from "react";
-import { useState } from "react";
 
 import styled from "styled-components";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
@@ -66,7 +63,7 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/team")
+    fetch("https://main-cu-coders.herokuapp.com/api/team")
       .then((res) => {
         if (res.ok) {
           console.log(res);
@@ -127,7 +124,7 @@ export default ({
                     <span className="fullname">{member.fullname}</span>
                     <span className="role">{member.role}</span>
                     <CardLinks>
-                      <a key={index} className="link" href={member.instagram}>
+                      <a className="link" href={member.instagram}>
                         <InstagramIcon
                           style={{
                             width: "20px",
@@ -135,7 +132,7 @@ export default ({
                           }}
                         ></InstagramIcon>
                       </a>
-                      <a key={index} className="link" href={member.linkedin}>
+                      <a className="link" href={member.linkedin}>
                         <LinkedinIcon
                           style={{
                             width: "20px",
@@ -143,7 +140,7 @@ export default ({
                           }}
                         ></LinkedinIcon>
                       </a>
-                      <a key={index} className="link" href={member.github}>
+                      <a className="link" href={member.github}>
                         <GithubIcon
                           style={{
                             width: "20px",

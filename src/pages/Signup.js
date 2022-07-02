@@ -10,12 +10,11 @@ import githubIconImageSrc from "images/github-icon.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import logo from "images/logo.png";
 import illustration from "images/signup-illustration.svg";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
 import "../styles/antd.css";
-import { useEffect } from "react";
 // import { useTransform } from "framer-motion";
 // import { useHistory } from "react-router";
 const Container = tw(
@@ -71,12 +70,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "https://cucoders.herokuapp.com/auth/google",
+      url: "https://main-cu-coders.herokuapp.com/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "https://cucoders.herokuapp.com/auth/github",
+      url: "https://main-cu-coders.herokuapp.com/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -97,7 +96,7 @@ export default ({
   const [formToken, formTokenState] = useState("");
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token", {
+      .get("https://main-cu-coders.herokuapp.com/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -115,7 +114,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/auth/signup", user_data, {
+      .post("https://main-cu-coders.herokuapp.com/auth/signup", user_data, {
         "xsrf-token": formToken,
       })
       .then((res) => {
