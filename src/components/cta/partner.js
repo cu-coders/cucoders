@@ -149,8 +149,7 @@ export default ({
                         }
                       }}
                       transition={{ duration: 0.3 }}
-                    >
-                    </CardHoverOverlay>
+                     />
                   </CardImageContainer>
                   <CardText>
                     <CardTitle>{card.title}</CardTitle>
