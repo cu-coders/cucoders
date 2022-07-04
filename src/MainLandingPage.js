@@ -141,6 +141,6 @@ export default ({ isLoggedIn }) => {
       />
       <FAQs />
       <Footer />
-     </AnimationRevealPage>
+    </AnimationRevealPage>
   );
 };
