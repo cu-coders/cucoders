@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -17,8 +17,6 @@ import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
-import { useEffect } from "react";
-import { useState } from "react";
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const ThreeColumn = tw.div`flex flex-col items-center lg:items-stretch lg:flex-row flex-wrap`;
@@ -69,7 +67,7 @@ const DecoratorBlob2 = tw(
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 
 function getDate({ date_start, date_end }) {
-  console.log(date_start, new Date(date_start));
+  
   if (date_start !== "" && date_end !== "") {
     return `Event Date - ${new Date(
       date_start
@@ -90,13 +88,13 @@ export default ({
 }) => {
   const [t_cards, update_t_cards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(t_cards);
+  
   useEffect(() => {
     setIsLoading(true);
     fetch("https://cucoders.herokuapp.com/api/past-events")
       .then((res) => {
         if (res.ok) {
-          console.log(res);
+          
           return res.json();
         }
       })

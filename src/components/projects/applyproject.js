@@ -76,7 +76,7 @@ export default ({ submitButtonText = "Send" }) => {
         if (!res.data.success) {
           const text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
           error(text);
-          console.log(res.data);
+          
         } else {
           success("Submission successful");
           window.location.reload();

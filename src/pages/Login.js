@@ -1,4 +1,5 @@
 import axios from "axios";
+import React, { useState, useEffect } from "react";
 import Header from "components/headers/light.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
@@ -7,8 +8,6 @@ import githubIconImageSrc from "images/github-icon.svg";
 import googleIconImageSrc from "images/google-icon.png";
 import illustration from "images/login-illustration.svg";
 import logo from "images/logo.png";
-import React from "react";
-import { useState, useEffect } from "react";
 import { Navigate } from "react-router";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -122,7 +121,7 @@ export default ({
       })
       .then((res) => {
         setLoading(false);
-        console.log("Response from login API : ", res);
+        
         if (res.data.success) {
           success("User logged in successfully", 1);
           setTimeout(() => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -12,8 +12,6 @@ import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as TagIcon } from "feather-icons/dist/icons/tag.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-3.svg";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -57,7 +55,7 @@ const imageStyle = {
   width: "100%",
 };
 function getDate({ date_start, date_end }) {
-  console.log(date_start, new Date(date_start));
+  
   if (date_start !== "" && date_end !== "") {
     return `Event Date - ${new Date(
       date_start
@@ -76,7 +74,7 @@ export default () => {
     fetch("https://cucoders.herokuapp.com/api/upcoming-events")
       .then((res) => {
         if (res.ok) {
-          console.log(res);
+          
           return res.json();
         }
       })

@@ -42,7 +42,7 @@ const SvgDotPattern1 = tw(
 
 export default ({ role }) => {
   const [isLoading, setIsLoading] = useState(false);
-  console.log(role);
+  
   function submit(e) {
     e.preventDefault();
     var name = document.getElementById("name-input").value;
@@ -50,7 +50,7 @@ export default ({ role }) => {
     var resume = document.getElementById("resume").files[0];
     var address = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
-    console.log(name, email, resume, address, phone);
+    
     const formData = new FormData();
 
     formData.append("name", name);
@@ -67,7 +67,7 @@ export default ({ role }) => {
     setIsLoading(true);
     fetch("https://cucoders.herokuapp.com/jobs/apply", options)
       .then((res) => {
-        console.log("Successful: ", res);
+        
         setIsLoading(false);
         success("Application submitted successfully");
         //clear form
@@ -78,7 +78,7 @@ export default ({ role }) => {
         document.getElementById("resume").value = "";
       })
       .catch((err) => {
-        console.log("Failed : ", err);
+        
         setIsLoading(false);
         error("Error : ", err);
       });

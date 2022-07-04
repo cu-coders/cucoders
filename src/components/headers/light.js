@@ -105,19 +105,19 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios
-              .request("https://main-cu-coders.herokuapp.com/auth/logout", {
+              .request("https://cucoders.herokuapp.com/auth/logout", {
                 withCredentials: true,
               })
               .then((res) => {
                 if (res.data.logout === true) {
-                  console.log("Logged out successfully");
+                  
                 } else {
-                  console.log("Error logging out");
+                  
                 }
                 window.location.href = "/";
               })
               .catch((err) => {
-                console.log(err.message);
+                
               });
           }}
         >
