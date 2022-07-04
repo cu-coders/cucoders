@@ -121,7 +121,7 @@ export default ({
       })
       .then((res) => {
         setLoading(false);
-        console.log("Response from login API : ", res);
+        
         if (res.data.success) {
           success("User logged in successfully", 1);
           setTimeout(() => {
