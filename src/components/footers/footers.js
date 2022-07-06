@@ -46,6 +46,7 @@ export default () => {
             <Link href="/Privacy">Privacy Policy</Link>
             <Link href="/Terms">Terms & Conditions</Link>
             <Link href="http://status.cuchapter.tech/" target="_blank">Status</Link>
+            <Link href="http://api.cuchapter.tech/" target="_blank">APIs</Link>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://www.instagram.com/cu.coders">
