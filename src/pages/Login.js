@@ -203,12 +203,14 @@ export default ({
                     type="email"
                     placeholder="Email"
                     onChange={handleChange}
+                    required
                   />
                   <Input
                     name="password"
                     type="password"
                     placeholder="Password"
                     onChange={handleChange}
+                    required
                   />
                   <SubmitButton type="submit">
                     <SubmitButtonIcon className="icon" />
