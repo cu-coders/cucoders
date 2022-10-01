@@ -66,7 +66,7 @@ export default ({
     fetch("https://cucoders.herokuapp.com/api/team")
       .then((res) => {
         if (res.ok) {
-          console.log(res);
+          
           return res.json();
         }
       })
@@ -130,7 +130,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></InstagramIcon>
+                         />
                       </a>
                       <a className="link" href={member.linkedin}>
                         <LinkedinIcon
@@ -138,7 +138,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></LinkedinIcon>
+                         />
                       </a>
                       <a className="link" href={member.github}>
                         <GithubIcon
@@ -146,7 +146,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                        ></GithubIcon>
+                         />
                       </a>
                     </CardLinks>
                   </CardContent>

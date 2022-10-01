@@ -84,10 +84,10 @@ export default function App() {
       .then((res) => {
         if (res.data.username) {
           updateIsVerified(true);
-          console.log("Logged In from APP.js");
+          
         } else {
           updateIsVerified(false);
-          console.log("Logged Out from APP.js");
+          
         }
       });
   }, []);

@@ -55,7 +55,7 @@ const imageStyle = {
   width: "100%",
 };
 function getDate({ date_start, date_end }) {
-  console.log(date_start, new Date(date_start));
+  
   if (date_start !== "" && date_end !== "") {
     return `Event Date - ${new Date(
       date_start
@@ -74,13 +74,13 @@ export default () => {
     fetch("https://cucoders.herokuapp.com/ongoing-events")
       .then((res) => {
         if (res.ok) {
-          console.log(res);
+          
           return res.json();
         }
       })
       .then((result) => {
         update_t_cards(result);
-        console.log(result);
+        
         setIsLoading(false);
       });
   }, []);
