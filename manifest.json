@@ -3,22 +3,22 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "https://cucoders.tech/favicon.ico",
+      "src": "https://cuchapter.tech/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "https://cucoders.tech/logo192.png",
+      "src": "https://cuchapter.tech/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://cucoders.tech/logo512.png",
+      "src": "https://cuchapter.tech/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://cucoders.tech/",
+  "start_url": "https://cuchapter.tech/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
