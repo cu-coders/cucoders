@@ -50,7 +50,7 @@ const ButtonContainer = tw.div`flex justify-center`;
 const LoadMoreButton = tw(PrimaryButton)`mt-16 mx-auto`;
 
 export default ({
-  headingText = "Version Control Resources",
+  headingText = "Mobile Development Resources",
   posts = [
     {
       imageSrc:
