@@ -52,7 +52,7 @@ export default ({ heading = "Checkout the Resources" }) => {
     var description = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
     var domain = document.getElementById("domain-input").value;
-    
+
     const formData = new FormData();
 
     formData.append("name", name);
@@ -67,9 +67,8 @@ export default ({ heading = "Checkout the Resources" }) => {
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/resources/add", options)
+    fetch("https://cuchapter-o2imc.ondigitalocean.app/resources/add", options)
       .then((res) => {
-        
         setIsLoading(false);
         success("Resources submitted successfully");
         // reset form
@@ -81,7 +80,6 @@ export default ({ heading = "Checkout the Resources" }) => {
         document.getElementById("domain-input").value = "";
       })
       .catch((err) => {
-        
         setIsLoading(false);
         error("Error : ", err);
       });

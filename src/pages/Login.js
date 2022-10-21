@@ -71,12 +71,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign In With Google",
-      url: "https://cucoders.herokuapp.com/auth/google",
+      url: "https://cuchapter-o2imc.ondigitalocean.app/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign In With GitHub",
-      url: "https://cucoders.herokuapp.com/auth/github",
+      url: "https://cuchapter-o2imc.ondigitalocean.app/auth/github",
     },
   ],
   submitButtonText = "Sign In",
@@ -96,7 +96,7 @@ export default ({
   //---------------------------------UPDATING INPUTS-----------------------------
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token", {
+      .get("https://cuchapter-o2imc.ondigitalocean.app/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -115,13 +115,17 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://cuchapter-o2imc.ondigitalocean.app/auth/login", credentials, {
-        withCredentials: true,
-        "xsrf-token": formToken,
-      })
+      .post(
+        "https://cuchapter-o2imc.ondigitalocean.app/auth/login",
+        credentials,
+        {
+          withCredentials: true,
+          "xsrf-token": formToken,
+        }
+      )
       .then((res) => {
         setLoading(false);
-        
+
         if (res.data.success) {
           success("User logged in successfully", 1);
           setTimeout(() => {

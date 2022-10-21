@@ -105,20 +105,19 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios
-              .request("https://cucoders.herokuapp.com/auth/logout", {
-                withCredentials: true,
-              })
+              .request(
+                "https://cuchapter-o2imc.ondigitalocean.app/auth/logout",
+                {
+                  withCredentials: true,
+                }
+              )
               .then((res) => {
                 if (res.data.logout === true) {
-                  
                 } else {
-                  
                 }
                 window.location.href = "/";
               })
-              .catch((err) => {
-                
-              });
+              .catch((err) => {});
           }}
         >
           Logout
