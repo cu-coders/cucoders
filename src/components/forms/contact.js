@@ -70,7 +70,7 @@ export default ({
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://cuchapter-o2imc.ondigitalocean.app/form-token", {
+      .get("https://backend.cuchapter.tech/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -87,7 +87,7 @@ export default ({
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://cuchapter-o2imc.ondigitalocean.app/contact-us", formData, {
+      .post("https://backend.cuchapter.tech/contact-us", formData, {
         "xsrf-token": formToken,
       })
       .then((res) => {

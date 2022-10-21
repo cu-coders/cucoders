@@ -78,7 +78,7 @@ export default function App() {
   // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("https://cuchapter-o2imc.ondigitalocean.app/auth/user", {
+      .get("https://backend.cuchapter.tech/auth/user", {
         withCredentials: true,
       })
       .then((res) => {

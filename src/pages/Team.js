@@ -63,7 +63,7 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cuchapter-o2imc.ondigitalocean.app/api/team")
+    fetch("https://backend.cuchapter.tech/api/team")
       .then((res) => {
         if (res.ok) {
           return res.json();

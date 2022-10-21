@@ -51,7 +51,7 @@ export default ({ submitButtonText = "Send" }) => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://cuchapter-o2imc.ondigitalocean.app/form-token", {
+      .get("https://backend.cuchapter.tech/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -68,7 +68,7 @@ export default ({ submitButtonText = "Send" }) => {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://cuchapter-o2imc.ondigitalocean.app/projects", formData, {
+      .post("https://backend.cuchapter.tech/projects", formData, {
         "xsrf-token": formToken,
       })
       .then((res) => {

@@ -90,7 +90,7 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cuchapter-o2imc.ondigitalocean.app/api/past-events")
+    fetch("https://backend.cuchapter.tech/api/past-events")
       .then((res) => {
         if (res.ok) {
           return res.json();

@@ -70,12 +70,12 @@ export default ({
     {
       iconImageSrc: googleIconImageSrc,
       text: "Sign Up With Google",
-      url: "https://cuchapter-o2imc.ondigitalocean.app/auth/google",
+      url: "https://backend.cuchapter.tech/auth/google",
     },
     {
       iconImageSrc: githubIconImageSrc,
       text: "Sign Up With GitHub",
-      url: "https://cuchapter-o2imc.ondigitalocean.app/auth/github",
+      url: "https://backend.cuchapter.tech/auth/github",
     },
   ],
   submitButtonText = "Sign Up",
@@ -96,7 +96,7 @@ export default ({
   const [formToken, formTokenState] = useState("");
   useEffect(() => {
     axios
-      .get("https://cuchapter-o2imc.ondigitalocean.app/form-token", {
+      .get("https://backend.cuchapter.tech/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -114,13 +114,9 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post(
-        "https://cuchapter-o2imc.ondigitalocean.app/auth/signup",
-        user_data,
-        {
-          "xsrf-token": formToken,
-        }
-      )
+      .post("https://backend.cuchapter.tech/auth/signup", user_data, {
+        "xsrf-token": formToken,
+      })
       .then((res) => {
         setLoading(false);
         if (res.data.message) {

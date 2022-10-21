@@ -105,12 +105,9 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios
-              .request(
-                "https://cuchapter-o2imc.ondigitalocean.app/auth/logout",
-                {
-                  withCredentials: true,
-                }
-              )
+              .request("https://backend.cuchapter.tech/auth/logout", {
+                withCredentials: true,
+              })
               .then((res) => {
                 if (res.data.logout === true) {
                 } else {

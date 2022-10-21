@@ -65,7 +65,7 @@ export default ({ role }) => {
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cuchapter-o2imc.ondigitalocean.app/jobs/apply", options)
+    fetch("https://backend.cuchapter.tech/jobs/apply", options)
       .then((res) => {
         setIsLoading(false);
         success("Application submitted successfully");

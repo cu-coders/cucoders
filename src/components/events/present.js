@@ -70,7 +70,7 @@ export default () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cuchapter-o2imc.ondigitalocean.app/ongoing-events")
+    fetch("https://backend.cuchapter.tech/ongoing-events")
       .then((res) => {
         if (res.ok) {
           return res.json();

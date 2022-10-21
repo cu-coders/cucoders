@@ -67,7 +67,7 @@ export default ({ heading = "Checkout the Resources" }) => {
       body: formData,
     };
     setIsLoading(true);
-    fetch("https://cuchapter-o2imc.ondigitalocean.app/resources/add", options)
+    fetch("https://backend.cuchapter.tech/resources/add", options)
       .then((res) => {
         setIsLoading(false);
         success("Resources submitted successfully");
