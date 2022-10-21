@@ -115,7 +115,7 @@ export default ({
     e.preventDefault();
     setLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/auth/login", credentials, {
+      .post("https://cuchapter-o2imc.ondigitalocean.app/auth/login", credentials, {
         withCredentials: true,
         "xsrf-token": formToken,
       })
