@@ -67,7 +67,6 @@ const DecoratorBlob2 = tw(
 )`-z-10 absolute top-0 left-0 w-48 h-48 transform -translate-x-32 translate-y-full opacity-25`;
 
 function getDate({ date_start, date_end }) {
-  
   if (date_start !== "" && date_end !== "") {
     return `Event Date - ${new Date(
       date_start
@@ -88,13 +87,12 @@ export default ({
 }) => {
   const [t_cards, update_t_cards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/past-events")
+    fetch("https://backend.cuchapter.tech/api/past-events")
       .then((res) => {
         if (res.ok) {
-          
           return res.json();
         }
       })

@@ -78,16 +78,14 @@ export default function App() {
   // AUTHENTICATION------------------------//
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/auth/user", {
+      .get("https://backend.cuchapter.tech/auth/user", {
         withCredentials: true,
       })
       .then((res) => {
         if (res.data.username) {
           updateIsVerified(true);
-          
         } else {
           updateIsVerified(false);
-          
         }
       });
   }, []);

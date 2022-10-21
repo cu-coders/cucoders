@@ -105,20 +105,16 @@ export default ({
           style={{ cursor: "pointer" }}
           onClick={() => {
             axios
-              .request("https://cucoders.herokuapp.com/auth/logout", {
+              .request("https://backend.cuchapter.tech/auth/logout", {
                 withCredentials: true,
               })
               .then((res) => {
                 if (res.data.logout === true) {
-                  
                 } else {
-                  
                 }
                 window.location.href = "/";
               })
-              .catch((err) => {
-                
-              });
+              .catch((err) => {});
           }}
         >
           Logout

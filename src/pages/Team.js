@@ -63,10 +63,9 @@ export default ({
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://cucoders.herokuapp.com/api/team")
+    fetch("https://backend.cuchapter.tech/api/team")
       .then((res) => {
         if (res.ok) {
-          
           return res.json();
         }
       })
@@ -130,7 +129,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                         />
+                        />
                       </a>
                       <a className="link" href={member.linkedin}>
                         <LinkedinIcon
@@ -138,7 +137,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                         />
+                        />
                       </a>
                       <a className="link" href={member.github}>
                         <GithubIcon
@@ -146,7 +145,7 @@ export default ({
                             width: "20px",
                             height: "20px",
                           }}
-                         />
+                        />
                       </a>
                     </CardLinks>
                   </CardContent>

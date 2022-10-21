@@ -51,7 +51,7 @@ export default ({ submitButtonText = "Send" }) => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("https://cucoders.herokuapp.com/form-token", {
+      .get("https://backend.cuchapter.tech/form-token", {
         withCredentials: true,
       })
       .then((res) => {
@@ -68,7 +68,7 @@ export default ({ submitButtonText = "Send" }) => {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("https://cucoders.herokuapp.com/projects", formData, {
+      .post("https://backend.cuchapter.tech/projects", formData, {
         "xsrf-token": formToken,
       })
       .then((res) => {
@@ -76,7 +76,6 @@ export default ({ submitButtonText = "Send" }) => {
         if (!res.data.success) {
           const text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
           error(text);
-          
         } else {
           success("Submission successful");
           window.location.reload();
