@@ -54,10 +54,6 @@ export default () => {
       <NavLink href="team">Our Team</NavLink>
       <NavLink href="member">Membership</NavLink>
     </NavLinks>,
-
-    <NavLinks key={2}>
-      <PrimaryLink href="/careers">Join Us</PrimaryLink>
-    </NavLinks>,
   ];
 
   return (
