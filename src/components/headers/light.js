@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import { motion } from "framer-motion";
@@ -6,6 +6,8 @@ import React from "react";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import tw from "twin.macro";
+
+import { useAuth0 } from "@auth0/auth0-react";
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/logo.png";
@@ -88,6 +90,12 @@ export default ({
    * are defined here (NavLink)
    */
   // present
+
+  // const { isLoading, isConnected, error, user, connectWithPopup, logout } =
+  // useEarthoOne();
+  const { loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+
   const defaultLinks = [
     <NavLinks key={1}>
       <NavLink href="/Home">Home</NavLink>
@@ -99,7 +107,17 @@ export default ({
       <NavLink href="/careers">Careers</NavLink>
       <NavLink href="/member">Membership</NavLink>
       <NavLink href="/contact">Contact Us</NavLink>
-      {!isLoggedIn && <NavLink href="/login">Login</NavLink>}
+      {isAuthenticated ? (
+        <NavLink
+          // onClick={() => logout({ returnTo: window.location.origin })}>
+          onClick={() => logout({ returnTo: window.location.origin })}
+        >
+          Logout
+        </NavLink>
+      ) : (
+        <NavLink onClick={() => loginWithRedirect()}>LogIn</NavLink>
+      )}
+      {/* {!isLoggedIn && <NavLink href="/login">Login</NavLink>}
       {isLoggedIn && (
         <NavLink
           style={{ cursor: "pointer" }}
@@ -119,7 +137,7 @@ export default ({
         >
           Logout
         </NavLink>
-      )}
+      )} */}
     </NavLinks>,
   ];
 

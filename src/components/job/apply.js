@@ -7,6 +7,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -82,6 +84,8 @@ export default ({ role }) => {
       });
   }
 
+  const { user, isAuthenticated } = useAuth0();
+
   return (
     <Container>
       <Content>
@@ -95,26 +99,56 @@ export default ({ role }) => {
             >
               <TwoColumn>
                 <Column>
-                  <InputContainer>
-                    <Label htmlFor="name-input">Your Name*</Label>
-                    <Input
-                      id="name-input"
-                      type="name"
-                      name="name"
-                      required
-                      placeholder="E.g. John Doe"
-                    />
-                  </InputContainer>
-                  <InputContainer>
-                    <Label htmlFor="email-input">Your Email Address*</Label>
-                    <Input
-                      id="email-input"
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="E.g. john@mail.com"
-                    />
-                  </InputContainer>
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="name"
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                        defaultValue={
+                          user.name.includes("@") ? user.nickname : user.name
+                        }
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="name"
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                      />
+                    </InputContainer>
+                  )}
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="E.g. john@mail.com"
+                        defaultValue={user.email}
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="E.g. john@mail.com"
+                      />
+                    </InputContainer>
+                  )}
                   <InputContainer>
                     <Label htmlFor="name-input">Your Resume*</Label>
                     <Input

@@ -1,8 +1,10 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 
-import axios from "axios";
+// import axios from "axios";
 import { Lines } from "react-preloaders";
+
 /*
  * This is the entry point component of this project. You can change the below
  * exported default App component to any of the prebuilt landing page components
@@ -43,7 +45,7 @@ import Calender from "components/projects/calendly.js";
 import Projects from "components/projects/project.js";
 import Resources from "components/resources/resources.js";
 import Error from "components/hero/error.js";
-import LostPassword from "pages/lostPassword.js";
+// import LostPassword from "pages/lostPassword.js";
 import Algo from "components/resources/algorithms/index.js";
 import AI from "components/resources/ai/index.js";
 import ComingNow from "components/resources/comingsoon.js";
@@ -56,39 +58,42 @@ import Open from "components/resources/open/index.js";
 import VersionControl from "components/resources/version_control/index.js";
 import Web from "components/resources/web/index.js";
 import Thanks from "components/thanks/thanks.js";
+import LoginError from "components/hero/loginError.js";
 import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
-import Login from "pages/Login.js";
+// import Login from "pages/Login.js";
 import Privacy from "pages/PrivacyPolicy.js";
-import Signup from "pages/Signup";
+// import Signup from "pages/Signup";
 import Team from "pages/Team.js";
 import Terms from "pages/TermsOfService.js";
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router";
+import React from "react";
+// import { Navigate } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 export default function App() {
   //-----------------------------------------INITIALIZING
   // STATES-------------------------//
-  const [isVerified, updateIsVerified] = useState(false);
+  // const [isVerified, updateIsVerified] = useState(false);
+
+  const { isAuthenticated } = useAuth0();
   //-----------------------------------------CHECK
   // AUTHENTICATION------------------------//
-  useEffect(() => {
-    axios
-      .get("https://backend.cuchapter.tech/auth/user", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        if (res.data.username) {
-          updateIsVerified(true);
-        } else {
-          updateIsVerified(false);
-        }
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://backend.cuchapter.tech/auth/user", {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       if (res.data.username) {
+  //         updateIsVerified(true);
+  //       } else {
+  //         updateIsVerified(false);
+  //       }
+  //     });
+  // }, []);
 
   return (
     <Router>
@@ -100,13 +105,13 @@ export default function App() {
           <ComponentRenderer />
         </Route>
         <Route exact path="/team">
-          <Team isLoggedIn={isVerified} />
+          <Team />
         </Route>
         <Route exact path="/upcoming">
           <Upcoming />
         </Route>
         <Route exact path="/events">
-          <Events isLoggedIn={isVerified} />
+          <Events />
         </Route>
         <Route exact path="/present">
           <Present />
@@ -115,16 +120,16 @@ export default function App() {
           <Past />
         </Route>
         <Route exact path="/projects">
-          <Projects isLoggedIn={isVerified} />
+          <Projects />
         </Route>
         <Route path="/resources">
-          <Resources isLoggedIn={isVerified} />
+          {isAuthenticated ? <Resources /> : <LoginError />}
         </Route>
         <Route exact path="/comingnow">
           <ComingNow />
         </Route>
         <Route exact path="/careers">
-          <Careers isLoggedIn={isVerified} />
+          <Careers />
         </Route>
         <Route exact path="/comingsoon">
           <ComingSoon />
@@ -133,7 +138,7 @@ export default function App() {
           <Coming />
         </Route>
         <Route exact path="/contact">
-          <Contact isLoggedIn={isVerified} />
+          <Contact />
         </Route>
         <Route path="/backend">
           <Back />
@@ -181,51 +186,54 @@ export default function App() {
           <Terms />
         </Route>
         <Route exact path="/member">
-          <Member isLoggedIn={isVerified} />
+          <Member />
         </Route>
         <Route exact path="/about">
-          <About isLoggedIn={isVerified} />
+          <About />
         </Route>
         <Route exact path="/home">
-          <Home isLoggedIn={isVerified} />
+          <Home />
         </Route>
         <Route exact path="/">
-          <Home isLoggedIn={isVerified} />
+          <Home />
         </Route>
         <Route exact path="/algo">
-          <Algo />
+          {isAuthenticated ? <Algo /> : <LoginError />}
         </Route>
         <Route exact path="/ai">
           <AI />
         </Route>
         <Route exact path="/cp">
-          <CP />
+          {isAuthenticated ? <CP /> : <LoginError />}
         </Route>
         <Route exact path="/Security">
-          <Security />
+          {isAuthenticated ? <Security /> : <LoginError />}
         </Route>
         <Route exact path="/Language">
-          <Language />
+          {isAuthenticated ? <Language /> : <LoginError />}
         </Route>
         <Route exact path="/Database">
-          <Database />
+          {isAuthenticated ? <Database /> : <LoginError />}
         </Route>
         <Route exact path="/VersionControl">
-          <VersionControl />
+          {isAuthenticated ? <VersionControl /> : <LoginError />}
         </Route>
         <Route exact path="/mobile">
-          <Mobile />
+          {isAuthenticated ? <Mobile /> : <LoginError />}
         </Route>
         <Route exact path="/open">
-          <Open />
+          {isAuthenticated ? <Open /> : <LoginError />}
         </Route>
         <Route exact path="/web">
-          <Web />
+          {isAuthenticated ? <Web /> : <LoginError />}
         </Route>
-        <Route exact path="/lostpassword">
+        {/* <Route exact path="/lostpassword">
           <LostPassword />
-        </Route>
-        <Route exact path="/login">
+        </Route> */}
+        {/* <Route exact path="/loginerror">
+          <LoginError />
+        </Route> */}
+        {/* <Route exact path="/login">
           {isVerified ? (
             <Navigate to="/home" />
           ) : (
@@ -234,7 +242,7 @@ export default function App() {
         </Route>
         <Route exact path="/signup">
           {isVerified ? <Navigate to="/" /> : <Signup />}
-        </Route>
+        </Route> */}
         <Route path="/">
           <Error />
         </Route>
