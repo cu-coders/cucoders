@@ -7,6 +7,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -43,6 +45,8 @@ const SvgDotPattern1 = tw(
 export default ({ heading = "Checkout the Resources" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [domain, setDomain] = useState("");
+
+  const { user, isAuthenticated } = useAuth0();
 
   function submit(e) {
     e.preventDefault();
@@ -98,26 +102,56 @@ export default ({ heading = "Checkout the Resources" }) => {
             >
               <TwoColumn>
                 <Column>
-                  <InputContainer>
-                    <Label htmlFor="name-input">Your Name*</Label>
-                    <Input
-                      id="name-input"
-                      type="name"
-                      name="name"
-                      required
-                      placeholder="E.g. John Doe"
-                    />
-                  </InputContainer>
-                  <InputContainer>
-                    <Label htmlFor="email-input">Your Email Address*</Label>
-                    <Input
-                      id="email-input"
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="E.g. john@mail.com"
-                    />
-                  </InputContainer>
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="name"
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                        defaultValue={
+                          user.name.includes("@") ? user.nickname : user.name
+                        }
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="name"
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                      />
+                    </InputContainer>
+                  )}
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="E.g. john@mail.com"
+                        defaultValue={user.email}
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="E.g. john@mail.com"
+                      />
+                    </InputContainer>
+                  )}
                   <InputContainer>
                     <Label htmlFor="email-input">Resources*</Label>
                     <Input
@@ -232,13 +266,26 @@ export default ({ heading = "Checkout the Resources" }) => {
                   )}
                 </Column>
               </TwoColumn>
-              <SubmitButton
-                type="submit"
-                value="Submit"
-                disabled={isLoading ? true : false}
-              >
-                Submit
-              </SubmitButton>
+              {isAuthenticated ? (
+                <SubmitButton
+                  type="submit"
+                  disabled={isLoading ? true : false}
+                  value={isLoading ? "Submitting..." : "Submit"}
+                >
+                  Submit
+                </SubmitButton>
+              ) : (
+                <SubmitButton
+                  type="button"
+                  disabled={isLoading ? true : false}
+                  value={isLoading ? "Submitting..." : "Submit"}
+                  onClick={() => {
+                    error("Please Login to Submit");
+                  }}
+                >
+                  Submit
+                </SubmitButton>
+              )}
             </form>
           </div>
           <h1

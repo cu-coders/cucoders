@@ -14,6 +14,8 @@ import { success, error } from "../messages";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
@@ -60,6 +62,8 @@ export default ({
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
+  const { user, isAuthenticated } = useAuth0();
+
   const [formToken, formTokenState] = useState("");
   const [formData, updateData] = useState({
     fullname: "",
@@ -117,13 +121,24 @@ export default ({
             <Heading>{heading}</Heading>{" "}
             {description && <Description>{description}</Description>}
             <Form onSubmit={submit}>
-              <Input
-                type="email"
-                onChange={handleChange}
-                required
-                name="email"
-                placeholder="Your Email Address"
-              />
+              {isAuthenticated ? (
+                <Input
+                  type="email"
+                  onChange={handleChange}
+                  required
+                  name="email"
+                  placeholder="Your Email Address"
+                  defaultValue={user.email}
+                />
+              ) : (
+                <Input
+                  type="email"
+                  onChange={handleChange}
+                  required
+                  name="email"
+                  placeholder="Your Email Address"
+                />
+              )}
               {isLoading && (
                 <Loader
                   type="TailSpin"
@@ -138,13 +153,26 @@ export default ({
                   }}
                 />
               )}
-              <Input
-                type="text"
-                onChange={handleChange}
-                required
-                name="fullname"
-                placeholder="Full Name"
-              />{" "}
+              {isAuthenticated ? (
+                <Input
+                  type="text"
+                  onChange={handleChange}
+                  required
+                  name="fullname"
+                  placeholder="Full Name"
+                  defaultValue={
+                    user.name.includes("@") ? user.nickname : user.name
+                  }
+                />
+              ) : (
+                <Input
+                  type="text"
+                  onChange={handleChange}
+                  required
+                  name="fullname"
+                  placeholder="Full Name"
+                />
+              )}
               <Input
                 type="text"
                 onChange={handleChange}

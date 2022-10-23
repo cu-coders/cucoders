@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/TwoColumnWithVideo.js";
 import Features from "components/features/features.js";
@@ -19,7 +19,7 @@ export default ({ isLoggedIn }) => {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   const Description = tw.span`inline-block mt-8`;
   const imageCss = tw`rounded-4xl`;
-  
+
   return (
     <AnimationRevealPage>
       <Hero

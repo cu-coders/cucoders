@@ -9,6 +9,8 @@ import { success, error } from "../messages";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -42,6 +44,8 @@ const SvgDotPattern1 = tw(
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
 export default ({ submitButtonText = "Send" }) => {
+  const { user, isAuthenticated } = useAuth0();
+
   const [formToken, formTokenState] = useState("");
   const [formData, updateData] = useState({
     name: "",
@@ -95,17 +99,32 @@ export default ({ submitButtonText = "Send" }) => {
             <form onSubmit={submit}>
               <TwoColumn>
                 <Column>
-                  <InputContainer>
-                    <Label htmlFor="name-input">Your Name*</Label>
-                    <Input
-                      id="name-input"
-                      type="text"
-                      onChange={handleChange}
-                      name="name"
-                      required
-                      placeholder="E.g. John Doe"
-                    />
-                  </InputContainer>
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="text"
+                        onChange={handleChange}
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                        defaultValue={user.name}
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="name-input">Your Name*</Label>
+                      <Input
+                        id="name-input"
+                        type="text"
+                        onChange={handleChange}
+                        name="name"
+                        required
+                        placeholder="E.g. John Doe"
+                      />
+                    </InputContainer>
+                  )}
                   {isLoading && (
                     <Loader
                       type="TailSpin"
@@ -120,17 +139,31 @@ export default ({ submitButtonText = "Send" }) => {
                       }}
                     />
                   )}
-                  <InputContainer>
-                    <Label htmlFor="email-input">Your Email Address*</Label>
-                    <Input
-                      id="email-input"
-                      type="email"
-                      onChange={handleChange}
-                      name="email"
-                      required
-                      placeholder="E.g. john@mail.com"
-                    />
-                  </InputContainer>
+                  {isAuthenticated ? (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        onChange={handleChange}
+                        name="email"
+                        required
+                        defaultValue={user.email}
+                      />
+                    </InputContainer>
+                  ) : (
+                    <InputContainer>
+                      <Label htmlFor="email-input">Your Email Address*</Label>
+                      <Input
+                        id="email-input"
+                        type="email"
+                        onChange={handleChange}
+                        name="email"
+                        required
+                        placeholder="E.g. john@email.com"
+                      />
+                    </InputContainer>
+                  )}
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">
