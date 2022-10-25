@@ -153,13 +153,19 @@ export default ({ heading = "Checkout the Resources" }) => {
                     </InputContainer>
                   )}
                   <InputContainer>
-                    <Label htmlFor="email-input">Resources*</Label>
+                    <Label htmlFor="file-input">Resources*</Label>
                     <Input
                       id="resource"
                       type="file"
                       accept=".docx, .pdf"
                       name="resource"
                       required
+                      onChange={(e) => {
+                        if (e.target.files[0].size > 10000000) {
+                          error("File size should be less than 10MB");
+                          e.target.value = "";
+                        }
+                      }}
                     />
                     <h1
                       style={{
