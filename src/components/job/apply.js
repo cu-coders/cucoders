@@ -50,7 +50,7 @@ export default ({ role }) => {
     var name = document.getElementById("name-input").value;
     var email = document.getElementById("email-input").value;
     var resume = document.getElementById("resume").files[0];
-    var address = document.getElementById("message-input").value;
+    var reason_to_join = document.getElementById("message-input").value;
     var phone = document.getElementById("phone-input").value;
 
     const formData = new FormData();
@@ -59,7 +59,7 @@ export default ({ role }) => {
     formData.append("role", role);
     formData.append("email", email);
     formData.append("number", phone);
-    formData.append("address", address);
+    formData.append("reason_to_join", reason_to_join);
     formData.append("resume", resume);
 
     const options = {
@@ -168,13 +168,13 @@ export default ({ role }) => {
                 </Column>
                 <Column>
                   <InputContainer>
-                    <Label htmlFor="name-input">Your Address*</Label>
+                    <Label htmlFor="name-input">Why you wanna join us?*</Label>
                     <TextArea
                       id="message-input"
                       type="text"
-                      name="address"
+                      name="reason"
                       required
-                      placeholder="E.g. CU-Coders, Chandigarh"
+                      placeholder="E.g. Explain how your personality, skills, working style and career goals can make you a good fit for the job."
                     />
                   </InputContainer>
                   <InputContainer>
