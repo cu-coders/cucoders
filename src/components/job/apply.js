@@ -150,13 +150,19 @@ export default ({ role }) => {
                     </InputContainer>
                   )}
                   <InputContainer>
-                    <Label htmlFor="name-input">Your Resume*</Label>
+                    <Label htmlFor="file-input">Your Resume*</Label>
                     <Input
                       id="resume"
                       type="file"
                       accept=".docx, .pdf"
                       name="resume"
                       required
+                      onChange={(e) => {
+                        if (e.target.files[0].size > 10000000) {
+                          error("File size should be less than 10MB");
+                          e.target.value = "";
+                        }
+                      }}
                     />
                   </InputContainer>
                 </Column>
