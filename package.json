@@ -2,6 +2,7 @@
   "name": "cu-coders",
   "proxy": "https://main.cuchapter.tech/",
   "version": "0.1.0",
+  "homepage": "https://main.cuchapter.tech/",
   "private": true,
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
