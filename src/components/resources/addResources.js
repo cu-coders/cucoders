@@ -102,56 +102,26 @@ export default ({ heading = "Checkout the Resources" }) => {
             >
               <TwoColumn>
                 <Column>
-                  {isAuthenticated ? (
-                    <InputContainer>
-                      <Label htmlFor="name-input">Your Name*</Label>
-                      <Input
-                        id="name-input"
-                        type="name"
-                        name="name"
-                        required
-                        placeholder="E.g. John Doe"
-                        defaultValue={
-                          user.name.includes("@") ? user.nickname : user.name
-                        }
-                      />
-                    </InputContainer>
-                  ) : (
-                    <InputContainer>
-                      <Label htmlFor="name-input">Your Name*</Label>
-                      <Input
-                        id="name-input"
-                        type="name"
-                        name="name"
-                        required
-                        placeholder="E.g. John Doe"
-                      />
-                    </InputContainer>
-                  )}
-                  {isAuthenticated ? (
-                    <InputContainer>
-                      <Label htmlFor="email-input">Your Email Address*</Label>
-                      <Input
-                        id="email-input"
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="E.g. john@mail.com"
-                        defaultValue={user.email}
-                      />
-                    </InputContainer>
-                  ) : (
-                    <InputContainer>
-                      <Label htmlFor="email-input">Your Email Address*</Label>
-                      <Input
-                        id="email-input"
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="E.g. john@mail.com"
-                      />
-                    </InputContainer>
-                  )}
+                  <InputContainer>
+                    <Label htmlFor="name-input">Your Name*</Label>
+                    <Input
+                      id="name-input"
+                      type="name"
+                      name="name"
+                      required
+                      placeholder="E.g. John Doe"
+                    />
+                  </InputContainer>
+                  <InputContainer>
+                    <Label htmlFor="email-input">Your Email Address*</Label>
+                    <Input
+                      id="email-input"
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="E.g. john@mail.com"
+                    />
+                  </InputContainer>
                   <InputContainer>
                     <Label htmlFor="file-input">Resources*</Label>
                     <Input
