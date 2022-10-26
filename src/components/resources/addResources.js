@@ -7,8 +7,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
-import { useAuth0 } from "@auth0/auth0-react";
-
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
@@ -45,8 +43,6 @@ const SvgDotPattern1 = tw(
 export default ({ heading = "Checkout the Resources" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [domain, setDomain] = useState("");
-
-  const { user, isAuthenticated } = useAuth0();
 
   function submit(e) {
     e.preventDefault();
@@ -147,7 +143,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                         fontFamily: "system-ui",
                       }}
                     >
-                      Size limit : 10MB, File Type: PDF/DOCX
+                      Resource should be a PDF/DOCX under 10MB.{" "}
                     </h1>
                   </InputContainer>
                 </Column>
@@ -242,26 +238,13 @@ export default ({ heading = "Checkout the Resources" }) => {
                   )}
                 </Column>
               </TwoColumn>
-              {isAuthenticated ? (
-                <SubmitButton
-                  type="submit"
-                  disabled={isLoading ? true : false}
-                  value={isLoading ? "Submitting..." : "Submit"}
-                >
-                  Submit
-                </SubmitButton>
-              ) : (
-                <SubmitButton
-                  type="button"
-                  disabled={isLoading ? true : false}
-                  value={isLoading ? "Submitting..." : "Submit"}
-                  onClick={() => {
-                    error("Please Login to Submit");
-                  }}
-                >
-                  Submit
-                </SubmitButton>
-              )}
+              <SubmitButton
+                type="submit"
+                disabled={isLoading ? true : false}
+                value={isLoading ? "Submitting..." : "Submit"}
+              >
+                Submit
+              </SubmitButton>
             </form>
           </div>
           <h1
