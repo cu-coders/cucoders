@@ -164,6 +164,18 @@ export default ({ role }) => {
                         }
                       }}
                     />
+                    <h1
+                      style={{
+                        fontSize: ".8rem",
+                        fontWeight: "bold",
+                        color: "#FF895C",
+                        marginTop: "10px",
+                        marginBottom: "0px",
+                        fontFamily: "system-ui",
+                      }}
+                    >
+                      Resume should be a PDF/DOCX under 10MB.{" "}
+                    </h1>
                   </InputContainer>
                 </Column>
                 <Column>
