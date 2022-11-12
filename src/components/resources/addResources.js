@@ -10,7 +10,6 @@ import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { isPossiblePhoneNumber } from "react-phone-number-input";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -196,6 +195,8 @@ export default ({ heading = "Checkout the Resources" }) => {
                     />
                   </InputContainer> */}
                   <InputContainer>
+                    {/* make PhoneInput an required field */}
+                    <Label htmlFor="phone-input">Your Phone Number*</Label>
                     <PhoneInput
                       id="phone-input"
                       placeholder="Enter phone number"
@@ -204,25 +205,18 @@ export default ({ heading = "Checkout the Resources" }) => {
                       value={value}
                       onChange={setValue}
                       international={true}
-                      withCountryCallingCode
+                      // withCountryCallingCode
                       countrySelectProps={{ unicodeFlags: true }}
+                      required
                     />
                   </InputContainer>
-
-                  <h4>
+                  <p>
                     {value
                       ? isValidPhoneNumber(value)
                         ? undefined
                         : "Invalid phone number"
-                      : "Phone number required"}
-                  </h4>
-                  <h4>
-                    {value
-                      ? isPossiblePhoneNumber(value)
-                        ? undefined
-                        : "Phone number is possible"
                       : undefined}
-                  </h4>
+                  </p>
                   <InputContainer>
                     <Label htmlFor="domain-input">Domain*</Label>
                     <select
