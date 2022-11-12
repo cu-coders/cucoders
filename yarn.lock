@@ -3850,6 +3850,11 @@ cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
+country-flag-icons@^1.5.4:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.5.5.tgz#04a41c83e2ea38ea28054d4e3eff9d1ce16aec1c"
+  integrity sha512-k4WXZ/WvWOSiYXRG1n8EYHNr1m/IX0GffKqAidaet5DrJsDOmJ8Q/8JvvONhZNnKYg24s4lvsm+9og1HcuIU/g==
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.npmjs.org/create-ecdh/-/create-ecdh-4.0.4.tgz"
@@ -6275,6 +6280,13 @@ ini@^1.3.5:
   resolved "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
+input-format@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/input-format/-/input-format-0.3.8.tgz#9445b0cab2f0457fbe36d77d607e942fd37345c5"
+  integrity sha512-tLR0XRig1xIcG1PtIpMd/uoltvkAI62CN9OIbtj4/tEJAkqTCQLNHUZ9N4M46w0dopny7Rlt/lRH5Xzp7e6F+g==
+  dependencies:
+    prop-types "^15.8.1"
+
 inquirer@7.0.4:
   version "7.0.4"
   resolved "https://registry.npmjs.org/inquirer/-/inquirer-7.0.4.tgz"
@@ -7466,6 +7478,11 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+libphonenumber-js@^1.10.14:
+  version "1.10.14"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.14.tgz#e29da7f539751f724ac54017a098e3c7ca23de94"
+  integrity sha512-McGS7GV/WjJ2KjfOGhJU1oJn29RYeo7Q+RpANRbUNMQ9gj5XArpbjurSuyYPTejFwbaUojstQ4XyWCrAzGOUXw==
 
 lines-and-columns@^1.1.6:
   version "1.2.4"
@@ -9673,7 +9690,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -10342,6 +10359,17 @@ react-native-background-audio@^1.1.4:
   version "1.1.4"
   resolved "https://registry.npmjs.org/react-native-background-audio/-/react-native-background-audio-1.1.4.tgz"
   integrity sha1-MQt6prcJedYANxqh5giJyjZsSM8=
+
+react-phone-number-input@^3.2.12:
+  version "3.2.12"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.2.12.tgz#9ddf4366af1e6d0f3f2345063733ed3e83e82cd3"
+  integrity sha512-bqfg4iz4KWIkCGi7nV69CG90iX9EZ5wBXKoMnoyw7NDv/e2KH2uobDSLHXC4HydUgB+InjERxRdbdWTBbEff2w==
+  dependencies:
+    classnames "^2.3.1"
+    country-flag-icons "^1.5.4"
+    input-format "^0.3.8"
+    libphonenumber-js "^1.10.14"
+    prop-types "^15.8.1"
 
 react-preloaders@^3.0.3:
   version "3.0.3"

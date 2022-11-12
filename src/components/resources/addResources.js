@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { isPossiblePhoneNumber } from "react-phone-number-input";
 
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -45,6 +48,7 @@ const SvgDotPattern1 = tw(
 export default ({ heading = "Checkout the Resources" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [domain, setDomain] = useState("");
+  const [value, setValue] = useState("");
 
   function submit(e) {
     e.preventDefault();
@@ -181,7 +185,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                   </InputContainer>
                 </Column>
                 <Column>
-                  <InputContainer>
+                  {/* <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
                     <Input
                       id="phone-input"
@@ -190,7 +194,35 @@ export default ({ heading = "Checkout the Resources" }) => {
                       required
                       placeholder="E.g. +91(XXXXX-XXXXX)"
                     />
+                  </InputContainer> */}
+                  <InputContainer>
+                    <PhoneInput
+                      id="phone-input"
+                      placeholder="Enter phone number"
+                      defaultCountry="IN"
+                      initialValueFormat="national"
+                      value={value}
+                      onChange={setValue}
+                      international={true}
+                      withCountryCallingCode
+                      countrySelectProps={{ unicodeFlags: true }}
+                    />
                   </InputContainer>
+
+                  <h4>
+                    {value
+                      ? isValidPhoneNumber(value)
+                        ? undefined
+                        : "Invalid phone number"
+                      : "Phone number required"}
+                  </h4>
+                  <h4>
+                    {value
+                      ? isPossiblePhoneNumber(value)
+                        ? undefined
+                        : "Phone number is possible"
+                      : undefined}
+                  </h4>
                   <InputContainer>
                     <Label htmlFor="domain-input">Domain*</Label>
                     <select

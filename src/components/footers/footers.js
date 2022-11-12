@@ -53,13 +53,25 @@ export default () => {
             </Link>
           </LinksContainer>
           <SocialLinksContainer>
-            <SocialLink href="https://www.instagram.com/cu.coders">
+            <SocialLink
+              href="https://www.instagram.com/cu.coders"
+              target="_blank"
+              rel="noreferrer"
+            >
               <InstagramIcon />
             </SocialLink>
-            <SocialLink href="https://github.com/CSoC-2020">
+            <SocialLink
+              href="https://github.com/CSoC-2020"
+              target="_blank"
+              rel="noreferrer"
+            >
               <GithubIcon />
             </SocialLink>
-            <SocialLink href="https://www.linkedin.com/company/code-chef-cu-coders">
+            <SocialLink
+              href="https://www.linkedin.com/company/code-chef-cu-coders"
+              target="_blank"
+              rel="noreferrer"
+            >
               <LinkedinIcon />
             </SocialLink>
           </SocialLinksContainer>
