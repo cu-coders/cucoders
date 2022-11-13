@@ -49,6 +49,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "rimraf build/static/**/*.map",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon ../backend/index.js && npm start"
