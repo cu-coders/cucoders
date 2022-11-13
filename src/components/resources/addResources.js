@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
@@ -45,6 +47,7 @@ const SvgDotPattern1 = tw(
 export default ({ heading = "Checkout the Resources" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [domain, setDomain] = useState("");
+  const [value, setValue] = useState("");
 
   function submit(e) {
     e.preventDefault();
@@ -181,7 +184,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                   </InputContainer>
                 </Column>
                 <Column>
-                  <InputContainer>
+                  {/* <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
                     <Input
                       id="phone-input"
@@ -189,6 +192,23 @@ export default ({ heading = "Checkout the Resources" }) => {
                       name="number"
                       required
                       placeholder="E.g. +91(XXXXX-XXXXX)"
+                    />
+                  </InputContainer> */}
+                  <InputContainer>
+                    {/* make PhoneInput an required field */}
+                    <Label htmlFor="phone-input">Your Phone Number*</Label>
+                    <PhoneInput
+                      id="phone-input"
+                      placeholder="Enter phone number"
+                      defaultCountry="IN"
+                      initialValueFormat="national"
+                      value={value}
+                      onChange={setValue}
+                      international={true}
+                      withCountryCallingCode
+                      countryCallingCodeEditable={false}
+                      countrySelectProps={{ unicodeFlags: true }}
+                      required
                     />
                   </InputContainer>
                   <InputContainer>
