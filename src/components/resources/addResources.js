@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -205,18 +205,12 @@ export default ({ heading = "Checkout the Resources" }) => {
                       value={value}
                       onChange={setValue}
                       international={true}
-                      // withCountryCallingCode
+                      withCountryCallingCode
+                      countryCallingCodeEditable={false}
                       countrySelectProps={{ unicodeFlags: true }}
                       required
                     />
                   </InputContainer>
-                  <p>
-                    {value
-                      ? isValidPhoneNumber(value)
-                        ? undefined
-                        : "Invalid phone number"
-                      : undefined}
-                  </p>
                   <InputContainer>
                     <Label htmlFor="domain-input">Domain*</Label>
                     <select
