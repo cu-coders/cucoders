@@ -30,7 +30,7 @@ const PrimaryLink = tw(
 )`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url("https://images.unsplash.com/photo-1505863246712-ca0bb90f5bde?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+  background-image: url("https://images.unsplash.com/photo-1541336528065-8f1fdc435835?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;
@@ -49,10 +49,10 @@ export default () => {
   const { loginWithRedirect } = useAuth0();
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="home">Home</NavLink>
-      <NavLink href="about">About</NavLink>
-      <NavLink href="team">Our Team</NavLink>
-      <NavLink href="member">Membership</NavLink>
+      <NavLink href="/home">Home</NavLink>
+      <NavLink href="/about">About</NavLink>
+      <NavLink href="/team">Our Team</NavLink>
+      <NavLink href="/member">Membership</NavLink>
     </NavLinks>,
   ];
 
