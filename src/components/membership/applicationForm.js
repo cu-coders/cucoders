@@ -264,7 +264,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                     </h1>
                   </InputContainer>
                   <InputContainer>
-                    <Label htmlFor="id-input">College ID*</Label>
+                    <Label htmlFor="id-input">College ID(Roll)*</Label>
                     <Input
                       id="id-input"
                       type="text"
