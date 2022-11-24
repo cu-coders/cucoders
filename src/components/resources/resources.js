@@ -10,7 +10,7 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-5
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
 import Resources from "components/resources/addResources.js";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import Header1 from "components/headers/light.js";
+import HeaderNav from "components/headers/light.js";
 import Footer from "components/footers/footers.js";
 
 const HeaderRow = tw.div`flex justify-between items-center flex-col xl:flex-row`;
@@ -177,7 +177,7 @@ export default ({
   return (
     <>
       <AnimationRevealPage>
-        <Header1 isLoggedIn={isLoggedIn} />
+        <HeaderNav />
         <Container>
           <ContentWithPaddingXl>
             <HeaderRow>
