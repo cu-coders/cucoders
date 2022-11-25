@@ -63,6 +63,7 @@ import Home from "MainLandingPage.js";
 import About from "pages/AboutUs.js";
 import Contact from "pages/ContactUs.js";
 import Careers from "pages/jobHome.js";
+import ThankYou from "components/membership/thanks.js";
 // import Login from "pages/Login.js";
 import Privacy from "pages/PrivacyPolicy.js";
 // import Signup from "pages/Signup";
@@ -187,6 +188,9 @@ export default function App() {
         </Route>
         <Route exact path="/member">
           <Member />
+        </Route>
+        <Route exact path="/thankyou">
+          <ThankYou />
         </Route>
         <Route exact path="/about">
           <About />

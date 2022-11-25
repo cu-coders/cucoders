@@ -5,22 +5,28 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Header from "components/headers/light.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import Footer from "components/footers/footers.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import loveIllustrationImageSrc from "images/love-illustration.svg";
 
 const Row = tw.div`flex flex-col md:flex-row justify-between items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 xl:w-6/12 flex-shrink-0 relative`;
-const TextColumn = styled(Column)(props => [
+const TextColumn = styled(Column)((props) => [
   tw`md:w-7/12 xl:w-6/12 mt-16 md:mt-0`,
-  props.textOnLeft ? tw`md:pr-12 lg:pr-16 md:order-first` : tw`md:pl-12 lg:pl-16 md:order-last`
+  props.textOnLeft
+    ? tw`md:pr-12 lg:pr-16 md:order-first`
+    : tw`md:pl-12 lg:pl-16 md:order-last`,
 ]);
 
-const Image = styled.img(props => [
+const Image = styled.img((props) => [
   props.imageRounded && tw`rounded`,
   props.imageBorder && tw`border`,
-  props.imageShadow && tw`shadow`
+  props.imageShadow && tw`shadow`,
 ]);
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
@@ -50,42 +56,50 @@ export default ({
   imageShadow = false,
   subheading = "",
   heading = "Thanks for Joining Us.",
-  description = "Congrats you become the part of CU-Coders as a member.",
+  description = "We're excited to have you as a member of CU Chapter. We're looking forward to seeing you at our events and getting to know you better. If you have any questions, feel free to reach out to us at",
   textOnLeft = false,
   testimonials = [
     {
       quote:
-        "Thanks for taking out the time to become a member of the CU-Coders. "
-    }
-  ]
+        "We've glad to have you as a member of CU Chapter. We're looking forward to seeing you at our events and getting to know you better. If you have any questions, feel free to reach out to us at contact@cuchapter.tech",
+    },
+  ],
 }) => {
   return (
     <>
-    <AnimationRevealPage>
-    <Header />
-    <Container>
-      <ContentWithPaddingXl>
-        <Row>
-          <ImageColumn>
-            <Image src={imageSrc} imageBorder={imageBorder} imageShadow={imageShadow} imageRounded={imageRounded} />
-          </ImageColumn>
-          <TextColumn textOnLeft={textOnLeft}>
-            <Subheading>{subheading}</Subheading>
-            <Heading>{heading}</Heading>
-            <Description>{description}</Description>
-            <TestimonialSlider arrows={false}>
-              {testimonials.map((testimonial, index) => (
-                <Testimonial key={index}>
-                  <TestimonialHeading>{testimonial.heading}</TestimonialHeading>
-                  <Quote>{testimonial.quote}</Quote>
-                </Testimonial>
-              ))}
-            </TestimonialSlider>
-          </TextColumn>
-        </Row>
-      </ContentWithPaddingXl>
-    </Container>
-    </AnimationRevealPage>
+      <AnimationRevealPage>
+        <Header />
+        <Container>
+          <ContentWithPaddingXl>
+            <Row>
+              <ImageColumn>
+                <Image
+                  src={imageSrc}
+                  imageBorder={imageBorder}
+                  imageShadow={imageShadow}
+                  imageRounded={imageRounded}
+                />
+              </ImageColumn>
+              <TextColumn textOnLeft={textOnLeft}>
+                <Subheading>{subheading}</Subheading>
+                <Heading>{heading}</Heading>
+                <Description>{description}</Description>
+                <TestimonialSlider arrows={false}>
+                  {testimonials.map((testimonial, index) => (
+                    <Testimonial key={index}>
+                      <TestimonialHeading>
+                        {testimonial.heading}
+                      </TestimonialHeading>
+                      <Quote>{testimonial.quote}</Quote>
+                    </Testimonial>
+                  ))}
+                </TestimonialSlider>
+              </TextColumn>
+            </Row>
+          </ContentWithPaddingXl>
+        </Container>
+        <Footer />
+      </AnimationRevealPage>
     </>
   );
 };
