@@ -124,7 +124,7 @@ export default ({
             <Testimonial>
               <TestimonialImageSlider
                 arrows={false} // we'll be using the buttons below instead
-                ref={setImageSliderRef} 
+                ref={setImageSliderRef}
                 asNavFor={textSliderRef} // syncronize the image slider with the text slider
                 fade // fade between slides
                 autoplay // autoplay slider
