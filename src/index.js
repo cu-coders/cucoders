@@ -2,9 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import Modal from "react-modal";
-
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
 require("dotenv").config();
+
+Sentry.init({
+  dsn: "https://65ca5f2febf8421e9ec5e06026afc0f4@o1258362.ingest.sentry.io/4504220891873280",
+  integrations: [new BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 Modal.setAppElement("#root");
 
