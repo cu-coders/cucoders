@@ -91,7 +91,7 @@ export default ({ heading = "Checkout the Resources" }) => {
   // get all college name
   useEffect(() => {
     axios
-      .get("http://universities.hipolabs.com/search?country=india")
+      .get("https://raw.githubusercontent.com/cu-coders/cucoders/master/src/components/data/college.json")
       .then((res) => {
         setCollegeName(res.data);
       })
