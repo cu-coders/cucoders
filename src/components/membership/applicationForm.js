@@ -156,6 +156,7 @@ export default ({ heading = "Checkout the Resources" }) => {
           document.getElementById("college-input").value = "";
           document.getElementById("year-input").value = "";
           document.getElementById("id-input").value = "";
+          window.location.href = "/thankyou";
         } else {
           if (res.status === 400) {
             error("You're already member with provided email/college id");
