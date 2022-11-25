@@ -4,6 +4,8 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import Loader from "react-loader-spinner";
 import { success, error } from "../messages";
 
@@ -44,6 +46,7 @@ const SvgDotPattern1 = tw(
 
 export default ({ role }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = useState("");
 
   function submit(e) {
     e.preventDefault();
@@ -190,13 +193,20 @@ export default ({ role }) => {
                     />
                   </InputContainer>
                   <InputContainer>
+                    {/* make PhoneInput an required field */}
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
-                    <Input
+                    <PhoneInput
                       id="phone-input"
-                      type="tel"
-                      name="number"
+                      placeholder="Enter phone number"
+                      defaultCountry="IN"
+                      initialValueFormat="national"
+                      value={value}
+                      onChange={setValue}
+                      international={true}
+                      withCountryCallingCode
+                      countryCallingCodeEditable={false}
+                      countrySelectProps={{ unicodeFlags: true }}
                       required
-                      placeholder="E.g. +91(XXXXX-XXXXX)"
                     />
                   </InputContainer>
                   {isLoading && (
