@@ -91,9 +91,9 @@ export default ({ heading = "Checkout the Resources" }) => {
   // get all college name
   useEffect(() => {
     axios
-      .get("http://universities.hipolabs.com/search?country=india")
+      .get("https://dashboard.digitallocker.gov.in/apisetuDashboardData.json")
       .then((res) => {
-        setCollegeName(res.data);
+        setCollegeName(res.data.records);
       })
       .catch((err) => {
         console.log(err);
@@ -314,8 +314,8 @@ export default ({ heading = "Checkout the Resources" }) => {
                       <option value="">Select College</option>
                       {collegeArray.map((college, index) => {
                         return (
-                          <option key={index} value={college.name}>
-                            {college.name}
+                          <option key={index} value={college.orgName}>
+                            {college.orgName}
                           </option>
                         );
                       })}
@@ -419,7 +419,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                       Selected Year: {collegeYear}
                     </h1>
                   </InputContainer>
-                  {isLoading && (
+                  {isLoading ? (
                     <Loader
                       type="TailSpin"
                       color="#00BFFF"
@@ -433,7 +433,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                         top: "45%",
                       }}
                     />
-                  )}
+                  ) : null}
                 </Column>
               </TwoColumn>
               <SubmitButton
