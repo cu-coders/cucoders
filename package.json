@@ -1,7 +1,7 @@
 {
   "name": "cu-coders",
   "proxy": "https://main.cuchapter.tech/",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "https://main.cuchapter.tech/",
   "private": true,
   "dependencies": {
