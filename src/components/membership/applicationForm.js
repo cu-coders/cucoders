@@ -104,8 +104,6 @@ export default ({ heading = "Checkout the Resources" }) => {
     collegeArray.push(collegeName[index]);
   }
 
-  console.log(collegeArray);
-
   function generateArrayOfYears() {
     let max = new Date().getFullYear() + 6;
     let min = max - 20;
