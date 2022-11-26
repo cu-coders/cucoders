@@ -61,7 +61,7 @@ export default () => {
               <InstagramIcon />
             </SocialLink>
             <SocialLink
-              href="https://github.com/CSoC-2020"
+              href="https://github.com/cu-coders"
               target="_blank"
               rel="noreferrer"
             >
