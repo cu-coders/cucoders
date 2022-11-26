@@ -8,7 +8,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 require("dotenv").config();
 
 Sentry.init({
-  dsn: "https://51d9b9edbd9142c1990573a05246f4ba@o1258362.ingest.sentry.io/4504221113122816",
+  dsn: "https://51d9b9edbd9142c1990573a05246f4ba@o1258362.ingest.sentry.io/4504220891873280",
   integrations: [new BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
