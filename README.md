@@ -12,10 +12,6 @@
    <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cu-coders/cucoders?color=35F51D" />
 </a>
 
-<a href="https://app.netlify.com/sites/ank1traj/deploys">
-   <img src="https://api.netlify.com/api/v1/badges/d589be5b-5681-4b58-8ac9-b4db4ef6ac8e/deploy-status" alt="Netlify Status">
-</a>
-
 </p>
 
 ## Table of Content
