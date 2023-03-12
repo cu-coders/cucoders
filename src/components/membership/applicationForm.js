@@ -288,7 +288,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                       international={true}
                       withCountryCallingCode
                       countryCallingCodeEditable={false}
-                      countrySelectProps={{ unicodeFlags: true }
+                      countrySelectProps={{ unicodeFlags: true }}
                       error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
                       required
                     />
