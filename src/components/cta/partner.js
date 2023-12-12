@@ -46,7 +46,7 @@ export default ({
         price: "$5.99",
         rating: "5.0",
         reviews: "87",
-        url: "https://www.linkedin.com/company/dot-questionmark?originalSubdomain=in"
+        url: "https://www.codechef.com/"
       },
       {
         imageSrc:
@@ -96,7 +96,7 @@ export default ({
         price: "$3.99",
         rating: "4.2",
         reviews: "95",
-        url: "https://wwww.github.com"
+        url: "https://www.github.com"
       }
     ],
   }
