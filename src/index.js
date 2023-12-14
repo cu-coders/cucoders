@@ -7,7 +7,6 @@ import LogRocket from "logrocket";
 import { v4 as uuidv4 } from "uuid";
 import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
-import LogRocket from "logrocket";
 import { v4 as uuidv4 } from "uuid";
 require("dotenv").config();
 
