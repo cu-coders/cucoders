@@ -7,7 +7,6 @@ import LogRocket from "logrocket";
 import { v4 as uuidv4 } from "uuid";
 import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { v4 as uuidv4 } from "uuid";
 require("dotenv").config();
 
 Sentry.init({
@@ -37,7 +36,7 @@ Sentry.init({
   },
 });
 
-LogRocket.init(process.env.REACT_APP_LOGROCKET);
+LogRocket.init('mbkjpk/cuchapter-prod');
 LogRocket.identify(uuidv4());
 
 Modal.setAppElement("#root");
