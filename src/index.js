@@ -5,17 +5,39 @@ import Modal from "react-modal";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
+import LogRocket from "logrocket";
+import { v4 as uuidv4 } from "uuid";
 require("dotenv").config();
 
 Sentry.init({
-  dsn: "https://51d9b9edbd9142c1990573a05246f4ba@o1258362.ingest.sentry.io/4504221113122816",
-  integrations: [new BrowserTracing()],
-
+  dsn: process.env.REACT_APP_SENTRY_DSN,
+  integrations: [
+    new Sentry.Feedback({
+      // Additional SDK configuration goes in here
+      colorScheme: "light",
+     }),
+     new BrowserTracing(),
+     new Sentry.Replay({
+      // Additional SDK configuration goes in here, for example:
+      maskAllText: true,
+      blockAllMedia: true,
+    }),
+  ],
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
+  beforeSend: (event) => {
+    // Check if it is an exception, and if so, show the report dialog
+    if (event.exception) {
+      Sentry.showReportDialog({ eventId: event.event_id });
+    }
+    return event;
+  },
 });
+
+LogRocket.init(process.env.REACT_APP_LOGROCKET);
+LogRocket.identify(uuidv4());
 
 Modal.setAppElement("#root");
 
