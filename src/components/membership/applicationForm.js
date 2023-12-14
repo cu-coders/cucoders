@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -289,6 +289,7 @@ export default ({ heading = "Checkout the Resources" }) => {
                       withCountryCallingCode
                       countryCallingCodeEditable={false}
                       countrySelectProps={{ unicodeFlags: true }}
+                      error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
                       required
                     />
                   </InputContainer>
