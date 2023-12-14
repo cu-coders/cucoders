@@ -36,7 +36,7 @@ Sentry.init({
   },
 });
 
-LogRocket.init('mbkjpk/cuchapter-prod');
+LogRocket.init(process.env.REACT_APP_LOGROCKET);
 LogRocket.identify(uuidv4());
 
 Modal.setAppElement("#root");
