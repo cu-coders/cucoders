@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import Modal from "react-modal";
 import * as Sentry from "@sentry/react";
+import LogRocket from "logrocket";
+import { v4 as uuidv4 } from "uuid";
 import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
 import LogRocket from "logrocket";
