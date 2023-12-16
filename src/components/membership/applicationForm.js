@@ -45,7 +45,7 @@ const SvgDotPattern1 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
-export default ({ heading = "Checkout the Resources" }) => {
+export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [college, setCollege] = useState("");
   const [value, setValue] = useState("");
@@ -105,13 +105,10 @@ export default ({ heading = "Checkout the Resources" }) => {
   }
 
   function generateArrayOfYears() {
-    let max = new Date().getFullYear() + 6;
-    let min = max - 20;
+    const max = new Date().getFullYear() + 6;
+    const min = max - 20;
 
-    for (var i = max; i >= min; i--) {
-      yearArray.push(i);
-    }
-    return yearArray;
+    return Array.from({ length: max - min + 1 }, (_, index) => max - index);
   }
   generateArrayOfYears();
 
