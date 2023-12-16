@@ -48,6 +48,7 @@ const SvgDotPattern1 = tw(
 export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [college, setCollege] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
   const [value, setValue] = useState("");
 
   const [collegeName, setCollegeName] = useState("");
@@ -55,7 +56,6 @@ export default () => {
   const [branch, setBranch] = useState("");
 
   const collegeArray = [];
-  const yearArray = [];
   const branchArray = [
     "Aeronautical Engineering",
     "Aerospace Engineering",
@@ -88,6 +88,19 @@ export default () => {
     "Tool Engineering",
     "Transportation Engineering",
   ];
+
+  const handlePhoneChange = (inputValue) => {
+    setValue(inputValue);
+
+    // Validate phone number
+    setPhoneNumberError(
+      inputValue
+        ? isValidPhoneNumber(inputValue)
+          ? ""
+          : "Invalid phone number"
+        : "Phone number required"
+    );
+  };
   // get all college name
   useEffect(() => {
     axios
@@ -107,10 +120,11 @@ export default () => {
   function generateArrayOfYears() {
     const max = new Date().getFullYear() + 6;
     const min = max - 20;
-
+  
     return Array.from({ length: max - min + 1 }, (_, index) => max - index);
   }
-  generateArrayOfYears();
+  
+  const yearArray = generateArrayOfYears();
 
   function submit(e) {
     e.preventDefault();
@@ -275,20 +289,25 @@ export default () => {
                 <Column>
                   <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
-                    <PhoneInput
-                      id="phone-input"
-                      placeholder="Enter phone number"
-                      defaultCountry="IN"
-                      initialValueFormat="national"
-                      value={value}
-                      onChange={setValue}
-                      international={true}
-                      withCountryCallingCode
-                      countryCallingCodeEditable={false}
-                      countrySelectProps={{ unicodeFlags: true }}
-                      error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
-                      required
-                    />
+                    <div>
+                      <PhoneInput
+                        id="phone-input"
+                        placeholder="Enter phone number"
+                        defaultCountry="IN"
+                        initialValueFormat="national"
+                        value={value}
+                        onChange={handlePhoneChange}
+                        international={true}
+                        withCountryCallingCode
+                        countryCallingCodeEditable={false}
+                        countrySelectProps={{ unicodeFlags: true }}
+                        error={phoneNumberError}
+                        rules={{ required: true }}
+                      />
+                      {phoneNumberError && (
+                        <p style={{ color: "red", fontSize: "0.875rem" }}>{phoneNumberError}</p>
+                      )}
+                    </div>
                   </InputContainer>
                   <InputContainer>
                     <Label htmlFor="college-input">College*</Label>
