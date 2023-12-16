@@ -62,7 +62,9 @@ export default ({
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  let isLoggedIn = localStorage.getItem("loggedIn")
+  let updateAuthentication = isLoggedIn
 
   const [formToken, formTokenState] = useState("");
   const [formData, updateData] = useState({
@@ -109,6 +111,7 @@ export default ({
         error(err.message);
       });
   };
+  
   return (
     <Container>
       <TwoColumn>
@@ -121,7 +124,7 @@ export default ({
             <Heading>{heading}</Heading>{" "}
             {description && <Description>{description}</Description>}
             <Form onSubmit={submit}>
-              {isAuthenticated ? (
+              {updateAuthentication ? (
                 <Input
                   type="email"
                   onChange={handleChange}
@@ -153,7 +156,7 @@ export default ({
                   }}
                 />
               )}
-              {isAuthenticated ? (
+              {updateAuthentication ? (
                 <Input
                   type="text"
                   onChange={handleChange}
