@@ -44,7 +44,9 @@ const SvgDotPattern1 = tw(
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
 export default ({ submitButtonText = "Send" }) => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  let isLoggedIn = localStorage.getItem("loggedIn")
+  let updateAuthentication = isLoggedIn
 
   const [formToken, formTokenState] = useState("");
   const [formData, updateData] = useState({
@@ -99,7 +101,7 @@ export default ({ submitButtonText = "Send" }) => {
             <form onSubmit={submit}>
               <TwoColumn>
                 <Column>
-                  {isAuthenticated ? (
+                  {updateAuthentication ? (
                     <InputContainer>
                       <Label htmlFor="name-input">Your Name*</Label>
                       <Input
@@ -139,7 +141,7 @@ export default ({ submitButtonText = "Send" }) => {
                       }}
                     />
                   )}
-                  {isAuthenticated ? (
+                  {updateAuthentication ? (
                     <InputContainer>
                       <Label htmlFor="email-input">Your Email Address*</Label>
                       <Input

@@ -87,7 +87,9 @@ export default ({ role }) => {
       });
   }
 
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  let isLoggedIn = localStorage.getItem("loggedIn")
+  let updateAuthentication = isLoggedIn
 
   return (
     <Container>
@@ -102,7 +104,7 @@ export default ({ role }) => {
             >
               <TwoColumn>
                 <Column>
-                  {isAuthenticated ? (
+                  {updateAuthentication ? (
                     <InputContainer>
                       <Label htmlFor="name-input">Your Name*</Label>
                       <Input
@@ -128,7 +130,7 @@ export default ({ role }) => {
                       />
                     </InputContainer>
                   )}
-                  {isAuthenticated ? (
+                  {updateAuthentication ? (
                     <InputContainer>
                       <Label htmlFor="email-input">Your Email Address*</Label>
                       <Input
