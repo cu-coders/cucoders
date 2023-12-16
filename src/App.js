@@ -80,6 +80,7 @@ export default function App() {
   // const [isVerified, updateIsVerified] = useState(false);
 
   const { isAuthenticated } = useAuth0();
+
   //-----------------------------------------CHECK
   // AUTHENTICATION------------------------//
   // useEffect(() => {

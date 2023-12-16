@@ -87,7 +87,9 @@ export default ({ role }) => {
       });
   }
 
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
+  let isLoggedIn = localStorage.getItem("loggedIn")
+  let isAuthenticated = isLoggedIn
 
   return (
     <Container>

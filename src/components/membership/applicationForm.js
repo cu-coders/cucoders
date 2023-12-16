@@ -45,9 +45,10 @@ const SvgDotPattern1 = tw(
   SvgDotPatternIcon
 )`absolute bottom-0 right-0 transform translate-y-1/2 translate-x-1/2 -z-10 opacity-50 text-primary-500 fill-current w-24`;
 
-export default ({ heading = "Checkout the Resources" }) => {
+export default () => {
   const [isLoading, setIsLoading] = useState(false);
   const [college, setCollege] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
   const [value, setValue] = useState("");
 
   const [collegeName, setCollegeName] = useState("");
@@ -55,7 +56,6 @@ export default ({ heading = "Checkout the Resources" }) => {
   const [branch, setBranch] = useState("");
 
   const collegeArray = [];
-  const yearArray = [];
   const branchArray = [
     "Aeronautical Engineering",
     "Aerospace Engineering",
@@ -88,6 +88,19 @@ export default ({ heading = "Checkout the Resources" }) => {
     "Tool Engineering",
     "Transportation Engineering",
   ];
+
+  const handlePhoneChange = (inputValue) => {
+    setValue(inputValue);
+
+    // Validate phone number
+    setPhoneNumberError(
+      inputValue
+        ? isValidPhoneNumber(inputValue)
+          ? ""
+          : "Invalid phone number"
+        : "Phone number required"
+    );
+  };
   // get all college name
   useEffect(() => {
     axios
@@ -105,15 +118,13 @@ export default ({ heading = "Checkout the Resources" }) => {
   }
 
   function generateArrayOfYears() {
-    let max = new Date().getFullYear() + 6;
-    let min = max - 20;
-
-    for (var i = max; i >= min; i--) {
-      yearArray.push(i);
-    }
-    return yearArray;
+    const max = new Date().getFullYear() + 6;
+    const min = max - 20;
+  
+    return Array.from({ length: max - min + 1 }, (_, index) => max - index);
   }
-  generateArrayOfYears();
+  
+  const yearArray = generateArrayOfYears();
 
   function submit(e) {
     e.preventDefault();
@@ -278,20 +289,25 @@ export default ({ heading = "Checkout the Resources" }) => {
                 <Column>
                   <InputContainer>
                     <Label htmlFor="phone-input">Your Phone Number*</Label>
-                    <PhoneInput
-                      id="phone-input"
-                      placeholder="Enter phone number"
-                      defaultCountry="IN"
-                      initialValueFormat="national"
-                      value={value}
-                      onChange={setValue}
-                      international={true}
-                      withCountryCallingCode
-                      countryCallingCodeEditable={false}
-                      countrySelectProps={{ unicodeFlags: true }}
-                      error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
-                      required
-                    />
+                    <div>
+                      <PhoneInput
+                        id="phone-input"
+                        placeholder="Enter phone number"
+                        defaultCountry="IN"
+                        initialValueFormat="national"
+                        value={value}
+                        onChange={handlePhoneChange}
+                        international={true}
+                        withCountryCallingCode
+                        countryCallingCodeEditable={false}
+                        countrySelectProps={{ unicodeFlags: true }}
+                        error={phoneNumberError}
+                        rules={{ required: true }}
+                      />
+                      {phoneNumberError && (
+                        <p style={{ color: "red", fontSize: "0.875rem" }}>{phoneNumberError}</p>
+                      )}
+                    </div>
                   </InputContainer>
                   <InputContainer>
                     <Label htmlFor="college-input">College*</Label>

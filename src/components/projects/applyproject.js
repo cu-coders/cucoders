@@ -47,11 +47,12 @@ export default ({ submitButtonText = "Send" }) => {
   const { user, isAuthenticated } = useAuth0();
 
   const [formToken, formTokenState] = useState("");
-  const [formData, updateData] = useState({
-    name: "",
-    email: "",
+  const [formData, setFormData] = useState({
+    name: isAuthenticated ? user.name : "",
+    email: isAuthenticated ? user.email : "",
     details: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
@@ -66,8 +67,12 @@ export default ({ submitButtonText = "Send" }) => {
       });
   }, []);
   const handleChange = (e) => {
-    updateData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.name]: e.target.value,
+    }));
   };
+
   const submit = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -99,20 +104,6 @@ export default ({ submitButtonText = "Send" }) => {
             <form onSubmit={submit}>
               <TwoColumn>
                 <Column>
-                  {isAuthenticated ? (
-                    <InputContainer>
-                      <Label htmlFor="name-input">Your Name*</Label>
-                      <Input
-                        id="name-input"
-                        type="text"
-                        onChange={handleChange}
-                        name="name"
-                        required
-                        placeholder="E.g. John Doe"
-                        defaultValue={user.name}
-                      />
-                    </InputContainer>
-                  ) : (
                     <InputContainer>
                       <Label htmlFor="name-input">Your Name*</Label>
                       <Input
@@ -124,7 +115,6 @@ export default ({ submitButtonText = "Send" }) => {
                         placeholder="E.g. John Doe"
                       />
                     </InputContainer>
-                  )}
                   {isLoading && (
                     <Loader
                       type="TailSpin"
@@ -139,19 +129,6 @@ export default ({ submitButtonText = "Send" }) => {
                       }}
                     />
                   )}
-                  {isAuthenticated ? (
-                    <InputContainer>
-                      <Label htmlFor="email-input">Your Email Address*</Label>
-                      <Input
-                        id="email-input"
-                        type="email"
-                        onChange={handleChange}
-                        name="email"
-                        required
-                        defaultValue={user.email}
-                      />
-                    </InputContainer>
-                  ) : (
                     <InputContainer>
                       <Label htmlFor="email-input">Your Email Address*</Label>
                       <Input
@@ -163,7 +140,6 @@ export default ({ submitButtonText = "Send" }) => {
                         placeholder="E.g. john@email.com"
                       />
                     </InputContainer>
-                  )}
                 </Column>
                 <Column>
                   <InputContainer tw="flex-1">

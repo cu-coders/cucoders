@@ -47,7 +47,7 @@ const Textarea = styled(Input).attrs({ as: "textarea" })`
 
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`;
 
-export default ({
+const ContactUsForm = ({
   subheading = "Contact Us",
   heading = (
     <>
@@ -57,39 +57,44 @@ export default ({
   ),
   description = "We’re here to help and answer any question you might have. We look forward to hearing from you 🙂",
   submitButtonText = "Send",
-  formAction = process.env.REACT_APP_C_FORM,
-  formMethod = "post",
   textOnLeft = true,
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
   const { user, isAuthenticated } = useAuth0();
 
-  const [formToken, formTokenState] = useState("");
-  const [formData, updateData] = useState({
+  const [formToken, setFormToken] = useState("");
+  const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     subject: "",
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     axios
       .get("https://backend.cuchapter.tech/form-token", {
         withCredentials: true,
       })
-      .then((res) => {
-        formTokenState(res.data.formToken);
-      })
-      .catch((err) => {
-        formTokenState("");
-      });
+      .then((res) => setFormToken(res.data.formToken))
+      .catch(() => setFormToken(""));
   }, []);
+
+  useEffect(() => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      fullname: isAuthenticated ? (user.name.includes("@") ? user.nickname : user.name) : "",
+      email: isAuthenticated ? user.email : "",
+    }));
+  }, [isAuthenticated, user]);
+
   const handleChange = (e) => {
-    updateData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const submit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+
     axios
       .post("https://backend.cuchapter.tech/contact-us", formData, {
         "xsrf-token": formToken,
@@ -97,8 +102,8 @@ export default ({
       .then((res) => {
         setIsLoading(false);
         if (!res.data.success) {
-          let text = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
-          error(text);
+          const errorText = `${res.data.err[0].param} - ${res.data.err[0].msg}`;
+          error(errorText);
         } else {
           success("Submission successful");
           window.location.reload();
@@ -109,6 +114,7 @@ export default ({
         error(err.message);
       });
   };
+
   return (
     <Container>
       <TwoColumn>
@@ -121,24 +127,14 @@ export default ({
             <Heading>{heading}</Heading>{" "}
             {description && <Description>{description}</Description>}
             <Form onSubmit={submit}>
-              {isAuthenticated ? (
-                <Input
-                  type="email"
-                  onChange={handleChange}
-                  required
-                  name="email"
-                  placeholder="Your Email Address"
-                  defaultValue={user.email}
-                />
-              ) : (
-                <Input
-                  type="email"
-                  onChange={handleChange}
-                  required
-                  name="email"
-                  placeholder="Your Email Address"
-                />
-              )}
+              <Input
+                type="email"
+                onChange={handleChange}
+                required
+                name="email"
+                placeholder="Your Email Address"
+                value={formData.email}
+              />
               {isLoading && (
                 <Loader
                   type="TailSpin"
@@ -153,40 +149,28 @@ export default ({
                   }}
                 />
               )}
-              {isAuthenticated ? (
-                <Input
-                  type="text"
-                  onChange={handleChange}
-                  required
-                  name="fullname"
-                  placeholder="Full Name"
-                  defaultValue={
-                    user.name.includes("@") ? user.nickname : user.name
-                  }
-                />
-              ) : (
-                <Input
-                  type="text"
-                  onChange={handleChange}
-                  required
-                  name="fullname"
-                  placeholder="Full Name"
-                />
-              )}
+              <Input
+                type="text"
+                onChange={handleChange}
+                required
+                name="fullname"
+                placeholder="Full Name"
+                value={formData.fullname}
+              />
               <Input
                 type="text"
                 onChange={handleChange}
                 required
                 name="subject"
                 placeholder="Subject"
-              />{" "}
+              />
               <Textarea
                 name="message"
                 onChange={handleChange}
                 required
                 placeholder="Your Message Here"
               />
-              <SubmitButton type="submit" disabled={isLoading ? true : false}>
+              <SubmitButton type="submit" disabled={isLoading}>
                 {submitButtonText}
               </SubmitButton>
             </Form>
@@ -196,3 +180,5 @@ export default ({
     </Container>
   );
 };
+
+export default ContactUsForm;
