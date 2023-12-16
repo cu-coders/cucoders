@@ -81,15 +81,6 @@ export default function App() {
 
   const { isAuthenticated } = useAuth0();
 
-  if(isAuthenticated === "true") {
-    localStorage.setItem("loggedIn", true)
-  } else {
-    localStorage.setItem("loggedIn", false)
-  }
-
-  let isLoggedIn = localStorage.getItem("loggedIn")
-  let updateAuthentication = isLoggedIn
-  
   //-----------------------------------------CHECK
   // AUTHENTICATION------------------------//
   // useEffect(() => {
@@ -134,7 +125,7 @@ export default function App() {
           <Projects />
         </Route>
         <Route path="/resources">
-          {updateAuthentication ? <Resources /> : <LoginError />}
+          {isAuthenticated ? <Resources /> : <LoginError />}
         </Route>
         <Route exact path="/comingnow">
           <ComingNow />
@@ -212,34 +203,34 @@ export default function App() {
           <Home />
         </Route>
         <Route exact path="/algo">
-          {updateAuthentication ? <Algo /> : <LoginError />}
+          {isAuthenticated ? <Algo /> : <LoginError />}
         </Route>
         <Route exact path="/ai">
           <AI />
         </Route>
         <Route exact path="/cp">
-          {updateAuthentication ? <CP /> : <LoginError />}
+          {isAuthenticated ? <CP /> : <LoginError />}
         </Route>
         <Route exact path="/Security">
-          {updateAuthentication ? <Security /> : <LoginError />}
+          {isAuthenticated ? <Security /> : <LoginError />}
         </Route>
         <Route exact path="/Language">
-          {updateAuthentication ? <Language /> : <LoginError />}
+          {isAuthenticated ? <Language /> : <LoginError />}
         </Route>
         <Route exact path="/Database">
-          {updateAuthentication ? <Database /> : <LoginError />}
+          {isAuthenticated ? <Database /> : <LoginError />}
         </Route>
         <Route exact path="/VersionControl">
-          {updateAuthentication ? <VersionControl /> : <LoginError />}
+          {isAuthenticated ? <VersionControl /> : <LoginError />}
         </Route>
         <Route exact path="/mobile">
-          {updateAuthentication ? <Mobile /> : <LoginError />}
+          {isAuthenticated ? <Mobile /> : <LoginError />}
         </Route>
         <Route exact path="/open">
-          {updateAuthentication ? <Open /> : <LoginError />}
+          {isAuthenticated ? <Open /> : <LoginError />}
         </Route>
         <Route exact path="/web">
-          {updateAuthentication ? <Web /> : <LoginError />}
+          {isAuthenticated ? <Web /> : <LoginError />}
         </Route>
         {/* <Route exact path="/lostpassword">
           <LostPassword />
