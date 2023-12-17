@@ -40,7 +40,12 @@ Sentry.init({
   },
 });
 
-LogRocket.init(process.env.REACT_APP_LOGROCKET);
+LogRocket.init(process.env.REACT_APP_LOGROCKET, {
+  dom: {
+    textSanitizer: false,
+    inputSanitizer: true,
+  },
+});
 LogRocket.identify(logrocketID);
 
 Modal.setAppElement("#root");
