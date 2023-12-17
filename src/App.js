@@ -80,6 +80,8 @@ export default function App() {
   // const [isVerified, updateIsVerified] = useState(false);
 
   const { isAuthenticated } = useAuth0();
+  localStorage.setItem("logrocketID", isAuthenticated ? (user.name.includes("@") ? user.nickname : user.name) : "login first")
+  localStorage.setItem("isLogrocketID", isAuthenticated ? true : false)
 
   //-----------------------------------------CHECK
   // AUTHENTICATION------------------------//
