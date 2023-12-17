@@ -9,6 +9,8 @@ import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
 require("dotenv").config();
 
+const logrocketID = localStorage.getItem("isLogrocketID") ? localStorage.getItem("email") : uuidv4();
+
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [
@@ -37,7 +39,7 @@ Sentry.init({
 });
 
 LogRocket.init(process.env.REACT_APP_LOGROCKET);
-LogRocket.identify(uuidv4());
+LogRocket.identify(logrocketID);
 
 Modal.setAppElement("#root");
 
