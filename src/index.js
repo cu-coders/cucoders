@@ -9,9 +9,9 @@ import { BrowserTracing } from "@sentry/tracing";
 import { Auth0Provider } from "@auth0/auth0-react";
 require("dotenv").config();
 
-const logrocketID = localStorage.getItem("isLogrocketID") ? localStorage.getItem("email") : uuidv4();
+const storedID = localStorage.getItem("isLogrocketID") ? localStorage.getItem("email") : null;
 
-console.log(logrocketID)
+const logrocketID = storedID || uuidv4()
 
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,
