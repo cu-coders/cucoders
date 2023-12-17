@@ -11,6 +11,8 @@ require("dotenv").config();
 
 const logrocketID = localStorage.getItem("isLogrocketID") ? localStorage.getItem("email") : uuidv4();
 
+console.log(logrocketID)
+
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [
