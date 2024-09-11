@@ -43,7 +43,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.0.1",
     "tailwindcss": "^1.2.0",
-    "twin.macro": "^1.0.0-alpha.7",
+    "twin.macro": "^3.0.0",
     "universal-cookie": "^4.0.4",
     "use-in-view": "^1.0.15",
     "uuidv4": "^6.2.13"
