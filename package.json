@@ -44,7 +44,7 @@
     "styled-components": "^5.0.1",
     "tailwindcss": "^1.2.0",
     "twin.macro": "^1.0.0-alpha.7",
-    "universal-cookie": "^4.0.4",
+    "universal-cookie": "^7.2.1",
     "use-in-view": "^1.0.15",
     "uuidv4": "^6.2.13"
   },
